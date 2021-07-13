@@ -102,17 +102,17 @@ analytics:
 # Site Author
 author:
   name             : "이민재"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
+  avatar           : '/assets/images/profile.jpeg'
+  bio              : "포트폴리오겸 일상 기록 블로그"
   location         : "Incheon, Korea"
-  email            :
+  email            : "lmj938@naver.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "lmj938@naver.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
+      url: "https://blog.naver.com/lmj938"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       # url: "https://twitter.com/"
@@ -121,9 +121,9 @@ author:
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+      url: "https://github.com/leeminjae-dev/"
     - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
+      icon: "https://www.instagram.com/mj_lee_97/"
       # url: "https://instagram.com/"
 
 # Site Footer
