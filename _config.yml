@@ -123,8 +123,8 @@ author:
       icon: "fab fa-fw fa-github"
       url: "https://github.com/leeminjae-dev/"
     - label: "Instagram"
-      icon: "https://www.instagram.com/mj_lee_97/"
-      # url: "https://instagram.com/"
+      icon: "fab fa-fw fa-Instagram"
+      url: "https://www.instagram.com/mj_lee_97/"
 
 # Site Footer
 footer:
