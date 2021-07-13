@@ -102,7 +102,7 @@ analytics:
 # Site Author
 author:
   name             : "이민재"
-  avatar           : '/assets/images/Profile.jpeg'
+  avatar           : '/assets/images/Profile.jpg'
   bio              : "포트폴리오겸 일상 기록 블로그"
   location         : "Incheon, South Korea"
   email            : "lmj938@naver.com"
@@ -137,7 +137,7 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
+      url: "https://github.com/leeminjae-dev"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
@@ -146,7 +146,7 @@ footer:
       # url:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url:
+      url: "https://www.instagram.com/mj_lee_97/"
 
 
 # Reading Files
@@ -276,7 +276,7 @@ compress_html:
 
 # Defaults
 defaults:
-  # _posts
+  #_posts
   - scope:
       path: ""
       type: posts
