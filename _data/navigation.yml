@@ -2,6 +2,9 @@
 main:
   - title: "About me"
     url: https://leeminjae-dev.github.io/about/
+  - title: "Categories"
+    url: https://leeminjae-dev.github.io/categories/
+
     
   # - title: "Sample Posts"
   #   url: /year-archive/
@@ -10,15 +13,16 @@ main:
   # - title: "Sitemap"
   #   url: /sitemap/
 docs:
+  - title: Life
+    children:
+      - title: "Diary"
+        url: https://leeminjae-dev.github.io/categories/diary/
   - title: Algorithm
     children:
       - title: "Baekjoon"
         url: https://leeminjae-dev.github.io/categories/baekjoon/
       - title: "Programmers"
         url: https://leeminjae-dev.github.io/categories/programmers/
-  - title: Life
-    children:
-      - title: "Diary"
-        url: https://leeminjae-dev.github.io/categories/diary/
+  
 
 
