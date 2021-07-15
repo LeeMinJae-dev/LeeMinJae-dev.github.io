@@ -1,9 +1,9 @@
 ---
 title: "일상"
-permalink: /categories/life/
+permalink: /categories/diary/
 layout: category
 author_profile : true
-taxonomy : life
+taxonomy : diary
 sidebar: nav:"docs"
 ---
 

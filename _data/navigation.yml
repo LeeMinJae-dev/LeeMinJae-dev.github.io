@@ -18,6 +18,6 @@ docs:
   - title: Life
     children:
       - title: "Diary"
-        url: /categories/life/
+        url: /categories/diary/
 
 
