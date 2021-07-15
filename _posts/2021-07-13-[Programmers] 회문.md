@@ -1,5 +1,5 @@
 ---
-title : "[Programmers] 회문"
+title : "[Programmers] 회문 (Python3)"
 categories:
     - codingtest
 tags:
