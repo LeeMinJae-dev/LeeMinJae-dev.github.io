@@ -4,6 +4,7 @@ permalink: /categories/diary/
 layout: category
 author_profile : true
 taxonomy : diary
+sidebar_main: true
 ---
 
 
