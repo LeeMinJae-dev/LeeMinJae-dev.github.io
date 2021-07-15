@@ -1,33 +1,57 @@
----
-   layout: null
-   sitemap:
-     exclude: 'yes'
-   ---
-   <?xml version="1.0" encoding="UTF-8"?>
-   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-     {% for post in site.posts %}
-       {% unless post.published == false %}
-       <url>
-         <loc>{{ site.url }}{{ post.url }}</loc>
-         {% if post.sitemap.lastmod %}
-           <lastmod>{{ post.sitemap.lastmod | date: "%Y-%m-%d" }}</lastmod>
-         {% elsif post.date %}
-           <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
-         {% else %}
-           <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-         {% endif %}
-         {% if post.sitemap.changefreq %}
-           <changefreq>{{ post.sitemap.changefreq }}</changefreq>
-         {% else %}
-           <changefreq>monthly</changefreq>
-         {% endif %}
-         {% if post.sitemap.priority %}
-           <priority>{{ post.sitemap.priority }}</priority>
-         {% else %}
-           <priority>0.5</priority>
-         {% endif %}
-       </url>
-       {% endunless %}
-     {% endfor %}
-   </urlset>
-   
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://learnote-dev.com/</loc>
+  <lastmod>2021-07-15T13:03:47+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://learnote-dev.com/categories/baekjoon/</loc>
+  <lastmod>2021-07-15T13:03:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://learnote-dev.com/categories/programmers/</loc>
+  <lastmod>2021-07-15T13:03:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://learnote-dev.com/baekjoon/%EC%95%88%EC%A0%84%EC%98%81%EC%97%AD/</loc>
+  <lastmod>2021-07-15T13:03:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://learnote-dev.com/baekjoon/BOJ-%EC%9C%A0%EA%B8%B0%EB%86%8D-%EB%B0%B0%EC%B6%94/</loc>
+  <lastmod>2021-07-15T13:03:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://learnote-dev.com/programmers/Programmers-%ED%9A%8C%EB%AC%B8/</loc>
+  <lastmod>2021-07-15T13:03:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://learnote-dev.com/baekjoon/BOJ-16173-%EC%A0%90%ED%94%84%EC%99%95-%EC%A9%B0%EB%A6%AC(small)-Python/</loc>
+  <lastmod>2021-07-15T13:03:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://learnote-dev.com/tags/</loc>
+  <lastmod>2021-07-15T13:03:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://learnote-dev.com/categories/</loc>
+  <lastmod>2021-07-15T13:03:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
