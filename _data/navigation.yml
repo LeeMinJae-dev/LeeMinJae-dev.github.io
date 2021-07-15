@@ -1,9 +1,9 @@
 # main links
 main:
-  - title: "About me"
-    url: https://leeminjae-dev.github.io/about/
   - title: "Categories"
     url: https://leeminjae-dev.github.io/categories/
+  - title: "About me"
+    url: https://leeminjae-dev.github.io/about/
 
     
   # - title: "Sample Posts"
