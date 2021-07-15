@@ -1,11 +1,11 @@
 # main links
 main:
+  - title: "Life"
+    url: https://leeminjae-dev.github.io/life/
   - title: "Coding Test"
     url: https://leeminjae-dev.github.io/categories/codingtest
   - title: "About me"
     url: https://leeminjae-dev.github.io/about/
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
