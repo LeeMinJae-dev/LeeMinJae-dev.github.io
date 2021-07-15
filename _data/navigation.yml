@@ -9,10 +9,10 @@ main:
   # - title: "Sitemap"
   #   url: /sitemap/
  docs:
-  - title: Categories
+    - title: Categories
     children:
-    - title: "Life"
-      url: https://leeminjae-dev.github.io/categories/life/
-    - title: "Argorithm"
-      url: https://leeminjae-dev.github.io/categories/codingtest.
+        - title: "Life"
+          url: https://leeminjae-dev.github.io/categories/life/
+        - title: "Argorithm"
+          url: https://leeminjae-dev.github.io/categories/codingtest.
       
