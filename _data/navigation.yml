@@ -8,11 +8,16 @@ main:
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
- docs:
-    - title: Categories
+docs:
+  - title: Algorithm
     children:
-        - title: "Life"
-          url: https://leeminjae-dev.github.io/categories/life/
-        - title: "Argorithm"
-          url: https://leeminjae-dev.github.io/categories/codingtest.
-      
+      - title: "Baekjoon"
+        url: /categories/life/
+      - title: "Programmers"
+        url: /categories/codingtest
+  - title: Life
+    children:
+      - title: "Diary"
+        url: /categories/life/
+
+
