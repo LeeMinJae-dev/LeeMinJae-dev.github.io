@@ -126,16 +126,21 @@ blockquote {
 /* links */
 
 a {
+ /* devinlife : a link 하이퍼링크 밑줄 없애기 */
+  text-decoration: none;
+  &:focus {
+    @extend %tab-focus;
+  }
   &:focus {
     @extend %tab-focus;
   }
 
   &:visited {
-    color: $link-color-visited;
+    color: #000000;
   }
 
   &:hover {
-    color: $link-color-hover;
+    color: #000000;
     outline: 0;
   }
 }
