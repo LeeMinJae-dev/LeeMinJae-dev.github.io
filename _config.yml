@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt
 
 # Site Settings
 locale                   : "ko-KR"
-title                    : "Learnote"
+title                    : "Learnote-Dev"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "이민재"
@@ -103,7 +103,7 @@ analytics:
 author:
   name             : "이민재"
   avatar           : '/assets/images/Profile.jpg'
-  bio              : "포트폴리오겸 일상 기록 블로그"
+  bio              : "포트폴리오/일상 기록"
   location         : "Incheon, South Korea"
   email            : "lmj938@naver.com"
   links:
@@ -281,6 +281,7 @@ defaults:
       path: ""
       type: posts
     values:
+      sidebar_main : true
       sidebar:
         nav: "docs"
       layout: single

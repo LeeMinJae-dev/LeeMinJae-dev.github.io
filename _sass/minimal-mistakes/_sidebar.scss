@@ -19,9 +19,8 @@
   @include breakpoint($large) {
     float: left;
     width: calc(#{$right-sidebar-width-narrow} - 1em);
-    opacity: 0.75;
-    -webkit-transition: opacity 0.2s ease-in-out;
-    transition: opacity 0.2s ease-in-out;
+    opacity: 1;
+   
 
     &:hover {
       opacity: 1;
@@ -343,4 +342,6 @@
     margin-right: initial;
   }
 }
+
+  
 
