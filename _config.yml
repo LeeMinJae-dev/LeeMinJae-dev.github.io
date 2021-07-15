@@ -20,7 +20,7 @@ title                    : "Learnote"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "이민재"
-description              : "An amazing website."
+description              : "대학생 예비 개발자 블로그"
 url                      : # the base hostname & protocol for your site e.g.
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -217,7 +217,7 @@ sass:
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Asia/Seoul# https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins (previously gems:)
