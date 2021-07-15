@@ -1,9 +1,5 @@
 # main links
 main:
-  - title: "Life"
-    url: https://leeminjae-dev.github.io/categories/life/
-  - title: "Coding Test"
-    url: https://leeminjae-dev.github.io/categories/codingtest
   - title: "About me"
     url: https://leeminjae-dev.github.io/about/
   # - title: "Sample Posts"
@@ -15,8 +11,8 @@ main:
  docs:
   - title: Categories
     children:
-      - title: "Life"
-        url: https://leeminjae-dev.github.io/categories/life/
-      - title: "Argorithm"
-        url: https://leeminjae-dev.github.io/categories/codingtest
+    - title: "Life"
+      url: https://leeminjae-dev.github.io/categories/life/
+    - title: "Argorithm"
+      url: https://leeminjae-dev.github.io/categories/codingtest.
       
