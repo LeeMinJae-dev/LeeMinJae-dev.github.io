@@ -38,21 +38,6 @@
      
        
        <url>
-         <loc>http://localhost:4000/diary/Test/</loc>
-         
-           <lastmod>2021-07-15T00:00:00+00:00</lastmod>
-         
-         
-           <changefreq>monthly</changefreq>
-         
-         
-           <priority>0.5</priority>
-         
-       </url>
-       
-     
-       
-       <url>
          <loc>http://localhost:4000/programmers/Programmers-%E1%84%92%E1%85%AC%E1%84%86%E1%85%AE%E1%86%AB/</loc>
          
            <lastmod>2021-07-13T00:00:00+00:00</lastmod>
