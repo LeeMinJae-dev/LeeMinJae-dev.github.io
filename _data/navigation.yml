@@ -12,9 +12,9 @@ docs:
   - title: Algorithm
     children:
       - title: "Baekjoon"
-        url: /categories/life/
+        url: /categories/Baekjoon/
       - title: "Programmers"
-        url: /categories/codingtest
+        url: /categories/Programmers/
   - title: Life
     children:
       - title: "Diary"

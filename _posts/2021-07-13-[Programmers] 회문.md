@@ -1,7 +1,7 @@
 ---
 title : "[Programmers] 회문 (Python3)"
 categories:
-    - Algorithm
+    - Programmers
 tags:
     - 코딩테스트
     - Programmers
