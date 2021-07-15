@@ -3,7 +3,7 @@ title : "[BOJ] 16173 점프왕 쩰리(small) (Python3)"
 
 
 categories:
-    - codingtest
+    - Algorithm
 tags:
     - 코딩테스트
     - 백준
