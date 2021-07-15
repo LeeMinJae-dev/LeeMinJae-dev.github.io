@@ -1,5 +1,5 @@
 ---
-title : "[BOJ] 16173 점프왕 쩰리(small)"
+title : "[BOJ] 16173 점프왕 쩰리(small) (Python3)"
 
 
 categories:
