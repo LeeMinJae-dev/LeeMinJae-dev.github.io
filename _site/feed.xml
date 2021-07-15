@@ -1,111 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-07-15T13:02:27+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Learnote-Dev</title><subtitle>대학생 예비 개발자 블로그</subtitle><author><name>이민재</name><email>lmj938@naver.com</email></author><entry><title type="html">[BOJ] 1012 유기농배추 (Python3)</title><link href="http://localhost:4000/baekjoon/BOJ-%EC%9C%A0%EA%B8%B0%EB%86%8D-%EB%B0%B0%EC%B6%94/" rel="alternate" type="text/html" title="[BOJ] 1012 유기농배추 (Python3)" /><published>2021-07-15T00:00:00+00:00</published><updated>2021-07-15T00:00:00+00:00</updated><id>http://localhost:4000/baekjoon/%5BBOJ%5D%20%EC%9C%A0%EA%B8%B0%EB%86%8D%20%EB%B0%B0%EC%B6%94</id><content type="html" xml:base="http://localhost:4000/baekjoon/BOJ-%EC%9C%A0%EA%B8%B0%EB%86%8D-%EB%B0%B0%EC%B6%94/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
-&lt;p&gt;차세대 영농인 한나는 강원도 고랭지에서 유기농 배추를 재배하기로 하였다. 농약을 쓰지 않고 배추를 재배하려면 배추를 해충으로부터 보호하는 것이 중요하기 때문에, 한나는 해충 방지에 효과적인 배추흰지렁이를 구입하기로 결심한다. 이 지렁이는 배추근처에 서식하며 해충을 잡아 먹음으로써 배추를 보호한다. 특히, 어떤 배추에 배추흰지렁이가 한 마리라도 살고 있으면 이 지렁이는 인접한 다른 배추로 이동할 수 있어, 그 배추들 역시 해충으로부터 보호받을 수 있다. 한 배추의 상하좌우 네 방향에 다른 배추가 위치한 경우에 서로 인접해있는 것이다.&lt;/p&gt;
-
-&lt;p&gt;한나가 배추를 재배하는 땅은 고르지 못해서 배추를 군데군데 심어 놓았다. 배추들이 모여있는 곳에는 배추흰지렁이가 한 마리만 있으면 되므로 서로 인접해있는 배추들이 몇 군데에 퍼져있는지 조사하면 총 몇 마리의 지렁이가 필요한지 알 수 있다. 예를 들어 배추밭이 아래와 같이 구성되어 있으면 최소 5마리의 배추흰지렁이가 필요하다. 0은 배추가 심어져 있지 않은 땅이고, 1은 배추가 심어져 있는 땅을 나타낸다.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1	1	0	0	0	0	0	0	0	0
-0	1	0	0	0	0	0	0	0	0
-0	0	0	0	1	0	0	0	0	0
-0	0	0	0	1	0	0	0	0	0
-0	0	1	1	0	0	0	1	1	1
-0	0	0	0	1	0	0	1	1	`
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;입력&quot;&gt;입력&lt;/h2&gt;
-&lt;p&gt;입력의 첫 줄에는 테스트 케이스의 개수 T가 주어진다. 그 다음 줄부터 각각의 테스트 케이스에 대해 첫째 줄에는 배추를 심은 배추밭의 가로길이 M(1 ≤ M ≤ 50)과 세로길이 N(1 ≤ N ≤ 50), 그리고 배추가 심어져 있는 위치의 개수 K(1 ≤ K ≤ 2500)이 주어진다. 그 다음 K줄에는 배추의 위치 X(0 ≤ X ≤ M-1), Y(0 ≤ Y ≤ N-1)가 주어진다. 두 배추의 위치가 같은 경우는 없다.&lt;/p&gt;
-
-&lt;h2 id=&quot;출력&quot;&gt;출력&lt;/h2&gt;
-&lt;p&gt;각 테스트 케이스에 대해 필요한 최소의 배추흰지렁이 마리 수를 출력한다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;예제 입력 1  복사
-2
-10 8 17
-0 0
-1 0
-1 1
-4 2
-4 3
-4 5
-2 4
-3 4
-7 4
-8 4
-9 4
-7 5
-8 5
-9 5
-7 6
-8 6
-9 6
-10 10 1
-5 5
-예제 출력 1  복사
-5
-1
-예제 입력 2  복사
-1
-5 3 6
-0 2
-1 2
-2 2
-3 2
-4 2
-4 0
-예제 출력 2  복사
-2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setrecursionlimit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#테스트 케이스의 개수
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;#가로길이 M, 세로길이 N, 배추의 위치의 개수 K
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;K&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1
-5 3 6
-0 2
-1 2
-2 2
-3 2
-4 2
-4 0
-2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="baekjoon" /><category term="코딩테스트" /><category term="백준" /><category term="파이썬" /><summary type="html">문제 차세대 영농인 한나는 강원도 고랭지에서 유기농 배추를 재배하기로 하였다. 농약을 쓰지 않고 배추를 재배하려면 배추를 해충으로부터 보호하는 것이 중요하기 때문에, 한나는 해충 방지에 효과적인 배추흰지렁이를 구입하기로 결심한다. 이 지렁이는 배추근처에 서식하며 해충을 잡아 먹음으로써 배추를 보호한다. 특히, 어떤 배추에 배추흰지렁이가 한 마리라도 살고 있으면 이 지렁이는 인접한 다른 배추로 이동할 수 있어, 그 배추들 역시 해충으로부터 보호받을 수 있다. 한 배추의 상하좌우 네 방향에 다른 배추가 위치한 경우에 서로 인접해있는 것이다.</summary></entry><entry><title type="html">[BOJ] 2468 안전영역 (Python3)</title><link href="http://localhost:4000/baekjoon/%EC%95%88%EC%A0%84%EC%98%81%EC%97%AD/" rel="alternate" type="text/html" title="[BOJ] 2468 안전영역 (Python3)" /><published>2021-07-15T00:00:00+00:00</published><updated>2021-07-15T00:00:00+00:00</updated><id>http://localhost:4000/baekjoon/%EC%95%88%EC%A0%84%EC%98%81%EC%97%AD</id><content type="html" xml:base="http://localhost:4000/baekjoon/%EC%95%88%EC%A0%84%EC%98%81%EC%97%AD/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
-
-&lt;p&gt;https://www.acmicpc.net/problem/2468&lt;/p&gt;
-
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-07-15T14:20:02+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Learnote-Dev</title><subtitle>대학생 예비 개발자 블로그</subtitle><author><name>이민재</name><email>lmj938@naver.com</email></author><entry><title type="html">[BOJ] 2468 안전영역 (Python3)</title><link href="http://localhost:4000/baekjoon/%EC%95%88%EC%A0%84%EC%98%81%EC%97%AD/" rel="alternate" type="text/html" title="[BOJ] 2468 안전영역 (Python3)" /><published>2021-07-15T00:00:00+00:00</published><updated>2021-07-15T00:00:00+00:00</updated><id>http://localhost:4000/baekjoon/%EC%95%88%EC%A0%84%EC%98%81%EC%97%AD</id><content type="html" xml:base="http://localhost:4000/baekjoon/%EC%95%88%EC%A0%84%EC%98%81%EC%97%AD/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 &lt;p&gt;재난방재청에서는 많은 비가 내리는 장마철에 대비해서 다음과 같은 일을 계획하고 있다. 먼저 어떤 지역의 높이 정보를 파악한다. 그 다음에 그 지역에 많은 비가 내렸을 때 물에 잠기지 않는 안전한 영역이 최대로 몇 개가 만들어 지는 지를 조사하려고 한다. 이때, 문제를 간단하게 하기 위하여, 장마철에 내리는 비의 양에 따라 일정한 높이 이하의 모든 지점은 물에 잠긴다고 가정한다.&lt;/p&gt;
 
 &lt;p&gt;어떤 지역의 높이 정보는 행과 열의 크기가 각각 N인 2차원 배열 형태로 주어지며 배열의 각 원소는 해당 지점의 높이를 표시하는 자연수이다. 예를 들어, 다음은 N=5인 지역의 높이 정보이다.&lt;/p&gt;
@@ -279,7 +172,190 @@ NameError: name 'n' is not defined
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="baekjoon" /><category term="코딩테스트" /><category term="백준" /><category term="파이썬" /><summary type="html">문제</summary></entry><entry><title type="html">[BOJ] 16173 점프왕 쩰리(small) (Python3)</title><link href="http://localhost:4000/baekjoon/BOJ-16173-%EC%A0%90%ED%94%84%EC%99%95-%EC%A9%B0%EB%A6%AC(small)-Python/" rel="alternate" type="text/html" title="[BOJ] 16173 점프왕 쩰리(small) (Python3)" /><published>2021-07-13T00:00:00+00:00</published><updated>2021-07-13T00:00:00+00:00</updated><id>http://localhost:4000/baekjoon/%5BBOJ%5D%2016173%20%EC%A0%90%ED%94%84%EC%99%95%20%EC%A9%B0%EB%A6%AC(small)%20-%20Python</id><content type="html" xml:base="http://localhost:4000/baekjoon/BOJ-16173-%EC%A0%90%ED%94%84%EC%99%95-%EC%A9%B0%EB%A6%AC(small)-Python/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="baekjoon" /><category term="코딩테스트" /><category term="백준" /><category term="파이썬" /><summary type="html">문제 재난방재청에서는 많은 비가 내리는 장마철에 대비해서 다음과 같은 일을 계획하고 있다. 먼저 어떤 지역의 높이 정보를 파악한다. 그 다음에 그 지역에 많은 비가 내렸을 때 물에 잠기지 않는 안전한 영역이 최대로 몇 개가 만들어 지는 지를 조사하려고 한다. 이때, 문제를 간단하게 하기 위하여, 장마철에 내리는 비의 양에 따라 일정한 높이 이하의 모든 지점은 물에 잠긴다고 가정한다.</summary></entry><entry><title type="html">[BOJ] 1012 유기농배추 (Python3)</title><link href="http://localhost:4000/baekjoon/BOJ-%EC%9C%A0%EA%B8%B0%EB%86%8D-%EB%B0%B0%EC%B6%94/" rel="alternate" type="text/html" title="[BOJ] 1012 유기농배추 (Python3)" /><published>2021-07-15T00:00:00+00:00</published><updated>2021-07-15T00:00:00+00:00</updated><id>http://localhost:4000/baekjoon/%5BBOJ%5D%20%EC%9C%A0%EA%B8%B0%EB%86%8D%20%EB%B0%B0%EC%B6%94</id><content type="html" xml:base="http://localhost:4000/baekjoon/BOJ-%EC%9C%A0%EA%B8%B0%EB%86%8D-%EB%B0%B0%EC%B6%94/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+&lt;p&gt;차세대 영농인 한나는 강원도 고랭지에서 유기농 배추를 재배하기로 하였다. 농약을 쓰지 않고 배추를 재배하려면 배추를 해충으로부터 보호하는 것이 중요하기 때문에, 한나는 해충 방지에 효과적인 배추흰지렁이를 구입하기로 결심한다. 이 지렁이는 배추근처에 서식하며 해충을 잡아 먹음으로써 배추를 보호한다. 특히, 어떤 배추에 배추흰지렁이가 한 마리라도 살고 있으면 이 지렁이는 인접한 다른 배추로 이동할 수 있어, 그 배추들 역시 해충으로부터 보호받을 수 있다. 한 배추의 상하좌우 네 방향에 다른 배추가 위치한 경우에 서로 인접해있는 것이다.&lt;/p&gt;
+
+&lt;p&gt;한나가 배추를 재배하는 땅은 고르지 못해서 배추를 군데군데 심어 놓았다. 배추들이 모여있는 곳에는 배추흰지렁이가 한 마리만 있으면 되므로 서로 인접해있는 배추들이 몇 군데에 퍼져있는지 조사하면 총 몇 마리의 지렁이가 필요한지 알 수 있다. 예를 들어 배추밭이 아래와 같이 구성되어 있으면 최소 5마리의 배추흰지렁이가 필요하다. 0은 배추가 심어져 있지 않은 땅이고, 1은 배추가 심어져 있는 땅을 나타낸다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1	1	0	0	0	0	0	0	0	0
+0	1	0	0	0	0	0	0	0	0
+0	0	0	0	1	0	0	0	0	0
+0	0	0	0	1	0	0	0	0	0
+0	0	1	1	0	0	0	1	1	1
+0	0	0	0	1	0	0	1	1	`
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;입력&quot;&gt;입력&lt;/h2&gt;
+&lt;p&gt;입력의 첫 줄에는 테스트 케이스의 개수 T가 주어진다. 그 다음 줄부터 각각의 테스트 케이스에 대해 첫째 줄에는 배추를 심은 배추밭의 가로길이 M(1 ≤ M ≤ 50)과 세로길이 N(1 ≤ N ≤ 50), 그리고 배추가 심어져 있는 위치의 개수 K(1 ≤ K ≤ 2500)이 주어진다. 그 다음 K줄에는 배추의 위치 X(0 ≤ X ≤ M-1), Y(0 ≤ Y ≤ N-1)가 주어진다. 두 배추의 위치가 같은 경우는 없다.&lt;/p&gt;
+
+&lt;h2 id=&quot;출력&quot;&gt;출력&lt;/h2&gt;
+&lt;p&gt;각 테스트 케이스에 대해 필요한 최소의 배추흰지렁이 마리 수를 출력한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;예제 입력 1  복사
+2
+10 8 17
+0 0
+1 0
+1 1
+4 2
+4 3
+4 5
+2 4
+3 4
+7 4
+8 4
+9 4
+7 5
+8 5
+9 5
+7 6
+8 6
+9 6
+10 10 1
+5 5
+예제 출력 1  복사
+5
+1
+예제 입력 2  복사
+1
+5 3 6
+0 2
+1 2
+2 2
+3 2
+4 2
+4 0
+예제 출력 2  복사
+2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setrecursionlimit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#테스트 케이스의 개수
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#가로길이 M, 세로길이 N, 배추의 위치의 개수 K
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;K&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1
+5 3 6
+0 2
+1 2
+2 2
+3 2
+4 2
+4 0
+2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="baekjoon" /><category term="코딩테스트" /><category term="백준" /><category term="파이썬" /><summary type="html">문제 차세대 영농인 한나는 강원도 고랭지에서 유기농 배추를 재배하기로 하였다. 농약을 쓰지 않고 배추를 재배하려면 배추를 해충으로부터 보호하는 것이 중요하기 때문에, 한나는 해충 방지에 효과적인 배추흰지렁이를 구입하기로 결심한다. 이 지렁이는 배추근처에 서식하며 해충을 잡아 먹음으로써 배추를 보호한다. 특히, 어떤 배추에 배추흰지렁이가 한 마리라도 살고 있으면 이 지렁이는 인접한 다른 배추로 이동할 수 있어, 그 배추들 역시 해충으로부터 보호받을 수 있다. 한 배추의 상하좌우 네 방향에 다른 배추가 위치한 경우에 서로 인접해있는 것이다.</summary></entry><entry><title type="html">[Programmers] 회문 (Python3)</title><link href="http://localhost:4000/programmers/Programmers-%ED%9A%8C%EB%AC%B8/" rel="alternate" type="text/html" title="[Programmers] 회문 (Python3)" /><published>2021-07-13T00:00:00+00:00</published><updated>2021-07-13T00:00:00+00:00</updated><id>http://localhost:4000/programmers/%5BProgrammers%5D%20%ED%9A%8C%EB%AC%B8</id><content type="html" xml:base="http://localhost:4000/programmers/Programmers-%ED%9A%8C%EB%AC%B8/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+&lt;p&gt;회문(回文) 또는 팰린드롬(palindrome)은 앞 뒤 방향으로 볼 때 같은 순서의 문자로 구성된 문자열을 말한다. 예를 들어 ‘abba’ ‘kayak’, ‘reviver’, ‘madam’은 모두 회문이다. 만일 그 자체는 회문이 아니지만 한 문자를 삭제하여 회문으로 만들 수 있는 문자열이라면 우리는 이런 문자열을 “유사회문”(pseudo palindrome)이라고 부른다. 예를 들어 ‘summuus’는 5번째나 혹은 6번째 문자 ‘u’를 제거하여 ‘summus’인 회문이 되므로 유사회문이다.&lt;/p&gt;
+
+&lt;p&gt;여러분은 제시된 문자열을 분석하여 그것이 그 자체로 회문인지, 또는 한 문자를 삭제하면 회문이 되는 “유사회문”인지, 아니면 회문이나 유사회문도 아닌 일반 문자열인지를 판단해야 한다. 만일 문자열 그 자체로 회문이면 0, 유사회문이면 1, 그 외는 2를 출력해야 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;입력&quot;&gt;입력&lt;/h2&gt;
+
+&lt;p&gt;입력의 첫 줄에는 주어지는 문자열의 개수를 나타내는 정수 T(1 ≤ T ≤ 30)가 주어진다. 다음 줄부터 T개의 줄에 걸쳐 한 줄에 하나의 문자열이 입력으로 주어진다. 주어지는 문자열의 길이는 3 이상 100,000 이하이고, 영문 알파벳 소문자로만 이루어져 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;출력&quot;&gt;출력&lt;/h2&gt;
+
+&lt;p&gt;각 문자열이 회문인지, 유사 회문인지, 둘 모두 해당되지 않는지를 판단하여 회문이면 0, 유사 회문이면 1, 둘 모두 아니면 2를 순서대로 한 줄에 하나씩 출력한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;예제 입력 1  
+7
+abba
+summuus
+xabba
+xabbay
+comcom
+comwwmoc
+comwwtmoc
+예제 출력 1  
+0
+1
+1
+2
+2
+0
+1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;inner_palindrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+            
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+
+
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_palindrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inner_palindrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inner_palindrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+            
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#회문을 판별하다가 서로 다른 문자가 있으면 유사회문인지 회문이 아닌지 판별하는 함수를 재귀함수를 사용하여 정의
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#문자열의 개수 T
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# T의 개수만큼 받아 리스트로 저장
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_palindrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# is_palindrome 함수를 사용하여 순서대로 회문인지 판별
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1
+summuus
+1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="programmers" /><category term="코딩테스트" /><category term="Programmers" /><category term="파이썬" /><summary type="html">문제 회문(回文) 또는 팰린드롬(palindrome)은 앞 뒤 방향으로 볼 때 같은 순서의 문자로 구성된 문자열을 말한다. 예를 들어 ‘abba’ ‘kayak’, ‘reviver’, ‘madam’은 모두 회문이다. 만일 그 자체는 회문이 아니지만 한 문자를 삭제하여 회문으로 만들 수 있는 문자열이라면 우리는 이런 문자열을 “유사회문”(pseudo palindrome)이라고 부른다. 예를 들어 ‘summuus’는 5번째나 혹은 6번째 문자 ‘u’를 제거하여 ‘summus’인 회문이 되므로 유사회문이다.</summary></entry><entry><title type="html">[BOJ] 16173 점프왕 쩰리(small) (Python3)</title><link href="http://localhost:4000/baekjoon/BOJ-16173-%EC%A0%90%ED%94%84%EC%99%95-%EC%A9%B0%EB%A6%AC(small)-Python-%EB%B3%B5%EC%82%AC%EB%B3%B8/" rel="alternate" type="text/html" title="[BOJ] 16173 점프왕 쩰리(small) (Python3)" /><published>2021-07-13T00:00:00+00:00</published><updated>2021-07-13T00:00:00+00:00</updated><id>http://localhost:4000/baekjoon/%5BBOJ%5D%2016173%20%EC%A0%90%ED%94%84%EC%99%95%20%EC%A9%B0%EB%A6%AC(small)%20-%20Python%20%20%EB%B3%B5%EC%82%AC%EB%B3%B8</id><content type="html" xml:base="http://localhost:4000/baekjoon/BOJ-16173-%EC%A0%90%ED%94%84%EC%99%95-%EC%A9%B0%EB%A6%AC(small)-Python-%EB%B3%B5%EC%82%AC%EB%B3%B8/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 &lt;p&gt;‘쩰리’는 점프하는 것을 좋아하는 젤리다. 단순히 점프하는 것에 지루함을 느낀 ‘쩰리’는 새로운 점프 게임을 해보고 싶어 한다. 새로운 점프 게임의 조건은 다음과 같다.&lt;/p&gt;
 
 &lt;p&gt;‘쩰리’는 가로와 세로의 칸 수가 같은 정사각형의 구역 내부에서만 움직일 수 있다. ‘쩰리’가 정사각형 구역의 외부로 나가는 경우엔 바닥으로 떨어져 즉시 게임에서 패배하게 된다.
@@ -372,84 +448,156 @@ visited를 따로 만들어주어 방문을 확인하면서 큐에 넣어가며 
 1 5 1
 2 2 -1
 Hing
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="baekjoon" /><category term="코딩테스트" /><category term="백준" /><category term="파이썬" /><summary type="html">문제 ‘쩰리’는 점프하는 것을 좋아하는 젤리다. 단순히 점프하는 것에 지루함을 느낀 ‘쩰리’는 새로운 점프 게임을 해보고 싶어 한다. 새로운 점프 게임의 조건은 다음과 같다.</summary></entry><entry><title type="html">[Programmers] 회문 (Python3)</title><link href="http://localhost:4000/programmers/Programmers-%ED%9A%8C%EB%AC%B8/" rel="alternate" type="text/html" title="[Programmers] 회문 (Python3)" /><published>2021-07-13T00:00:00+00:00</published><updated>2021-07-13T00:00:00+00:00</updated><id>http://localhost:4000/programmers/%5BProgrammers%5D%20%ED%9A%8C%EB%AC%B8</id><content type="html" xml:base="http://localhost:4000/programmers/Programmers-%ED%9A%8C%EB%AC%B8/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="baekjoon" /><category term="코딩테스트" /><category term="백준" /><category term="파이썬" /><summary type="html">문제 ‘쩰리’는 점프하는 것을 좋아하는 젤리다. 단순히 점프하는 것에 지루함을 느낀 ‘쩰리’는 새로운 점프 게임을 해보고 싶어 한다. 새로운 점프 게임의 조건은 다음과 같다.</summary></entry><entry><title type="html">임신</title><link href="http://localhost:4000/diary-univ/%EC%9E%84%EC%8B%A0/" rel="alternate" type="text/html" title="임신" /><published>2021-04-30T00:00:00+00:00</published><updated>2021-04-30T00:00:00+00:00</updated><id>http://localhost:4000/diary-univ/%EC%9E%84%EC%8B%A0</id><content type="html" xml:base="http://localhost:4000/diary-univ/%EC%9E%84%EC%8B%A0/">&lt;h2 id=&quot;20210430&quot;&gt;2021.04.30&lt;/h2&gt;
+&lt;p&gt;어제 밤에 월가아재님이 쓰신 블로그에서 잠겨있는 시황을 어떻게 하면 볼 수 있을까 구글 캐시를 뒤지다가, 월가아재님이 쓰신 임신 부터 출산까지의 경험을 적은 일기를 발견했다. 정작 시황은 하나도 못보고, 어제 저녁에 그 글을 읽었다. 아직 나이가 어려서, 주변에 임신에 대한 경험에 대해 들어본적도 없고, 내가 접한 출산이라고 해봤자 기껏해야 친 인척들의 출산소식정도? 였다. 근데 꽤나 상세하고 디테일하게 아기를 낳는다는 일의 무게와 찾아오는 수 많은 어려움, 그 리고 그 놀라운 출산의 기쁨에 대한 내용까지 담겨 있어,
+글을 읽고 많은 생각을 하게 만들었다.&lt;/p&gt;
 
-&lt;p&gt;회문(回文) 또는 팰린드롬(palindrome)은 앞 뒤 방향으로 볼 때 같은 순서의 문자로 구성된 문자열을 말한다. 예를 들어 ‘abba’ ‘kayak’, ‘reviver’, ‘madam’은 모두 회문이다. 만일 그 자체는 회문이 아니지만 한 문자를 삭제하여 회문으로 만들 수 있는 문자열이라면 우리는 이런 문자열을 “유사회문”(pseudo palindrome)이라고 부른다. 예를 들어 ‘summuus’는 5번째나 혹은 6번째 문자 ‘u’를 제거하여 ‘summus’인 회문이 되므로 유사회문이다.&lt;/p&gt;
+&lt;p&gt;임신이 힘들다 힘들다 하지만, 저렇게 상세하게 적힌 경험들을 과연 내가 감내할수 있을까 하는 생각이 들었고, 모든 어머 니들이 저러한 고통, 누군가는 더 큰 고통을 감내하고 새로운 생명을 세상에 낳았다는게 놀라웠다. 나같은 뭣도아닌 사람 도 저렇게 무거운 짐을 견뎌 낼 수 있을까?&lt;/p&gt;
 
-&lt;p&gt;여러분은 제시된 문자열을 분석하여 그것이 그 자체로 회문인지, 또는 한 문자를 삭제하면 회문이 되는 “유사회문”인지, 아니면 회문이나 유사회문도 아닌 일반 문자열인지를 판단해야 한다. 만일 문자열 그 자체로 회문이면 0, 유사회문이면 1, 그 외는 2를 출력해야 한다.&lt;/p&gt;
+&lt;p&gt;이러한 감상에 젖으면서도, 저 글은 감정과 경험 뿐만아니라 임신이 부부관계에 미치는 영향이나, 임신중에 어떠한 요소들 이 아이의 발달과 지능에 영향을 미치는지 월가아재님께서 여러 논문들과 통계를 읽고 정리해둔 자료와 함께있어서 감성 과 이성이 한데에 있어, 감정적으로 아기를 무조건 낳아야 겠다!! 라는 기분이 들기보다는, 생명을 만들기 위해서 내가 감 수해야할 손해와 얻어야 할 이득에 대해 다시금 생각해보게 만들었다. 아기를 낳는 다는건 인간이 경험 할 수 있는 중에 가 장 황홀하고 경이로운 경험이지만, 그 시기와 과정에 대해서는 아주 크나큰 준비와 고찰이 필요하다는 생각이 들었다.&lt;/p&gt;
 
-&lt;h2 id=&quot;입력&quot;&gt;입력&lt;/h2&gt;
+&lt;p&gt;많은사람들이 아기를 낳으면 부부가 더 돈독해지고 행복해질것 이라 말하지만, 통계적으로는 미국 등 10개 선진국에서 진 행된 연구에 따르면 결혼 만족도는 첫 출산 이후 15년간 지속 감소했고, 자식이 집을 떠나고 나서야 서서히 증가했다. 또, 양측에 합의 없이 한쪽의 요구만으로 진행한 임신 후 다툼을 가진 부부는 통계적으로 100퍼센트 이혼했다. 다들 단순히 감정적으로 돈독해지겠지~~ 라고 안일하게 생각하지만, 아이를 낳는 다는건 이토록 불행해질수 있는 거대한 리스크를 짊 어진 일인것이다. 그렇기에 출산은 정말 양쪽이 모두 준비가 된 상태에서, 합의하에 큰 계획을 갖고 만반의 준비하에 진행 하여야 리스크를 최대한 줄일 수 있는것이다.
+또 글을 읽다보니, 나는 이 글을 읽으며 세상은 얼마나 불공평한가에 대해 생각을 했다.&lt;/p&gt;
 
-&lt;p&gt;입력의 첫 줄에는 주어지는 문자열의 개수를 나타내는 정수 T(1 ≤ T ≤ 30)가 주어진다. 다음 줄부터 T개의 줄에 걸쳐 한 줄에 하나의 문자열이 입력으로 주어진다. 주어지는 문자열의 길이는 3 이상 100,000 이하이고, 영문 알파벳 소문자로만 이루어져 있다.&lt;/p&gt;
+&lt;p&gt;출산까지의 과정은 사실상 아이의 평생을 좌우하는 큰 요인인데, 지적 수준이 낮거나 생활수준이 낮은 가정에서 태어난 아이는 이 세상에 나온 처음부터 남들보다 뒤쳐진대로 시작한다는 느낌이 들었다. 저 일기에 써있듯이 임신에는 통계적으 로 증명되지 않는 여러가지 낭설들과 속설들이 즐비하고, 임신상태에서는 정말 생각보다도 더욱 절대적인 안정이 필요한 데, 지적수준이 낮은가정에서는 오류에 대한 검증 없이 저러한 낭설과 속설들, 심각하게는 아이의 발달과 지능을 저하시키는 행위들을 행할것이고, 생활수준이 낮은 가정에서는 완전한 안정을 취하지 못할 것이다. 지적 수준이 낮은 가정은 대개 생활수준이 낮을 가능성이 높으므로, 이 두가지 요인들은 동시에 발생할 가능성이 매우 높다.&lt;/p&gt;
 
-&lt;h2 id=&quot;출력&quot;&gt;출력&lt;/h2&gt;
+&lt;p&gt;그렇게 여러가지 요인들에 의해 선천적으로 능력이 저하된 아이는 또 낮은 지적수준의 대물림을 받게 되는것이고, 이러한 일은 몇대를 걸쳐 반복될 확률이 매우 클것이다. 우리 사회는 항상 노력하면 누구나 성공 할 수 있다고, 마치 공평한 출발 선에서 시작한것 처럼 말하지만, 나의 노력여부에 관계없이, 이미 뱃속에서 부터 크나큰 격차를 갖고 다른 출발선에 서게 되는것이다.&lt;/p&gt;
 
-&lt;p&gt;각 문자열이 회문인지, 유사 회문인지, 둘 모두 해당되지 않는지를 판단하여 회문이면 0, 유사 회문이면 1, 둘 모두 아니면 2를 순서대로 한 줄에 하나씩 출력한다.&lt;/p&gt;
+&lt;p&gt;세상은 항상 불편한 진실과 마주하기 싫어, 그러한 진실들을 회피하고 듣기 좋은 거짓말로 포장하려 한다. 그리고 누군가는 그러한 진실과 마주하지 않은 댓가를 치룬다. 그것도 몇대에 걸쳐서…&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;예제 입력 1  
-7
-abba
-summuus
-xabba
-xabbay
-comcom
-comwwmoc
-comwwtmoc
-예제 출력 1  
-0
-1
-1
-2
-2
-0
-1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;사람들은 부모욕에 굉장히 민감하다. 또 인종차별에 대한 것은 어떤가?? 지역이나 출신에 대한 욕만큼 화가나고
+듣기 싫은건 없다. 키나 외모에 대한 욕도 동일하게 사회적으로 금기시 되는 것중에 하나이다. 이렇듯 사람들은
+이제 앞으로 내가 바꿀수 있는 것에 대한 모욕보다는, 이미 정해져서 돌이킬 수 없는 것에 대한 모욕에 가장 민감하게 반응 한다. 하물며 사회에 태어날때부터 존재하는 이러한 격차에 언급하는것은 사람들에게 얼마나 불쾌할까. 아마 어떤 국회의 원이나 정치인이 이러한 문제점에 대해 이에 따른 복지 정책이 필요하다고 언급 한다 해도, 그는 이러한 불편한 진실을 말 한 댓가로 사회적인 매장을 당할 수 밖에 없을 것이다.&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;inner_palindrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
-            
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+&lt;p&gt;개선하고 보완해야할 문제점에 대해 인식하고 해결하지만 너무나 큰 불편함을 마주하는 사회가 치루는 비용이 더 클지, 이 러한 불편함을 그저 감성적인 부분들로 포장하고 모두가 불편하지 않은 상황에서 발생하는 불평등한 격차에서 사회가 치 루는 비용이 클지는, 나같은 바보는 모르겠다. 어쩌면 이미 전자보다는 후자가 비용이 적다고 분석한 결과에 따라서 지금 의 사회가 돌아가고 있을지도 모르고, 사실 둘다 정답이 아닐수도 있다.
+모두가 평등을 원하지만, 사실은 모두가 평등해지고 싶지 않아 한다는 생각이 들었다.&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="diary-univ" /><category term="일기장" /><summary type="html">2021.04.30 어제 밤에 월가아재님이 쓰신 블로그에서 잠겨있는 시황을 어떻게 하면 볼 수 있을까 구글 캐시를 뒤지다가, 월가아재님이 쓰신 임신 부터 출산까지의 경험을 적은 일기를 발견했다. 정작 시황은 하나도 못보고, 어제 저녁에 그 글을 읽었다. 아직 나이가 어려서, 주변에 임신에 대한 경험에 대해 들어본적도 없고, 내가 접한 출산이라고 해봤자 기껏해야 친 인척들의 출산소식정도? 였다. 근데 꽤나 상세하고 디테일하게 아기를 낳는다는 일의 무게와 찾아오는 수 많은 어려움, 그 리고 그 놀라운 출산의 기쁨에 대한 내용까지 담겨 있어, 글을 읽고 많은 생각을 하게 만들었다.</summary></entry><entry><title type="html">코당</title><link href="http://localhost:4000/diary-univ/%EA%B3%B5%EB%B6%80/" rel="alternate" type="text/html" title="코당" /><published>2021-04-29T00:00:00+00:00</published><updated>2021-04-29T00:00:00+00:00</updated><id>http://localhost:4000/diary-univ/%EA%B3%B5%EB%B6%80...</id><content type="html" xml:base="http://localhost:4000/diary-univ/%EA%B3%B5%EB%B6%80/">&lt;h2 id=&quot;20210429&quot;&gt;2021.04.29&lt;/h2&gt;
+&lt;p&gt;어느정도 재미를 붙이고 하던 공부가 난관에 봉착했다.
+머리가 너무 아프다. 도대체 뭐 부터 해야하는지도 모르겠고 난이도는 너무 높다.
+재밌는건 딱 내가 이해할수 있을때까지였고 그 위로는 재미가 하나도 없다…
+하긴, 공부가 재밌을리가 없지. 사실 난이도도 난이도지만 어느 방향으로 공부해야하는지 감이 안잡혀서 어렵고 힘들고, 머리아프다. coursera 강의를 따라가려 하니 자막이없고 유튜브 강의들은 질이 너무 떨어진다. 이래서 영어를 배워야 하는건가…&lt;/p&gt;
 
+&lt;p&gt;영어를 못하니 질좋은 강의들을 수강 조차 할수가 없다. 사실상 인터넷이라는 도구의 기능을 영어를 못하면 한 30퍼센트밖에 활용을 못하는셈이 되는 것 같다. 영어…영어..!!
+어쨌든 방향을 잃었을때 가장 좋은방법은 책을 사는 것 같아서
+더럽게 비싼 4만원 짜리 책을 한권 구매하려고 한다.
+다시 차근차근 책부터 떼고, 뭘 해볼 생각이다.&lt;/p&gt;
 
+&lt;p&gt;자기계발에 돈아끼면 안된다지만, 4만원이 너무 아깝다… 거지같은 도서정가제&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="diary-univ" /><category term="일기장" /><summary type="html">2021.04.29 어느정도 재미를 붙이고 하던 공부가 난관에 봉착했다. 머리가 너무 아프다. 도대체 뭐 부터 해야하는지도 모르겠고 난이도는 너무 높다. 재밌는건 딱 내가 이해할수 있을때까지였고 그 위로는 재미가 하나도 없다… 하긴, 공부가 재밌을리가 없지. 사실 난이도도 난이도지만 어느 방향으로 공부해야하는지 감이 안잡혀서 어렵고 힘들고, 머리아프다. coursera 강의를 따라가려 하니 자막이없고 유튜브 강의들은 질이 너무 떨어진다. 이래서 영어를 배워야 하는건가…</summary></entry><entry><title type="html">코당</title><link href="http://localhost:4000/diary-univ/%EC%BD%94%EB%94%A9/" rel="alternate" type="text/html" title="코당" /><published>2021-04-23T00:00:00+00:00</published><updated>2021-04-23T00:00:00+00:00</updated><id>http://localhost:4000/diary-univ/%EC%BD%94%EB%94%A9</id><content type="html" xml:base="http://localhost:4000/diary-univ/%EC%BD%94%EB%94%A9/">&lt;h2 id=&quot;20210423&quot;&gt;2021.04.23&lt;/h2&gt;
+&lt;p&gt;최근에 다시 주식을 시작하면서,
+주식에 관한 데이터를 뽑아내는 프로그래밍을 하고있다.
+근데 이게 도통 어떤 데이터가 연관성이 있는지 감이 잘안잡힌다.
+일단 뉴스기사와 각종 지수를 크롤링해서 엑셀로 저장하는 프로그램까지는 코딩을 했는데,
+더 무엇을 해야할지 잘 감이 안잡힌다. 공부가 부족해서일까…
+아무튼 주식뿐만이 아니라 왠만한 단순 반복작업들을 모두 코딩으로 자동화 해보려 한다.&lt;/p&gt;
 
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_palindrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inner_palindrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inner_palindrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-            
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;#회문을 판별하다가 서로 다른 문자가 있으면 유사회문인지 회문이 아닌지 판별하는 함수를 재귀함수를 사용하여 정의
-&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#문자열의 개수 T
-&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# T의 개수만큼 받아 리스트로 저장
-&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_palindrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# is_palindrome 함수를 사용하여 순서대로 회문인지 판별
-&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;앞으로 한 10년만 지나도 코딩이 특별한 기술이 아니라, 현재의 엑셀처럼 누구나 보편적으로 사용하는
+기술이 될거라는 생각이 들었다. 개인의 업무를 자동화 할수 있다는 건 엄청난 메리트이니까 누구나 이 이점을 알게되면 너도 나도 코딩으로 자신의 프로그램을 만들어 단순업무들을 자동화 시키는 날이 조만간 올것 같다.
+오르비의 라끄리 대표의 글을 오랜만에 오르비에 찾아가서 읽었다.&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1
-summuus
-1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="programmers" /><category term="코딩테스트" /><category term="Programmers" /><category term="파이썬" /><summary type="html">문제</summary></entry></feed>
+&lt;p&gt;이 사람이 쓴 글을 볼때마다 많은 인사이트를 받는다. 이 정도로 똑똑한 사람이 사적으로 쓴 글을 접해볼 기회가
+잘없어서 그럴까? 읽을때마다 새로운 생각이 나도 덩달아 들고, 문장 한구절 한구절마다 감탄하게 된다.
+머리도 똑똑한데, 어떻게든 자신의 시간을 철저히 사용하려고 폴더 하나하나 책상정리 하나하나 한번에 찾을 수 있게끔 분 류와 정리를 완벽히 해놓는다는 이야기를 보고는 정말 많은 생각이 들었다. 저 사람 보다 머리도 안좋은 내가 저렇게 노력 하지 않아서야 무슨일을 이룰 수 있겠냐는 생각을 했다. 삶에 저정도로 나는 치열한적이 있었나.
+괜시리 나도 컴퓨터의 폴더를 정리해보았다.&lt;/p&gt;
+
+&lt;p&gt;저렇게 이악물고 시간을 아끼려는 사람 앞에서,
+나는 지나가는 시간의 흐름을 그저 놓아 보내주고 있는건 아닌지 많은 생각이 들었다.&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="diary-univ" /><category term="일기장" /><summary type="html">2021.04.23 최근에 다시 주식을 시작하면서, 주식에 관한 데이터를 뽑아내는 프로그래밍을 하고있다. 근데 이게 도통 어떤 데이터가 연관성이 있는지 감이 잘안잡힌다. 일단 뉴스기사와 각종 지수를 크롤링해서 엑셀로 저장하는 프로그램까지는 코딩을 했는데, 더 무엇을 해야할지 잘 감이 안잡힌다. 공부가 부족해서일까… 아무튼 주식뿐만이 아니라 왠만한 단순 반복작업들을 모두 코딩으로 자동화 해보려 한다.</summary></entry><entry><title type="html">주식</title><link href="http://localhost:4000/diary-univ/%EC%A3%BC%EC%8B%9D/" rel="alternate" type="text/html" title="주식" /><published>2021-04-19T00:00:00+00:00</published><updated>2021-04-19T00:00:00+00:00</updated><id>http://localhost:4000/diary-univ/%EC%A3%BC%EC%8B%9D</id><content type="html" xml:base="http://localhost:4000/diary-univ/%EC%A3%BC%EC%8B%9D/">&lt;h2 id=&quot;20210419&quot;&gt;2021.04.19&lt;/h2&gt;
+&lt;p&gt;오늘부터 주식을 좀 열심히 해볼 생각이다.
+다시 공부하려니까 너무 어렵다. 그래도 공부해서 투자할수 있다는게 얼마나 큰 행운인지.
+코인 도박판에서 정신 차렸으니, 열심히 다시 해서 수익률을 크게 올려볼 생각이다.
+영어에 데이터 공부에 투자 공부까지… 내가 세가지를 다 잡을 수 있을까.
+지금 보다 더욱 더 치열하게 살고, 부지런해져야 한다는 생각에 벌써 머리가 아프다.
+요즘따라 하루가 이렇게 짧았나 싶다. 물론 이런생각 하면서도 누워서 핸드폰하고, 뒹굴고 하는시간 없애는건 왜이렇게 힘든지 모르겠다. 시간표를 아예 짜서 그대로 행동해야겠다.
+그냥 재량껏 하려고 하니까 이런일이 벌어지는것 같기도 하고.&lt;/p&gt;
+
+&lt;p&gt;옛날에 봤던 무슨 실험프로그램에서 남편한테 일시키는 법
+이런식으로 해서 나온적이 있었다. 뭐 해달라고 그냥 추상적으로 말하지말고 몇시까지 이거를 어떻게 해줘~~ 하면서 말을 하면 들어준다는 그런 실험. 놀랍게도 그냥 추상적으로 말했을때는 뒹굴거리던 남편이
+시간과 행동을 정확하게 정해주자, 그 시간전에 그 일을 끝냈다.
+실제로 남자들은 계약이라는 개념에 민감하게 반응하기 때문에,
+시간적 제약이나 어떠한 조건에 대한 제약을 걸면
+지키려는 경향이 강하다고 한다.&lt;/p&gt;
+
+&lt;p&gt;그래서 나도 오늘부터 나에대한 시간적 제약을 좀 걸생각이다. 내일은 오늘보다 열심히 살기를 바라면서…&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="diary-univ" /><category term="일기장" /><summary type="html">2021.04.19 오늘부터 주식을 좀 열심히 해볼 생각이다. 다시 공부하려니까 너무 어렵다. 그래도 공부해서 투자할수 있다는게 얼마나 큰 행운인지. 코인 도박판에서 정신 차렸으니, 열심히 다시 해서 수익률을 크게 올려볼 생각이다. 영어에 데이터 공부에 투자 공부까지… 내가 세가지를 다 잡을 수 있을까. 지금 보다 더욱 더 치열하게 살고, 부지런해져야 한다는 생각에 벌써 머리가 아프다. 요즘따라 하루가 이렇게 짧았나 싶다. 물론 이런생각 하면서도 누워서 핸드폰하고, 뒹굴고 하는시간 없애는건 왜이렇게 힘든지 모르겠다. 시간표를 아예 짜서 그대로 행동해야겠다. 그냥 재량껏 하려고 하니까 이런일이 벌어지는것 같기도 하고.</summary></entry><entry><title type="html">도박</title><link href="http://localhost:4000/diary-univ/%EB%8F%84%EB%B0%95/" rel="alternate" type="text/html" title="도박" /><published>2021-04-18T00:00:00+00:00</published><updated>2021-04-18T00:00:00+00:00</updated><id>http://localhost:4000/diary-univ/%EB%8F%84%EB%B0%95</id><content type="html" xml:base="http://localhost:4000/diary-univ/%EB%8F%84%EB%B0%95/">&lt;h2 id=&quot;20210418&quot;&gt;2021.04.18&lt;/h2&gt;
+&lt;p&gt;어제 하루종일 두통으로 인해 머리가 지끈 지끈 아프고
+밥을 먹어도 소화가 안됐다. 감기기운이라고 둘러댔지만, 이유를 알고있었다.
+그놈의 코인때문에 이틀동안 밥먹으면서도, 운동하면서도, 공부를 하면서도 차트를 켜놓고 있었기 때문이다.
+사람이 극심한 스트레스로 머리가 아프다는 걸 이틀간 태어나서 처음 겪었다.
+진입하자마자 물리면, 하루종일을 후회로 보내며 ‘아 왜 내가 거기서 들어갔지’, ‘진짜 한번만 오르면 본전에 팔고 다시는 코인 안한다.’의 반복… 심지어 다시 올랐을때는 다시 그득한 욕심이 기어 올라와 팔지도 않고,
+결국 또 손실로 이어진다. 이렇게 어제 하루에만 150가량을 날렸다.
+그동안 벌기만 했지, 이정도의 금액을 잠깐 사이에 잃어본적은 없다.
+난 얼마전만 해도 하루하루가 요즘 너무 행복하다고 생각했는데, 이틀동안 이렇게 불행할수가 없었다.&lt;/p&gt;
+
+&lt;p&gt;머리가 아프기도 하고, 더 차트를 보고있다가는 정신병에 걸릴것 같아서
+그냥 그대로 잠들기도 하고 유튜브를 보기도 하고 했다. 그 중에 슈카님의 유튜브 채널을 봤는데,
+갑자기 정신이 차려졌다. 물론 비트코인에 관한 이야기가 아닌 20대 30대에 관한 이야기들이었지만
+그 중에서 요즘 20대 30대가 단기에 큰수익을 올릴수 있는 코인시장에 다들 미쳐있다는 이야기.
+단기간의 큰 변동성을 가진 투자는 절대 행복할 수가 없다고 했다.
+나는 뭘 위해서 투자를 하는지 생각했다. 물론 돈을 벌기 위해 하는거지만, 나는 돈을 왜버는가??
+돈벌어서 나의 여유로움으로 행복하고 싶어서 나는 돈을 벌고싶다.&lt;/p&gt;
+
+&lt;p&gt;그 관점에서 볼때, 비트코인 투자는 뭔가 잘못되었다.
+돈을 벌어도 벌어도 만족스럽지도 않고, 성취감도 하나도 없다. 이건 나의 실력과 지혜로 얻어낸것이라는 생각이 전혀 안든다. 내가 이 코인을 왜 선택했으며, 왜 이 가격에 샀는지, 어떤 가격에 팔건지에 대한 아무런 기준이없다. 홀짝 도박을 할때, 홀을 고른 사람에게 왜 홀을 골랐는지에 대해 물어본다면 이렇게 말할 것이다.&lt;/p&gt;
+
+&lt;p&gt;‘그냥 느낌이 좋았다’&lt;/p&gt;
+
+&lt;p&gt;나도 마찬가지다. 그냥 느낌이 좋았고, 뭔가 오를것 같아서 샀다. 이걸 과연 투자라고 볼 수 있을까?
+옛날에 영상같은걸 틀면 앞에 광고로 나오던 그래프게임 도박이 생각났다.
+비트코인과 그 불법도박이 과연 다른점이 있을까.
+호재들은 모두 기술력일뿐 코인의 가격과는 직결되는 부분이 없으며,&lt;/p&gt;
+
+&lt;p&gt;결제수단으로 이용할수 있는건 비트코인 하나외에는 하나도 없다.
+실체가 전혀 없고, 이 코인을 만든 회사나 사람이 무엇을 하는지, 정말 그걸 하긴 하는지에 대한 아무런 증거도 찾을 수 가 없다.&lt;/p&gt;
+
+&lt;p&gt;그래서 난 오늘부터 비트코인을 접기로 했다.
+운이 좋아서 그래도 돈을 벌은 상태로 정신을 차렸다는 사실에 감사한다.
+운이 나빴다면 50프로의 수익이 아니라, 50프로의 손실 후 정신을 차릴 수도 있었다. 이것은 정말 엄청난 행운이었기에, 정말 다행이라는 생각이 들었다.
+하지만 가장 중요한것은 나를 믿지 않는것이다.&lt;/p&gt;
+
+&lt;p&gt;내 본능은 또 차트를 볼것이며, 또 그 유혹에 무조건적으로 흔들릴 것이고, 나는 또 비트코인을 매수하게 될 것이다. 그 전에 미리 나를 그러한 본능의 상황에 놓이지 않게 해야한다. 내일이 되면 케이뱅크 계좌는 바로 해지할것이고, 업비트는 탈퇴할것이다. 저 비트코인이 올라 10억이 된다해도, 그렇게 벌어들인 돈은 도박판에서 딴 돈과 같다. 도박으로 딴돈은 결국 반복되는 도박의 반복끝네 잃어야 그 악의고리가 끊긴다.
+아니, 어쩌면 평생 안끊길수도 있다. 도박으로 돈을 딴 후에 정신을 차렸음에 감사한다.
+그렇게 어제 모든 돈을 출금하고 앱을 삭제해버렸다. 그리고 오늘, 비트코인은 폭락했다.
+운이 참 좋았다고 생각했다. 하루만 더 갖고있었더라면, 지금쯤 얼마나 괴로운 하루가 또 되었을지
+상상도 하기 싫다.&lt;/p&gt;
+
+&lt;p&gt;코인으로 번돈으로 맥북을 한대 더 구입했다.
+이로써 코인으로 번돈은 모두 사용했다. 쉽게 번돈이라 쉽게 써지는걸까.
+다시 처음부터 오늘 천만원을 받았다는 생각으로 정상적인 방법으로 투자하겠다. 잃더라도 얻는게 있고, 배우는게 있겠지.
+내일이 기대된다. 이번에는 꼭 행복과 돈, 두마리 토끼를 다 잡고싶다.&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="diary-univ" /><category term="일기장" /><summary type="html">2021.04.18 어제 하루종일 두통으로 인해 머리가 지끈 지끈 아프고 밥을 먹어도 소화가 안됐다. 감기기운이라고 둘러댔지만, 이유를 알고있었다. 그놈의 코인때문에 이틀동안 밥먹으면서도, 운동하면서도, 공부를 하면서도 차트를 켜놓고 있었기 때문이다. 사람이 극심한 스트레스로 머리가 아프다는 걸 이틀간 태어나서 처음 겪었다. 진입하자마자 물리면, 하루종일을 후회로 보내며 ‘아 왜 내가 거기서 들어갔지’, ‘진짜 한번만 오르면 본전에 팔고 다시는 코인 안한다.’의 반복… 심지어 다시 올랐을때는 다시 그득한 욕심이 기어 올라와 팔지도 않고, 결국 또 손실로 이어진다. 이렇게 어제 하루에만 150가량을 날렸다. 그동안 벌기만 했지, 이정도의 금액을 잠깐 사이에 잃어본적은 없다. 난 얼마전만 해도 하루하루가 요즘 너무 행복하다고 생각했는데, 이틀동안 이렇게 불행할수가 없었다.</summary></entry><entry><title type="html">욕심</title><link href="http://localhost:4000/diary-univ/%EC%9A%95%EC%8B%AC/" rel="alternate" type="text/html" title="욕심" /><published>2021-04-16T00:00:00+00:00</published><updated>2021-04-16T00:00:00+00:00</updated><id>http://localhost:4000/diary-univ/%EC%9A%95%EC%8B%AC</id><content type="html" xml:base="http://localhost:4000/diary-univ/%EC%9A%95%EC%8B%AC/">&lt;h2 id=&quot;20210416&quot;&gt;2021.04.16&lt;/h2&gt;
+&lt;p&gt;어제 도지코인에 넣고잔 640만원이 천만원이 되었다. 360만원을 벌은셈이다.
+이러고 또 결국 본능을 이기지 못하고 단타를 치다 마지막에 50정도를 날려서 310만원의 수익을 올렸다.
+50프로 가까이되는 어마어마한 수익, 총시드로 봐도 20퍼센트가 넘는 수익률을 하루에 올린것이다.
+번돈으로 그동안 액정도 깨지고 배터리도 다되어서 너무 불편했던 핸드폰을 바꿨다.
+내가 아이폰 프로모델 라인을 사게되는 날이 올줄이야!&lt;/p&gt;
+
+&lt;p&gt;그동안 대학교갈때 아빠가 사준 아이폰 6s를 4년간 쓰고, 폰굳이 좋은거 써야하나 싶어서 중고로 사서 1년좀 넘게 아이폰 X를 썼었다. 다시는 새폰 안사겠다는 생각을 했었는데, 또 돈이 생기기도 했고, 막상 중고 써보니까
+배터리 효율이 너무 닳아서 뭐만하면 배터리가 다되는 바람에, 불편해서 도저히 못쓰겠더라.
+태어나서 한번도 내돈으로 새 핸드폰을 사본적도 없고 해서,
+아이폰12pro 그래파이트 하나를 사고, 돈도 벌었겠다 토끼같은 여자친구 뭐라도 사주고 싶은 마음에
+요즘 어디가면 시끄러워서 공부가 잘안된다고 하던게 맘에 걸려서,
+여자친구집으로 에어팟프로를 하나 배송시켜놨다.
+물론 서프라이즈라 말은 아직안했다. ᄒᄒ
+에어팟프로 케이스도 하나 사주려고 은근슬쩍 지금쓰는 에어팟
+케이스 사준다고 거짓말하고 케이스고르라고 계속 했는데,
+내가 에어팟프로 사주려는 것도 모르고 고르기 귀찮다고 짜증냈을다! 내일 너 에어팟 받으면 보자 진짜.&lt;/p&gt;
+
+&lt;p&gt;어제만 해도 한 50만원 아니 40만원이라도 벌었으면 좋겠다고 생각하고 잠들었는데, 진짜 이 인간의 욕심이
+답이없다. 사실 매매자체를 욕심안부리고 잘한것 같은데, 자꾸 그대로 뒀으면 600을 벌었느니 하는 생각이
+머리에 가득찬다. 310을 벌고도 마치 290만원을 잃은 사람마냥 기분이 그렇다.
+310만원. 얼마나 큰돈인가. 300만원은 나의 용돈 40만원을 기준으로 8개월 가량을 한푼도 안쓰고 모아야하는 돈이며, 대부분의 30대 중반 직장인의 월급 실수령액정도되는 큰 돈이다. 이 어마어마한 돈을
+벌고도 지금 불평과 아쉬움의 마음이 있다니.
+얼마나 욕심이 가득하고 지독한 생각인지 모르겠다.
+심지어 난 평생 300만원이 넘는돈을 통장에 가져본적이 없다.
+그만큼 커다란 돈을 벌었으면, 말도안되는 상황 가정하면서
+상상속의 돈을 잃었다고 하지말고, 제발 좀 감사하고 즐거워 할줄알아라.&lt;/p&gt;
+
+&lt;p&gt;돌이켜보면 이번매매는 사실 운좋게 맞아떨어져 큰 돈을 벌었지만, 반성해야한다.
+시드머니의 절반가까이를 한 종목에 때려박았으며, 심지어 그 종목은 왜 오르는지도 알 수가 없는 그런 종목이었다. 일론머스크의 언급? 그건 인정이긴하다만, 한종목에 그 돈을 넣고 어제 잠을 잔 나도 정말 강심장이긴하다.
+이제 코인은 어느정도 비중을 줄이고, 주식을 할생각이다. 좀 금액이 커지면 옵션 공부를 좀해서 풋옵션이나 콜옵션 매수 를 해보려한다. 콜옵션 같은걸 매수하면 아무래도 손절못치는 내 본능을 억지로 가둘수있지 않을까 하는 생각에, 자금이 더 커지면 옵션에 대해서도 생각을 좀 해봐야겠다.&lt;/p&gt;
+
+&lt;p&gt;돈이 없으면 불행하지만, 돈을 벌어도 크게 행복하진 않은가보다.
+사실 지금 내가 가진 돈과 오늘 번돈은 학생기준으로 볼때 정말 어른들에게는 1,2억의 가치를 가진돈인데도, 지금 크게 행복하다거나 기분이 좋다는 생각이 들지는 않는다.
+오히려 날씨좋은날 바람이 살살부는 거리를 여자친구랑 걷는다던가, 비가오는날 침대에 누워서 빗소리를 듣는것, 혹은 좋아하는 영화가 개봉해 영화관 특유의 냄새를 맡으며 영화가 시작하기전의 광고를 보는것.
+이런것들이 훨씬 행복하고 좋다.&lt;/p&gt;
+
+&lt;p&gt;막상 내일이 되면, 도착한 최신핸드폰과 사랑하는 여자친구가 좋아하는 모습을 보고 또 다시 열렬한 자본주의의 노예가 되겠지만.&lt;/p&gt;
+
+&lt;p&gt;그것이 돈자체가 주는 행복따위의 보잘것 없는 것이 아니라,
+내가 내돈으로 핸드폰을 처음 샀다는 성취감, 그리고 선물을 받은 여자친구의 행복한 미소에서 오는 고결한 행복임을 아는 사람이 되었으면 좋겠다.&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="diary-univ" /><category term="일기장" /><summary type="html">2021.04.16 어제 도지코인에 넣고잔 640만원이 천만원이 되었다. 360만원을 벌은셈이다. 이러고 또 결국 본능을 이기지 못하고 단타를 치다 마지막에 50정도를 날려서 310만원의 수익을 올렸다. 50프로 가까이되는 어마어마한 수익, 총시드로 봐도 20퍼센트가 넘는 수익률을 하루에 올린것이다. 번돈으로 그동안 액정도 깨지고 배터리도 다되어서 너무 불편했던 핸드폰을 바꿨다. 내가 아이폰 프로모델 라인을 사게되는 날이 올줄이야!</summary></entry></feed>

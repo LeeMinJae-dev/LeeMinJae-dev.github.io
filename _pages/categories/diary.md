@@ -1,12 +1,8 @@
 ---
 title: "일상"
-permalink: /categories/diary/
+permalink: /categories/diary-univ/
 layout: category
 author_profile : true
-taxonomy : diary
+taxonomy : diary-univ
 sidebar_main: true
 ---
-
-{% assign posts = site.categories.diary %}
-{% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}
-

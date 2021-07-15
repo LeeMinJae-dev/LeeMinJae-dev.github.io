@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>[Programmers] 회문 (Python3) - Learnote-Dev</title>
-<meta name="description" content="문제">
+<meta name="description" content="문제 회문(回文) 또는 팰린드롬(palindrome)은 앞 뒤 방향으로 볼 때 같은 순서의 문자로 구성된 문자열을 말한다. 예를 들어 ‘abba’ ‘kayak’, ‘reviver’, ‘madam’은 모두 회문이다. 만일 그 자체는 회문이 아니지만 한 문자를 삭제하여 회문으로 만들 수 있는 문자열이라면 우리는 이런 문자열을 “유사회문”(pseudo palindrome)이라고 부른다. 예를 들어 ‘summuus’는 5번째나 혹은 6번째 문자 ‘u’를 제거하여 ‘summus’인 회문이 되므로 유사회문이다.">
 
 
   <meta name="author" content="이민재">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="http://localhost:4000/programmers/Programmers-%ED%9A%8C%EB%AC%B8/">
 
 
-  <meta property="og:description" content="문제">
+  <meta property="og:description" content="문제 회문(回文) 또는 팰린드롬(palindrome)은 앞 뒤 방향으로 볼 때 같은 순서의 문자로 구성된 문자열을 말한다. 예를 들어 ‘abba’ ‘kayak’, ‘reviver’, ‘madam’은 모두 회문이다. 만일 그 자체는 회문이 아니지만 한 문자를 삭제하여 회문으로 만들 수 있는 문자열이라면 우리는 이런 문자열을 “유사회문”(pseudo palindrome)이라고 부른다. 예를 들어 ‘summuus’는 5번째나 혹은 6번째 문자 ‘u’를 제거하여 ‘summus’인 회문이 되므로 유사회문이다.">
 
 
 
@@ -286,6 +286,10 @@
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (20)</a></li>
+                    
+                
+                    
                 
                     
                 
@@ -297,6 +301,8 @@
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
+                
+                    
                         <li><a href="/categories/baekjoon" class="">baekjoon (3)</a></li>
                     
                 
@@ -305,6 +311,8 @@
             </ul>
             <ul>
 		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
                 
                     
                 
@@ -328,7 +336,7 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="[Programmers] 회문 (Python3)">
-    <meta itemprop="description" content="문제">
+    <meta itemprop="description" content="문제회문(回文) 또는 팰린드롬(palindrome)은 앞 뒤 방향으로 볼 때 같은 순서의 문자로 구성된 문자열을 말한다. 예를 들어 ‘abba’ ‘kayak’, ‘reviver’, ‘madam’은 모두 회문이다. 만일 그 자체는 회문이 아니지만 한 문자를 삭제하여 회문으로 만들 수 있는 문자열이라면 우리는 이런 문자열을 “유사회문”(pseudo palindrome)이라고 부른다. 예를 들어 ‘summuus’는 5번째나 혹은 6번째 문자 ‘u’를 제거하여 ‘summus’인 회문이 되므로 유사회문이다.">
     <meta itemprop="datePublished" content="2021-07-13T00:00:00+00:00">
     
 
@@ -379,7 +387,6 @@
           </aside>
         
         <h2 id="문제">문제</h2>
-
 <p>회문(回文) 또는 팰린드롬(palindrome)은 앞 뒤 방향으로 볼 때 같은 순서의 문자로 구성된 문자열을 말한다. 예를 들어 ‘abba’ ‘kayak’, ‘reviver’, ‘madam’은 모두 회문이다. 만일 그 자체는 회문이 아니지만 한 문자를 삭제하여 회문으로 만들 수 있는 문자열이라면 우리는 이런 문자열을 “유사회문”(pseudo palindrome)이라고 부른다. 예를 들어 ‘summuus’는 5번째나 혹은 6번째 문자 ‘u’를 제거하여 ‘summus’인 회문이 되므로 유사회문이다.</p>
 
 <p>여러분은 제시된 문자열을 분석하여 그것이 그 자체로 회문인지, 또는 한 문자를 삭제하면 회문이 되는 “유사회문”인지, 아니면 회문이나 유사회문도 아닌 일반 문자열인지를 판단해야 한다. 만일 문자열 그 자체로 회문이면 0, 유사회문이면 1, 그 외는 2를 출력해야 한다.</p>
@@ -526,7 +533,7 @@ summuus
       
   <nav class="pagination">
     
-      <a href="/baekjoon/BOJ-16173-%EC%A0%90%ED%94%84%EC%99%95-%EC%A9%B0%EB%A6%AC(small)-Python/" class="pagination--pager" title="[BOJ] 16173 점프왕 쩰리(small) (Python3)
+      <a href="/baekjoon/BOJ-16173-%EC%A0%90%ED%94%84%EC%99%95-%EC%A9%B0%EB%A6%AC(small)-Python-%EB%B3%B5%EC%82%AC%EB%B3%B8/" class="pagination--pager" title="[BOJ] 16173 점프왕 쩰리(small) (Python3)
 ">이전</a>
     
     
@@ -588,8 +595,7 @@ summuus
 
 
     <p class="archive__item-excerpt" itemprop="description">문제
-
-</p>
+재난방재청에서는 많은 비가 내리는 장마철에 대비해서 다음과 같은 일을 계획하고 있다. 먼저 어떤 지역의 높이 정보를 파악한다. 그 다음에 그 지역에 많은 비가 내렸을 때 물에 잠기지 않는 안전한 영역이 최대로 몇 개가 만들어 지는 지를 조사하려고 한다. 이때, 문제를 간단하게...</p>
   </article>
 </div>
 
@@ -650,7 +656,7 @@ summuus
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/baekjoon/BOJ-16173-%EC%A0%90%ED%94%84%EC%99%95-%EC%A9%B0%EB%A6%AC(small)-Python/" rel="permalink">[BOJ] 16173 점프왕 쩰리(small) (Python3)
+        <a href="/baekjoon/BOJ-16173-%EC%A0%90%ED%94%84%EC%99%95-%EC%A9%B0%EB%A6%AC(small)-Python-%EB%B3%B5%EC%82%AC%EB%B3%B8/" rel="permalink">[BOJ] 16173 점프왕 쩰리(small) (Python3)
 </a>
       
     </h2>
@@ -686,6 +692,53 @@ summuus
 ‘쩰리’는 점프하는 것을 좋아하는 젤리다. 단순히 점프하는 것에 지루함을 느낀 ‘쩰리’는 새로운 점프 게임을 해보고 싶어 한다. 새로운 점프 게임의 조건은 다음과 같다.
 
 </p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%9E%84%EC%8B%A0/" rel="permalink">임신
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-04-30T00:00:00+00:00">April 30, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2021.04.30
+어제 밤에 월가아재님이 쓰신 블로그에서 잠겨있는 시황을 어떻게 하면 볼 수 있을까 구글 캐시를 뒤지다가, 월가아재님이 쓰신 임신 부터 출산까지의 경험을 적은 일기를 발견했다. 정작 시황은 하나도 못보고, 어제 저녁에 그 글을 읽었다. 아직 나이가 어려서, 주변에...</p>
   </article>
 </div>
 

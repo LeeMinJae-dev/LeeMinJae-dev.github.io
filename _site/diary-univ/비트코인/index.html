@@ -1,0 +1,768 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>비트코인 - Learnote-Dev</title>
+<meta name="description" content="2021.03.30 오랫동안 갖고있었던 코인이 어제 20프로가까이 올랐다. 그래서 원래 갖고있던 다른 코인종목을 처분하고 추격매수를 했는데 8프로대로 마감 후 오늘이 되니 약하락 상태이다. 어제는 돈을 잔뜩벌어 신났는데 다시 원상태로 돌아온 허무함. 오히려 다른 종목에서의 손실을 포함하면 잃었다. 주식과 비트코인등 각종 금융투자를 하면서, 인간의 욕심이 얼마나 지독한지 깨닫는다. 거기다 인간의 이성이란건 아주 흐릿해서 조금만 요동쳐도 이성이 마비되버리는데, 내가 얼마나 나약한 존재인지 깨닫게 된다. 욕심 때문에 팔아야할때 팔지못하고, 두려움 때문에 사야할때 사지못한다. 결국 인간의 감정이 0퍼센트로 관여되지 않는 기계만이 수익을 얻을수 있는것일까. 하지만 몇몇 주식시장에서 큰 수익을 내는 사람들을 보면 그들은 오히려 인간의 그 알수없는 뭔가의 느낌에 기대서 매매를 하기도 한다. 사실 인간의 알수없는 느낌으로 매매를 해서 돈을 번다는것이 이해가 가지않는다. 증권가 은어로 ‘메사끼’가 있다고 하는데 내가 생각하기엔 확률이 만들어내는 아주 운이좋은 확률의 수혜자가 아닐까 싶다. 가위바위보를 백번연속 이길 확률에 대하여 생각해볼 떄 불가능한 확률이라고 생각하겠지만, 101명이서 토너먼트로 가위바위보를 진행한다면 100번을 연속으로 우승하는 1등은 반드시 탄생하게 된다. 금융시장도 결국 버느냐 잃느냐의 50퍼센트의 확률의 반복이 일어나는 경우의 수로 본다면, 생각보다 연속으로 백번정도 이길확률은 물론 아주 적지만, 대한민국 총인구로 미루어보았을때, 그리 작은 확률은 아니다. 게다가 주식이나 비트코인의 상승이 크거나, 시드머니가 큰 경우는 백번 이길필요도 없기 때문 에, 확률 상 운이 좋게 돈을 버는 사람들은 꽤 많이 나올수 있다는 생각이다. 물론 버느냐 잃느냐가 장전체가 상승장이냐 하락장이냐에 따라 50퍼센트는 당연히 아니겠지만, 확률상으로 우연이 만들어준 주식고수가 탄생하기 쉽다는말이다. 사실 이런 생각이 무슨 생각이 있을까. 내가 돈을 벌지도 못하는데 그저 남의 성공이 운에 기대서 이루어졌다는 생각은 그냥 열등감일 뿐.  다시 욕심을 끊어내고 차가운 이성을 머리에 챙기고 그 머리가 멍해지는 차트를 보러 다시간다.">
+
+
+  <meta name="author" content="이민재">
+  
+  <meta property="article:author" content="이민재">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Learnote-Dev">
+<meta property="og:title" content="비트코인">
+<meta property="og:url" content="http://localhost:4000/diary-univ/%EB%B9%84%ED%8A%B8%EC%BD%94%EC%9D%B8/">
+
+
+  <meta property="og:description" content="2021.03.30 오랫동안 갖고있었던 코인이 어제 20프로가까이 올랐다. 그래서 원래 갖고있던 다른 코인종목을 처분하고 추격매수를 했는데 8프로대로 마감 후 오늘이 되니 약하락 상태이다. 어제는 돈을 잔뜩벌어 신났는데 다시 원상태로 돌아온 허무함. 오히려 다른 종목에서의 손실을 포함하면 잃었다. 주식과 비트코인등 각종 금융투자를 하면서, 인간의 욕심이 얼마나 지독한지 깨닫는다. 거기다 인간의 이성이란건 아주 흐릿해서 조금만 요동쳐도 이성이 마비되버리는데, 내가 얼마나 나약한 존재인지 깨닫게 된다. 욕심 때문에 팔아야할때 팔지못하고, 두려움 때문에 사야할때 사지못한다. 결국 인간의 감정이 0퍼센트로 관여되지 않는 기계만이 수익을 얻을수 있는것일까. 하지만 몇몇 주식시장에서 큰 수익을 내는 사람들을 보면 그들은 오히려 인간의 그 알수없는 뭔가의 느낌에 기대서 매매를 하기도 한다. 사실 인간의 알수없는 느낌으로 매매를 해서 돈을 번다는것이 이해가 가지않는다. 증권가 은어로 ‘메사끼’가 있다고 하는데 내가 생각하기엔 확률이 만들어내는 아주 운이좋은 확률의 수혜자가 아닐까 싶다. 가위바위보를 백번연속 이길 확률에 대하여 생각해볼 떄 불가능한 확률이라고 생각하겠지만, 101명이서 토너먼트로 가위바위보를 진행한다면 100번을 연속으로 우승하는 1등은 반드시 탄생하게 된다. 금융시장도 결국 버느냐 잃느냐의 50퍼센트의 확률의 반복이 일어나는 경우의 수로 본다면, 생각보다 연속으로 백번정도 이길확률은 물론 아주 적지만, 대한민국 총인구로 미루어보았을때, 그리 작은 확률은 아니다. 게다가 주식이나 비트코인의 상승이 크거나, 시드머니가 큰 경우는 백번 이길필요도 없기 때문 에, 확률 상 운이 좋게 돈을 버는 사람들은 꽤 많이 나올수 있다는 생각이다. 물론 버느냐 잃느냐가 장전체가 상승장이냐 하락장이냐에 따라 50퍼센트는 당연히 아니겠지만, 확률상으로 우연이 만들어준 주식고수가 탄생하기 쉽다는말이다. 사실 이런 생각이 무슨 생각이 있을까. 내가 돈을 벌지도 못하는데 그저 남의 성공이 운에 기대서 이루어졌다는 생각은 그냥 열등감일 뿐.  다시 욕심을 끊어내고 차가운 이성을 머리에 챙기고 그 머리가 멍해지는 차트를 보러 다시간다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-03-30T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/diary-univ/%EB%B9%84%ED%8A%B8%EC%BD%94%EC%9D%B8/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이민재",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Learnote-Dev Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Learnote-Dev
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/about/">About me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile.jpg" alt="이민재" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이민재</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>포트폴리오/일상 기록</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Incheon, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="lmj938@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://blog.naver.com/lmj938" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/leeminjae-dev/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:lmj938@naver.com">
+            <meta itemprop="email" content="lmj938@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+        <!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Life</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (20)</a></li>
+                    
+                
+                    
+                
+                    
+                
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">baekjoon (3)</a></li>
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/programmers" class="">programmers(1)</a></li>
+                    
+                
+
+
+           
+            </ul>
+      </li>
+  </ul>
+</nav>
+
+  
+
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="비트코인">
+    <meta itemprop="description" content="2021.03.30오랫동안 갖고있었던 코인이 어제 20프로가까이 올랐다.그래서 원래 갖고있던 다른 코인종목을 처분하고 추격매수를 했는데 8프로대로 마감 후 오늘이 되니 약하락 상태이다. 어제는 돈을 잔뜩벌어 신났는데 다시 원상태로 돌아온 허무함.오히려 다른 종목에서의 손실을 포함하면 잃었다.주식과 비트코인등 각종 금융투자를 하면서, 인간의 욕심이 얼마나 지독한지 깨닫는다. 거기다 인간의 이성이란건 아주 흐릿해서 조금만 요동쳐도 이성이 마비되버리는데, 내가 얼마나 나약한 존재인지 깨닫게 된다. 욕심 때문에 팔아야할때 팔지못하고, 두려움 때문에 사야할때 사지못한다. 결국 인간의 감정이 0퍼센트로 관여되지 않는 기계만이 수익을 얻을수 있는것일까.하지만 몇몇 주식시장에서 큰 수익을 내는 사람들을 보면그들은 오히려 인간의 그 알수없는 뭔가의 느낌에 기대서 매매를 하기도 한다.사실 인간의 알수없는 느낌으로 매매를 해서 돈을 번다는것이 이해가 가지않는다.증권가 은어로 ‘메사끼’가 있다고 하는데 내가 생각하기엔확률이 만들어내는 아주 운이좋은 확률의 수혜자가 아닐까 싶다.가위바위보를 백번연속 이길 확률에 대하여 생각해볼 떄불가능한 확률이라고 생각하겠지만, 101명이서 토너먼트로 가위바위보를 진행한다면100번을 연속으로 우승하는 1등은 반드시 탄생하게 된다.금융시장도 결국 버느냐 잃느냐의 50퍼센트의 확률의 반복이 일어나는 경우의 수로 본다면,생각보다 연속으로 백번정도 이길확률은 물론 아주 적지만, 대한민국 총인구로 미루어보았을때,그리 작은 확률은 아니다. 게다가 주식이나 비트코인의 상승이 크거나, 시드머니가 큰 경우는 백번 이길필요도 없기 때문 에, 확률 상 운이 좋게 돈을 버는 사람들은 꽤 많이 나올수 있다는 생각이다.물론 버느냐 잃느냐가 장전체가 상승장이냐 하락장이냐에 따라 50퍼센트는 당연히 아니겠지만,확률상으로 우연이 만들어준 주식고수가 탄생하기 쉽다는말이다.사실 이런 생각이 무슨 생각이 있을까.내가 돈을 벌지도 못하는데 그저 남의 성공이 운에 기대서 이루어졌다는 생각은 그냥 열등감일 뿐. 다시 욕심을 끊어내고차가운 이성을 머리에 챙기고그 머리가 멍해지는 차트를 보러 다시간다.">
+    <meta itemprop="datePublished" content="2021-03-30T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">비트코인
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-03-30T00:00:00+00:00">March 30, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#20210330">2021.03.30</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="20210330">2021.03.30</h2>
+<p>오랫동안 갖고있었던 코인이 어제 20프로가까이 올랐다.
+그래서 원래 갖고있던 다른 코인종목을 처분하고 추격매수를 했는데 8프로대로 마감 후 오늘이 되니 약하락 상태이다. 어제는 돈을 잔뜩벌어 신났는데 다시 원상태로 돌아온 허무함.
+오히려 다른 종목에서의 손실을 포함하면 잃었다.
+주식과 비트코인등 각종 금융투자를 하면서, 인간의 욕심이 얼마나 지독한지 깨닫는다. 거기다 인간의 이성이란건 아주 흐릿해서 조금만 요동쳐도 이성이 마비되버리는데, 내가 얼마나 나약한 존재인지 깨닫게 된다. 욕심 때문에 팔아야할때 팔지못하고, 두려움 때문에 사야할때 사지못한다. 결국 인간의 감정이 0퍼센트로 관여되지 않는 기계만이 수익을 얻을수 있는것일까.
+하지만 몇몇 주식시장에서 큰 수익을 내는 사람들을 보면
+그들은 오히려 인간의 그 알수없는 뭔가의 느낌에 기대서 매매를 하기도 한다.
+사실 인간의 알수없는 느낌으로 매매를 해서 돈을 번다는것이 이해가 가지않는다.
+증권가 은어로 ‘메사끼’가 있다고 하는데 내가 생각하기엔
+확률이 만들어내는 아주 운이좋은 확률의 수혜자가 아닐까 싶다.
+가위바위보를 백번연속 이길 확률에 대하여 생각해볼 떄
+불가능한 확률이라고 생각하겠지만, 101명이서 토너먼트로 가위바위보를 진행한다면
+100번을 연속으로 우승하는 1등은 반드시 탄생하게 된다.
+금융시장도 결국 버느냐 잃느냐의 50퍼센트의 확률의 반복이 일어나는 경우의 수로 본다면,
+생각보다 연속으로 백번정도 이길확률은 물론 아주 적지만, 대한민국 총인구로 미루어보았을때,
+그리 작은 확률은 아니다. 게다가 주식이나 비트코인의 상승이 크거나, 시드머니가 큰 경우는 백번 이길필요도 없기 때문 에, 확률 상 운이 좋게 돈을 버는 사람들은 꽤 많이 나올수 있다는 생각이다.
+물론 버느냐 잃느냐가 장전체가 상승장이냐 하락장이냐에 따라 50퍼센트는 당연히 아니겠지만,
+확률상으로 우연이 만들어준 주식고수가 탄생하기 쉽다는말이다.
+사실 이런 생각이 무슨 생각이 있을까.
+내가 돈을 벌지도 못하는데 그저 남의 성공이 운에 기대서 이루어졌다는 생각은 그냥 열등감일 뿐. 
+다시 욕심을 끊어내고
+차가운 이성을 머리에 챙기고
+그 머리가 멍해지는 차트를 보러 다시간다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#%EC%9D%BC%EA%B8%B0%EC%9E%A5" class="page__taxonomy-item" rel="tag">일기장</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#diary-univ" class="page__taxonomy-item" rel="tag">diary-univ</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-03-30T00:00:00+00:00">March 30, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EB%B9%84%ED%8A%B8%EC%BD%94%EC%9D%B8%20http%3A%2F%2Flocalhost%3A4000%2Fdiary-univ%2F%25EB%25B9%2584%25ED%258A%25B8%25EC%25BD%2594%25EC%259D%25B8%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdiary-univ%2F%25EB%25B9%2584%25ED%258A%25B8%25EC%25BD%2594%25EC%259D%25B8%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdiary-univ%2F%25EB%25B9%2584%25ED%258A%25B8%25EC%25BD%2594%25EC%259D%25B8%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/diary-univ/%EC%9A%B4%EB%8F%99/" class="pagination--pager" title="운동
+">이전</a>
+    
+    
+      <a href="/diary-univ/%EB%A9%94%ED%83%80%EB%94%94%EC%9B%80/" class="pagination--pager" title="메타디움
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/baekjoon/%EC%95%88%EC%A0%84%EC%98%81%EC%97%AD/" rel="permalink">[BOJ] 2468 안전영역 (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-15T00:00:00+00:00">July 15, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+재난방재청에서는 많은 비가 내리는 장마철에 대비해서 다음과 같은 일을 계획하고 있다. 먼저 어떤 지역의 높이 정보를 파악한다. 그 다음에 그 지역에 많은 비가 내렸을 때 물에 잠기지 않는 안전한 영역이 최대로 몇 개가 만들어 지는 지를 조사하려고 한다. 이때, 문제를 간단하게...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/baekjoon/BOJ-%EC%9C%A0%EA%B8%B0%EB%86%8D-%EB%B0%B0%EC%B6%94/" rel="permalink">[BOJ] 1012 유기농배추 (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-15T00:00:00+00:00">July 15, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+차세대 영농인 한나는 강원도 고랭지에서 유기농 배추를 재배하기로 하였다. 농약을 쓰지 않고 배추를 재배하려면 배추를 해충으로부터 보호하는 것이 중요하기 때문에, 한나는 해충 방지에 효과적인 배추흰지렁이를 구입하기로 결심한다. 이 지렁이는 배추근처에 서식하며 해충을 잡아 먹음으...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programmers/Programmers-%ED%9A%8C%EB%AC%B8/" rel="permalink">[Programmers] 회문 (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-13T00:00:00+00:00">July 13, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+회문(回文) 또는 팰린드롬(palindrome)은 앞 뒤 방향으로 볼 때 같은 순서의 문자로 구성된 문자열을 말한다. 예를 들어 ‘abba’ ‘kayak’, ‘reviver’, ‘madam’은 모두 회문이다. 만일 그 자체는 회문이 아니지만 한 문자를 삭제하여 회문으로 만들 ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/baekjoon/BOJ-16173-%EC%A0%90%ED%94%84%EC%99%95-%EC%A9%B0%EB%A6%AC(small)-Python-%EB%B3%B5%EC%82%AC%EB%B3%B8/" rel="permalink">[BOJ] 16173 점프왕 쩰리(small) (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-13T00:00:00+00:00">July 13, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+‘쩰리’는 점프하는 것을 좋아하는 젤리다. 단순히 점프하는 것에 지루함을 느낀 ‘쩰리’는 새로운 점프 게임을 해보고 싶어 한다. 새로운 점프 게임의 조건은 다음과 같다.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/leeminjae-dev" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/diary-univ/%EB%B9%84%ED%8A%B8%EC%BD%94%EC%9D%B8/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/diary-univ/비트코인 "; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://leeminjae-dev-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
