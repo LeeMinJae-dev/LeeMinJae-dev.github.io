@@ -1,9 +1,9 @@
 ---
 title: "Programmers"
-permalink: /categories/Programmers/
+permalink: /categories/programmers/
 layout: category
 author_profile : true
-taxonomy : Programmers
+taxonomy : programmers
 sidebar:nav:"docs"
 ---
 

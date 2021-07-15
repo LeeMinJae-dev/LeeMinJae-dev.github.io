@@ -1,10 +1,11 @@
 ---
 title: "Baekjoon"
-permalink: /categories/Baekjoon/
+permalink: /categories/baekjoon/
 layout: category
 author_profile : true
-taxonomy : Backjoon
-sidebar:nav:"docs"
+taxonomy : backjoon
+sidebar:
+    nav:"docs"
 ---
 
 
