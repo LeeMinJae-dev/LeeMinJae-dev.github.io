@@ -4,6 +4,8 @@ permalink: /categories/life/
 layout: category
 author_profile : true
 taxonomy : life
+sidebar:
+    nav:"main"
 ---
 
 
