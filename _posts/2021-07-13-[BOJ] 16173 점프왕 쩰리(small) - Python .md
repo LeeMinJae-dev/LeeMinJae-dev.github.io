@@ -8,6 +8,10 @@ tags:
     - 코딩테스트
     - 백준
     - 파이썬
+toc: true
+toc_label: "On this page"
+
+toc_sticky: true
     
 ---
 

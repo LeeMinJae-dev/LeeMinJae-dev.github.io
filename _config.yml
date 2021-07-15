@@ -282,8 +282,6 @@ defaults:
       type: posts
     values:
       sidebar_main : true
-      sidebar:
-        nav: "docs"
       layout: single
       author_profile: true
       read_time: true
