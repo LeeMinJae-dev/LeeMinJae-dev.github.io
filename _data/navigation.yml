@@ -3,7 +3,7 @@ main:
   - title: "About me"
     url: https://leeminjae-dev.github.io/about/
   - title: "Baekjoon"
-    url: learnote-dev.com/categories/Baekjoon/
+    url: https://leeminjae-dev.github.io/categories/Baekjoon/
     
   # - title: "Sample Posts"
   #   url: /year-archive/
@@ -15,12 +15,12 @@ docs:
   - title: Algorithm
     children:
       - title: "Baekjoon"
-        url: /categories/Baekjoon/
+        url: https://leeminjae-dev.github.io/categories/baekjoon/
       - title: "Programmers"
-        url: /categories/Programmers/
+        url: https://leeminjae-dev.github.io/categories/programmers/
   - title: Life
     children:
       - title: "Diary"
-        url: /categories/diary/
+        url: https://leeminjae-dev.github.io/categories/diary/
 
 
