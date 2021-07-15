@@ -2,8 +2,6 @@
 main:
   - title: "About me"
     url: https://leeminjae-dev.github.io/about/
-  - title: "Baekjoon"
-    url: https://leeminjae-dev.github.io/categories/Baekjoon/
     
   # - title: "Sample Posts"
   #   url: /year-archive/
