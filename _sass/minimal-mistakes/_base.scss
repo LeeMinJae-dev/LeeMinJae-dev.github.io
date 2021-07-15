@@ -136,11 +136,11 @@ a {
   }
 
   &:visited {
-    color: #000000;
+    color: $link-color-visited;
   }
 
   &:hover {
-    color: #000000;
+    color: $link-color-hover;
     outline: 0;
   }
 }
