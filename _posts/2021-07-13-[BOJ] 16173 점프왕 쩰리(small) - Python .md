@@ -3,7 +3,7 @@ title : "[BOJ] 16173 점프왕 쩰리(small)"
 excerpt : "백준 문제풀이 - 16173"
 
 categories:
-    - Coding Test
+    - codingtest
 tags:
     - 코딩테스트
     - 백준
