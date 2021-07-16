@@ -311,7 +311,7 @@
                     
                 
                     
-                        <li><a href="/categories/baekjoon" class="">baekjoon (3)</a></li>
+                        <li><a href="/categories/baekjoon" class="">baekjoon (6)</a></li>
                     
                 
                     
@@ -433,19 +433,15 @@
 당연하겠지만 가격이 얼마나 ‘변동’하는지에 대한 수치이다.
 어떠한 상품의 수익률의 표준편차로 계산한 값이며, 리스크의 일반적인 개념으로도 사용한다.</p>
 
-<p>변동성의 종류에는 크게 두가지가 있는데,</p>
-
-<p>첫번째는 실제 변동성(Actual Volatility): 실제로 가격이 얼마나 변동하는지에 대한 수치</p>
+<p>변동성의 종류에는 크게 두가지가 있는데,
+첫번째는 실제 변동성(Actual Volatility): 실제로 가격이 얼마나 변동하는지에 대한 수치</p>
 
 <p>두번째는 내재 변동성(Implied Volatility): 시장이 생각하는 변동성</p>
 
 <p>실제 변동성은 실제로 가격이 변화한량을 말한다. 예를 들어 과거 실제 변동성이라고 하면</p>
 
-<p>과거 특정기간(30일, 1년)간의 실제적인 변동성의 수치를 말할 것이다.</p>
-
-<p>단, 현재 실제 변동성은 개념적으로는 존재하나, 현재라는것은 매번 변하고 있으므로 측정이 불가하다.</p>
-
-<p>​</p>
+<p>과거 특정기간(30일, 1년)간의 실제적인 변동성의 수치를 말할 것이다.
+단, 현재 실제 변동성은 개념적으로는 존재하나, 현재라는것은 매번 변하고 있으므로 측정이 불가하다.</p>
 
 <p>이 두가지 개념중에서 일반적으로 더 중요하게 받아들여지는건 내재변동성인데</p>
 
@@ -454,8 +450,6 @@
 <p>이 내재변동성은 말그대로 ‘내재’된 변동성이라 직접적인 측정이 불가한데</p>
 
 <p>개념을 정확히 알기위해 먼저 옵션에 대해 이해해야 한다.</p>
-
-<p>​</p>
 
 <p>옵션은 어떠한 상품을 미래에 특정한 가격으로 사거나, 팔 수 있는 권리인데</p>
 
@@ -487,9 +481,8 @@
 
 <p>따라서 하방 리스크를 제한하는 대신, 얻을수 있는 수익의 그래프를 아래로 내린 셈이 된다.</p>
 
-<p>​</p>
-
-<p>반대로 풋옵션은 반대로 팔권리 이므로 가격이 떨어질수록 수익은 늘어나고,</p>
+<p>​
+반대로 풋옵션은 반대로 팔권리 이므로 가격이 떨어질수록 수익은 늘어나고,</p>
 
 <p>가격이 올랐을때는 콜옵션과 동일하게 프리미엄만큼의 손실을 보고 권리를 포기하면 된다.</p>
 
@@ -502,18 +495,14 @@
 
 <p>왼쪽은 2100만 가격이 넘어가도 수익이 나지만, 오른쪽은 3000을 넘어야 겨우 수익이 나기 시작한다.</p>
 
-<p>​</p>
-
 <p>이러한 프리미엄의 가격은 어떻게 결정될까??</p>
 
-<p>​</p>
-
-<p>보통 옵션의 가격은 블랙숄즈 모델을 통해 계산되는데,</p>
+<p>​
+보통 옵션의 가격은 블랙숄즈 모델을 통해 계산되는데,</p>
 
 <p>이 모델은 다섯가지의 인풋을 가진다.</p>
 
 <p>​</p>
-
 <ul>
   <li>행사가격 : 콜옵션의 경우 행사가격이 낮을수록 옵션이 비쌈</li>
 </ul>
@@ -521,7 +510,6 @@
 <p>당연히 싸게 살수 있는 권리일수록 더 많은 차익을 남길 수 있으니 옵션의 가격이 비싸다.</p>
 
 <p>​</p>
-
 <ul>
   <li>현재 상품 가격 : 콜옵션의 경우는 현재상품 가격이 높을수록 옵션이 비싸다.</li>
 </ul>
@@ -530,31 +518,22 @@
 
 <p>현재상품가격이 낮았을때 보다 프리미엄이 비싸다.</p>
 
-<p>​</p>
+<p>​
+​- 만기까지 남은시간 : 만기까지 시간이 많이 남았을수록 옵션이 비쌈</p>
 
 <ul>
-  <li>만기까지 남은시간 : 만기까지 시간이 많이 남았을수록 옵션이 비쌈</li>
-</ul>
-
-<p>​</p>
-
-<ul>
-  <li>이자율 : 이자율이 높을수록 미래 상품가격이 많이 오를것으로 기대되어 (콜)옵션이 비쌈</li>
-</ul>
-
-<p>​</p>
-
-<ul>
-  <li><strong>변동성</strong> : 변동성이 높을수록 가격이 많이 오를 가능성이 있기 때문에, 옵션이 비싸다.</li>
+  <li>
+    <p>이자율 : 이자율이 높을수록 미래 상품가격이 많이 오를것으로 기대되어 (콜)옵션이 비쌈</p>
+  </li>
+  <li>
+    <p><strong>변동성</strong> : 변동성이 높을수록 가격이 많이 오를 가능성이 있기 때문에, 옵션이 비싸다.</p>
+  </li>
 </ul>
 
 <p>(많이 내릴 가능성도 같이 높아지는 것이지만, 그 경우에는 행사하지 않으면 되는 ‘권리’이기 때문에 상관없음)</p>
 
-<p>​</p>
-
-<p>이 다섯가지 인풋중 ‘변동성’만은 시장에서 직접적으로 관찰이 불가능한 변수이다.</p>
-
-<p>​</p>
+<p>​
+이 다섯가지 인풋중 ‘변동성’만은 시장에서 직접적으로 관찰이 불가능한 변수이다.</p>
 
 <p>하지만 블랙숄즈 모델은 [행사가격, 상품가격, 만기, 이자율, 변동성] 을 입력하면 옵션가격을 출력해주기 때문에,</p>
 
@@ -562,31 +541,27 @@
 
 <p>등식이 성립되는 변동성값을 찾아낼수 있다.</p>
 
-<p>​</p>
-
-<p>따라서 시장 참여자들이 결정한 옵션가격을 미루어 볼때, 그들이 기대하는 미래 변동성이</p>
+<p>​
+따라서 시장 참여자들이 결정한 옵션가격을 미루어 볼때, 그들이 기대하는 미래 변동성이</p>
 
 <p>바로 ‘내재변동성’이다.</p>
 
-<p>​</p>
-
-<p>이러한 내재변동성을 지수로 나타낸게 VIX지수인데 ,</p>
+<p>​
+이러한 내재변동성을 지수로 나타낸게 VIX지수인데 ,</p>
 
 <p>이 지수가 바로 S&amp;P 500 옵션가격에서 계산되는 내재 변동성이다.</p>
 
 <p>따라서 옵션 가격이 비싸면 VIX지수도 높고, 옵션 가격이 쌀때는 VIX지수가 낮다.</p>
 
-<p>​</p>
-
-<p>대체로 주가지수와 변동성지수는 역상관관계인데,</p>
+<p>​
+대체로 주가지수와 변동성지수는 역상관관계인데,</p>
 
 <p>주가가 폭락할때 높게 치솟으며, 이번에 코로나 사태때는 신고점을 갱신했다.</p>
 
 <p>왜 변동성 지수와 주가지수는 역의 상관관계를 가질까?</p>
 
-<p>​</p>
-
-<p>대략 네가지의 이유가 있는데,</p>
+<p>​
+대략 네가지의 이유가 있는데,</p>
 
 <ol>
   <li>공급측면: 주가는 상승할때는 천천히 상승하지만, 하락할때는 공포심리에 의해</li>
@@ -599,38 +574,30 @@
 <p>커지는 것이므로, 더 비싼 옵션가격을 요구하게 된다.</p>
 
 <p>​</p>
-
 <ol>
   <li>수요 측면: 하락장에서 불확실성이 높아지면, 옵션 매수를 통해 그 리스크를 헷지하려는 수요가 늘어나기 때문에 옵션의 가격이 비싸진다.</li>
 </ol>
 
 <p>​</p>
-
 <ol>
   <li>매매 측면: 주가 지수 움직임에 옵션가격이 영향을 받지만, 옵션시장의 매매 때문에</li>
 </ol>
 
 <p>주가 지수가 영향을 받기도 한다.( 다음 게시물에서 자세히 설명)</p>
 
-<p>​</p>
-
-<p>4.내재 변동성구조 측면: 심화내용이므로 패스</p>
-
-<p>​</p>
+<p>​
+4.내재 변동성구조 측면: 심화내용이므로 패스</p>
 
 <p>그렇다면 우리는 이러한 변동성을 왜 알아야할까?</p>
 
 <p>바로 옵션시장에서 벌어지는 일들이 주식 시장에 영향을 미치기 때문이다.</p>
 
-<p>​</p>
-
 <p>예) 소프트 뱅크 손정의 회장이 테크기업 콜옵션을 매수하는데, 왜 나스닥은 상승할까?</p>
 
 <p>예) 대다수의 헤지펀드들이 보유한 옵션 포지션은 어떤 형태이고, 이는 주식 시장에 어떤 영향을 미칠까?</p>
 
-<p>​</p>
-
-<p>먼저 이러한 질문들에 대한 답을 알기위해선</p>
+<p>​
+먼저 이러한 질문들에 대한 답을 알기위해선</p>
 
 <p>옵션시장의 중요한 참여자, 유동성 공급자에 대해서 알아야 한다.</p>
 
@@ -638,9 +605,8 @@
 
 <p>매수/매도 호가를 제시하는 사람이다.</p>
 
-<p>​</p>
-
-<p>주식의 경우는 잡주가 아닌이상 항상 사고팔고 하는 사람이 많기때문에</p>
+<p>​
+주식의 경우는 잡주가 아닌이상 항상 사고팔고 하는 사람이 많기때문에</p>
 
 <p>유동성 공급자가 없더라도 충분히 서로가 서로에게 매수, 매도를 할 수 있다.</p>
 
@@ -652,13 +618,10 @@
 
 <p>시장에 유동성을 공급한다.</p>
 
-<p>​</p>
-
-<p>그렇다면 무조건 반대 포지션을 취하는 마켓메이커는 이러한 행동을 왜 하는걸까?</p>
+<p>​
+그렇다면 무조건 반대 포지션을 취하는 마켓메이커는 이러한 행동을 왜 하는걸까?</p>
 
 <p>마켓메이커의 기본원칙은 매수호가와 매도호가의 차이 = 호가 스프레드를 끊임없이 모으는것이다.</p>
-
-<p>​</p>
 
 <p>매수호가 101 - 매도호가 103인 경우, 가격은 중간값인 102</p>
 
@@ -670,8 +633,6 @@
 
 <p>‘엣지’를 모아간다.</p>
 
-<p>​</p>
-
 <p>그렇다면 만약 매수포지션을 취했는데 시장이 내린다면 손해인데 이러한 상황은 어떻게 할까?</p>
 
 <p>사실 매수했을때 떨어지는 경우도 있겠지만, 매수했을때 오르는 경우도 있을 것이기 때문에</p>
@@ -682,15 +643,11 @@
 
 <p>물론 마켓메이커도 시장이 오를것같다 내릴것 같다는 뷰는 반영을한다.</p>
 
-<p>​</p>
-
 <p>이러한 원칙 때문에 마켓메이커 입장에서는 갖고있는 포지션이 적으면 적을수록 좋다.</p>
 
 <p>따라서 가장 이상적인 상황은 사려는 사람과 팔려는 사람이 항상 많아서</p>
 
 <p>포지션을 갖고있는 시간이 최소화되는 상황이다.</p>
-
-<p>​</p>
 
 <p>하지만 이렇게 유동성이 항상 많을 수 없기 때문에 마켓메이커에게는</p>
 
@@ -706,13 +663,10 @@
 
 <p>오로지 엣지에서 오는 이득만을 취하려고 노력한다.</p>
 
-<p>​</p>
-
-<p>자 다시 아까의 질문으로 돌아가서,</p>
+<p>​
+자 다시 아까의 질문으로 돌아가서,</p>
 
 <p>손정의 회장이 기술주 콜옵션을 사서 나스닥이 상승했는가? 에 대한 질문에 대해 다시 생각해보자.</p>
-
-<p>​</p>
 
 <p>이 질문은 하나처럼 보이지만 사실은,</p>
 
@@ -727,8 +681,6 @@
 
 <p>이 두가지에 대한 질문으로 볼 수 있다.</p>
 
-<p>​</p>
-
 <p>손정의 회장이 콜옵션을 매수하게 되면 옵션 시장에는 어떠한 변화가 일어날까?</p>
 
 <p>대규모의 콜옵션을 매수하려고 하면 그 물량은 마켓메이커들이 받아낼 것이다.</p>
@@ -738,8 +690,6 @@
 <p>위에서 설명했다시피 마켓메이커는 시장의 하락과 상승에 베팅하는 것이 아니므로 최대한 중립적인 포지션을 위해</p>
 
 <p>리스크 헷지를 위한 기술주 현물 주식을 매수한다.</p>
-
-<p>​</p>
 
 <p>행사가와 주식가가 똑같다고 가정할때 그렇다면 마켓메이커는</p>
 
@@ -773,8 +723,6 @@
 
 <p>이렇기 때문에 옵션은 방향성 매매가 아니고 변동성 매매임을 알 수 있다.</p>
 
-<p>​</p>
-
 <p>그렇다면 만약 현재 주식가격이 행사가보다 훨씬 낮다면 어떻게 될까?</p>
 
 <p>위와 동일하게 옵션과 주식을 100개와 50개를 매도 매수했다고 가정했을때,</p>
@@ -782,8 +730,6 @@
 <p>보라색 손익 그래프는 그 모양 그대로 위로 올라가게 된다.</p>
 
 <p>반대로 주식 가격이 행사가 보다 높은 경우는, 보라색 손익그래프가 모양그대로 아래로 내려가게 될것이다.</p>
-
-<p>​</p>
 
 <p>근데 다시 생각해보자, 헷지를 하는 이유는 위 아래 모두 동일하게 방향성에 대한 중립상태를 만드는 것인데</p>
 
@@ -793,15 +739,11 @@
 
 <p>주식가격이 비싼경우에는 손익그래프가 주가가 내릴때 최대한의 이득이 나오게되어 주가가 내리는걸 원하게된다.</p>
 
-<p>​</p>
-
 <p>따라서 만약 주식가격이 행사가 보다 싼경우에는 주식수를 줄이고,</p>
 
 <p>주식가격이 행사가 보다 비싼경우에는 주식수를 늘려서 비중을 조절하여야</p>
 
 <p>주식의 방향성이 어디로 가던 중립적인 손익그래프를 얻을 수 있는것이다.</p>
-
-<p>​</p>
 
 <p>이러한 주식가격의 움직임에 대한 옵션 가격의 민감도를 ‘옵션 델타’(Delta) 라고 하는데,</p>
 
@@ -810,8 +752,6 @@
 <p>델타가 1이면 주식가격이 움직이는 만큼 그대로 옵셕가격이 따라 움직인 다는것,</p>
 
 <p>델타가 0.5 이면 주식가격의 50퍼센트만큼 옵션가격이 움직인다는 것이다.</p>
-
-<p>​</p>
 
 <p>예를들어 행사가 100의 콜옵션의 경우</p>
 
@@ -827,13 +767,9 @@
 
 <p>-주식가격이 행사가와 동일한 100일때, 행사 될확률과 안될 확률이 반반이므로, = 델타 0.5</p>
 
-<p>​</p>
-
 <p>이러한 델타는 옵션이 행사될 확률로 해석하기도 한다.(엄밀히 말하면 정확하지는 않지만, 대부분의 확률이 그러함)</p>
 
 <p>따라서 상품가격이 오를수록 콜옵션의 델타가 상승한다. 따라서 헷지를 더욱 많이 해야한다.</p>
-
-<p>​</p>
 
 <p>자 다시 손정의 회장이 콜옵션을 매수 했을때의 상황을 가정해보자.</p>
 
@@ -841,45 +777,34 @@
 
 <p>정말 쌩으로 콜옵션을 매수했다고 가정하자. 그랬다면 행사가가 현재가격보다 높은 싼 옵션을 매수 했을 것이다.</p>
 
-<p>​</p>
-
 <p>옵션은 세가지 종류로 부를 수 있는데</p>
 
-<p>​</p>
-
-<ol>
+<ul>
   <li>내가격 옵션 (in the money) : 이미 이익구간에 들어가있는 옵션, 매수하자마자 행사해도 이익임</li>
-</ol>
+</ul>
 
 <blockquote>
-  <blockquote>
-    <p>델타 0.5 이상</p>
-  </blockquote>
+  <p>델타 0.5 이상</p>
 </blockquote>
 
-<ol>
+<ul>
   <li>중가격 옵션 (at the money) : 주식가격과 행사가가 동일한 옵션,</li>
-</ol>
+</ul>
 
 <blockquote>
-  <blockquote>
-    <p>델타 0.5</p>
-  </blockquote>
+  <p>델타 0.5</p>
 </blockquote>
 
-<ol>
+<ul>
   <li>외가격 옵션 (out of the money) : 아직 행사가가 먼 옵션,</li>
-</ol>
+</ul>
 
 <blockquote>
-  <blockquote>
-    <p>델타 0.5 미만</p>
-  </blockquote>
+  <p>델타 0.5 미만</p>
 </blockquote>
 
-<p>​</p>
-
-<p>내 가격은 바로 행사해도 이익이 나므로 비싸다. 따라서 손정의식 배팅의 의미를 두려면</p>
+<p>​
+내 가격은 바로 행사해도 이익이 나므로 비싸다. 따라서 손정의식 배팅의 의미를 두려면</p>
 
 <p>아마도 외가격 콜옵션을 매수 했을 가능성이 크다.</p>
 
@@ -891,8 +816,6 @@
 
 <p>더많은 주식을 매수해야만 방향성에 대한 헷지를 할 수 있다.</p>
 
-<p>​</p>
-
 <p>따라서 이러한 예가 옵션매수가 왜 현물 주식에 영향을 미치는지에 대한 이유이다.</p>
 
 <p>따라서 우리가 옵션시장에서 무슨일이 일어나는지 알지 못하면,</p>
@@ -901,9 +824,8 @@
 
 <p>볼 수 밖에 없는 것이다.</p>
 
-<p>​</p>
-
-<p>따라서 옵션시장에 집중하여 거대 헤지펀드들이 어떠한 포지션을 취하고 있는지에 집중하면,</p>
+<p>​
+따라서 옵션시장에 집중하여 거대 헤지펀드들이 어떠한 포지션을 취하고 있는지에 집중하면,</p>
 
 <p>어느정도 확률적 우위를 선점 할 수 있다.</p>
 
@@ -1001,6 +923,152 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/baekjoon/BOJ-17086-%EC%95%84%EA%B8%B0%EC%83%81%EC%96%B42-(Python3)/" rel="permalink">[BOJ] 17086 아기상어2 (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-16T00:00:00+00:00">July 16, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+N×M 크기의 공간에 아기 상어 여러 마리가 있다. 공간은 1×1 크기의 정사각형 칸으로 나누어져 있다. 한 칸에는 아기 상어가 최대 1마리 존재한다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/baekjoon/BOJ-16956-%EB%8A%91%EB%8C%80%EC%99%80-%EC%96%91-(Python3)/" rel="permalink">[BOJ] 16956 늑대와 양 (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-16T00:00:00+00:00">July 16, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+크기가 R×C인 목장이 있고, 목장은 1×1 크기의 칸으로 나누어져 있다. 각각의 칸에는 비어있거나, 양 또는 늑대가 있다. 양은 이동하지 않고 위치를 지키고 있고, 늑대는 인접한 칸을 자유롭게 이동할 수 있다. 두 칸이 인접하다는 것은 두 칸이 변을 공유하는 경우이다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/baekjoon/BOJ-12761-%EB%8F%8C%EB%8B%A4%EB%A6%AC-(Pytyon3)/" rel="permalink">[BOJ] 12761 돌다리 (Pytyon3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-16T00:00:00+00:00">July 16, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+동규와 주미는 일직선 상의 돌 다리 위에있다. 돌의 번호는 0 부터 100,000 까지 존재하고 동규는 
+N번 돌 위에, 주미는 M번 돌 위에 위치하고 있다. 동규는 주미가 너무 보고싶기 때문에 최대한 빨리 주미에게 가기 위해 A,B만큼의 힘을 가진 스카이 콩콩을 가져왔다. ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/baekjoon/%EC%95%88%EC%A0%84%EC%98%81%EC%97%AD/" rel="permalink">[BOJ] 2468 안전영역 (Python3)
 </a>
       
@@ -1035,149 +1103,6 @@
 
     <p class="archive__item-excerpt" itemprop="description">문제
 재난방재청에서는 많은 비가 내리는 장마철에 대비해서 다음과 같은 일을 계획하고 있다. 먼저 어떤 지역의 높이 정보를 파악한다. 그 다음에 그 지역에 많은 비가 내렸을 때 물에 잠기지 않는 안전한 영역이 최대로 몇 개가 만들어 지는 지를 조사하려고 한다. 이때, 문제를 간단하게...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/baekjoon/BOJ-%EC%9C%A0%EA%B8%B0%EB%86%8D-%EB%B0%B0%EC%B6%94/" rel="permalink">[BOJ] 1012 유기농배추 (Python3)
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-07-15T00:00:00+00:00">July 15, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          2 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">문제
-차세대 영농인 한나는 강원도 고랭지에서 유기농 배추를 재배하기로 하였다. 농약을 쓰지 않고 배추를 재배하려면 배추를 해충으로부터 보호하는 것이 중요하기 때문에, 한나는 해충 방지에 효과적인 배추흰지렁이를 구입하기로 결심한다. 이 지렁이는 배추근처에 서식하며 해충을 잡아 먹음으...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/programmers/Programmers-%ED%9A%8C%EB%AC%B8/" rel="permalink">[Programmers] 회문 (Python3)
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-07-13T00:00:00+00:00">July 13, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">문제
-회문(回文) 또는 팰린드롬(palindrome)은 앞 뒤 방향으로 볼 때 같은 순서의 문자로 구성된 문자열을 말한다. 예를 들어 ‘abba’ ‘kayak’, ‘reviver’, ‘madam’은 모두 회문이다. 만일 그 자체는 회문이 아니지만 한 문자를 삭제하여 회문으로 만들 ...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/baekjoon/BOJ-16173-%EC%A0%90%ED%94%84%EC%99%95-%EC%A9%B0%EB%A6%AC(small)-Python-%EB%B3%B5%EC%82%AC%EB%B3%B8/" rel="permalink">[BOJ] 16173 점프왕 쩰리(small) (Python3)
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-07-13T00:00:00+00:00">July 13, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          2 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">문제
-‘쩰리’는 점프하는 것을 좋아하는 젤리다. 단순히 점프하는 것에 지루함을 느낀 ‘쩰리’는 새로운 점프 게임을 해보고 싶어 한다. 새로운 점프 게임의 조건은 다음과 같다.
-
-</p>
   </article>
 </div>
 
