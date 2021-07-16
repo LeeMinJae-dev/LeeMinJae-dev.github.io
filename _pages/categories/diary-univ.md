@@ -1,6 +1,5 @@
-
 ---
-title: "일상"
+title: "Diary"
 permalink: /categories/diary-univ/
 layout: category
 author_profile : true

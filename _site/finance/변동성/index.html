@@ -1,0 +1,1273 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>변동성 - Learnote-Dev</title>
+<meta name="description" content="변동성이란? 변동성이란  당연하겠지만 가격이 얼마나 ‘변동’하는지에 대한 수치이다. 어떠한 상품의 수익률의 표준편차로 계산한 값이며, 리스크의 일반적인 개념으로도 사용한다.">
+
+
+  <meta name="author" content="이민재">
+  
+  <meta property="article:author" content="이민재">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Learnote-Dev">
+<meta property="og:title" content="변동성">
+<meta property="og:url" content="http://localhost:4000/finance/%EB%B3%80%EB%8F%99%EC%84%B1/">
+
+
+  <meta property="og:description" content="변동성이란? 변동성이란  당연하겠지만 가격이 얼마나 ‘변동’하는지에 대한 수치이다. 어떠한 상품의 수익률의 표준편차로 계산한 값이며, 리스크의 일반적인 개념으로도 사용한다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-05-10T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/finance/%EB%B3%80%EB%8F%99%EC%84%B1/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이민재",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Learnote-Dev Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Learnote-Dev
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/about/">About me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile.jpg" alt="이민재" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이민재</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>포트폴리오/일상 기록</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Incheon, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="lmj938@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://blog.naver.com/lmj938" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/leeminjae-dev/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:lmj938@naver.com">
+            <meta itemprop="email" content="lmj938@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+        <!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Life</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (37)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">baekjoon (3)</a></li>
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/programmers" class="">programmers(1)</a></li>
+                    
+                
+<!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Knowledge</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                        <li><a href="/categories/machinelearning" class="">Machine Learning (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+
+          
+      </li>
+  </ul>
+</nav>
+
+  
+
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="변동성">
+    <meta itemprop="description" content="변동성이란?변동성이란 당연하겠지만 가격이 얼마나 ‘변동’하는지에 대한 수치이다.어떠한 상품의 수익률의 표준편차로 계산한 값이며, 리스크의 일반적인 개념으로도 사용한다.">
+    <meta itemprop="datePublished" content="2021-05-10T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">변동성
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-05-10T00:00:00+00:00">May 10, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          7 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#변동성이란">변동성이란?</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="변동성이란">변동성이란?</h2>
+<p>변동성이란 
+당연하겠지만 가격이 얼마나 ‘변동’하는지에 대한 수치이다.
+어떠한 상품의 수익률의 표준편차로 계산한 값이며, 리스크의 일반적인 개념으로도 사용한다.</p>
+
+<p>변동성의 종류에는 크게 두가지가 있는데,</p>
+
+<p>첫번째는 실제 변동성(Actual Volatility): 실제로 가격이 얼마나 변동하는지에 대한 수치</p>
+
+<p>두번째는 내재 변동성(Implied Volatility): 시장이 생각하는 변동성</p>
+
+<p>실제 변동성은 실제로 가격이 변화한량을 말한다. 예를 들어 과거 실제 변동성이라고 하면</p>
+
+<p>과거 특정기간(30일, 1년)간의 실제적인 변동성의 수치를 말할 것이다.</p>
+
+<p>단, 현재 실제 변동성은 개념적으로는 존재하나, 현재라는것은 매번 변하고 있으므로 측정이 불가하다.</p>
+
+<p>​</p>
+
+<p>이 두가지 개념중에서 일반적으로 더 중요하게 받아들여지는건 내재변동성인데</p>
+
+<p>이 내재 변동성은 시장참여자들이 생각하고 있는 변동성이다.</p>
+
+<p>이 내재변동성은 말그대로 ‘내재’된 변동성이라 직접적인 측정이 불가한데</p>
+
+<p>개념을 정확히 알기위해 먼저 옵션에 대해 이해해야 한다.</p>
+
+<p>​</p>
+
+<p>옵션은 어떠한 상품을 미래에 특정한 가격으로 사거나, 팔 수 있는 권리인데</p>
+
+<p>사는 옵션을 콜옵션, 판매하는 옵션을 풋옵션이라 한다.</p>
+
+<p>이러한 옵션은 옵션프리미엄이라는 가격을 지불하고 그 권리를 구매하게 되는데,</p>
+
+<p>만약 1월 1일 만기인 행사가 100원의 콜옵션을 10의 프리미엄을 주고 구매했다고 치자.</p>
+
+<p>만약 만기에 상품의 가격이 80원 이라면, 이 상품을 굳이 100원의 가격을 주고 살 필요는 없으니.</p>
+
+<p>프리미엄 10을 손해보고 그 권리를 포기 하면 된다.</p>
+
+<p>따라서 콜옵션은 수익은 무한대이지만, 손해는 -10으로 제한된다.</p>
+
+<p><img src="assets/images/knowledge/finance/변동성/콜옵션_매수_그래프.png" alt="콜옵션 매수 그래프" /></p>
+
+<p>따라서 위의 그래프와 같이 아무리 상품의 가격이 하락해도 손실은 -10으로 제한된다.</p>
+
+<p>​</p>
+
+<p>반대로 상품의 가격이 올라 150원이 된다면, 우리는 그 콜옵션의 권리를 행사하여, 행사가인 100원에</p>
+
+<p>그 상품을 구매하게 되고, 차익 50원에서 프리미엄가격인 10원을 뺀 40원의 이익을 얻게된다.</p>
+
+<p>이렇게 보면 마치 콜옵션이 손실은 제한적이고 리스크는 한정되어 있어 마냥 좋아 보이겠지만,</p>
+
+<p>만약 콜옵션매수가 아닌 그냥 상품자체를 매수 했다면, 50원의 차익을 얻을것을 40원으로 줄인것이다.</p>
+
+<p>따라서 하방 리스크를 제한하는 대신, 얻을수 있는 수익의 그래프를 아래로 내린 셈이 된다.</p>
+
+<p>​</p>
+
+<p>반대로 풋옵션은 반대로 팔권리 이므로 가격이 떨어질수록 수익은 늘어나고,</p>
+
+<p>가격이 올랐을때는 콜옵션과 동일하게 프리미엄만큼의 손실을 보고 권리를 포기하면 된다.</p>
+
+<p><img src="assets/images/knowledge/finance/변동성/풋옵션_매수_그래프.png" alt="풋옵션 매수 그래프" />
+하지만 옵션에 있어서 가장 중요한 것은, 저 권리를 구매 할수 있는 프리미엄의 가격이다.</p>
+
+<p><img src="assets/images/knowledge/finance/변동성/프리미엄.png" alt="프리미엄 그래프" /></p>
+
+<p>왼쪽의 경우는 프리미엄가격이 100, 오른쪽은 1000인데, 이러한 프리미엄의 가격차이 때문에</p>
+
+<p>왼쪽은 2100만 가격이 넘어가도 수익이 나지만, 오른쪽은 3000을 넘어야 겨우 수익이 나기 시작한다.</p>
+
+<p>​</p>
+
+<p>이러한 프리미엄의 가격은 어떻게 결정될까??</p>
+
+<p>​</p>
+
+<p>보통 옵션의 가격은 블랙숄즈 모델을 통해 계산되는데,</p>
+
+<p>이 모델은 다섯가지의 인풋을 가진다.</p>
+
+<p>​</p>
+
+<ul>
+  <li>행사가격 : 콜옵션의 경우 행사가격이 낮을수록 옵션이 비쌈</li>
+</ul>
+
+<p>당연히 싸게 살수 있는 권리일수록 더 많은 차익을 남길 수 있으니 옵션의 가격이 비싸다.</p>
+
+<p>​</p>
+
+<ul>
+  <li>현재 상품 가격 : 콜옵션의 경우는 현재상품 가격이 높을수록 옵션이 비싸다.</li>
+</ul>
+
+<p>만기가 한달남았는데 이미 콜옵션의 행사가와 가까운 가격이라면, 한달만에 충분한 상승을 노릴 수 있기 때문에,</p>
+
+<p>현재상품가격이 낮았을때 보다 프리미엄이 비싸다.</p>
+
+<p>​</p>
+
+<ul>
+  <li>만기까지 남은시간 : 만기까지 시간이 많이 남았을수록 옵션이 비쌈</li>
+</ul>
+
+<p>​</p>
+
+<ul>
+  <li>이자율 : 이자율이 높을수록 미래 상품가격이 많이 오를것으로 기대되어 (콜)옵션이 비쌈</li>
+</ul>
+
+<p>​</p>
+
+<ul>
+  <li><strong>변동성</strong> : 변동성이 높을수록 가격이 많이 오를 가능성이 있기 때문에, 옵션이 비싸다.</li>
+</ul>
+
+<p>(많이 내릴 가능성도 같이 높아지는 것이지만, 그 경우에는 행사하지 않으면 되는 ‘권리’이기 때문에 상관없음)</p>
+
+<p>​</p>
+
+<p>이 다섯가지 인풋중 ‘변동성’만은 시장에서 직접적으로 관찰이 불가능한 변수이다.</p>
+
+<p>​</p>
+
+<p>하지만 블랙숄즈 모델은 [행사가격, 상품가격, 만기, 이자율, 변동성] 을 입력하면 옵션가격을 출력해주기 때문에,</p>
+
+<p>우리는 네가지 인풋을 넣고, 시장에서 직접 관찰 가능한 옵션가격을 공식에 대입하면,</p>
+
+<p>등식이 성립되는 변동성값을 찾아낼수 있다.</p>
+
+<p>​</p>
+
+<p>따라서 시장 참여자들이 결정한 옵션가격을 미루어 볼때, 그들이 기대하는 미래 변동성이</p>
+
+<p>바로 ‘내재변동성’이다.</p>
+
+<p>​</p>
+
+<p>이러한 내재변동성을 지수로 나타낸게 VIX지수인데 ,</p>
+
+<p>이 지수가 바로 S&amp;P 500 옵션가격에서 계산되는 내재 변동성이다.</p>
+
+<p>따라서 옵션 가격이 비싸면 VIX지수도 높고, 옵션 가격이 쌀때는 VIX지수가 낮다.</p>
+
+<p>​</p>
+
+<p>대체로 주가지수와 변동성지수는 역상관관계인데,</p>
+
+<p>주가가 폭락할때 높게 치솟으며, 이번에 코로나 사태때는 신고점을 갱신했다.</p>
+
+<p>왜 변동성 지수와 주가지수는 역의 상관관계를 가질까?</p>
+
+<p>​</p>
+
+<p>대략 네가지의 이유가 있는데,</p>
+
+<ol>
+  <li>공급측면: 주가는 상승할때는 천천히 상승하지만, 하락할때는 공포심리에 의해</li>
+</ol>
+
+<p>패닉셀이 나오면서 급격하게 하락하는 성질이 있다. (변동성 지수는 Fear Indexf라고도 한다.)</p>
+
+<p>즉, 하락장에서는 실제 변동성이 높아지기 때문에 옵션 매도자 입장에서는 그만큼 손실을 볼 위험이</p>
+
+<p>커지는 것이므로, 더 비싼 옵션가격을 요구하게 된다.</p>
+
+<p>​</p>
+
+<ol>
+  <li>수요 측면: 하락장에서 불확실성이 높아지면, 옵션 매수를 통해 그 리스크를 헷지하려는 수요가 늘어나기 때문에 옵션의 가격이 비싸진다.</li>
+</ol>
+
+<p>​</p>
+
+<ol>
+  <li>매매 측면: 주가 지수 움직임에 옵션가격이 영향을 받지만, 옵션시장의 매매 때문에</li>
+</ol>
+
+<p>주가 지수가 영향을 받기도 한다.( 다음 게시물에서 자세히 설명)</p>
+
+<p>​</p>
+
+<p>4.내재 변동성구조 측면: 심화내용이므로 패스</p>
+
+<p>​</p>
+
+<p>그렇다면 우리는 이러한 변동성을 왜 알아야할까?</p>
+
+<p>바로 옵션시장에서 벌어지는 일들이 주식 시장에 영향을 미치기 때문이다.</p>
+
+<p>​</p>
+
+<p>예) 소프트 뱅크 손정의 회장이 테크기업 콜옵션을 매수하는데, 왜 나스닥은 상승할까?</p>
+
+<p>예) 대다수의 헤지펀드들이 보유한 옵션 포지션은 어떤 형태이고, 이는 주식 시장에 어떤 영향을 미칠까?</p>
+
+<p>​</p>
+
+<p>먼저 이러한 질문들에 대한 답을 알기위해선</p>
+
+<p>옵션시장의 중요한 참여자, 유동성 공급자에 대해서 알아야 한다.</p>
+
+<p>유동성 공급자 (Liquidity Provider) = 마켓메이커 (Market Makre)로,</p>
+
+<p>매수/매도 호가를 제시하는 사람이다.</p>
+
+<p>​</p>
+
+<p>주식의 경우는 잡주가 아닌이상 항상 사고팔고 하는 사람이 많기때문에</p>
+
+<p>유동성 공급자가 없더라도 충분히 서로가 서로에게 매수, 매도를 할 수 있다.</p>
+
+<p>하지만 옵션의 경우는 행사가, 만기일에 따라서 수백, 수천가지의 옵션이 존재하기 때문에</p>
+
+<p>특정한 옵션을 사거나 팔려고 할때 그 반대 포지션이 없을 확률이 매우크다.</p>
+
+<p>따라서 유동성 공급자, 마켓메이커들이 이러한 매수 매도세에 항상 반대 포지션을 취해줌으로써</p>
+
+<p>시장에 유동성을 공급한다.</p>
+
+<p>​</p>
+
+<p>그렇다면 무조건 반대 포지션을 취하는 마켓메이커는 이러한 행동을 왜 하는걸까?</p>
+
+<p>마켓메이커의 기본원칙은 매수호가와 매도호가의 차이 = 호가 스프레드를 끊임없이 모으는것이다.</p>
+
+<p>​</p>
+
+<p>매수호가 101 - 매도호가 103인 경우, 가격은 중간값인 102</p>
+
+<p>누군가가 마켓메이커에게 101에 매도하면, 마켓메이커는 102보다 1 싸게 매수</p>
+
+<p>누군가가 마켓메이커에게 103에 매수하면, 마켓메이커는 102보다 1 비싸게 매도</p>
+
+<p>이런 식으로 시장의 방향과 상관없이 계속 매수 매도를 반복하며 이 1의 확률적 우위</p>
+
+<p>‘엣지’를 모아간다.</p>
+
+<p>​</p>
+
+<p>그렇다면 만약 매수포지션을 취했는데 시장이 내린다면 손해인데 이러한 상황은 어떻게 할까?</p>
+
+<p>사실 매수했을때 떨어지는 경우도 있겠지만, 매수했을때 오르는 경우도 있을 것이기 때문에</p>
+
+<p>장기적으로 계속 매수 매도를 반복하면 이러한 손해/이익은 상쇄된다는 가정하에 이 행위를 반복한다.</p>
+
+<p>이것이 마켓메이커의 기본원칙이다.</p>
+
+<p>물론 마켓메이커도 시장이 오를것같다 내릴것 같다는 뷰는 반영을한다.</p>
+
+<p>​</p>
+
+<p>이러한 원칙 때문에 마켓메이커 입장에서는 갖고있는 포지션이 적으면 적을수록 좋다.</p>
+
+<p>따라서 가장 이상적인 상황은 사려는 사람과 팔려는 사람이 항상 많아서</p>
+
+<p>포지션을 갖고있는 시간이 최소화되는 상황이다.</p>
+
+<p>​</p>
+
+<p>하지만 이렇게 유동성이 항상 많을 수 없기 때문에 마켓메이커에게는</p>
+
+<p>무조건적으로 필수불가결하게 포지션이 쌓일수 밖에 없다.</p>
+
+<p>따라서 이러한 포지션을 관리하기 위해 비슷한 만기일의 비슷한 행사가의 반대 포지션을 취하려한다.</p>
+
+<p>예를 들어 애플 주식의 1/31만기 150행사가 콜옵션을 매수하게 되면,</p>
+
+<p>비슷한 만기와 행사가인 1/31만기 155행사가 콜옵션을 매도할 기회가 오면 적극적으로 매도한다던지 하는식으로</p>
+
+<p>최대한 비슷한 포지션을 매수 매도 하며 리스크를 최대한 중립으로 만들어,</p>
+
+<p>오로지 엣지에서 오는 이득만을 취하려고 노력한다.</p>
+
+<p>​</p>
+
+<p>자 다시 아까의 질문으로 돌아가서,</p>
+
+<p>손정의 회장이 기술주 콜옵션을 사서 나스닥이 상승했는가? 에 대한 질문에 대해 다시 생각해보자.</p>
+
+<p>​</p>
+
+<p>이 질문은 하나처럼 보이지만 사실은,</p>
+
+<ol>
+  <li>
+    <p>누군가 기술주 콜옵션을 매수하면, 기술주 주식도 같이 오르는가?</p>
+  </li>
+  <li>
+    <p>손정의 회장이 매수한 콜옵션이 나스닥을 움직일 정도로 사이즈가 큰가?</p>
+  </li>
+</ol>
+
+<p>이 두가지에 대한 질문으로 볼 수 있다.</p>
+
+<p>​</p>
+
+<p>손정의 회장이 콜옵션을 매수하게 되면 옵션 시장에는 어떠한 변화가 일어날까?</p>
+
+<p>대규모의 콜옵션을 매수하려고 하면 그 물량은 마켓메이커들이 받아낼 것이다.</p>
+
+<p>그렇게 되면 손정의 회장은 매수포지션, 마켓메이커는 매도포지션을 잡게되고,</p>
+
+<p>위에서 설명했다시피 마켓메이커는 시장의 하락과 상승에 베팅하는 것이 아니므로 최대한 중립적인 포지션을 위해</p>
+
+<p>리스크 헷지를 위한 기술주 현물 주식을 매수한다.</p>
+
+<p>​</p>
+
+<p>행사가와 주식가가 똑같다고 가정할때 그렇다면 마켓메이커는</p>
+
+<p>콜옵션 매도와 주식의 비율을 어떻게 조정해야 가장 중립적인 포지션을 취할 수 있을까?</p>
+
+<p><img src="assets/images/knowledge/finance/변동성/합성포지션.png" alt="합성포지션 그래프" /></p>
+
+<p>먼저 주식가격과 행사가격이 동일하다고 가정할 때,</p>
+
+<p>콜옵션 매도 포지션과 주식매수 포지션을 1:1로 콜옵션을 100개 매도, 주식을 100개 매수했을 경우에는</p>
+
+<p>오른쪽의 보라색 그래프와 같이 풋옵션 매도 포지션을 취한것과 같은 포지션이 된다.</p>
+
+<p>이렇게 되면 주식이 내리면 돈을 잃게 됨으로 헷지가 아니다.</p>
+
+<p><img src="assets/images/knowledge/finance/변동성/합성포지션2.png" alt="합성포지션 그래프2" /></p>
+
+<p>그렇다면 이번에는 콜옵션 매도 포지션과 주식매수 포지션을 2:1로 콜</p>
+
+<p>옵션 매도 100개, 주식 매수 50개의 포지션을취했을 경우를 보자.</p>
+
+<p>위와 동일하게 보라색 선이 이 포지션의 그래프이다.</p>
+
+<p>이렇게 되면 완전히 풋이 되는것이 아니고 콜과 풋의 중간인 좌우 대칭이 된다.</p>
+
+<p>따라서 크게 상승하거나 크게 하락하지만 않으면 되는 중립적인 상태가 되는데, 이처럼 헷지는</p>
+
+<p>상승과 하락에 관계없도록 델타, 즉 ‘방향성’에 대한 노출을 줄이는 것이다.</p>
+
+<p>따라서 콜인지 풋인지는 중요하지 않고, 변동성 자체가 중요하다.</p>
+
+<p>이렇기 때문에 옵션은 방향성 매매가 아니고 변동성 매매임을 알 수 있다.</p>
+
+<p>​</p>
+
+<p>그렇다면 만약 현재 주식가격이 행사가보다 훨씬 낮다면 어떻게 될까?</p>
+
+<p>위와 동일하게 옵션과 주식을 100개와 50개를 매도 매수했다고 가정했을때,</p>
+
+<p>보라색 손익 그래프는 그 모양 그대로 위로 올라가게 된다.</p>
+
+<p>반대로 주식 가격이 행사가 보다 높은 경우는, 보라색 손익그래프가 모양그대로 아래로 내려가게 될것이다.</p>
+
+<p>​</p>
+
+<p>근데 다시 생각해보자, 헷지를 하는 이유는 위 아래 모두 동일하게 방향성에 대한 중립상태를 만드는 것인데</p>
+
+<p>만약 주식가격이 더 싼경우에는 주식을 50개 매수 할경우에,</p>
+
+<p>주식이 오를때 더 이익이 많이 나게 손익그래프가 바뀌게됨으로 오르는것을 원하게되고</p>
+
+<p>주식가격이 비싼경우에는 손익그래프가 주가가 내릴때 최대한의 이득이 나오게되어 주가가 내리는걸 원하게된다.</p>
+
+<p>​</p>
+
+<p>따라서 만약 주식가격이 행사가 보다 싼경우에는 주식수를 줄이고,</p>
+
+<p>주식가격이 행사가 보다 비싼경우에는 주식수를 늘려서 비중을 조절하여야</p>
+
+<p>주식의 방향성이 어디로 가던 중립적인 손익그래프를 얻을 수 있는것이다.</p>
+
+<p>​</p>
+
+<p>이러한 주식가격의 움직임에 대한 옵션 가격의 민감도를 ‘옵션 델타’(Delta) 라고 하는데,</p>
+
+<p>델타가 0이면, 주식가격이 움직여도 옵션가격에는 아무 영향이 없다는 것이고,</p>
+
+<p>델타가 1이면 주식가격이 움직이는 만큼 그대로 옵셕가격이 따라 움직인 다는것,</p>
+
+<p>델타가 0.5 이면 주식가격의 50퍼센트만큼 옵션가격이 움직인다는 것이다.</p>
+
+<p>​</p>
+
+<p>예를들어 행사가 100의 콜옵션의 경우</p>
+
+<ul>
+  <li>주식가격이 10일 때, 주식가격이 9가 되던 11이 되던, 콜옵션을 행사할 가능성은 거의 없기 때문에</li>
+</ul>
+
+<p>휴지조각과 다름없다. = 델타 0</p>
+
+<ul>
+  <li>주식가격이 500일 때, 옵션가격은 거의 주식가격과 동일하게 움직인다. = 델타 1</li>
+</ul>
+
+<p>-주식가격이 행사가와 동일한 100일때, 행사 될확률과 안될 확률이 반반이므로, = 델타 0.5</p>
+
+<p>​</p>
+
+<p>이러한 델타는 옵션이 행사될 확률로 해석하기도 한다.(엄밀히 말하면 정확하지는 않지만, 대부분의 확률이 그러함)</p>
+
+<p>따라서 상품가격이 오를수록 콜옵션의 델타가 상승한다. 따라서 헷지를 더욱 많이 해야한다.</p>
+
+<p>​</p>
+
+<p>자 다시 손정의 회장이 콜옵션을 매수 했을때의 상황을 가정해보자.</p>
+
+<p>아마 아무런 대비책 없이 콜옵션을 쌩으로 매수 했을 확률은 매우 적지만,</p>
+
+<p>정말 쌩으로 콜옵션을 매수했다고 가정하자. 그랬다면 행사가가 현재가격보다 높은 싼 옵션을 매수 했을 것이다.</p>
+
+<p>​</p>
+
+<p>옵션은 세가지 종류로 부를 수 있는데</p>
+
+<p>​</p>
+
+<ol>
+  <li>내가격 옵션 (in the money) : 이미 이익구간에 들어가있는 옵션, 매수하자마자 행사해도 이익임</li>
+</ol>
+
+<blockquote>
+  <blockquote>
+    <p>델타 0.5 이상</p>
+  </blockquote>
+</blockquote>
+
+<ol>
+  <li>중가격 옵션 (at the money) : 주식가격과 행사가가 동일한 옵션,</li>
+</ol>
+
+<blockquote>
+  <blockquote>
+    <p>델타 0.5</p>
+  </blockquote>
+</blockquote>
+
+<ol>
+  <li>외가격 옵션 (out of the money) : 아직 행사가가 먼 옵션,</li>
+</ol>
+
+<blockquote>
+  <blockquote>
+    <p>델타 0.5 미만</p>
+  </blockquote>
+</blockquote>
+
+<p>​</p>
+
+<p>내 가격은 바로 행사해도 이익이 나므로 비싸다. 따라서 손정의식 배팅의 의미를 두려면</p>
+
+<p>아마도 외가격 콜옵션을 매수 했을 가능성이 크다.</p>
+
+<p>델타를 0.1이라고 가정하면, 콜옵션을 매도한 마켓메이커는 이러한 포지션을 헷지해주기위해</p>
+
+<p>예를들어 1조정도의 매수를 매도로 받아주었다면 천억원 정도의 주식을 매수했을것이다.</p>
+
+<p>근데 이러한 상황에서 주가가 오르게 된다면, 이러한 헷지를 위해 주가가 오를때마다 주식의 비중을 늘리기 위해</p>
+
+<p>더많은 주식을 매수해야만 방향성에 대한 헷지를 할 수 있다.</p>
+
+<p>​</p>
+
+<p>따라서 이러한 예가 옵션매수가 왜 현물 주식에 영향을 미치는지에 대한 이유이다.</p>
+
+<p>따라서 우리가 옵션시장에서 무슨일이 일어나는지 알지 못하면,</p>
+
+<p>그저 주식의 움직임이 무작위적으로만</p>
+
+<p>볼 수 밖에 없는 것이다.</p>
+
+<p>​</p>
+
+<p>따라서 옵션시장에 집중하여 거대 헤지펀드들이 어떠한 포지션을 취하고 있는지에 집중하면,</p>
+
+<p>어느정도 확률적 우위를 선점 할 수 있다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#%EA%B8%88%EC%9C%B5" class="page__taxonomy-item" rel="tag">금융</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%B3%80%EB%8F%99%EC%84%B1" class="page__taxonomy-item" rel="tag">변동성</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%A3%BC%EC%8B%9D" class="page__taxonomy-item" rel="tag">주식</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#finance" class="page__taxonomy-item" rel="tag">finance</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-05-10T00:00:00+00:00">May 10, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EB%B3%80%EB%8F%99%EC%84%B1%20http%3A%2F%2Flocalhost%3A4000%2Ffinance%2F%25EB%25B3%2580%25EB%258F%2599%25EC%2584%25B1%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ffinance%2F%25EB%25B3%2580%25EB%258F%2599%25EC%2584%25B1%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ffinance%2F%25EB%25B3%2580%25EB%258F%2599%25EC%2584%25B1%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/diary-univ/%EB%84%A4%EC%9D%B4%EB%B2%84,-%EB%B9%84%ED%8A%B8%EC%BD%94%EC%9D%B8/" class="pagination--pager" title="네이버, 비트코인
+">이전</a>
+    
+    
+      <a href="/finance/%EC%9D%B8%ED%94%8C%EB%A0%88%EC%9D%B4%EC%85%98/" class="pagination--pager" title="인플레이션
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/baekjoon/%EC%95%88%EC%A0%84%EC%98%81%EC%97%AD/" rel="permalink">[BOJ] 2468 안전영역 (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-15T00:00:00+00:00">July 15, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+재난방재청에서는 많은 비가 내리는 장마철에 대비해서 다음과 같은 일을 계획하고 있다. 먼저 어떤 지역의 높이 정보를 파악한다. 그 다음에 그 지역에 많은 비가 내렸을 때 물에 잠기지 않는 안전한 영역이 최대로 몇 개가 만들어 지는 지를 조사하려고 한다. 이때, 문제를 간단하게...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/baekjoon/BOJ-%EC%9C%A0%EA%B8%B0%EB%86%8D-%EB%B0%B0%EC%B6%94/" rel="permalink">[BOJ] 1012 유기농배추 (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-15T00:00:00+00:00">July 15, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+차세대 영농인 한나는 강원도 고랭지에서 유기농 배추를 재배하기로 하였다. 농약을 쓰지 않고 배추를 재배하려면 배추를 해충으로부터 보호하는 것이 중요하기 때문에, 한나는 해충 방지에 효과적인 배추흰지렁이를 구입하기로 결심한다. 이 지렁이는 배추근처에 서식하며 해충을 잡아 먹음으...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programmers/Programmers-%ED%9A%8C%EB%AC%B8/" rel="permalink">[Programmers] 회문 (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-13T00:00:00+00:00">July 13, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+회문(回文) 또는 팰린드롬(palindrome)은 앞 뒤 방향으로 볼 때 같은 순서의 문자로 구성된 문자열을 말한다. 예를 들어 ‘abba’ ‘kayak’, ‘reviver’, ‘madam’은 모두 회문이다. 만일 그 자체는 회문이 아니지만 한 문자를 삭제하여 회문으로 만들 ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/baekjoon/BOJ-16173-%EC%A0%90%ED%94%84%EC%99%95-%EC%A9%B0%EB%A6%AC(small)-Python-%EB%B3%B5%EC%82%AC%EB%B3%B8/" rel="permalink">[BOJ] 16173 점프왕 쩰리(small) (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-13T00:00:00+00:00">July 13, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+‘쩰리’는 점프하는 것을 좋아하는 젤리다. 단순히 점프하는 것에 지루함을 느낀 ‘쩰리’는 새로운 점프 게임을 해보고 싶어 한다. 새로운 점프 게임의 조건은 다음과 같다.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/leeminjae-dev" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/finance/%EB%B3%80%EB%8F%99%EC%84%B1/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/finance/변동성"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://leeminjae-dev-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
+
+
+<!-- 웹 폰트 설정 -->
+<link rel="stylesheet" href="/assets/css/high3.css">
