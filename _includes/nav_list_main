@@ -26,8 +26,6 @@
                         <li><a href="/categories/baekjoon" class="">baekjoon ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
-            </ul>
-            <ul>
 		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
                 {% for category in site.categories %}
                     {% if category[0] == "programmers" %}
