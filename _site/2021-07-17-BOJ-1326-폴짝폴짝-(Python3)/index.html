@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>일론머스크 - Learnote-Dev</title>
-<meta name="description" content="2021.05.18 요 몇일간 일론머스크 때문에 비트코인시장이 완전히 휘청했다. 나도 100만원정도 도지코인을 갖고있는데, 사실 도지코인은 그렇게 세게 안맞아서 별 타격은 없었다. 애초에 물려서 몇일에 한번 볼까 말까이기도 하고….">
+<!-- begin _includes/seo.html --><title>Learnote-Dev</title>
+<meta name="description" content="대학생 예비 개발자 블로그">
 
 
   <meta name="author" content="이민재">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Learnote-Dev">
-<meta property="og:title" content="일론머스크">
-<meta property="og:url" content="http://localhost:4000/diary-univ/%EC%9D%BC%EB%A1%A0%EB%A8%B8%EC%8A%A4%ED%81%AC/">
+<meta property="og:title" content="Learnote-Dev">
+<meta property="og:url" content="http://localhost:4000/2021-07-17-BOJ-1326-%ED%8F%B4%EC%A7%9D%ED%8F%B4%EC%A7%9D-(Python3)/">
 
 
-  <meta property="og:description" content="2021.05.18 요 몇일간 일론머스크 때문에 비트코인시장이 완전히 휘청했다. 나도 100만원정도 도지코인을 갖고있는데, 사실 도지코인은 그렇게 세게 안맞아서 별 타격은 없었다. 애초에 물려서 몇일에 한번 볼까 말까이기도 하고….">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2021-05-18T00:00:00+00:00">
+  <meta property="og:description" content="대학생 예비 개발자 블로그">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2021-07-18T04:13:01+00:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/diary-univ/%EC%9D%BC%EB%A1%A0%EB%A8%B8%EC%8A%A4%ED%81%AC/">
+
+<link rel="canonical" href="http://localhost:4000/2021-07-17-BOJ-1326-%ED%8F%B4%EC%A7%9D%ED%8F%B4%EC%A7%9D-(Python3)/">
 
 
 
@@ -396,16 +396,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="일론머스크">
-    <meta itemprop="description" content="2021.05.18요 몇일간 일론머스크 때문에 비트코인시장이 완전히 휘청했다.나도 100만원정도 도지코인을 갖고있는데, 사실 도지코인은 그렇게 세게 안맞아서 별 타격은 없었다. 애초에 물려서 몇일에 한번 볼까 말까이기도 하고….">
-    <meta itemprop="datePublished" content="2021-05-18T00:00:00+00:00">
+    
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2021-07-18T04:13:01+00:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">일론머스크
-</h1>
+          
           
 
   <p class="page__meta">
@@ -414,7 +413,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-05-18T00:00:00+00:00">May 18, 2021</time>
+        <time datetime="2021-07-18T04:13:01+00:00">July 18, 2021</time>
       </span>
     
 
@@ -427,7 +426,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          2 분 소요
+          1 분 소요
         
       </span>
     
@@ -439,48 +438,75 @@
 
       <section class="page__content" itemprop="text">
         
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#20210518">2021.05.18</a></li></ul>
+        <h2 id="문제">문제</h2>
+<p>개구리가 일렬로 놓여 있는 징검다리 사이를 폴짝폴짝 뛰어다니고 있다. 징검다리에는 숫자가 각각 쓰여 있는데, 이 개구리는 매우 특이한 개구리여서 어떤 징검다리에서 점프를 할 때는 그 징검다리에 쓰여 있는 수의 배수만큼 떨어져 있는 곳으로만 갈 수 있다.</p>
 
-            </nav>
-          </aside>
-        
-        <h2 id="20210518">2021.05.18</h2>
-<p>요 몇일간 일론머스크 때문에 비트코인시장이 완전히 휘청했다.
-나도 100만원정도 도지코인을 갖고있는데, 사실 도지코인은 그렇게 세게 안맞아서 별 타격은 없었다. 애초에 물려서 몇일에 한번 볼까 말까이기도 하고….</p>
+<p>이 개구리는 a번째 징검다리에서 b번째 징검다리까지 가려고 한다. 이 개구리가 a번째 징검다리에서 시작하여 최소 몇 번 점프를 하여 b번째 징검다리까지 갈 수 있는지를 알아보는 프로그램을 작성하시오.</p>
 
-<p>비트코인 자체에 가치가 있다고는 생각안하지만, 10퍼센트 정도는 포트폴리오에 추가할만하다고 생각했다. 10퍼센트정도면 괜찮겠지~ 하고 투자했는데 다시 생각 해보니까 비중이 좀 큰것 같기도 하다.
-한 몇개월정도 보고 투자하기에 비트코인은 변동성은 좀 커도 나름 괜찮은 상품같다.
-물론 중요한 점은 금액이 커지면 안된다는것. MDD가 너무 커서 큰 금액으로 한번 물리면, 아니 돈을 벌어도 잠을 잘 수가 없다. 실제로 비트코인에 큰 금액을 투자 하고있을 떄는 아침 여섯시도 전에 맨날 눈이 떠졌다. 이런 비트코인에 인생을 걸고 큰 금액을 투자하는 사람들은 지금 어떤 기분이 들까.
-어제는 비트코인 폭락에 못견딘 사람 한명이 뛰어내리겠다고 한강 다리에 올라갔다가 다시 반등하는 비트코인을 보고 내려오는 웃지 못할 해프닝도 있었는데,
-참 세상 돌아가는게 언제는 안 웃겼나 싶지만서도 요즘은 좀 오바지 싶다.</p>
+<h2 id="입력">입력</h2>
+<p>첫째 줄에 징검다리의 개수 N(1≤N≤10,000)이 주어지고, 이어서 각 징검다리에 쓰여 있는 N개의 정수가 주어진다. 그 다음 줄에는 N보다 작거나 같은 자연수 a, b가 주어지는 데, 이는 개구리가 a번 징검다리에서 시작하여 b번 징검다리에 가고 싶다는 뜻이다. 징검다리에 쓰여있는 정수는 10,000보다 작거나 같은 자연수이다.</p>
+<h2 id="출력">출력</h2>
+<p>첫째 줄에 개구리가 a번 징검다리에서 b번 징검다리로 최소 몇 번 점프하여 갈 수 있는 지를 출력하시오. a에서 b로 갈 수 없는 경우에는 -1을 출력한다.</p>
 
-<p>비트코인붐은 언제 끝날까. 어제 연준이 비트코인을 유동성 주머니로 사용하는게 아닐까라는 의견에 대한 영상을 봤는데, 물론 그분은 뇌피셜이라고 덧붙이며 말했지만 정황상 그게 맞다는 생각이 들었다.
-나도 너무나 이상할정도로 비트코인에 대해 규제를 안하는 이 스탠스가 이상하다고 생각은 했는데,
-그냥 사람들이 너무 많이사서 진짜 욕먹을까봐 규제 안하나? 이 정도 였다.
-솔직히 이 엄청난 변동성에 올라탈 생각만 했지, 왜 규제를 안하는가에 대한 이유에 대한건 생각안해봤었다.
-영상에 대해 간단히 설명하자면, 지금 연준에서 시행하고 있는 역사적 최대의 부양정책에서는 필연적으로 과한 유동성으로 인한 버블이 낄 수 밖에 없는데, 이러한 버블의 위험을 지금 비트코인이라는 유동성 주머니가 모두 받아 내주고 있다는 것이다. 시장에 공급되어 주식, 부 동산, 원자재로 향해야 할 이 유동성들이 전부 비트코인으로 쏠리고 있는 이 상황에서 굳이 이렇게 꿀같은 상황을 연준이 제재를 가할 필요가 없다. 심지어 이 유동성 주머니는 규제 해버리면 바로 꺼내 쓸 수 있어서, 테이퍼링이나 금리인상이 슬 슬 필요할 시기에는 바로 제재를 가해 이 곳으로 모여있는 유동성을 다시 꺼낼 수 도있는 상황, 심지어 비트코인의 폭락은 주식이나 부동산 폭락에 비해 시장이 받아들이는 충격도 아주 작으며 정부 입장에서는 책임도 없다시피한 수준이다. 따라서 연준과 미국 정부가 이 과열된 비트코인 시장을 하나의 유동성 주머니로써 사용하고 있는건 아닐까? 라는 가정 수준의 영상이었다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>예제 입력 1  복사
+5
+1 2 2 1 2
+1 5 
+예제 출력 1  복사
+1 ## 힌트 1번 징검다리에 1이 쓰여 있으므로, 1의 배수인 4만큼을 한 번에 뛰어 5번 징검다리로 갈 수 있다. ## 풀이 bfs를 이용하여 징검다리에 인덱스 + 징검다리에 적혀있는 크기의 배수들에 모두 방문하여 방문하지 않은 징검다리라면 visited에 1을 더해주는 방식으로 몇번만에 b에 도달했는지가 visited에 1보다 큰 수로 저장되도록 한다.
+</code></pre></div></div>
 
-<p>물론 말한사람도 그냥 뇌피셜이고 추측이라 했지만,
-솔직히 정황상 미국은 비트코인을 왜 제재하지않는가? 에대한 가장 논리적이고 타당한 이유가 아닐까 싶다.
-또 코인얘기를 하자면 일론머스크를 빼놓을 수 없는데
-진짜 세계 1위부자(물론 지금은 아니지만)이자 성공한 사업가가 저런식으로 행동하는게
-너무 웃기긴하다. 역시 자유의 나라 미국이라 그런가, 정부가 싫어하는짓만 골라서 하는데도 의외로 하는짓에 비해 미국 정부한테 별로 안혼나는듯 하다.</p>
+<p>간단한 bfs문제이지만 푸는데 한참걸렸는데, 징검다리가 왼쪽으로도 이동할 수 있다는 사실을 생각을 안하고 계속 풀어서 아무리 반례를 찾으려 해도 찾을 수 가 없어 시간을 너무 많이 잡아먹었다. 문제를 잘읽고 프로그램을 어떤 상황까지 구현해야 하는지 확실하게 풀어야겠다.</p>
 
-<p>사실 자율주행사업이나 항공우주사업이나 결국에는 정부의 눈치를 봐야할 수 밖에 없는 사업인데
-저렇게 밉보이는 짓만 골라서 하다가 진짜 골로 가는건 아닌지, 물론 내가 세계 1위부자 걱정할 처지는 아니지만 요즘은 진짜 선을 넘는것 같아 걱정이다. 물론 저러고 뒤에서는 바이든앞에서 무릎꿇고 있을지 모르겠다.
-약간 주류들, 기성세대들에게 반발하는 이미지를 가져감으로써 어떠한 사업상의 이득을 보려고 하는것같은데
-갑자기 비트코인을 테슬라 결제에 사용하게 한다더니 또 돌연 취소해서 주가를 폭락시키고, 도지코인을 언급해서
-가격을 오지게 띄우더니 또 무슨 도지-x 인공위성을 띄우고 결제 수단을 도지코인으로 한단다.
-이번에 비트코인 결제 지원을 취소한 이유를 비트코인의 엄청난 전기사용량으로 인한 환경 문제를 들던데,
-전력소모가 적은 코인으로 선택한게 도지코인일수도 있겠다 싶다는 생각이 들었다. 이미 3년여전부터 개발자들한테 지원 을 했고 계속 개발자들과 컨택했다는 사실이 밝혀졌는데, 설마 이러한 전력소모가 어마어마한 비트코인의 대체제로 코인 을 찾던 도중 도지 코인을 찾게 되었고, 이를 실제 결제수단으로 사용하기위해 계속 언급하고 띄워 도지코인의 네트워크를 형성하기 위한 초석이었다면??</p>
+<h2 id="코드">코드</h2>
 
-<p>물론 그냥 뇌피셜이고 개소리지만, 일론머스크라면 그럴수도 있겠다는 생각이 든다. 나보다 똑똑한 사람이니까 다 생각이 있겠지…</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
 
-<p>마침 일론머스크에 관한 내용을 쓰고있는데
-아빠가 주문한 테슬라 모델3가 2분기 인도가 힘들다는 카톡이 왔다. 미안해 욕안할게 머스크 차 좀 빨리줘~~~</p>
+<span class="k">def</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+    <span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">visited</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">q</span><span class="p">:</span>
+        <span class="n">nx</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span>
+        <span class="n">dx</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">bridge</span><span class="p">[</span><span class="n">nx</span><span class="p">]</span><span class="o">*-</span><span class="n">i</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">dx</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">bridge</span><span class="p">[</span><span class="n">nx</span><span class="p">]</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">bridge</span><span class="p">[</span><span class="n">nx</span><span class="p">]</span><span class="o">*-</span><span class="n">i</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">dx</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">bridge</span><span class="p">[</span><span class="n">nx</span><span class="p">]</span><span class="o">*-</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dx</span><span class="p">)):</span>
+            <span class="n">sx</span> <span class="o">=</span> <span class="n">nx</span> <span class="o">+</span> <span class="n">dx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">sx</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">visited</span><span class="p">[</span><span class="n">sx</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">visited</span><span class="p">[</span><span class="n">sx</span><span class="p">]</span> <span class="o">=</span> <span class="n">visited</span><span class="p">[</span><span class="n">nx</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
+                <span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">sx</span><span class="p">)</span>
+                <span class="c1">#print('result:', result)
+</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">bridge</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<span class="n">visited</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">n</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">n</span>
+<span class="n">bfs</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">bridge</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">visited</span><span class="p">[</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5
+2 3 1 2 3
+5 2
+[0, 3, 0, -3]
+[0, 3, 0, -3]
+1
+</code></pre></div></div>
+
 
         
       </section>
@@ -488,41 +514,11 @@
       <footer class="page__meta">
         
         
-  
-
-
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
-    <span itemprop="keywords">
-    
-      <a href="/tags/#%EC%9D%BC%EA%B8%B0%EC%9E%A5" class="page__taxonomy-item" rel="tag">일기장</a>
-    
-    </span>
-  </p>
-
-
-
-
-  
-
-
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
-    <span itemprop="keywords">
-    
-      <a href="/categories/#diary-univ" class="page__taxonomy-item" rel="tag">diary-univ</a>
-    
-    </span>
-  </p>
 
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-05-18T00:00:00+00:00">May 18, 2021</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-07-18T04:13:01+00:00">July 18, 2021</time></p>
 
 
       </footer>
@@ -532,23 +528,22 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%EC%9D%BC%EB%A1%A0%EB%A8%B8%EC%8A%A4%ED%81%AC%20http%3A%2F%2Flocalhost%3A4000%2Fdiary-univ%2F%25EC%259D%25BC%25EB%25A1%25A0%25EB%25A8%25B8%25EC%258A%25A4%25ED%2581%25AC%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%20http%3A%2F%2Flocalhost%3A4000%2F2021-07-17-BOJ-1326-%25ED%258F%25B4%25EC%25A7%259D%25ED%258F%25B4%25EC%25A7%259D-%28Python3%29%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdiary-univ%2F%25EC%259D%25BC%25EB%25A1%25A0%25EB%25A8%25B8%25EC%258A%25A4%25ED%2581%25AC%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021-07-17-BOJ-1326-%25ED%258F%25B4%25EC%25A7%259D%25ED%258F%25B4%25EC%25A7%259D-%28Python3%29%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdiary-univ%2F%25EC%259D%25BC%25EB%25A1%25A0%25EB%25A8%25B8%25EC%258A%25A4%25ED%2581%25AC%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2021-07-17-BOJ-1326-%25ED%258F%25B4%25EC%25A7%259D%25ED%258F%25B4%25EC%25A7%259D-%28Python3%29%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/machinelearning/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-(3)-%EC%86%90%EA%B8%80%EC%94%A8-%EB%B6%84%EB%A5%98-%EB%AA%A8%EB%8D%B8/" class="pagination--pager" title="사이킷런 (3) 손글씨 분류 모델
+      <a href="/diary-univ/%EB%AA%A9%ED%91%9C/" class="pagination--pager" title="목표
 ">이전</a>
     
     
-      <a href="/diary-univ/%EB%B0%98%EB%B3%B5/" class="pagination--pager" title="반복
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -562,53 +557,6 @@
     <div class="page__related">
       <h4 class="page__related-title">참고</h4>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021-07-17-BOJ-1326-%ED%8F%B4%EC%A7%9D%ED%8F%B4%EC%A7%9D-(Python3)/" rel="permalink">
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-07-18T04:13:01+00:00">July 18, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
         
           
 
@@ -758,6 +706,54 @@ N×M 크기의 공간에 아기 상어 여러 마리가 있다. 공간은 1×1 �
 </div>
 
         
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/baekjoon/BOJ-12761-%EB%8F%8C%EB%8B%A4%EB%A6%AC-(Pytyon3)/" rel="permalink">[BOJ] 12761 돌다리 (Pytyon3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-16T00:00:00+00:00">July 16, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+동규와 주미는 일직선 상의 돌 다리 위에있다. 돌의 번호는 0 부터 100,000 까지 존재하고 동규는 
+N번 돌 위에, 주미는 M번 돌 위에 위치하고 있다. 동규는 주미가 너무 보고싶기 때문에 최대한 빨리 주미에게 가기 위해 A,B만큼의 힘을 가진 스카이 콩콩을 가져왔다. ...</p>
+  </article>
+</div>
+
+        
       </div>
     </div>
   
@@ -822,8 +818,8 @@ N×M 크기의 공간에 아기 상어 여러 마리가 있다. 공간은 1×1 �
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/diary-univ/%EC%9D%BC%EB%A1%A0%EB%A8%B8%EC%8A%A4%ED%81%AC/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/diary-univ/일론머스크"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/2021-07-17-BOJ-1326-%ED%8F%B4%EC%A7%9D%ED%8F%B4%EC%A7%9D-(Python3)/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/2021-07-17-[BOJ] 1326 폴짝폴짝 (Python3)"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
