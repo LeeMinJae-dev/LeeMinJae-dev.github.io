@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Learnote-Dev</title>
-<meta name="description" content="대학생 예비 개발자 블로그">
+<!-- begin _includes/seo.html --><title>[Java] 3 - 생성자 - Learnote-Dev</title>
+<meta name="description" content="생성자란? 다음과 같이 Person과 PersonTest 클래스를 만들어보자 ``` package constructor;">
 
 
   <meta name="author" content="이민재">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Learnote-Dev">
-<meta property="og:title" content="Learnote-Dev">
-<meta property="og:url" content="http://localhost:4000/2021-07-18-BOJ-1326-%ED%8F%B4%EC%A7%9D%ED%8F%B4%EC%A7%9D-(Python3)/">
+<meta property="og:title" content="[Java] 3 - 생성자">
+<meta property="og:url" content="http://localhost:4000/java/Java-%EC%83%9D%EC%84%B1%EC%9E%90/">
 
 
-  <meta property="og:description" content="대학생 예비 개발자 블로그">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2021-07-20T02:07:09+00:00">
+  <meta property="og:description" content="생성자란? 다음과 같이 Person과 PersonTest 클래스를 만들어보자 ``` package constructor;">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2021-07-20T00:00:00+00:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/2021-07-18-BOJ-1326-%ED%8F%B4%EC%A7%9D%ED%8F%B4%EC%A7%9D-(Python3)/">
+
+<link rel="canonical" href="http://localhost:4000/java/Java-%EC%83%9D%EC%84%B1%EC%9E%90/">
 
 
 
@@ -318,7 +318,7 @@
                     
                 
                     
-                        <li><a href="/categories/java" class="">Java (1)</a></li>
+                        <li><a href="/categories/java" class="">Java (3)</a></li>
                     
                 
 
@@ -335,7 +335,7 @@
                     
                 
                     
-                        <li><a href="/categories/baekjoon" class="">Baekjoon (7)</a></li>
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (8)</a></li>
                     
                 
                     
@@ -410,15 +410,16 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2021-07-20T02:07:09+00:00">
+    <meta itemprop="headline" content="[Java] 3 - 생성자">
+    <meta itemprop="description" content="생성자란?다음과 같이 Person과 PersonTest 클래스를 만들어보자```package constructor;">
+    <meta itemprop="datePublished" content="2021-07-20T00:00:00+00:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          
+          <h1 id="page-title" class="page__title" itemprop="headline">[Java] 3 - 생성자
+</h1>
           
 
   <p class="page__meta">
@@ -427,7 +428,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-07-20T02:07:09+00:00">July 20, 2021</time>
+        <time datetime="2021-07-20T00:00:00+00:00">July 20, 2021</time>
       </span>
     
 
@@ -452,74 +453,89 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="문제">문제</h2>
-<p>개구리가 일렬로 놓여 있는 징검다리 사이를 폴짝폴짝 뛰어다니고 있다. 징검다리에는 숫자가 각각 쓰여 있는데, 이 개구리는 매우 특이한 개구리여서 어떤 징검다리에서 점프를 할 때는 그 징검다리에 쓰여 있는 수의 배수만큼 떨어져 있는 곳으로만 갈 수 있다.</p>
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this Page</h4></header>
+              <ul class="toc__menu"><li><a href="#생성자란">생성자란?</a></li><li><a href="#디폴트-생성자">디폴트 생성자</a></li><li><a href="#생성자-만들기">생성자 만들기</a></li><li><a href="#생성자-오버로드">생성자 오버로드</a></li></ul>
 
-<p>이 개구리는 a번째 징검다리에서 b번째 징검다리까지 가려고 한다. 이 개구리가 a번째 징검다리에서 시작하여 최소 몇 번 점프를 하여 b번째 징검다리까지 갈 수 있는지를 알아보는 프로그램을 작성하시오.</p>
+            </nav>
+          </aside>
+        
+        <h2 id="생성자란">생성자란?</h2>
+<p>다음과 같이 Person과 PersonTest 클래스를 만들어보자</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package constructor;
 
-<h2 id="입력">입력</h2>
-<p>첫째 줄에 징검다리의 개수 N(1≤N≤10,000)이 주어지고, 이어서 각 징검다리에 쓰여 있는 N개의 정수가 주어진다. 그 다음 줄에는 N보다 작거나 같은 자연수 a, b가 주어지는 데, 이는 개구리가 a번 징검다리에서 시작하여 b번 징검다리에 가고 싶다는 뜻이다. 징검다리에 쓰여있는 정수는 10,000보다 작거나 같은 자연수이다.</p>
-<h2 id="출력">출력</h2>
-<p>첫째 줄에 개구리가 a번 징검다리에서 b번 징검다리로 최소 몇 번 점프하여 갈 수 있는 지를 출력하시오. a에서 b로 갈 수 없는 경우에는 -1을 출력한다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>예제 입력 1  복사
-5
-1 2 2 1 2
-1 5 
-예제 출력 1  복사
-1 ## 힌트 1번 징검다리에 1이 쓰여 있으므로, 1의 배수인 4만큼을 한 번에 뛰어 5번 징검다리로 갈 수 있다. ## 풀이 bfs를 이용하여 징검다리에 인덱스 + 징검다리에 적혀있는 크기의 배수들에 모두 방문하여 방문하지 않은 징검다리라면 visited에 1을 더해주는 방식으로 몇번만에 b에 도달했는지가 visited에 1보다 큰 수로 저장되도록 한다.
+public class Person {
+    String name;
+    float height;
+    float weight;
+}
 </code></pre></div></div>
+<p>위와 같은 클래스를 만들었다면 PersonTest라는 클래스를 하나 더 만들어
+personLee라는 인스턴스를 선언해보자</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package constructor;
 
-<p>간단한 bfs문제이지만 푸는데 한참걸렸는데, 징검다리가 왼쪽으로도 이동할 수 있다는 사실을 생각을 안하고 계속 풀어서 아무리 반례를 찾으려 해도 찾을 수 가 없어 시간을 너무 많이 잡아먹었다. 문제를 잘읽고 프로그램을 어떤 상황까지 구현해야 하는지 확실하게 풀어야겠다.</p>
-
-<h2 id="코드">코드</h2>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
-
-<span class="k">def</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">q</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
-    <span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">visited</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">while</span> <span class="n">q</span><span class="p">:</span>
-        <span class="n">nx</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span>
-        <span class="n">dx</span><span class="o">=</span><span class="p">[]</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">bridge</span><span class="p">[</span><span class="n">nx</span><span class="p">]</span><span class="o">*-</span><span class="n">i</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
-                <span class="k">break</span>
-            <span class="n">dx</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">bridge</span><span class="p">[</span><span class="n">nx</span><span class="p">]</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">bridge</span><span class="p">[</span><span class="n">nx</span><span class="p">]</span><span class="o">*-</span><span class="n">i</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
-                <span class="k">break</span>
-            <span class="n">dx</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">bridge</span><span class="p">[</span><span class="n">nx</span><span class="p">]</span><span class="o">*-</span><span class="n">i</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dx</span><span class="p">)):</span>
-            <span class="n">sx</span> <span class="o">=</span> <span class="n">nx</span> <span class="o">+</span> <span class="n">dx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-            <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">sx</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">visited</span><span class="p">[</span><span class="n">sx</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-                <span class="n">visited</span><span class="p">[</span><span class="n">sx</span><span class="p">]</span> <span class="o">=</span> <span class="n">visited</span><span class="p">[</span><span class="n">nx</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
-                <span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">sx</span><span class="p">)</span>
-                <span class="c1">#print('result:', result)
-</span>
-<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-<span class="n">bridge</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
-<span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
-<span class="n">visited</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">n</span>
-<span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">n</span>
-<span class="n">bfs</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">bridge</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">visited</span><span class="p">[</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-
+public class PersonTest {
+    public static void main(String[] args){
+        Person personLee = new Person()
+    }
+}
 </code></pre></div></div>
+<p>여기서 new <strong>Person()</strong> 의 Person()같은 함수를 생성자라고 한다.
+클래스의 멤버 변수는 메서드에 의해 값이 변경될 수도 있지만, 처음 클래스를 생성할 때 값을
+정해야 하는 경우도 있다. 생성자가 하는 일은 클래스를 처음 만들 때 멤버 변수나 상수를 초기화하는 것이다.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5
-2 3 1 2 3
-5 2
-[0, 3, 0, -3]
-[0, 3, 0, -3]
-1
+<h2 id="디폴트-생성자">디폴트 생성자</h2>
+<p>생성자는 오직 클래스를 생성할때만 호출한다.  <br />
+생성자 이름은 클래스 이름과 동일하고, 생성자는 반환값을 갖지 않는다.
+하지만 우리가 처음 Person 클래스를 만든 코드를 보면 Person() 생성자가 따로 없다.
+하지만 그럼에도 new Person()을 통해 객체를 만들어 줄 수 있었는데, 이는 컴파일러가
+자동으로 생성자를 만들어주기 때문이다. 이렇게 자동으로 만들어주는 생성자를 <strong>디폴트 생성자(default constructor)</strong> 라고 하는데 이는 매개변수도 없고 구현코드가 없다.</p>
+
+<h2 id="생성자-만들기">생성자 만들기</h2>
+<p>필요한 경우 디폴트 생성자가 아닌 프로그래머가 임의로 만든 생성자를 사용할 수도 있는데, 이렇게 하면
+인스턴스를 생성할때 반드시 특정 멤버변수의 값을 초기화하면서 하도록 할 경우에 직접 생성자를 구현하여 <br />
+사용하게된다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package constructor;
+
+public class Person {
+    String name;
+    float height;
+    float weight;
+
+    public Person(String pname){
+        name = pname;
+    }
+}
 </code></pre></div></div>
+<p>이렇게 선언하게 되면 반드시 name을 매개변수로 넣어주어야만 인스턴스의 멤버 변수값을 초기화함과 동시에
+인스턴스가 만들어진다. 따라서 우리가 아까 만들었던 PersonTest 클래스는 오류를 나타내게 되는데,
+이는 우리가 직접 생성자를 만들어줌으로써 컴파일러가 이제는 자동으로 디폴트 생성자를 만들게 되지 않기 때문이다. 따라서 오류가 나지 않도록 하려면 아래의 코드와 같이 name을 매개변수에 지정을 해주어야 한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package constructor;
+
+public class PersonTest {
+    public static void main(String[] args){
+        Person personLee = new Person("이민재");
+    }
+}
+</code></pre></div></div>
+<p>만약 매개변수를 받아도 되고 안받아도 되도록 하고 싶다면, 우리가 직접 디폴트 생성자도 함께 있도록 추가해주면 된다. 이렇게 하면 생성자 두개중에서 하나를 선택하여 사용 할 수 있게된다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package constructor;
+
+public class Person {
+    String name;
+    float height;
+    float weight;
+
+    public Person(String pname){
+        name = pname;
+    }
+    public Person(){}
+}
+</code></pre></div></div>
+<h2 id="생성자-오버로드">생성자 오버로드</h2>
+<p>이렇게 위처럼 생성자가 두 개 이상 제공되는 경우를 <strong>생성자 오버로드(constructor overload)</strong> 라고 한다.
+필요에 따라 매개변수가 다른 생성자를 여러 개 만들 수 있으며, 경우에 따라서는 아예 디폴트 생성자를 제공하지 않을 수 도 있다.</p>
 
 
         
@@ -530,9 +546,24 @@
         
 
 
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#java" class="page__taxonomy-item" rel="tag">java</a>
+    
+    </span>
+  </p>
+
+
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-07-20T02:07:09+00:00">July 20, 2021</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-07-20T00:00:00+00:00">July 20, 2021</time></p>
 
 
       </footer>
@@ -542,22 +573,23 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%20http%3A%2F%2Flocalhost%3A4000%2F2021-07-18-BOJ-1326-%25ED%258F%25B4%25EC%25A7%259D%25ED%258F%25B4%25EC%25A7%259D-%28Python3%29%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BJava%5D+3+-+%EC%83%9D%EC%84%B1%EC%9E%90%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2FJava-%25EC%2583%259D%25EC%2584%25B1%25EC%259E%2590%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021-07-18-BOJ-1326-%25ED%258F%25B4%25EC%25A7%259D%25ED%258F%25B4%25EC%25A7%259D-%28Python3%29%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2FJava-%25EC%2583%259D%25EC%2584%25B1%25EC%259E%2590%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2021-07-18-BOJ-1326-%25ED%258F%25B4%25EC%25A7%259D%25ED%258F%25B4%25EC%25A7%259D-%28Python3%29%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2FJava-%25EC%2583%259D%25EC%2584%25B1%25EC%259E%2590%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/baekjoon/BOJ-1325-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-%ED%95%B4%ED%82%B9-(Python3)/" class="pagination--pager" title="[BOJ] 1325 효율적인 해킹 (Python3)
+      <a href="/diary-univ/%EB%AA%A9%ED%91%9C/" class="pagination--pager" title="목표
 ">이전</a>
     
     
-      <a href="#" class="pagination--pager disabled">다음</a>
+      <a href="/java/Java-%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC-%ED%81%B4%EB%9E%98%EC%8A%A4/" class="pagination--pager" title="[Java] 2 - 객체 지향 프로그래밍과 클래스
+">다음</a>
     
   </nav>
 
@@ -630,7 +662,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/java/%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95/" rel="permalink">변수와 자료형
+        <a href="/java/Java-%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95/" rel="permalink">[Java] 1 - 변수와 자료형
 </a>
       
     </h2>
@@ -665,6 +697,56 @@
     <p class="archive__item-excerpt" itemprop="description">변수 선언하여 사용하기
 
 </p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/java/Java-%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC-%ED%81%B4%EB%9E%98%EC%8A%A4/" rel="permalink">[Java] 2 - 객체 지향 프로그래밍과 클래스
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-20T00:00:00+00:00">July 20, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">클래스란?
+클래스는 객체와의 속성과 기능을 코드로 구현한 것으로, 객체를 클래스로 구현하는 것을  
+‘클래스를 정의한다’라고 한다. 클래스를 정의하려면 우선 클래스 이름과 클래스가 가지는 속성,
+또는 특성이 필요하다. 객체를 코드로 구현한다는 말이 모호할 수 있으니
+‘학생’이라는 ...</p>
   </article>
 </div>
 
@@ -713,55 +795,6 @@
     <p class="archive__item-excerpt" itemprop="description">2021.07.18
 요즘 어느정도 무엇을 하고싶고 그 무엇을 하기위해 어떻게 하고싶은지에 대한 가닥이 잡혀서
 목표를 뚜렷하게 정하고 시작해야겠다는 생각이 들었다.
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/baekjoon/BOJ-17086-%EC%95%84%EA%B8%B0%EC%83%81%EC%96%B42-(Python3)/" rel="permalink">[BOJ] 17086 아기상어2 (Python3)
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-07-16T00:00:00+00:00">July 16, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">문제
-N×M 크기의 공간에 아기 상어 여러 마리가 있다. 공간은 1×1 크기의 정사각형 칸으로 나누어져 있다. 한 칸에는 아기 상어가 최대 1마리 존재한다.
 
 </p>
   </article>
@@ -832,8 +865,8 @@ N×M 크기의 공간에 아기 상어 여러 마리가 있다. 공간은 1×1 �
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/2021-07-18-BOJ-1326-%ED%8F%B4%EC%A7%9D%ED%8F%B4%EC%A7%9D-(Python3)/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/2021-07-18-[BOJ] 1326 폴짝폴짝 (Python3)"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/java/Java-%EC%83%9D%EC%84%B1%EC%9E%90/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/java/[Java] 생성자"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
