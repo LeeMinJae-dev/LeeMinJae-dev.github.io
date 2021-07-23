@@ -318,7 +318,7 @@
                     
                 
                     
-                        <li><a href="/categories/java" class="">Java (3)</a></li>
+                        <li><a href="/categories/java" class="">Java (7)</a></li>
                     
                 
 
@@ -471,19 +471,62 @@
 <h2 id="출력">출력</h2>
 <p>첫째 줄에 개구리가 a번 징검다리에서 b번 징검다리로 최소 몇 번 점프하여 갈 수 있는 지를 출력하시오. a에서 b로 갈 수 없는 경우에는 -1을 출력한다.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>예제 입력 1  복사
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>예제 입력 1  복사
 5
 1 2 2 1 2
 1 5 
 예제 출력 1  복사
 1 ## 힌트 1번 징검다리에 1이 쓰여 있으므로, 1의 배수인 4만큼을 한 번에 뛰어 5번 징검다리로 갈 수 있다. ## 풀이 bfs를 이용하여 징검다리에 인덱스 + 징검다리에 적혀있는 크기의 배수들에 모두 방문하여 방문하지 않은 징검다리라면 visited에 1을 더해주는 방식으로 몇번만에 b에 도달했는지가 visited에 1보다 큰 수로 저장되도록 한다.
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>간단한 bfs문제이지만 푸는데 한참걸렸는데, 징검다리가 왼쪽으로도 이동할 수 있다는 사실을 생각을 안하고 계속 풀어서 아무리 반례를 찾으려 해도 찾을 수 가 없어 시간을 너무 많이 잡아먹었다. 문제를 잘읽고 프로그램을 어떤 상황까지 구현해야 하는지 확실하게 풀어야겠다.</p>
 
 <h2 id="코드">코드</h2>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
 
 <span class="k">def</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">q</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
@@ -520,15 +563,21 @@
 <span class="k">else</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">visited</span><span class="p">[</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>5
 2 3 1 2 3
 5 2
 [0, 3, 0, -3]
 [0, 3, 0, -3]
 1
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 
         
@@ -606,7 +655,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/baekjoon/BOJ-1325-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-%ED%95%B4%ED%82%B9-(Python3)/" rel="permalink">[BOJ] 1325 효율적인 해킹 (Python3)
+        <a href="/java/Java-%EC%B0%B8%EC%A1%B0%EC%9E%90%EB%A3%8C%ED%98%95,-%EC%A0%95%EB%B3%B4%EC%9D%80%EB%8B%89/" rel="permalink">[Java] 참조 자료형, 정보은닉
 </a>
       
     </h2>
@@ -618,7 +667,54 @@
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-07-20T00:00:00+00:00">July 20, 2021</time>
+        <time datetime="2021-07-23T00:00:00+00:00">July 23, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">참조 자료형
+크기가 정해진 기본 자료형 ( int, char, float, double등)으로 선언하는 변수가 있고, 클래스 자료형으로 선언하는 참조 자료형 변수가 있다. 참조 자료형 변수의 특징에 대해 좀 더 자세히 살펴보고, 클래스를 선언하여 참조형을 이용한 프로그램을 구현해보...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/java/Java-%EC%8B%B1%EA%B8%80%ED%86%A4-%ED%8C%A8%ED%84%B4/" rel="permalink">[Java] 싱글톤 패턴
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-23T00:00:00+00:00">July 23, 2021</time>
       </span>
     
 
@@ -638,10 +734,8 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">문제
-해커 김지민은 잘 알려진 어느 회사를 해킹하려고 한다. 이 회사는 N개의 컴퓨터로 이루어져 있다. 김지민은 귀찮기 때문에, 한 번의 해킹으로 여러 개의 컴퓨터를 해킹 할 수 있는 컴퓨터를 해킹하려고 한다.
-
-</p>
+    <p class="archive__item-excerpt" itemprop="description">싱글톤 패턴이란?
+프로그램을 구현하다 보면 여러 개의 인스턴스가 필요한 경우도 있고, 단 하나의 인스턴스만 필요한 경우도 있다. 객체 지향 프로그램에서 인스턴스를 단 하나만 생성하는 디자인 패턴을 싱글톤 패턴(singleton pattern) 이라고 한다. 우리가 여기서 살펴볼 싱...</p>
   </article>
 </div>
 
@@ -655,7 +749,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/java/Java-%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95/" rel="permalink">[Java] 1 - 변수와 자료형
+        <a href="/java/Java-%EA%B0%9D%EC%B2%B4-%EA%B0%84-%ED%98%91%EB%A0%A5/" rel="permalink">[Java] 객체 간 협력
 </a>
       
     </h2>
@@ -667,105 +761,7 @@
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-07-20T00:00:00+00:00">July 20, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          2 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">변수 선언하여 사용하기
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/java/Java-%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC-%ED%81%B4%EB%9E%98%EC%8A%A4/" rel="permalink">[Java] 2 - 객체 지향 프로그래밍과 클래스
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-07-20T00:00:00+00:00">July 20, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          5 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">클래스란?
-클래스는 객체와의 속성과 기능을 코드로 구현한 것으로, 객체를 클래스로 구현하는 것을  
-‘클래스를 정의한다’라고 한다. 클래스를 정의하려면 우선 클래스 이름과 클래스가 가지는 속성,
-또는 특성이 필요하다. 객체를 코드로 구현한다는 말이 모호할 수 있으니
-‘학생’이라는 ...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/java/Java-%EC%83%9D%EC%84%B1%EC%9E%90/" rel="permalink">[Java] 3 - 생성자
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-07-20T00:00:00+00:00">July 20, 2021</time>
+        <time datetime="2021-07-23T00:00:00+00:00">July 23, 2021</time>
       </span>
     
 
@@ -785,12 +781,59 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">생성자란?
-다음과 같이 Person과 PersonTest 클래스를 만들어보자
-```
-package constructor;
+    <p class="archive__item-excerpt" itemprop="description">객체 지향 프로그램은 객체를 정의하고 객체 간 협력으로 만들어진다.  
+그러면 실제로 객체간의 협력이 어떻게 이루어지는지 한번 예제를 만들어 확인해보자.
 
 </p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/java/Java-static-%EB%B3%80%EC%88%98/" rel="permalink">[Java] static 변수
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-23T00:00:00+00:00">July 23, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">변수를 여러 클래스에서 공통으로 사용하기
+우리가 앞서만든 학생클래스에서, 만약 학번을 만들고 싶다면 어떻게 해야할까?  
+이 학번은 새로운 인스턴스가 생성될때마다 자동으로 생성되어 그 인스턴스에 할당되게 하고싶다. 
+이렇게 하려면 인스턴스마다 따로 변수가 생성되는게 아니라, 클래스...</p>
   </article>
 </div>
 

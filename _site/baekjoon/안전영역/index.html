@@ -318,7 +318,7 @@
                     
                 
                     
-                        <li><a href="/categories/java" class="">Java (3)</a></li>
+                        <li><a href="/categories/java" class="">Java (7)</a></li>
                     
                 
 
@@ -441,7 +441,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          2 분 소요
+          3 분 소요
         
       </span>
     
@@ -465,28 +465,43 @@
 <p>재난방재청에서는 많은 비가 내리는 장마철에 대비해서 다음과 같은 일을 계획하고 있다. 먼저 어떤 지역의 높이 정보를 파악한다. 그 다음에 그 지역에 많은 비가 내렸을 때 물에 잠기지 않는 안전한 영역이 최대로 몇 개가 만들어 지는 지를 조사하려고 한다. 이때, 문제를 간단하게 하기 위하여, 장마철에 내리는 비의 양에 따라 일정한 높이 이하의 모든 지점은 물에 잠긴다고 가정한다.</p>
 
 <p>어떤 지역의 높이 정보는 행과 열의 크기가 각각 N인 2차원 배열 형태로 주어지며 배열의 각 원소는 해당 지점의 높이를 표시하는 자연수이다. 예를 들어, 다음은 N=5인 지역의 높이 정보이다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>6	8	2	6	2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>6	8	2	6	2
 3	2	3	4	6
 6	7	3	3	2
 7	2	5	3	6
 8	9	5	2	7
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 <p>이제 위와 같은 지역에 많은 비가 내려서 높이가 4 이하인 모든 지점이 물에 잠겼다고 하자. 이 경우에 물에 잠기는 지점을 회색으로 표시하면 다음과 같다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>6	8	2	6	2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>6	8	2	6	2
 3	2	3	4	6
 6	7	3	3	2
 7	2	5	3	6
 8	9	5	2	7
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 <p>물에 잠기지 않는 안전한 영역이라 함은 물에 잠기지 않는 지점들이 위, 아래, 오른쪽 혹은 왼쪽으로 인접해 있으며 그 크기가 최대인 영역을 말한다. 위의 경우에서 물에 잠기지 않는 안전한 영역은 5개가 된다(꼭짓점으로만 붙어 있는 두 지점은 인접하지 않는다고 취급한다).</p>
 
 <p>또한 위와 같은 지역에서 높이가 6이하인 지점을 모두 잠기게 만드는 많은 비가 내리면 물에 잠기지 않는 안전한 영역은 아래 그림에서와 같이 네 개가 됨을 확인할 수 있다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>6	8	2	6	2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>6	8	2	6	2
 3	2	3	4	6
 6	7	3	3	2
 7	2	5	3	6
 8	9	5	2	7
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 <p>이와 같이 장마철에 내리는 비의 양에 따라서 물에 잠기지 않는 안전한 영역의 개수는 다르게 된다. 위의 예와 같은 지역에서 내리는 비의 양에 따른 모든 경우를 다 조사해 보면 물에 잠기지 않는 안전한 영역의 개수 중에서 최대인 경우는 5임을 알 수 있다.</p>
 
 <p>어떤 지역의 높이 정보가 주어졌을 때, 장마철에 물에 잠기지 않는 안전한 영역의 최대 개수를 계산하는 프로그램을 작성하시오.</p>
@@ -497,7 +512,27 @@
 <h2 id="출력">출력</h2>
 <p>첫째 줄에 장마철에 물에 잠기지 않는 안전한 영역의 최대 개수를 출력한다.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>예제 입력 1  복사
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="rouge-code"><pre>예제 입력 1  복사
 5
 6 8 2 6 2
 3 2 3 4 6
@@ -517,11 +552,56 @@
 9 9 9 9 9 9 9
 예제 출력 2  복사
 6
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 <h2 id="노트">노트</h2>
 <p>아무 지역도 물에 잠기지 않을 수도 있다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="p">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">water</span><span class="p">):</span>
@@ -566,14 +646,19 @@
 
 <span class="k">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">answer</span><span class="p">))</span>
 
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>3
 2 2 2
 2 2 2
 2 2 2
 1
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 
         
@@ -670,7 +755,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/baekjoon/BOJ-1325-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-%ED%95%B4%ED%82%B9-(Python3)/" rel="permalink">[BOJ] 1325 효율적인 해킹 (Python3)
+        <a href="/java/Java-%EC%B0%B8%EC%A1%B0%EC%9E%90%EB%A3%8C%ED%98%95,-%EC%A0%95%EB%B3%B4%EC%9D%80%EB%8B%89/" rel="permalink">[Java] 참조 자료형, 정보은닉
 </a>
       
     </h2>
@@ -682,7 +767,54 @@
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-07-20T00:00:00+00:00">July 20, 2021</time>
+        <time datetime="2021-07-23T00:00:00+00:00">July 23, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">참조 자료형
+크기가 정해진 기본 자료형 ( int, char, float, double등)으로 선언하는 변수가 있고, 클래스 자료형으로 선언하는 참조 자료형 변수가 있다. 참조 자료형 변수의 특징에 대해 좀 더 자세히 살펴보고, 클래스를 선언하여 참조형을 이용한 프로그램을 구현해보...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/java/Java-%EC%8B%B1%EA%B8%80%ED%86%A4-%ED%8C%A8%ED%84%B4/" rel="permalink">[Java] 싱글톤 패턴
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-23T00:00:00+00:00">July 23, 2021</time>
       </span>
     
 
@@ -702,10 +834,8 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">문제
-해커 김지민은 잘 알려진 어느 회사를 해킹하려고 한다. 이 회사는 N개의 컴퓨터로 이루어져 있다. 김지민은 귀찮기 때문에, 한 번의 해킹으로 여러 개의 컴퓨터를 해킹 할 수 있는 컴퓨터를 해킹하려고 한다.
-
-</p>
+    <p class="archive__item-excerpt" itemprop="description">싱글톤 패턴이란?
+프로그램을 구현하다 보면 여러 개의 인스턴스가 필요한 경우도 있고, 단 하나의 인스턴스만 필요한 경우도 있다. 객체 지향 프로그램에서 인스턴스를 단 하나만 생성하는 디자인 패턴을 싱글톤 패턴(singleton pattern) 이라고 한다. 우리가 여기서 살펴볼 싱...</p>
   </article>
 </div>
 
@@ -719,7 +849,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/java/Java-%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95/" rel="permalink">[Java] 1 - 변수와 자료형
+        <a href="/java/Java-%EA%B0%9D%EC%B2%B4-%EA%B0%84-%ED%98%91%EB%A0%A5/" rel="permalink">[Java] 객체 간 협력
 </a>
       
     </h2>
@@ -731,105 +861,7 @@
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-07-20T00:00:00+00:00">July 20, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          2 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">변수 선언하여 사용하기
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/java/Java-%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC-%ED%81%B4%EB%9E%98%EC%8A%A4/" rel="permalink">[Java] 2 - 객체 지향 프로그래밍과 클래스
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-07-20T00:00:00+00:00">July 20, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          5 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">클래스란?
-클래스는 객체와의 속성과 기능을 코드로 구현한 것으로, 객체를 클래스로 구현하는 것을  
-‘클래스를 정의한다’라고 한다. 클래스를 정의하려면 우선 클래스 이름과 클래스가 가지는 속성,
-또는 특성이 필요하다. 객체를 코드로 구현한다는 말이 모호할 수 있으니
-‘학생’이라는 ...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/java/Java-%EC%83%9D%EC%84%B1%EC%9E%90/" rel="permalink">[Java] 3 - 생성자
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-07-20T00:00:00+00:00">July 20, 2021</time>
+        <time datetime="2021-07-23T00:00:00+00:00">July 23, 2021</time>
       </span>
     
 
@@ -849,12 +881,59 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">생성자란?
-다음과 같이 Person과 PersonTest 클래스를 만들어보자
-```
-package constructor;
+    <p class="archive__item-excerpt" itemprop="description">객체 지향 프로그램은 객체를 정의하고 객체 간 협력으로 만들어진다.  
+그러면 실제로 객체간의 협력이 어떻게 이루어지는지 한번 예제를 만들어 확인해보자.
 
 </p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/java/Java-static-%EB%B3%80%EC%88%98/" rel="permalink">[Java] static 변수
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-23T00:00:00+00:00">July 23, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">변수를 여러 클래스에서 공통으로 사용하기
+우리가 앞서만든 학생클래스에서, 만약 학번을 만들고 싶다면 어떻게 해야할까?  
+이 학번은 새로운 인스턴스가 생성될때마다 자동으로 생성되어 그 인스턴스에 할당되게 하고싶다. 
+이렇게 하려면 인스턴스마다 따로 변수가 생성되는게 아니라, 클래스...</p>
   </article>
 </div>
 
