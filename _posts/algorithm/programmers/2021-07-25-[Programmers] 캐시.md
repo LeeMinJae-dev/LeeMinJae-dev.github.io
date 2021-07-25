@@ -1,5 +1,5 @@
 ---
-title: "[1차] 캐시"
+title: "[Programmers] 캐시"
 toc : true
 toc_sticky : true
 toc_label : "On this Page"

@@ -1,46 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-07-23T22:24:18+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Learnote-Dev</title><subtitle>대학생 예비 개발자 블로그</subtitle><author><name>이민재</name><email>lmj938@naver.com</email></author><entry><title type="html">[Programmers] 쿼드 압축 후 개수 세기 (Python3)</title><link href="http://localhost:4000/programmers/Programmers-%EC%BF%BC%EB%93%9C-%EC%95%95%EC%B6%95-%ED%9B%84-%EA%B0%9C%EC%88%98-%EC%84%B8%EA%B8%B0/" rel="alternate" type="text/html" title="[Programmers] 쿼드 압축 후 개수 세기 (Python3)" /><published>2021-07-23T00:00:00+00:00</published><updated>2021-07-23T00:00:00+00:00</updated><id>http://localhost:4000/programmers/%5BProgrammers%5D%20%EC%BF%BC%EB%93%9C%20%EC%95%95%EC%B6%95%20%ED%9B%84%20%EA%B0%9C%EC%88%98%20%EC%84%B8%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/programmers/Programmers-%EC%BF%BC%EB%93%9C-%EC%95%95%EC%B6%95-%ED%9B%84-%EA%B0%9C%EC%88%98-%EC%84%B8%EA%B8%B0/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
-&lt;p&gt;0과 1로 이루어진 2n x 2n 크기의 2차원 정수 배열 arr이 있습니다. 당신은 이 arr을 쿼드 트리와 같은 방식으로 압축하고자 합니다. 구체적인 방식은 다음과 같습니다.
-당신이 압축하고자 하는 특정 영역을 S라고 정의합니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-07-25T14:00:57+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Learnote-Dev</title><subtitle>대학생 예비 개발자 블로그</subtitle><author><name>이민재</name><email>lmj938@naver.com</email></author><entry><title type="html">[Programmers] 캐시</title><link href="http://localhost:4000/programmers/Programmers-%EC%BA%90%EC%8B%9C/" rel="alternate" type="text/html" title="[Programmers] 캐시" /><published>2021-07-25T00:00:00+00:00</published><updated>2021-07-25T00:00:00+00:00</updated><id>http://localhost:4000/programmers/%5BProgrammers%5D%20%EC%BA%90%EC%8B%9C</id><content type="html" xml:base="http://localhost:4000/programmers/Programmers-%EC%BA%90%EC%8B%9C/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+&lt;p&gt;지도개발팀에서 근무하는 제이지는 지도에서 도시 이름을 검색하면 해당 도시와 관련된 맛집 게시물들을 데이터베이스에서 읽어 보여주는 서비스를 개발하고 있다.
+이 프로그램의 테스팅 업무를 담당하고 있는 어피치는 서비스를 오픈하기 전 각 로직에 대한 성능 측정을 수행하였는데, 제이지가 작성한 부분 중 데이터베이스에서 게시물을 가져오는 부분의 실행시간이 너무 오래 걸린다는 것을 알게 되었다.&lt;/p&gt;
 
-&lt;p&gt;만약 S 내부에 있는 모든 수가 같은 값이라면, S를 해당 수 하나로 압축시킵니다.
-그렇지 않다면, S를 정확히 4개의 균일한 정사각형 영역(입출력 예를 참고해주시기 바랍니다.)으로 쪼갠 뒤, 각 정사각형 영역에 대해 같은 방식의 압축을 시도합니다.&lt;/p&gt;
+&lt;p&gt;어피치는 제이지에게 해당 로직을 개선하라고 닦달하기 시작하였고, 제이지는 DB 캐시를 적용하여 성능 개선을 시도하고 있지만 캐시 크기를 얼마로 해야 효율적인지 몰라 난감한 상황이다.&lt;/p&gt;
 
-&lt;p&gt;arr이 매개변수로 주어집니다. 위와 같은 방식으로 arr을 압축했을 때, 배열에 최종적으로 남는 0의 개수와 1의 개수를 배열에 담아서 return 하도록 solution 함수를 완성해주세요.&lt;/p&gt;
+&lt;p&gt;어피치에게 시달리는 제이지를 도와, DB 캐시를 적용할 때 캐시 크기에 따른 실행시간 측정 프로그램을 작성하시오.&lt;/p&gt;
 
-&lt;h2 id=&quot;제한사항&quot;&gt;제한사항&lt;/h2&gt;
-&lt;p&gt;arr의 행의 개수는 1 이상 1024 이하이며, 2의 거듭 제곱수 형태를 하고 있습니다. 즉, arr의 행의 개수는 1, 2, 4, 8, …, 1024 중 하나입니다.&lt;/p&gt;
+&lt;h2 id=&quot;입력-형식&quot;&gt;입력 형식&lt;/h2&gt;
+&lt;p&gt;캐시 크기(cacheSize)와 도시이름 배열(cities)을 입력받는다.
+cacheSize는 정수이며, 범위는 0 ≦ cacheSize ≦ 30 이다.
+cities는 도시 이름으로 이뤄진 문자열 배열로, 최대 도시 수는 100,000개이다.
+각 도시 이름은 공백, 숫자, 특수문자 등이 없는 영문자로 구성되며, 대소문자 구분을 하지 않는다. 도시 이름은 최대 20자로 이루어져 있다.&lt;/p&gt;
 
-&lt;p&gt;arr의 각 행의 길이는 arr의 행의 개수와 같습니다. 즉, arr은 정사각형 배열입니다.
-arr의 각 행에 있는 모든 값은 0 또는 1 입니다.&lt;/p&gt;
+&lt;h2 id=&quot;출력-형식&quot;&gt;출력 형식&lt;/h2&gt;
+&lt;p&gt;입력된 도시이름 배열을 순서대로 처리할 때, “총 실행시간”을 출력한다.&lt;/p&gt;
 
-&lt;h2 id=&quot;입출력-예&quot;&gt;입출력 예&lt;/h2&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;arr                                          result
-[[1,1,0,0],[1,0,0,0],[1,0,0,1],[1,1,1,1]]    [4,9]
+&lt;h2 id=&quot;조건&quot;&gt;조건&lt;/h2&gt;
+&lt;p&gt;캐시 교체 알고리즘은 LRU(Least Recently Used)를 사용한다.
+cache hit일 경우 실행시간은 1이다.
+cache miss일 경우 실행시간은 5이다.&lt;/p&gt;
+&lt;h2 id=&quot;입출력-예제&quot;&gt;입출력 예제&lt;/h2&gt;
+&lt;p&gt;|캐시크기(cacheSize)|도시이름(cities)|실행시간|
+|:—:|:—:|:—:|
+3|[“Jeju”, “Pangyo”, “Seoul”, “NewYork”, “LA”, “Jeju”, “Pangyo”, “Seoul”, “NewYork”, “LA”]|50
+3|[“Jeju”, “Pangyo”, “Seoul”, “Jeju”, “Pangyo”, “Seoul”, “Jeju”, “Pangyo”, “Seoul”]	|21
+2|[“Jeju”, “Pangyo”, “Seoul”, “NewYork”, “LA”, “SanFrancisco”, “Seoul”, “Rome”, “Paris”, “Jeju”, “NewYork”, “Rome”]|60
+5|[“Jeju”, “Pangyo”, “Seoul”, “NewYork”, “LA”, “SanFrancisco”, “Seoul”, “Rome”, “Paris”, “Jeju”, “NewYork”, “Rome”]|52
+2|[“Jeju”, “Pangyo”, “NewYork”, “newyork”]|16
+0|[“Jeju”, “Pangyo”, “Seoul”, “NewYork”, “LA”]|25&lt;/p&gt;
 
-[[1,1,1,1,1,1,1,1],[0,1,1,1,1,1,1,1],
-[0,0,0,0,1,1,1,1],[0,1,0,0,1,1,1,1],
-[0,0,0,0,0,0,1,1],[0,0,0,0,0,0,0,1],
-[0,0,0,0,1,0,0,1],[0,0,0,0,1,1,1,1]]        [10,15]
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h2 id=&quot;입출력-예-설명&quot;&gt;입출력 예 설명&lt;/h2&gt;
-&lt;p&gt;입출력 예 #1
-다음 그림은 주어진 arr을 압축하는 과정을 나타낸 것입니다.
-&lt;img src=&quot;/assets/images/algorithm/programmers/쿼드 압축 후 개수 세기/ex1.png&quot; alt=&quot;ex1&quot; /&gt;
-최종 압축 결과에 0이 4개, 1이 9개 있으므로, [4,9]를 return 해야 합니다.&lt;/p&gt;
+&lt;h2 id=&quot;문제-풀이&quot;&gt;문제 풀이&lt;/h2&gt;
+&lt;p&gt;이 문제는 캐시메모리를 파이썬으로 간단하게 구현해보는 것인데, 카카오 문제라 그런지 한번도 풀어본 적이 없는 신유형 느낌이라 당황스러웠다. 우선 이 문제는 캐시와 LRU를 알지 못하면 아예 풀수가 없어서 이에 대해 알아야 풀 수 있다.&lt;/p&gt;
 
-&lt;p&gt;입출력 예 #2
-다음 그림은 주어진 arr을 압축하는 과정을 나타낸 것입니다.
-&lt;img src=&quot;/assets/images/algorithm/programmers/쿼드 압축 후 개수 세기/ex2.png&quot; alt=&quot;ex1&quot; /&gt;
-최종 압축 결과에 0이 10개, 1이 15개 있으므로, [10,15]를 return 해야 합니다.&lt;/p&gt;
+&lt;p&gt;캐시는 메인 메모리와 CPU간의 데이터 속도 향상을 위한 중간 버퍼 역할을 하는 메모리로써, 잠시 저장해둔다는 의미를 갖고, 실제로 이 기능을 한다. 이 문제는 캐시DB를 간단하게 구현해보는 방식인데, 위 문제에서 나온 Cache Hit은 캐시에 이미 값이 저장 되어있는 값을 참조할때를 말하고, Cache Miss는 캐시메모리에 저장이 되어있지 않아서 메인 메모리로 가서 값을 캐시메모리로 저장해야 할 때를 말한다.&lt;/p&gt;
 
-&lt;h2 id=&quot;코드&quot;&gt;코드&lt;/h2&gt;
+&lt;p&gt;LRU는 캐시교체 알고리즘으로, 가장 오래전에 참조된 값을 삭제하고 새로운 데이터를 그 자리에 삽입하는 알고리즘이다. LRU를 검색하다가 캐시 교체 알고리즘에 대해 알게 되었는데, 내가 이미 큐에서 배웠던 FIFO 방식도 캐시메모리에서 비롯된 알고리즘이란걸 알게되었다.
+간단하게 캐시 알고리즘을 정리 해보면 아래의 표와 같다.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;캐시 알고리즘&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;특징&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;단점&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Random&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;교체될 페이지를 임의 선정함&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;오버헤드가 적음&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;FIFO(First in First Out)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;캐시 내에 가장 오래있었던 페이지를 교체&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;자주사용되는 페이지가 교체될 우려가 있음&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;LFU(Least Frequently Used)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;사용 횟수가 가장 적은 페이지부터 교체&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;최근 적재된 페이지가 교체될 우려가 있음&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;LRU(Least Recently Used)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;가장 오랫동안 사용되지 않은 페이지부터 교체&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;time stamping에 의한 오버헤드 존재&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Optimal&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;향후 가장 참조되지 않을 페이지부터 교체&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;참조될 것을 미리 알 수 없기 떄문에 실현 불가능&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;NUR(Not Used Recently)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;참조 비트와 수정 비트로 미사용 페이지 교체, 최근 사용되지 않은 페이지 교체&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;SCR(Second Chance Replacement)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;최초 참조 비트 1로 셋팅, 1인 경우 0으로 세팅하고, 0인 경우 교체, 기회를 한번 더 준다.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;따라서 LRU 방식으로 캐시 교체를 하려면, 캐시라는 리스트를 하나 만들어주고 만약 이미 캐시 리스트 안에 있는 값이라면 참조 후 가장 최근위치로 변경해주고 실행시간 1추가, 만약 캐시 리스트 안에 없는 값이라면, 가장 앞에있는 값을 삭제 후 새로운 값을 넣어준 뒤 실행시간 5를 추가 해주면 된다.&lt;/p&gt;
+
+&lt;p&gt;주의할점은, 대소문자를 구분하지 않는다고 했기 때문에 반드시 .lower로 소문자로 통일해주어야 하며, 캐시사이즈가 0인 경우는 모두다 Cache Miss이기 때문에 예외처리를 해주어야한다.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -59,85 +105,71 @@ arr의 각 행에 있는 모든 값은 0 또는 1 입니다.&lt;/p&gt;
 15
 16
 17
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;quad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;quad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;quad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;quad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;quad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-                    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;  
-    &lt;span class=&quot;n&quot;&gt;quad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;   
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cacheSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cities&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#캐시리스트
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#실행시간
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#만약 캐시사이즈가 0인경우는 모두 miss처리한다.
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cacheSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cities&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#캐시 메모리에 리스트 요소 하나씩 추가
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;city&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cities&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;#캐시메모리가 꽉찼을 경우에만 미스와 hit처리
+&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cacheSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;#hit의 경우
+&lt;/span&gt;            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;#print('hit:',cache)
+&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;#miss의 경우
+&lt;/span&gt;            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;#print('miss:',cache)
+&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;#캐시메모리의 자리가 있다면 miss인 경우에도 삭제는 필요없음
+&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;#hit의 경우
+&lt;/span&gt;            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;#print('hit:',cache)
+&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;#miss의 경우
+&lt;/span&gt;            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;#print('miss:',cache)
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-       &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-       &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-       &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Jeju&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Pangyo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Seoul&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Jeju&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Pangyo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Seoul&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Jeju&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Pangyo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Seoul&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;[4, 9]
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="programmers" /><category term="코딩테스트" /><category term="Programmers" /><category term="파이썬" /><summary type="html">문제 0과 1로 이루어진 2n x 2n 크기의 2차원 정수 배열 arr이 있습니다. 당신은 이 arr을 쿼드 트리와 같은 방식으로 압축하고자 합니다. 구체적인 방식은 다음과 같습니다. 당신이 압축하고자 하는 특정 영역을 S라고 정의합니다.</summary></entry><entry><title type="html">[Java] 싱글톤 패턴</title><link href="http://localhost:4000/java/Java-%EC%8B%B1%EA%B8%80%ED%86%A4-%ED%8C%A8%ED%84%B4/" rel="alternate" type="text/html" title="[Java] 싱글톤 패턴" /><published>2021-07-23T00:00:00+00:00</published><updated>2021-07-23T00:00:00+00:00</updated><id>http://localhost:4000/java/%5BJava%5D%20%EC%8B%B1%EA%B8%80%ED%86%A4%20%ED%8C%A8%ED%84%B4</id><content type="html" xml:base="http://localhost:4000/java/Java-%EC%8B%B1%EA%B8%80%ED%86%A4-%ED%8C%A8%ED%84%B4/">&lt;h2 id=&quot;싱글톤-패턴이란&quot;&gt;싱글톤 패턴이란?&lt;/h2&gt;
-&lt;p&gt;프로그램을 구현하다 보면 여러 개의 인스턴스가 필요한 경우도 있고, 단 하나의 인스턴스만 필요한 경우도 있다. 객체 지향 프로그램에서 인스턴스를 단 하나만 생성하는 디자인 패턴을 &lt;strong&gt;싱글톤 패턴(singleton pattern)&lt;/strong&gt; 이라고 한다. 우리가 여기서 살펴볼 싱글톤 패턴은 static을 응용하여 프로그램 전반에서 사용하는 인스턴스를 하나만 구현하는 방식이다.&lt;/p&gt;
-
-&lt;p&gt;어떤 회사의 직원들을 객체지향으로 구현한다고 가정해보자. 직원은 여러명이겠지만, 회사는 하나다.
-이런 경우에 직원 인스턴스는 여러 개를 생성하는 것이 당연하지만, 회사 객체는 하나여야 할 것 이다.
-그럼 싱글톤 패턴으로 company 클래스를 단계적으로 만들어 보자.&lt;/p&gt;
-
-&lt;h2 id=&quot;싱글톤-패턴으로-회사-클래스-구현하기&quot;&gt;싱글톤 패턴으로 회사 클래스 구현하기&lt;/h2&gt;
-&lt;h3 id=&quot;단계-1--생성자를-private로-만들기&quot;&gt;단계 1 : 생성자를 private로 만들기&lt;/h3&gt;
-&lt;p&gt;생성자가 하나도 없는 클래스는 컴파일러가 자동으로 디폴트 생성자를 만들어 주는데, 이 생성자는 항상 public이다. 생성자가 public이면 외부에서 접근이 가능하기 때문에 인스턴스를 여러 개 생성 할 수 있다. 따라서 싱글톤 패턴에서는 생성자를 반드시 명시적으로 만들고, 그 접근 제어자를 private로 설정해야한다.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;package singleton;
-
-public class Company {
-    private Company(){
-        
-    }
-}
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;단계-2--클래스-내부에-static으로-유일한-인스턴스-생성하기&quot;&gt;단계 2 : 클래스 내부에 static으로 유일한 인스턴스 생성하기&lt;/h3&gt;
-&lt;p&gt;단계 1에서 접근제어자를 private로 함으로써 외부 인스턴스를 생성할 수 없도록 만들었다. 하지만 우리가 프로그램에서 사용할 인스턴스 하나는 필요하기 때문에, Compony 클래스 내부에서 하나의 인스턴스를 생성한다. 이 인스턴스가 프로그램 전체에서 사용가능한 유일한 인스턴스가 된다.
-이 또한 private으로 선언해야만 외부에서 이 인스턴스에 접근 할 수 없어, 인스턴스 오류가 방지된다.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;package singleton;
-
-public class Company {
-    private static Company instance = new Company();
-    private Company(){ }
-}
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;단계-3--외부에서-참조-할-수-있는-public-메서드-만들기&quot;&gt;단계 3 : 외부에서 참조 할 수 있는 public 메서드 만들기&lt;/h3&gt;
-&lt;p&gt;이제 private으로 선언한 유일한 인스턴스인 instance를 외부에서도 사용가능 하게 설정해야한다.
-이를 위해 public 메서드를 사용해 유일한 인스턴스를 반환하게 한다. 이때 인스턴스를 반환하는 메서드는 반드시 static으로 선언해주어야 인스턴스 생성과 상관없이 호출이 가능하다.&lt;/p&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
@@ -151,26 +183,29 @@ public class Company {
 11
 12
 13
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;package singleton;
+14
+15
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;firstmiss: ['jeju']
+firstmiss: ['jeju', 'pangyo']
+firstmiss: ['jeju', 'pangyo', 'seoul']
+hit: ['pangyo', 'seoul', 'jeju']
+hit: ['seoul', 'jeju', 'pangyo']
+hit: ['jeju', 'pangyo', 'seoul']
+hit: ['pangyo', 'seoul', 'jeju']
+hit: ['seoul', 'jeju', 'pangyo']
+hit: ['jeju', 'pangyo', 'seoul']
 
-public class Company {
-    private static Company instance = new Company();
-    private Company(){ }
 
-    public static Company getInstance(){
-        if(instance== null){
-            instance = new Company();
-        }
-        return instance;
-    }
-}
+
+
+
+21
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;단계-4--실제로-사용하는-코드-만들기&quot;&gt;단계 4 : 실제로 사용하는 코드 만들기&lt;/h3&gt;
-&lt;p&gt;외부 클래스에서는 Company를 생성할 수 없으므로 getInstance() 메서드를 호출한다. &lt;br /&gt;
-Company.getInstance(); 와 같이 호출하면 유일한 인스턴스를 받아온다.  &lt;br /&gt;
-두 인스턴스를 만들어 주소 값이 같은지 확인해보도록 하자.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;h2 id=&quot;노트&quot;&gt;노트&lt;/h2&gt;
+&lt;p&gt;프로그래머스에서 다른 풀이를 보니 너무 예쁘게 잘 푼 풀이가 있어서 첨부한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
 4
@@ -181,19 +216,26 @@ Company.getInstance(); 와 같이 호출하면 유일한 인스턴스를 받아�
 9
 10
 11
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;package singleton;
-
-public class CompanyTest {
-    public static void main(String[] args){
-        Company myCompany1 = Company.getInstance();
-        Company myCompany2 = Company.getInstance();
-        System.out.println(myCompany1 == myCompany2);
-    }
-}
-
-&amp;gt;&amp;gt;&amp;gt; true
+12
+13
+14
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cacheSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cities&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;collections&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deque&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;maxlen&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cacheSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cities&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;두개의 인스턴스를 만들었지만, 받아온 인스턴스는 동일한 주소 값을 가지는, 아까 만들었던 유일한 인스턴스를 받아왔음을 알 수 있다.&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="java" /><summary type="html">싱글톤 패턴이란? 프로그램을 구현하다 보면 여러 개의 인스턴스가 필요한 경우도 있고, 단 하나의 인스턴스만 필요한 경우도 있다. 객체 지향 프로그램에서 인스턴스를 단 하나만 생성하는 디자인 패턴을 싱글톤 패턴(singleton pattern) 이라고 한다. 우리가 여기서 살펴볼 싱글톤 패턴은 static을 응용하여 프로그램 전반에서 사용하는 인스턴스를 하나만 구현하는 방식이다.</summary></entry><entry><title type="html">[Java] 객체 간 협력</title><link href="http://localhost:4000/java/Java-%EA%B0%9D%EC%B2%B4-%EA%B0%84-%ED%98%91%EB%A0%A5/" rel="alternate" type="text/html" title="[Java] 객체 간 협력" /><published>2021-07-23T00:00:00+00:00</published><updated>2021-07-23T00:00:00+00:00</updated><id>http://localhost:4000/java/%5BJava%5D%20%EA%B0%9D%EC%B2%B4%20%EA%B0%84%20%ED%98%91%EB%A0%A5</id><content type="html" xml:base="http://localhost:4000/java/Java-%EA%B0%9D%EC%B2%B4-%EA%B0%84-%ED%98%91%EB%A0%A5/">&lt;p&gt;객체 지향 프로그램은 객체를 정의하고 객체 간 협력으로 만들어진다.  &lt;br /&gt;
+
+&lt;p&gt;위 풀이는 deque의 maxlen을 이용했는데, maxlen은 deque의 크기를 제한해주는 메서드로, 그 크기를 넘어서는 값이 들어오면 알아서 가장 앞에있는 값을 삭제하고 새로운 값을 채운다. 이를 사용하면 훨씬 더 파이써닉 하게 풀 수 있을 것 같다.&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="programmers" /><summary type="html">문제 지도개발팀에서 근무하는 제이지는 지도에서 도시 이름을 검색하면 해당 도시와 관련된 맛집 게시물들을 데이터베이스에서 읽어 보여주는 서비스를 개발하고 있다. 이 프로그램의 테스팅 업무를 담당하고 있는 어피치는 서비스를 오픈하기 전 각 로직에 대한 성능 측정을 수행하였는데, 제이지가 작성한 부분 중 데이터베이스에서 게시물을 가져오는 부분의 실행시간이 너무 오래 걸린다는 것을 알게 되었다.</summary></entry><entry><title type="html">[Java] 객체 간 협력</title><link href="http://localhost:4000/java/Java-%EA%B0%9D%EC%B2%B4-%EA%B0%84-%ED%98%91%EB%A0%A5/" rel="alternate" type="text/html" title="[Java] 객체 간 협력" /><published>2021-07-23T00:00:00+00:00</published><updated>2021-07-23T00:00:00+00:00</updated><id>http://localhost:4000/java/%5BJava%5D%20%EA%B0%9D%EC%B2%B4%20%EA%B0%84%20%ED%98%91%EB%A0%A5</id><content type="html" xml:base="http://localhost:4000/java/Java-%EA%B0%9D%EC%B2%B4-%EA%B0%84-%ED%98%91%EB%A0%A5/">&lt;p&gt;객체 지향 프로그램은 객체를 정의하고 객체 간 협력으로 만들어진다.  &lt;br /&gt;
 그러면 실제로 객체간의 협력이 어떻게 이루어지는지 한번 예제를 만들어 확인해보자.&lt;/p&gt;
 
 &lt;h2 id=&quot;학생-클래스-구현하기&quot;&gt;학생 클래스 구현하기&lt;/h2&gt;
@@ -380,22 +422,16 @@ public class TakeTrans {
 버스와 지하철도 동일하게 각각 하나씩 bus100과 subway9이라는 인스턴스를 추가 해준다.
 James는 takeBus 메서드가 호출되어 버스를 탔고, Tomas는 takeSubway 메서드가 호출되어 지하철을 탔다.&lt;/p&gt;
 
-&lt;p&gt;이처럼 우리가 각각 만든 객체들을 인스턴스로 만들어 각 객체끼리 협력하도록 해줄 수 있다.&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="java" /><summary type="html">객체 지향 프로그램은 객체를 정의하고 객체 간 협력으로 만들어진다. 그러면 실제로 객체간의 협력이 어떻게 이루어지는지 한번 예제를 만들어 확인해보자.</summary></entry><entry><title type="html">[Java] static 변수</title><link href="http://localhost:4000/java/Java-static-%EB%B3%80%EC%88%98/" rel="alternate" type="text/html" title="[Java] static 변수" /><published>2021-07-23T00:00:00+00:00</published><updated>2021-07-23T00:00:00+00:00</updated><id>http://localhost:4000/java/%5BJava%5D%20static%20%EB%B3%80%EC%88%98</id><content type="html" xml:base="http://localhost:4000/java/Java-static-%EB%B3%80%EC%88%98/">&lt;h2 id=&quot;변수를-여러-클래스에서-공통으로-사용하기&quot;&gt;변수를 여러 클래스에서 공통으로 사용하기&lt;/h2&gt;
-&lt;p&gt;우리가 앞서만든 학생클래스에서, 만약 학번을 만들고 싶다면 어떻게 해야할까?  &lt;br /&gt;
-이 학번은 새로운 인스턴스가 생성될때마다 자동으로 생성되어 그 인스턴스에 할당되게 하고싶다. &lt;br /&gt;
-이렇게 하려면 인스턴스마다 따로 변수가 생성되는게 아니라, 클래스 전체가 함께 사용하는 기준 변수가 하나 있어야한다. 이러한 변수가 있다면, 우리는 학번을 1씩 증가시켜가며 새로운 인스턴스가 생길때마다 할당 해주면 학번이 자동으로 정해지도록 할 수 있을 것이다.&lt;/p&gt;
+&lt;p&gt;이처럼 우리가 각각 만든 객체들을 인스턴스로 만들어 각 객체끼리 협력하도록 해줄 수 있다.&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="java" /><summary type="html">객체 지향 프로그램은 객체를 정의하고 객체 간 협력으로 만들어진다. 그러면 실제로 객체간의 협력이 어떻게 이루어지는지 한번 예제를 만들어 확인해보자.</summary></entry><entry><title type="html">[Java] 싱글톤 패턴</title><link href="http://localhost:4000/java/Java-%EC%8B%B1%EA%B8%80%ED%86%A4-%ED%8C%A8%ED%84%B4/" rel="alternate" type="text/html" title="[Java] 싱글톤 패턴" /><published>2021-07-23T00:00:00+00:00</published><updated>2021-07-23T00:00:00+00:00</updated><id>http://localhost:4000/java/%5BJava%5D%20%EC%8B%B1%EA%B8%80%ED%86%A4%20%ED%8C%A8%ED%84%B4</id><content type="html" xml:base="http://localhost:4000/java/Java-%EC%8B%B1%EA%B8%80%ED%86%A4-%ED%8C%A8%ED%84%B4/">&lt;h2 id=&quot;싱글톤-패턴이란&quot;&gt;싱글톤 패턴이란?&lt;/h2&gt;
+&lt;p&gt;프로그램을 구현하다 보면 여러 개의 인스턴스가 필요한 경우도 있고, 단 하나의 인스턴스만 필요한 경우도 있다. 객체 지향 프로그램에서 인스턴스를 단 하나만 생성하는 디자인 패턴을 &lt;strong&gt;싱글톤 패턴(singleton pattern)&lt;/strong&gt; 이라고 한다. 우리가 여기서 살펴볼 싱글톤 패턴은 static을 응용하여 프로그램 전반에서 사용하는 인스턴스를 하나만 구현하는 방식이다.&lt;/p&gt;
 
-&lt;p&gt;이때, 클래스에서 사용하는 공통 변수를 &lt;strong&gt;static 변수&lt;/strong&gt;로 선언한다.&lt;/p&gt;
+&lt;p&gt;어떤 회사의 직원들을 객체지향으로 구현한다고 가정해보자. 직원은 여러명이겠지만, 회사는 하나다.
+이런 경우에 직원 인스턴스는 여러 개를 생성하는 것이 당연하지만, 회사 객체는 하나여야 할 것 이다.
+그럼 싱글톤 패턴으로 company 클래스를 단계적으로 만들어 보자.&lt;/p&gt;
 
-&lt;h2 id=&quot;static-변수의-정의와-사용-방법&quot;&gt;static 변수의 정의와 사용 방법&lt;/h2&gt;
-&lt;p&gt;static 변수는 다른 용어로 ‘정적 변수’라고도 한다. static 변수는 자바뿐만 아니라 다른 언어에서도 비슷한 개념으로 사용하는 변수로, 다른 멤버 변수와 동일하게 내부에 선언한다. &lt;br /&gt;
-자료형앞에 static 예약어를 선언해주면 사용 할 수 있다.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;static int seralNum;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;static 변수는 클래스 내부에 선언하지만, 다른 멤버 변수처럼 인스턴스가 생성될 때마다 새로 생성되는 변수가 아니라, 프로그램이 실행되어 메모리에 올라가면 딱 한 번 메모리 공간이 할당되고, 그 값을 모든 인스턴스가 공유하는 변수이다.&lt;/p&gt;
-
-&lt;p&gt;그럼 이러한 static변수를 갖고 학번을 가지는 학생 클래스를 만들어 보자.&lt;/p&gt;
+&lt;h2 id=&quot;싱글톤-패턴으로-회사-클래스-구현하기&quot;&gt;싱글톤 패턴으로 회사 클래스 구현하기&lt;/h2&gt;
+&lt;h3 id=&quot;단계-1--생성자를-private로-만들기&quot;&gt;단계 1 : 생성자를 private로 만들기&lt;/h3&gt;
+&lt;p&gt;생성자가 하나도 없는 클래스는 컴파일러가 자동으로 디폴트 생성자를 만들어 주는데, 이 생성자는 항상 public이다. 생성자가 public이면 외부에서 접근이 가능하기 때문에 인스턴스를 여러 개 생성 할 수 있다. 따라서 싱글톤 패턴에서는 생성자를 반드시 명시적으로 만들고, 그 접근 제어자를 private로 설정해야한다.&lt;/p&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
@@ -403,35 +439,33 @@ James는 takeBus 메서드가 호출되어 버스를 탔고, Tomas는 takeSubway
 5
 6
 7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;package staticex;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;package singleton;
 
-public class Student {
-    static int serialNum = 1000;
-    String studentName;
-    int studentID;
-    
-    public Stirng getStudentName(){
-        return studentName
-    }
-    public void setStudentName(String name){
-        studentName = name;
+public class Company {
+    private Company(){
         
     }
-
 }
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;학생 클래스는 serialNum이라는 static 변수를 갖는데, 이 값은 1000이다.
-이제 테스트 코드에서 이 static 변수를 증가시키면, 이 값을 다른 인스턴스들이 공유하는지 한번 확인해보자.&lt;/p&gt;
+&lt;h3 id=&quot;단계-2--클래스-내부에-static으로-유일한-인스턴스-생성하기&quot;&gt;단계 2 : 클래스 내부에 static으로 유일한 인스턴스 생성하기&lt;/h3&gt;
+&lt;p&gt;단계 1에서 접근제어자를 private로 함으로써 외부 인스턴스를 생성할 수 없도록 만들었다. 하지만 우리가 프로그램에서 사용할 인스턴스 하나는 필요하기 때문에, Compony 클래스 내부에서 하나의 인스턴스를 생성한다. 이 인스턴스가 프로그램 전체에서 사용가능한 유일한 인스턴스가 된다.
+이 또한 private으로 선언해야만 외부에서 이 인스턴스에 접근 할 수 없어, 인스턴스 오류가 방지된다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;package singleton;
 
+public class Company {
+    private static Company instance = new Company();
+    private Company(){ }
+}
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;단계-3--외부에서-참조-할-수-있는-public-메서드-만들기&quot;&gt;단계 3 : 외부에서 참조 할 수 있는 public 메서드 만들기&lt;/h3&gt;
+&lt;p&gt;이제 private으로 선언한 유일한 인스턴스인 instance를 외부에서도 사용가능 하게 설정해야한다.
+이를 위해 public 메서드를 사용해 유일한 인스턴스를 반환하게 한다. 이때 인스턴스를 반환하는 메서드는 반드시 static으로 선언해주어야 인스턴스 생성과 상관없이 호출이 가능하다.&lt;/p&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
@@ -445,118 +479,49 @@ public class Student {
 11
 12
 13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;package staticex;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;package singleton;
 
-public class StudentTest {
+public class Company {
+    private static Company instance = new Company();
+    private Company(){ }
+
+    public static Company getInstance(){
+        if(instance== null){
+            instance = new Company();
+        }
+        return instance;
+    }
+}
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;단계-4--실제로-사용하는-코드-만들기&quot;&gt;단계 4 : 실제로 사용하는 코드 만들기&lt;/h3&gt;
+&lt;p&gt;외부 클래스에서는 Company를 생성할 수 없으므로 getInstance() 메서드를 호출한다. &lt;br /&gt;
+Company.getInstance(); 와 같이 호출하면 유일한 인스턴스를 받아온다.  &lt;br /&gt;
+두 인스턴스를 만들어 주소 값이 같은지 확인해보도록 하자.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;package singleton;
+
+public class CompanyTest {
     public static void main(String[] args){
-        Student Lee = new Student();
-        Lee.setStudentName(&quot;Lee&quot;);
-        System.out.println(Lee.serialNum);
-        Lee.serialNum++;
-
-        Student Kim = new Student();
-        Kim.setStudentName(&quot;Kim&quot;);
-        System.out.println(Kim.serialNum);
-
-        System.out.println(Lee.serialNum);
-        System.out.println(Kim.serialNum);
+        Company myCompany1 = Company.getInstance();
+        Company myCompany2 = Company.getInstance();
+        System.out.println(myCompany1 == myCompany2);
     }
 }
 
-&amp;gt;&amp;gt;&amp;gt; 1000
-&amp;gt;&amp;gt;&amp;gt; 1001
-&amp;gt;&amp;gt;&amp;gt; 1001
-&amp;gt;&amp;gt;&amp;gt; 1001
+&amp;gt;&amp;gt;&amp;gt; true
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Lee 학생의 serialNum을 증가시켰는데, Kim학생의 serialNum도 동일하게 증가된 것을 확인 할 수 있다. &lt;br /&gt;
-이처럼 static변수의 값은 모든 인스턴스가 공유한다는 것을 알게되었다. 그럼 이제 인스턴스가 생성되면 자동으로 증가한 학번을 할당하도록 해보자.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;package staticex;
-
-public class Student {
-    static int serialNum = 1000;
-    String studentName;
-    int studentID;
-
-    public Student(){
-        serialNum++;
-        studentID = serialNum;
-    }
-    public String getStudentName(){
-        return studentName;
-    }
-    public void setStudentName(String name){
-        studentName = name;
-
-
-    }
-
-}
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;public Student를 만들어 새로운 인스턴스가 생성되면 serialNum을 1증가시키고, 그 값을 학번에다 할당하도록 했다. 그럼 다시 테스트 코드로 가서 학번이 올바르게 증가하며 할당되는지 확인 해보자.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;package staticex;
-
-public class StudentTest {
-    public static void main(String[] args){
-        Student Lee = new Student();
-        Lee.setStudentName(&quot;Lee&quot;);
-        System.out.println(&quot;이름: &quot;+Lee.studentName+&quot; 학번: &quot;+Lee.serialNum);
-
-        Student Kim = new Student();
-        Kim.setStudentName(&quot;Kim&quot;);
-        System.out.println(&quot;이름: &quot;+Kim.studentName+&quot; 학번: &quot;+Kim.serialNum);
-    }
-}
-
-&amp;gt;&amp;gt;&amp;gt; 이름: Lee 학번: 1001
-&amp;gt;&amp;gt;&amp;gt; 이름: Kim 학번: 1002
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;인스턴스를 생성해줄때마다 자동으로 학번이 증가하는 것을 확인 할 수 있다.&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="java" /><summary type="html">변수를 여러 클래스에서 공통으로 사용하기 우리가 앞서만든 학생클래스에서, 만약 학번을 만들고 싶다면 어떻게 해야할까? 이 학번은 새로운 인스턴스가 생성될때마다 자동으로 생성되어 그 인스턴스에 할당되게 하고싶다. 이렇게 하려면 인스턴스마다 따로 변수가 생성되는게 아니라, 클래스 전체가 함께 사용하는 기준 변수가 하나 있어야한다. 이러한 변수가 있다면, 우리는 학번을 1씩 증가시켜가며 새로운 인스턴스가 생길때마다 할당 해주면 학번이 자동으로 정해지도록 할 수 있을 것이다.</summary></entry><entry><title type="html">[Java] 참조 자료형, 정보은닉</title><link href="http://localhost:4000/java/Java-%EC%B0%B8%EC%A1%B0%EC%9E%90%EB%A3%8C%ED%98%95,-%EC%A0%95%EB%B3%B4%EC%9D%80%EB%8B%89/" rel="alternate" type="text/html" title="[Java] 참조 자료형, 정보은닉" /><published>2021-07-23T00:00:00+00:00</published><updated>2021-07-23T00:00:00+00:00</updated><id>http://localhost:4000/java/%5BJava%5D%EC%B0%B8%EC%A1%B0%EC%9E%90%EB%A3%8C%ED%98%95,%20%EC%A0%95%EB%B3%B4%EC%9D%80%EB%8B%89</id><content type="html" xml:base="http://localhost:4000/java/Java-%EC%B0%B8%EC%A1%B0%EC%9E%90%EB%A3%8C%ED%98%95,-%EC%A0%95%EB%B3%B4%EC%9D%80%EB%8B%89/">&lt;h2 id=&quot;참조-자료형&quot;&gt;참조 자료형&lt;/h2&gt;
+&lt;p&gt;두개의 인스턴스를 만들었지만, 받아온 인스턴스는 동일한 주소 값을 가지는, 아까 만들었던 유일한 인스턴스를 받아왔음을 알 수 있다.&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="java" /><summary type="html">싱글톤 패턴이란? 프로그램을 구현하다 보면 여러 개의 인스턴스가 필요한 경우도 있고, 단 하나의 인스턴스만 필요한 경우도 있다. 객체 지향 프로그램에서 인스턴스를 단 하나만 생성하는 디자인 패턴을 싱글톤 패턴(singleton pattern) 이라고 한다. 우리가 여기서 살펴볼 싱글톤 패턴은 static을 응용하여 프로그램 전반에서 사용하는 인스턴스를 하나만 구현하는 방식이다.</summary></entry><entry><title type="html">[Java] 참조 자료형, 정보은닉</title><link href="http://localhost:4000/java/Java-%EC%B0%B8%EC%A1%B0%EC%9E%90%EB%A3%8C%ED%98%95,-%EC%A0%95%EB%B3%B4%EC%9D%80%EB%8B%89/" rel="alternate" type="text/html" title="[Java] 참조 자료형, 정보은닉" /><published>2021-07-23T00:00:00+00:00</published><updated>2021-07-23T00:00:00+00:00</updated><id>http://localhost:4000/java/%5BJava%5D%EC%B0%B8%EC%A1%B0%EC%9E%90%EB%A3%8C%ED%98%95,%20%EC%A0%95%EB%B3%B4%EC%9D%80%EB%8B%89</id><content type="html" xml:base="http://localhost:4000/java/Java-%EC%B0%B8%EC%A1%B0%EC%9E%90%EB%A3%8C%ED%98%95,-%EC%A0%95%EB%B3%B4%EC%9D%80%EB%8B%89/">&lt;h2 id=&quot;참조-자료형&quot;&gt;참조 자료형&lt;/h2&gt;
 &lt;p&gt;크기가 정해진 기본 자료형 ( int, char, float, double등)으로 선언하는 변수가 있고, 클래스 자료형으로 선언하는 참조 자료형 변수가 있다. 참조 자료형 변수의 특징에 대해 좀 더 자세히 살펴보고, 클래스를 선언하여 참조형을 이용한 프로그램을 구현해보자.&lt;/p&gt;
 
 &lt;p&gt;어떤 학생이 있다고 가정하자. 이 학생이 국어와 수학 과목을 수강하는데, 이 시험의 수학과 국어 점수를 저장하는 프로그램을 만든다고 생각해보면,&lt;/p&gt;
@@ -775,19 +740,118 @@ public class StudentTest {
       &lt;td style=&quot;text-align: center&quot;&gt;같은 클래스 내부에서만 접근가능&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="java" /><summary type="html">참조 자료형 크기가 정해진 기본 자료형 ( int, char, float, double등)으로 선언하는 변수가 있고, 클래스 자료형으로 선언하는 참조 자료형 변수가 있다. 참조 자료형 변수의 특징에 대해 좀 더 자세히 살펴보고, 클래스를 선언하여 참조형을 이용한 프로그램을 구현해보자.</summary></entry><entry><title type="html">[BOJ] 1325 효율적인 해킹 (Python3)</title><link href="http://localhost:4000/baekjoon/BOJ-1325-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-%ED%95%B4%ED%82%B9-(Python3)/" rel="alternate" type="text/html" title="[BOJ] 1325 효율적인 해킹 (Python3)" /><published>2021-07-20T00:00:00+00:00</published><updated>2021-07-20T00:00:00+00:00</updated><id>http://localhost:4000/baekjoon/%5BBOJ%5D%201325%20%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8%20%ED%95%B4%ED%82%B9%20(Python3)</id><content type="html" xml:base="http://localhost:4000/baekjoon/BOJ-1325-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-%ED%95%B4%ED%82%B9-(Python3)/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
-&lt;p&gt;해커 김지민은 잘 알려진 어느 회사를 해킹하려고 한다. 이 회사는 N개의 컴퓨터로 이루어져 있다. 김지민은 귀찮기 때문에, 한 번의 해킹으로 여러 개의 컴퓨터를 해킹 할 수 있는 컴퓨터를 해킹하려고 한다.&lt;/p&gt;
+&lt;/table&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="java" /><summary type="html">참조 자료형 크기가 정해진 기본 자료형 ( int, char, float, double등)으로 선언하는 변수가 있고, 클래스 자료형으로 선언하는 참조 자료형 변수가 있다. 참조 자료형 변수의 특징에 대해 좀 더 자세히 살펴보고, 클래스를 선언하여 참조형을 이용한 프로그램을 구현해보자.</summary></entry><entry><title type="html">[Programmers] 쿼드 압축 후 개수 세기 (Python3)</title><link href="http://localhost:4000/programmers/Programmers-%EC%BF%BC%EB%93%9C-%EC%95%95%EC%B6%95-%ED%9B%84-%EA%B0%9C%EC%88%98-%EC%84%B8%EA%B8%B0/" rel="alternate" type="text/html" title="[Programmers] 쿼드 압축 후 개수 세기 (Python3)" /><published>2021-07-23T00:00:00+00:00</published><updated>2021-07-23T00:00:00+00:00</updated><id>http://localhost:4000/programmers/%5BProgrammers%5D%20%EC%BF%BC%EB%93%9C%20%EC%95%95%EC%B6%95%20%ED%9B%84%20%EA%B0%9C%EC%88%98%20%EC%84%B8%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/programmers/Programmers-%EC%BF%BC%EB%93%9C-%EC%95%95%EC%B6%95-%ED%9B%84-%EA%B0%9C%EC%88%98-%EC%84%B8%EA%B8%B0/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+&lt;p&gt;0과 1로 이루어진 2n x 2n 크기의 2차원 정수 배열 arr이 있습니다. 당신은 이 arr을 쿼드 트리와 같은 방식으로 압축하고자 합니다. 구체적인 방식은 다음과 같습니다.
+당신이 압축하고자 하는 특정 영역을 S라고 정의합니다.&lt;/p&gt;
 
-&lt;p&gt;이 회사의 컴퓨터는 신뢰하는 관계와, 신뢰하지 않는 관계로 이루어져 있는데, A가 B를 신뢰하는 경우에는 B를 해킹하면, A도 해킹할 수 있다는 소리다.&lt;/p&gt;
+&lt;p&gt;만약 S 내부에 있는 모든 수가 같은 값이라면, S를 해당 수 하나로 압축시킵니다.
+그렇지 않다면, S를 정확히 4개의 균일한 정사각형 영역(입출력 예를 참고해주시기 바랍니다.)으로 쪼갠 뒤, 각 정사각형 영역에 대해 같은 방식의 압축을 시도합니다.&lt;/p&gt;
 
-&lt;p&gt;이 회사의 컴퓨터의 신뢰하는 관계가 주어졌을 때, 한 번에 가장 많은 컴퓨터를 해킹할 수 있는 컴퓨터의 번호를 출력하는 프로그램을 작성하시오.&lt;/p&gt;
+&lt;p&gt;arr이 매개변수로 주어집니다. 위와 같은 방식으로 arr을 압축했을 때, 배열에 최종적으로 남는 0의 개수와 1의 개수를 배열에 담아서 return 하도록 solution 함수를 완성해주세요.&lt;/p&gt;
 
-&lt;h2 id=&quot;입력&quot;&gt;입력&lt;/h2&gt;
-&lt;p&gt;첫째 줄에, N과 M이 들어온다. N은 10,000보다 작거나 같은 자연수, M은 100,000보다 작거나 같은 자연수이다. 둘째 줄부터 M개의 줄에 신뢰하는 관계가 A B와 같은 형식으로 들어오며, “A가 B를 신뢰한다”를 의미한다. 컴퓨터는 1번부터 N번까지 번호가 하나씩 매겨져 있다.&lt;/p&gt;
+&lt;h2 id=&quot;제한사항&quot;&gt;제한사항&lt;/h2&gt;
+&lt;p&gt;arr의 행의 개수는 1 이상 1024 이하이며, 2의 거듭 제곱수 형태를 하고 있습니다. 즉, arr의 행의 개수는 1, 2, 4, 8, …, 1024 중 하나입니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;출력&quot;&gt;출력&lt;/h2&gt;
-&lt;p&gt;첫째 줄에, 김지민이 한 번에 가장 많은 컴퓨터를 해킹할 수 있는 컴퓨터의 번호를 오름차순으로 출력한다.&lt;/p&gt;
+&lt;p&gt;arr의 각 행의 길이는 arr의 행의 개수와 같습니다. 즉, arr은 정사각형 배열입니다.
+arr의 각 행에 있는 모든 값은 0 또는 1 입니다.&lt;/p&gt;
 
+&lt;h2 id=&quot;입출력-예&quot;&gt;입출력 예&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;arr                                          result
+[[1,1,0,0],[1,0,0,0],[1,0,0,1],[1,1,1,1]]    [4,9]
+
+[[1,1,1,1,1,1,1,1],[0,1,1,1,1,1,1,1],
+[0,0,0,0,1,1,1,1],[0,1,0,0,1,1,1,1],
+[0,0,0,0,0,0,1,1],[0,0,0,0,0,0,0,1],
+[0,0,0,0,1,0,0,1],[0,0,0,0,1,1,1,1]]        [10,15]
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;입출력-예-설명&quot;&gt;입출력 예 설명&lt;/h2&gt;
+&lt;p&gt;입출력 예 #1
+다음 그림은 주어진 arr을 압축하는 과정을 나타낸 것입니다.
+&lt;img src=&quot;/assets/images/algorithm/programmers/쿼드 압축 후 개수 세기/ex1.png&quot; alt=&quot;ex1&quot; /&gt;
+최종 압축 결과에 0이 4개, 1이 9개 있으므로, [4,9]를 return 해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;입출력 예 #2
+다음 그림은 주어진 arr을 압축하는 과정을 나타낸 것입니다.
+&lt;img src=&quot;/assets/images/algorithm/programmers/쿼드 압축 후 개수 세기/ex2.png&quot; alt=&quot;ex1&quot; /&gt;
+최종 압축 결과에 0이 10개, 1이 15개 있으므로, [10,15]를 return 해야 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;코드&quot;&gt;코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;quad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;quad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;quad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;quad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;quad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;  
+    &lt;span class=&quot;n&quot;&gt;quad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;   
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;[4, 9]
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="programmers" /><category term="코딩테스트" /><category term="Programmers" /><category term="파이썬" /><summary type="html">문제 0과 1로 이루어진 2n x 2n 크기의 2차원 정수 배열 arr이 있습니다. 당신은 이 arr을 쿼드 트리와 같은 방식으로 압축하고자 합니다. 구체적인 방식은 다음과 같습니다. 당신이 압축하고자 하는 특정 영역을 S라고 정의합니다.</summary></entry><entry><title type="html">[Java] static 변수</title><link href="http://localhost:4000/java/Java-static-%EB%B3%80%EC%88%98/" rel="alternate" type="text/html" title="[Java] static 변수" /><published>2021-07-23T00:00:00+00:00</published><updated>2021-07-23T00:00:00+00:00</updated><id>http://localhost:4000/java/%5BJava%5D%20static%20%EB%B3%80%EC%88%98</id><content type="html" xml:base="http://localhost:4000/java/Java-static-%EB%B3%80%EC%88%98/">&lt;h2 id=&quot;변수를-여러-클래스에서-공통으로-사용하기&quot;&gt;변수를 여러 클래스에서 공통으로 사용하기&lt;/h2&gt;
+&lt;p&gt;우리가 앞서만든 학생클래스에서, 만약 학번을 만들고 싶다면 어떻게 해야할까?  &lt;br /&gt;
+이 학번은 새로운 인스턴스가 생성될때마다 자동으로 생성되어 그 인스턴스에 할당되게 하고싶다. &lt;br /&gt;
+이렇게 하려면 인스턴스마다 따로 변수가 생성되는게 아니라, 클래스 전체가 함께 사용하는 기준 변수가 하나 있어야한다. 이러한 변수가 있다면, 우리는 학번을 1씩 증가시켜가며 새로운 인스턴스가 생길때마다 할당 해주면 학번이 자동으로 정해지도록 할 수 있을 것이다.&lt;/p&gt;
+
+&lt;p&gt;이때, 클래스에서 사용하는 공통 변수를 &lt;strong&gt;static 변수&lt;/strong&gt;로 선언한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;static-변수의-정의와-사용-방법&quot;&gt;static 변수의 정의와 사용 방법&lt;/h2&gt;
+&lt;p&gt;static 변수는 다른 용어로 ‘정적 변수’라고도 한다. static 변수는 자바뿐만 아니라 다른 언어에서도 비슷한 개념으로 사용하는 변수로, 다른 멤버 변수와 동일하게 내부에 선언한다. &lt;br /&gt;
+자료형앞에 static 예약어를 선언해주면 사용 할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;static int seralNum;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;static 변수는 클래스 내부에 선언하지만, 다른 멤버 변수처럼 인스턴스가 생성될 때마다 새로 생성되는 변수가 아니라, 프로그램이 실행되어 메모리에 올라가면 딱 한 번 메모리 공간이 할당되고, 그 값을 모든 인스턴스가 공유하는 변수이다.&lt;/p&gt;
+
+&lt;p&gt;그럼 이러한 static변수를 갖고 학번을 가지는 학생 클래스를 만들어 보자.&lt;/p&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
@@ -797,23 +861,34 @@ public class StudentTest {
 7
 8
 9
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;예제 입력 1  
-5 4
-3 1
-3 2
-4 3
-5 3
+10
+11
+12
+13
+14
+15
+16
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;package staticex;
 
-예제 출력 1  
-1 
+public class Student {
+    static int serialNum = 1000;
+    String studentName;
+    int studentID;
+    
+    public Stirng getStudentName(){
+        return studentName
+    }
+    public void setStudentName(String name){
+        studentName = name;
+        
+    }
+
+}
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;학생 클래스는 serialNum이라는 static 변수를 갖는데, 이 값은 1000이다.
+이제 테스트 코드에서 이 static 변수를 증가시키면, 이 값을 다른 인스턴스들이 공유하는지 한번 확인해보자.&lt;/p&gt;
 
-&lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
-&lt;p&gt;간단한 탐색문제로 bfs로 풀 수 있는데, 컴퓨터의 신뢰관계를 노드 형식으로 리스트에 넣어주고, 노드가 많이 연결되어있는 컴퓨터순으로 출력하면 된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;코드&quot;&gt;코드&lt;/h2&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
 4
@@ -835,92 +910,377 @@ public class StudentTest {
 20
 21
 22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;collections&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deque&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#컴퓨터의 개수 n, 신뢰관계의 개수 m
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;package staticex;
 
-&lt;span class=&quot;c1&quot;&gt;#노드의 형태 graph
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+public class StudentTest {
+    public static void main(String[] args){
+        Student Lee = new Student();
+        Lee.setStudentName(&quot;Lee&quot;);
+        System.out.println(Lee.serialNum);
+        Lee.serialNum++;
 
-&lt;span class=&quot;c1&quot;&gt;#자신을 신뢰하는 컴퓨터를 자신의 리스트에 넣는다
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        Student Kim = new Student();
+        Kim.setStudentName(&quot;Kim&quot;);
+        System.out.println(Kim.serialNum);
 
-&lt;span class=&quot;c1&quot;&gt;#bfs를 사용하여 1-5의 컴퓨터를 순서대로 방문하며, 자신을 신뢰하는 컴퓨터에 모두 방문한다.
-#방문한 횟수를 hack 변수에 넣는다.
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deque&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;hack&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;visited&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;visited&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;nx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;popleft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;visited&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;hack&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;visited&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hack&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#자신을 신뢰하는 컴퓨터의 개수를 저장하는 리스트 answer
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#bfs함수에 넣어 얻은 result를 answer 리스트에 넣어준다.
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    
-    
-&lt;span class=&quot;c1&quot;&gt;#resutl 순차 출력
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        System.out.println(Lee.serialNum);
+        System.out.println(Kim.serialNum);
+    }
+}
 
-
-
+&amp;gt;&amp;gt;&amp;gt; 1000
+&amp;gt;&amp;gt;&amp;gt; 1001
+&amp;gt;&amp;gt;&amp;gt; 1001
+&amp;gt;&amp;gt;&amp;gt; 1001
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
+&lt;p&gt;Lee 학생의 serialNum을 증가시켰는데, Kim학생의 serialNum도 동일하게 증가된 것을 확인 할 수 있다. &lt;br /&gt;
+이처럼 static변수의 값은 모든 인스턴스가 공유한다는 것을 알게되었다. 그럼 이제 인스턴스가 생성되면 자동으로 증가한 학번을 할당하도록 해보자.&lt;/p&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
 4
 5
 6
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;5 4
-3 1
-3 2
-4 3
-5 3
-1 2 
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;package staticex;
+
+public class Student {
+    static int serialNum = 1000;
+    String studentName;
+    int studentID;
+
+    public Student(){
+        serialNum++;
+        studentID = serialNum;
+    }
+    public String getStudentName(){
+        return studentName;
+    }
+    public void setStudentName(String name){
+        studentName = name;
+
+
+    }
+
+}
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;public Student를 만들어 새로운 인스턴스가 생성되면 serialNum을 1증가시키고, 그 값을 학번에다 할당하도록 했다. 그럼 다시 테스트 코드로 가서 학번이 올바르게 증가하며 할당되는지 확인 해보자.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;package staticex;
 
-&lt;h2 id=&quot;feedback&quot;&gt;Feedback&lt;/h2&gt;
-&lt;p&gt;방문을 체크하는 visited 리스트를 만들지 않아서 계속 메모리 초과가 떴다.
-예제는 서로 상호신뢰관계가 없어서 잘되길래 문제가 없다고 생각했는데, 테스트셋의 상호신뢰관계 때문에 반복이 끝나지를 않아서 메모리가 초과 된것 같다.
-bfs, dfs를 풀때는 항상 방문을 잘 체크하자.&lt;/p&gt;
+public class StudentTest {
+    public static void main(String[] args){
+        Student Lee = new Student();
+        Lee.setStudentName(&quot;Lee&quot;);
+        System.out.println(&quot;이름: &quot;+Lee.studentName+&quot; 학번: &quot;+Lee.serialNum);
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+        Student Kim = new Student();
+        Kim.setStudentName(&quot;Kim&quot;);
+        System.out.println(&quot;이름: &quot;+Kim.studentName+&quot; 학번: &quot;+Kim.serialNum);
+    }
+}
+
+&amp;gt;&amp;gt;&amp;gt; 이름: Lee 학번: 1001
+&amp;gt;&amp;gt;&amp;gt; 이름: Kim 학번: 1002
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;인스턴스를 생성해줄때마다 자동으로 학번이 증가하는 것을 확인 할 수 있다.&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="java" /><summary type="html">변수를 여러 클래스에서 공통으로 사용하기 우리가 앞서만든 학생클래스에서, 만약 학번을 만들고 싶다면 어떻게 해야할까? 이 학번은 새로운 인스턴스가 생성될때마다 자동으로 생성되어 그 인스턴스에 할당되게 하고싶다. 이렇게 하려면 인스턴스마다 따로 변수가 생성되는게 아니라, 클래스 전체가 함께 사용하는 기준 변수가 하나 있어야한다. 이러한 변수가 있다면, 우리는 학번을 1씩 증가시켜가며 새로운 인스턴스가 생길때마다 할당 해주면 학번이 자동으로 정해지도록 할 수 있을 것이다.</summary></entry><entry><title type="html">[Java] 변수와 자료형</title><link href="http://localhost:4000/java/Java-%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95/" rel="alternate" type="text/html" title="[Java] 변수와 자료형" /><published>2021-07-20T00:00:00+00:00</published><updated>2021-07-20T00:00:00+00:00</updated><id>http://localhost:4000/java/%5BJava%5D%EB%B3%80%EC%88%98%EC%99%80%20%EC%9E%90%EB%A3%8C%ED%98%95</id><content type="html" xml:base="http://localhost:4000/java/Java-%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95/">&lt;h2 id=&quot;변수-선언하여-사용하기&quot;&gt;변수 선언하여 사용하기&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;int level;
+level = 10;
+System.out.println(level)
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;변수-초기화하기&quot;&gt;변수 초기화하기&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;int level = 10;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;자료형&quot;&gt;자료형&lt;/h2&gt;
+&lt;p&gt;자바는 기본자료형과 참조 자료형을 제공하는데, 기본 자료형은 자바 라이브러리에서 기본으로 제공하며, 얼마만큼의 메모리를 어떻게 사용할 것인지가 이미 정해져있다.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;바이트&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;정수형&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;문자형&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;실수형&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;논리형&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1바이트&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;byte&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;boolean&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2바이트&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;short&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;char&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4바이트&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;int&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;float&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;8바이트&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;long&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;double&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;다른 자료형은 모두 다른 언어와 동일한데,
+long을 사용할때의 한가지 주의 사항이 있다.&lt;/p&gt;
+
+&lt;p&gt;``
+int num1 = 12345678900;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
 &lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="baekjoon" /><category term="백준 알고리즘 BFS" /><summary type="html">문제 해커 김지민은 잘 알려진 어느 회사를 해킹하려고 한다. 이 회사는 N개의 컴퓨터로 이루어져 있다. 김지민은 귀찮기 때문에, 한 번의 해킹으로 여러 개의 컴퓨터를 해킹 할 수 있는 컴퓨터를 해킹하려고 한다.</summary></entry><entry><title type="html">[Java] 객체 지향 프로그래밍과 클래스</title><link href="http://localhost:4000/java/Java-%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC-%ED%81%B4%EB%9E%98%EC%8A%A4/" rel="alternate" type="text/html" title="[Java] 객체 지향 프로그래밍과 클래스" /><published>2021-07-20T00:00:00+00:00</published><updated>2021-07-20T00:00:00+00:00</updated><id>http://localhost:4000/java/%5BJava%5D%EA%B0%9D%EC%B2%B4%20%EC%A7%80%ED%96%A5%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC%20%ED%81%B4%EB%9E%98%EC%8A%A4</id><content type="html" xml:base="http://localhost:4000/java/Java-%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC-%ED%81%B4%EB%9E%98%EC%8A%A4/">&lt;h2 id=&quot;클래스란&quot;&gt;클래스란?&lt;/h2&gt;
+
+    |   int num1 = 12345678900;
+
+    integer number too large
+
+    
+
+
+
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;long num2 = 12345678900;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
+
+    |   long num2 = 12345678900;
+
+    integer number too large
+
+    
+
+
+num1의 경우는 int가 표현가능한 범위를 넘어서서 오류가 난다고 하지만,    
+num2의 경우는 long 사용하였는데도 왜 오류가 나는 것일까?  
+
+이는 자바가 모든 정수를 기본적으로 int를 사용하여 처리하기 때문이다.   
+즉 숫자 12345678900이 들어오면 우선 int로 처리하기 때문에, 숫자뒤에 L을 붙여    long형으로 이 숫자를 처리하도록 컴파일러에게 알려주어야 한다.
+
+
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;long num = 12345678900L;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
+## 문자 자료형 선언하기
+
+
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;char mychar = ‘A’&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
+문자를 변수에 대입하면 문자 그대로 저장되는 것이 아니라    
+그 문자에 해당하는 정수 값(아스키코드 값)이 저장된다.   
+ 
+따라서 아래와 같이 아스키코드를 대입하여도 문자를 대입한 것과 동일하게 인식한다.
+
+
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;char ch1 = ‘A’;
+char ch2 = 65;&lt;/p&gt;
+
+&lt;p&gt;System.out.println(ch1);
+System.out.println(ch2);&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
+    A
+    A
+
+
+반대로 출력할때 int를 표기해주면, 씌워주면 문자에 해당하는 아스키코드값을 출력한다.
+
+
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;System.out.println((int)ch1)&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
+    65
+
+
+## 자료형 없이 변수 선언하기
+var를 사용하여 변수를 선언하면 자료형을 정확히 명시하지 않고도 변수에 대입되는
+값에따라 컴파일러가 자료형을 추측한다.
+
+
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;var num = 10;
+var dNum = 10.0;
+var str = “hello”&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
+## 상수와 리터럴
+자바에서 상수를 선언하고 싶다면, final을 사용하여 선언한다.
+
+
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;final double PI = 3.14;
+final int MAX_NUM = 100;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
+상수는 변하지 않기 떄문에 선언과 동시에 초기화 하는 것이 좋다.
+
+## 형 변환
+정수와 실수는 컴퓨터 내부에서 표현되는 방식이 전혀 다르다.
+따라서 정수와 실수를 더한다고 할 땐 그대로 연산을 수행 할 수 없고, 하나의 자료형으로
+통일 후에 연산해야 한다. 이때 형 변환(type conversion)이 필요하다.
+
+
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;int n = 10;
+double dnum = n;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
+위 처럼 변수 n은 int형이고 dnum은 double형이다.   
+형 변환이란 이렇게 변수의 자료형을 같게 해주는 것을 말한다.   
+
+형 변환은 크게 **묵시적 형변환**(자동 형 변환)과 **명시적 형 변환**(강제 형 변환) 
+두가지가 있는데, 형 변환의 기본원칙은 다음과 같다.
+
+*  바이트 크기가 작은 자료형에서 큰 자료형으로 형 변환은 자동으로 이루어진다
+*  덜 정밀한 자료형에서 더 정밀한 자료형으로 형 변환은 자동으로 이루어진다
+    
+따라서 이 반대로 강제적 형 변환을 하게 되면, 자료 손실이 발생 할 수가 있다.
+
+### 묵시적 형 변환
+
+
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;int iNum = 20;
+float fNum = iNum&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
+### 명시적 형 변환
+강제로 형 변환하려면 바꾸고자 하는 타입을 괄호로 명시해주어야 한다.
+
+
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;int iNum = 20;
+byte bNum = (byte)iNum
+```&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="java" /><summary type="html">변수 선언하여 사용하기 1 2 3 int level; level = 10; System.out.println(level) 변수 초기화하기 1 int level = 10; 자료형 자바는 기본자료형과 참조 자료형을 제공하는데, 기본 자료형은 자바 라이브러리에서 기본으로 제공하며, 얼마만큼의 메모리를 어떻게 사용할 것인지가 이미 정해져있다.</summary></entry><entry><title type="html">[Java] 객체 지향 프로그래밍과 클래스</title><link href="http://localhost:4000/java/Java-%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC-%ED%81%B4%EB%9E%98%EC%8A%A4/" rel="alternate" type="text/html" title="[Java] 객체 지향 프로그래밍과 클래스" /><published>2021-07-20T00:00:00+00:00</published><updated>2021-07-20T00:00:00+00:00</updated><id>http://localhost:4000/java/%5BJava%5D%EA%B0%9D%EC%B2%B4%20%EC%A7%80%ED%96%A5%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC%20%ED%81%B4%EB%9E%98%EC%8A%A4</id><content type="html" xml:base="http://localhost:4000/java/Java-%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC-%ED%81%B4%EB%9E%98%EC%8A%A4/">&lt;h2 id=&quot;클래스란&quot;&gt;클래스란?&lt;/h2&gt;
 &lt;p&gt;클래스는 객체와의 속성과 기능을 코드로 구현한 것으로, 객체를 클래스로 구현하는 것을  &lt;br /&gt;
 ‘클래스를 정의한다’라고 한다. 클래스를 정의하려면 우선 클래스 이름과 클래스가 가지는 속성,
 또는 특성이 필요하다. 객체를 코드로 구현한다는 말이 모호할 수 있으니
@@ -1455,68 +1815,19 @@ public class Person {
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;h2 id=&quot;생성자-오버로드&quot;&gt;생성자 오버로드&lt;/h2&gt;
 &lt;p&gt;이렇게 위처럼 생성자가 두 개 이상 제공되는 경우를 &lt;strong&gt;생성자 오버로드(constructor overload)&lt;/strong&gt; 라고 한다.
-필요에 따라 매개변수가 다른 생성자를 여러 개 만들 수 있으며, 경우에 따라서는 아예 디폴트 생성자를 제공하지 않을 수 도 있다.&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="java" /><summary type="html">생성자란? 다음과 같이 Person과 PersonTest 클래스를 만들어보자 ``` package constructor;</summary></entry><entry><title type="html">[Java] 변수와 자료형</title><link href="http://localhost:4000/java/Java-%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95/" rel="alternate" type="text/html" title="[Java] 변수와 자료형" /><published>2021-07-20T00:00:00+00:00</published><updated>2021-07-20T00:00:00+00:00</updated><id>http://localhost:4000/java/%5BJava%5D%EB%B3%80%EC%88%98%EC%99%80%20%EC%9E%90%EB%A3%8C%ED%98%95</id><content type="html" xml:base="http://localhost:4000/java/Java-%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95/">&lt;h2 id=&quot;변수-선언하여-사용하기&quot;&gt;변수 선언하여 사용하기&lt;/h2&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;int level;
-level = 10;
-System.out.println(level)
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h2 id=&quot;변수-초기화하기&quot;&gt;변수 초기화하기&lt;/h2&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;int level = 10;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h2 id=&quot;자료형&quot;&gt;자료형&lt;/h2&gt;
-&lt;p&gt;자바는 기본자료형과 참조 자료형을 제공하는데, 기본 자료형은 자바 라이브러리에서 기본으로 제공하며, 얼마만큼의 메모리를 어떻게 사용할 것인지가 이미 정해져있다.&lt;/p&gt;
+필요에 따라 매개변수가 다른 생성자를 여러 개 만들 수 있으며, 경우에 따라서는 아예 디폴트 생성자를 제공하지 않을 수 도 있다.&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="java" /><summary type="html">생성자란? 다음과 같이 Person과 PersonTest 클래스를 만들어보자 ``` package constructor;</summary></entry><entry><title type="html">[BOJ] 1325 효율적인 해킹 (Python3)</title><link href="http://localhost:4000/baekjoon/BOJ-1325-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-%ED%95%B4%ED%82%B9-(Python3)/" rel="alternate" type="text/html" title="[BOJ] 1325 효율적인 해킹 (Python3)" /><published>2021-07-20T00:00:00+00:00</published><updated>2021-07-20T00:00:00+00:00</updated><id>http://localhost:4000/baekjoon/%5BBOJ%5D%201325%20%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8%20%ED%95%B4%ED%82%B9%20(Python3)</id><content type="html" xml:base="http://localhost:4000/baekjoon/BOJ-1325-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-%ED%95%B4%ED%82%B9-(Python3)/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+&lt;p&gt;해커 김지민은 잘 알려진 어느 회사를 해킹하려고 한다. 이 회사는 N개의 컴퓨터로 이루어져 있다. 김지민은 귀찮기 때문에, 한 번의 해킹으로 여러 개의 컴퓨터를 해킹 할 수 있는 컴퓨터를 해킹하려고 한다.&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;바이트&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;정수형&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;문자형&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;실수형&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;논리형&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1바이트&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;byte&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;boolean&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2바이트&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;short&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;char&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4바이트&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;float&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;8바이트&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;long&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;double&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;이 회사의 컴퓨터는 신뢰하는 관계와, 신뢰하지 않는 관계로 이루어져 있는데, A가 B를 신뢰하는 경우에는 B를 해킹하면, A도 해킹할 수 있다는 소리다.&lt;/p&gt;
 
-&lt;p&gt;다른 자료형은 모두 다른 언어와 동일한데,
-long을 사용할때의 한가지 주의 사항이 있다.&lt;/p&gt;
+&lt;p&gt;이 회사의 컴퓨터의 신뢰하는 관계가 주어졌을 때, 한 번에 가장 많은 컴퓨터를 해킹할 수 있는 컴퓨터의 번호를 출력하는 프로그램을 작성하시오.&lt;/p&gt;
 
-&lt;p&gt;``
-int num1 = 12345678900;&lt;/p&gt;
+&lt;h2 id=&quot;입력&quot;&gt;입력&lt;/h2&gt;
+&lt;p&gt;첫째 줄에, N과 M이 들어온다. N은 10,000보다 작거나 같은 자연수, M은 100,000보다 작거나 같은 자연수이다. 둘째 줄부터 M개의 줄에 신뢰하는 관계가 A B와 같은 형식으로 들어오며, “A가 B를 신뢰한다”를 의미한다. 컴퓨터는 1번부터 N번까지 번호가 하나씩 매겨져 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;출력&quot;&gt;출력&lt;/h2&gt;
+&lt;p&gt;첫째 줄에, 김지민이 한 번에 가장 많은 컴퓨터를 해킹할 수 있는 컴퓨터의 번호를 오름차순으로 출력한다.&lt;/p&gt;
+
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
@@ -1526,20 +1837,23 @@ int num1 = 12345678900;&lt;/p&gt;
 7
 8
 9
-10
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;예제 입력 1  
+5 4
+3 1
+3 2
+4 3
+5 3
 
-    |   int num1 = 12345678900;
-
-    integer number too large
-
-    
-
-
-
+예제 출력 1  
+1 
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;long num2 = 12345678900;&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+
+&lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
+&lt;p&gt;간단한 탐색문제로 bfs로 풀 수 있는데, 컴퓨터의 신뢰관계를 노드 형식으로 리스트에 넣어주고, 노드가 많이 연결되어있는 컴퓨터순으로 출력하면 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;코드&quot;&gt;코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
 4
@@ -1555,198 +1869,95 @@ int num1 = 12345678900;&lt;/p&gt;
 14
 15
 16
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;collections&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deque&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#컴퓨터의 개수 n, 신뢰관계의 개수 m
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
 
-    |   long num2 = 12345678900;
+&lt;span class=&quot;c1&quot;&gt;#노드의 형태 graph
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
 
-    integer number too large
+&lt;span class=&quot;c1&quot;&gt;#자신을 신뢰하는 컴퓨터를 자신의 리스트에 넣는다
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
+&lt;span class=&quot;c1&quot;&gt;#bfs를 사용하여 1-5의 컴퓨터를 순서대로 방문하며, 자신을 신뢰하는 컴퓨터에 모두 방문한다.
+#방문한 횟수를 hack 변수에 넣는다.
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deque&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;hack&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;visited&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;visited&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;nx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;popleft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;visited&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;hack&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;visited&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hack&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#자신을 신뢰하는 컴퓨터의 개수를 저장하는 리스트 answer
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#bfs함수에 넣어 얻은 result를 answer 리스트에 넣어준다.
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
     
-
-
-num1의 경우는 int가 표현가능한 범위를 넘어서서 오류가 난다고 하지만,    
-num2의 경우는 long 사용하였는데도 왜 오류가 나는 것일까?  
-
-이는 자바가 모든 정수를 기본적으로 int를 사용하여 처리하기 때문이다.   
-즉 숫자 12345678900이 들어오면 우선 int로 처리하기 때문에, 숫자뒤에 L을 붙여    long형으로 이 숫자를 처리하도록 컴파일러에게 알려주어야 한다.
-
-
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;long num = 12345678900L;&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
-## 문자 자료형 선언하기
-
-
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;char mychar = ‘A’&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
-문자를 변수에 대입하면 문자 그대로 저장되는 것이 아니라    
-그 문자에 해당하는 정수 값(아스키코드 값)이 저장된다.   
- 
-따라서 아래와 같이 아스키코드를 대입하여도 문자를 대입한 것과 동일하게 인식한다.
-
-
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;char ch1 = ‘A’;
-char ch2 = 65;&lt;/p&gt;
-
-&lt;p&gt;System.out.println(ch1);
-System.out.println(ch2);&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
-    A
-    A
-
-
-반대로 출력할때 int를 표기해주면, 씌워주면 문자에 해당하는 아스키코드값을 출력한다.
-
-
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;System.out.println((int)ch1)&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
-    65
-
-
-## 자료형 없이 변수 선언하기
-var를 사용하여 변수를 선언하면 자료형을 정확히 명시하지 않고도 변수에 대입되는
-값에따라 컴파일러가 자료형을 추측한다.
-
-
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;var num = 10;
-var dNum = 10.0;
-var str = “hello”&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
-## 상수와 리터럴
-자바에서 상수를 선언하고 싶다면, final을 사용하여 선언한다.
-
-
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;final double PI = 3.14;
-final int MAX_NUM = 100;&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
-상수는 변하지 않기 떄문에 선언과 동시에 초기화 하는 것이 좋다.
-
-## 형 변환
-정수와 실수는 컴퓨터 내부에서 표현되는 방식이 전혀 다르다.
-따라서 정수와 실수를 더한다고 할 땐 그대로 연산을 수행 할 수 없고, 하나의 자료형으로
-통일 후에 연산해야 한다. 이때 형 변환(type conversion)이 필요하다.
-
-
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;int n = 10;
-double dnum = n;&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
-위 처럼 변수 n은 int형이고 dnum은 double형이다.   
-형 변환이란 이렇게 변수의 자료형을 같게 해주는 것을 말한다.   
-
-형 변환은 크게 **묵시적 형변환**(자동 형 변환)과 **명시적 형 변환**(강제 형 변환) 
-두가지가 있는데, 형 변환의 기본원칙은 다음과 같다.
-
-*  바이트 크기가 작은 자료형에서 큰 자료형으로 형 변환은 자동으로 이루어진다
-*  덜 정밀한 자료형에서 더 정밀한 자료형으로 형 변환은 자동으로 이루어진다
     
-따라서 이 반대로 강제적 형 변환을 하게 되면, 자료 손실이 발생 할 수가 있다.
+&lt;span class=&quot;c1&quot;&gt;#resutl 순차 출력
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-### 묵시적 형 변환
 
 
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;int iNum = 20;
-float fNum = iNum&lt;/p&gt;
+
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
 4
 5
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
-### 명시적 형 변환
-강제로 형 변환하려면 바꾸고자 하는 타입을 괄호로 명시해주어야 한다.
-
-
+6
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;5 4
+3 1
+3 2
+4 3
+5 3
+1 2 
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;int iNum = 20;
-byte bNum = (byte)iNum
-```&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="java" /><summary type="html">변수 선언하여 사용하기 1 2 3 int level; level = 10; System.out.println(level) 변수 초기화하기 1 int level = 10; 자료형 자바는 기본자료형과 참조 자료형을 제공하는데, 기본 자료형은 자바 라이브러리에서 기본으로 제공하며, 얼마만큼의 메모리를 어떻게 사용할 것인지가 이미 정해져있다.</summary></entry><entry><title type="html">목표</title><link href="http://localhost:4000/diary-univ/%EB%AA%A9%ED%91%9C/" rel="alternate" type="text/html" title="목표" /><published>2021-07-18T00:00:00+00:00</published><updated>2021-07-18T00:00:00+00:00</updated><id>http://localhost:4000/diary-univ/%EB%AA%A9%ED%91%9C</id><content type="html" xml:base="http://localhost:4000/diary-univ/%EB%AA%A9%ED%91%9C/">&lt;h2 id=&quot;20210718&quot;&gt;2021.07.18&lt;/h2&gt;
-&lt;p&gt;요즘 어느정도 무엇을 하고싶고 그 무엇을 하기위해 어떻게 하고싶은지에 대한 가닥이 잡혀서
-목표를 뚜렷하게 정하고 시작해야겠다는 생각이 들었다.&lt;/p&gt;
 
-&lt;p&gt;사실 요 몇달간 열심히 하기는 했지만 더 구체적인 목표와 방향성이 있어야 내가 원하는 바를 이뤄낼 수 있겠다는 생각이 들기도 해서, 아래 구체적인 내용을 연말까지 해내는 것을 우선적인 목표로 진행해보려한다.&lt;/p&gt;
+&lt;h2 id=&quot;feedback&quot;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;방문을 체크하는 visited 리스트를 만들지 않아서 계속 메모리 초과가 떴다.
+예제는 서로 상호신뢰관계가 없어서 잘되길래 문제가 없다고 생각했는데, 테스트셋의 상호신뢰관계 때문에 반복이 끝나지를 않아서 메모리가 초과 된것 같다.
+bfs, dfs를 풀때는 항상 방문을 잘 체크하자.&lt;/p&gt;
 
-&lt;h3 id=&quot;1일-1커밋&quot;&gt;1일 1커밋&lt;/h3&gt;
-
-&lt;p&gt;사실 1일 1커밋에 대한 이야기를 많이 들어서 깃허브를 처음 시작했을때 할까 고민도 했었지만, 사실 바쁜날은
-1일 1커밋을 지키기 위해서 글자하나만 바꾼다던가, 의미없는 커밋을 하는게 큰의미가 있나 싶어서 의미있는 커밋을 남기는게 더 중요하다는 생각에 시도하지 않았었다. 하지만 다른사람들의 1일 1커밋 챌린지 도전에 관한 글들을 보며 느낀건, 1일 1커밋 챌린지는 그저 잔디를 예쁘게 심는것만이 목적이 아닌, 진짜로 내 삶이 개발자의 라이프 스타일이 되어서 항상 어떤것을 오늘 커밋해야할까라는 생각을 하며 살게되는 것에 큰 의미가 있다는 걸 알게 되었다. 뿐만 아니라 채워지는 잔디를 보며 내가 하루하루 해냈다는 성취감이 내일의 나를 더 나아가게 한다는 느낌이 자칫 지치고 힘들 수 있는 공부에 큰 힘이 될 것 같았다.&lt;/p&gt;
-
-&lt;h3 id=&quot;1일-1알고리즘-문제-풀이&quot;&gt;1일 1알고리즘 문제 풀이&lt;/h3&gt;
-
-&lt;p&gt;사실 이 1일 1알고리즘 문제풀이는 위의 1일 1 커밋과 같은 목표라고 볼 수 있는데,
-1일 1커밋을 의미없이 글자만 바꾼다거나, 의미없는 변화를 추가하여 굳이 커밋하고 싶지 않았다.
-내 깃허브에 박힌 잔디들이 가진 내용은 아무리 그래도 잔디 하나당 블로그 포스트 하나 정도는 되어야 내 자존심이 상하지 않을 것 같았다. 따라서 아무리 바쁜날이 와 커밋을 할 여력이 안될지라도, 아침이나 지하철 이동 시간을 이용해서라도 하루에 한 문제를 꼭 풀어 내어 커밋하겠다는 다짐을 했다.&lt;/p&gt;
-
-&lt;h3 id=&quot;연말까지-한개이상의-프로젝트-완성&quot;&gt;연말까지 한개이상의 프로젝트 완성&lt;/h3&gt;
-
-&lt;p&gt;기본적인 이론들이나 스킬에 대한 공부도 중요하지만, 역시 가장 중요한건 직접 하나의 프로젝트를 시작해보며
-거기서 오는 돌발 상황들이나 실무적인 요령을 얻는것도 몹시 중요하다. 따라서 연말내로 하나의 프로젝트를 완성 시킬 생각인데, 중요한것은 내가 현재 능숙한 언어인 파이썬으로 제작하는것이 아니라 오늘부터 새로 공부할 언어인 자바를 사용하여 제작하는 것이다. 사실 코딩테스트만 통과하자는 목적으로 파이썬으로 알고리즘 테스트만 공부할 요령이었는데, 진정한 의미로써의 내 개발자체의 실력을 올리려면 여러가지 언어를 틈틈히 공부해야 하며, 그 중 자바는 절대 빼놓을 수 없는 언어이다.&lt;/p&gt;
-
-&lt;p&gt;따라서 위의 세가지 목표를 중심으로 남은 6개월을 보낼 생각이다. 물론, 휴학 반년 결산에서 한 목표도 함께!
-사실 6개월에 모든것을 이루기에는 너무 어려운 일일 수 있지만, 한번쯤은 적은 목표를 쉽게 이루는 것보다 많은 목표를 힘들게 못이뤄보아야 내가 어느 정도 양의 목표를 이룰 수 있을지에 대한 감이 잡힐 것같아서, 
-올해의 목표는 살짝 벅차게 잡아보도록 했다.&lt;/p&gt;
-
-&lt;p&gt;요즘따라 의욕이 넘친다. 더 나은 삶을 위해서 더 열심히 살아야겠다는 생각이 드는 요즘이다.&lt;/p&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="diary-univ" /><category term="일기장" /><summary type="html">2021.07.18 요즘 어느정도 무엇을 하고싶고 그 무엇을 하기위해 어떻게 하고싶은지에 대한 가닥이 잡혀서 목표를 뚜렷하게 정하고 시작해야겠다는 생각이 들었다.</summary></entry></feed>
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이민재</name><email>lmj938@naver.com</email></author><category term="baekjoon" /><category term="백준 알고리즘 BFS" /><summary type="html">문제 해커 김지민은 잘 알려진 어느 회사를 해킹하려고 한다. 이 회사는 N개의 컴퓨터로 이루어져 있다. 김지민은 귀찮기 때문에, 한 번의 해킹으로 여러 개의 컴퓨터를 해킹 할 수 있는 컴퓨터를 해킹하려고 한다.</summary></entry></feed>
