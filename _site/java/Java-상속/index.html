@@ -1,0 +1,1385 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Java] 상속 - Learnote-Dev</title>
+<meta name="description" content="상속이란? 객체 지향 프로그래밍의 중요한 특징 중 하나가 바로 상속(inheritance) 이다. 상속은 우리가 아는 의미인 무엇인가를 물려받는다는 의미 동일하게 사용되며, 부모가 자식에게 상속을 해주면 자녀가 그 재산을 사용할 수 있듯이, 객체 지향 프로그램에서도 마찬가지로 B클래스가 A클래스를 상속받으면 B클래스는 A클래스의 멤버 변수와 메서드를 사용할 수 있게 된다. 객체 지향 프로그램은 유지 보수하기가 간편하고 프로그램을 수정하거나 새로운 내용을 추가하는 것이 유연한데, 그 기반이 되는 기술이 바로 상속이다.">
+
+
+  <meta name="author" content="이민재">
+  
+  <meta property="article:author" content="이민재">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Learnote-Dev">
+<meta property="og:title" content="[Java] 상속">
+<meta property="og:url" content="http://localhost:4000/java/Java-%EC%83%81%EC%86%8D/">
+
+
+  <meta property="og:description" content="상속이란? 객체 지향 프로그래밍의 중요한 특징 중 하나가 바로 상속(inheritance) 이다. 상속은 우리가 아는 의미인 무엇인가를 물려받는다는 의미 동일하게 사용되며, 부모가 자식에게 상속을 해주면 자녀가 그 재산을 사용할 수 있듯이, 객체 지향 프로그램에서도 마찬가지로 B클래스가 A클래스를 상속받으면 B클래스는 A클래스의 멤버 변수와 메서드를 사용할 수 있게 된다. 객체 지향 프로그램은 유지 보수하기가 간편하고 프로그램을 수정하거나 새로운 내용을 추가하는 것이 유연한데, 그 기반이 되는 기술이 바로 상속이다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-07-30T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/java/Java-%EC%83%81%EC%86%8D/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이민재",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Learnote-Dev Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Learnote-Dev
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/about/">About me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile.jpg" alt="이민재" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이민재</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>포트폴리오/일상 기록</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Incheon, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="lmj938@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://blog.naver.com/lmj938" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/leeminjae-dev/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:lmj938@naver.com">
+            <meta itemprop="email" content="lmj938@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+        <!--span 태그로 카테고리들을 크게 분류 ex) Life-->
+       <span class="nav__sub-title">Life</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (39)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Tech-->
+       <span class="nav__sub-title">Tech</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java" class="">Java (10)</a></li>
+                    
+                
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (28)</a></li>
+                    
+                
+                    
+                
+                    
+                
+
+		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/programmers" class="">Programmers(44)</a></li>
+                    
+                
+                    
+                
+<!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Knowledge</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                        <li><a href="/categories/machinelearning" class="">Machine Learning (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+          
+      </li>
+  </ul>
+</nav>
+
+  
+
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Java] 상속">
+    <meta itemprop="description" content="상속이란?객체 지향 프로그래밍의 중요한 특징 중 하나가 바로 상속(inheritance) 이다. 상속은 우리가 아는 의미인 무엇인가를 물려받는다는 의미 동일하게 사용되며, 부모가 자식에게 상속을 해주면 자녀가 그 재산을 사용할 수 있듯이, 객체 지향 프로그램에서도 마찬가지로 B클래스가 A클래스를 상속받으면 B클래스는 A클래스의 멤버 변수와 메서드를 사용할 수 있게 된다. 객체 지향 프로그램은 유지 보수하기가 간편하고 프로그램을 수정하거나 새로운 내용을 추가하는 것이 유연한데, 그 기반이 되는 기술이 바로 상속이다.">
+    <meta itemprop="datePublished" content="2021-07-30T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[Java] 상속
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-30T00:00:00+00:00">July 30, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          10 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this Page</h4></header>
+              <ul class="toc__menu"><li><a href="#상속이란">상속이란?</a></li><li><a href="#클래스의-상속">클래스의 상속</a></li><li><a href="#상속을-사용하여-고객-관리-프로그램-구현하기">상속을 사용하여 고객 관리 프로그램 구현하기</a></li><li><a href="#상속에서-클래스-생성과-형-변환">상속에서 클래스 생성과 형 변환</a></li><li><a href="#부모를-부르는-예약어-super">부모를 부르는 예약어, super</a></li><li><a href="#상위-클래스로-묵시적-클래스-형-변환">상위 클래스로 묵시적 클래스 형 변환</a></li><li><a href="#메서드-오버라이딩">메서드 오버라이딩</a></li><li><a href="#묵시적-클래스-형-변환과-메서드-재정의">묵시적 클래스 형 변환과 메서드 재정의</a></li><li><a href="#가상-메서드">가상 메서드</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="상속이란">상속이란?</h2>
+<p>객체 지향 프로그래밍의 중요한 특징 중 하나가 바로 <strong>상속(inheritance)</strong> 이다. 상속은 우리가 아는 의미인 무엇인가를 물려받는다는 의미 동일하게 사용되며, 부모가 자식에게 상속을 해주면 자녀가 그 재산을 사용할 수 있듯이, 객체 지향 프로그램에서도 마찬가지로 B클래스가 A클래스를 상속받으면 B클래스는 A클래스의 멤버 변수와 메서드를 사용할 수 있게 된다. 객체 지향 프로그램은 유지 보수하기가 간편하고 프로그램을 수정하거나 새로운 내용을 추가하는 것이 유연한데, 그 기반이 되는 기술이 바로 상속이다.</p>
+
+<h2 id="클래스의-상속">클래스의 상속</h2>
+<p>우리가 일반적으로 생각할 때는 상속을 하는 클래스에서 받는 클래스로 화살표가 갈 것 같지만, 클래스 간 상속을 표현할 때는 상속받는 클래스에서 상속 해주는 클래스로 화살표가 간다.</p>
+
+<p>클래스를 상속하려면 extends 예약어를 사용한다. extends는 연장, 확장한다는 의미로, A가 갖고있는 속성이나 기능을 추가로 확장하여 B클래스를 구현한다는 뜻이다. 아래와 같이 선언해주면, B클래스는 A클래스를 상속한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>class B extends A{}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>예를들어, 포유류와 사람의 관계를 생각해보자. 포유류는 사람보다 일반적인 개념으로써, 사람은 포유류의 특징과 기능을 기본으로 더 많거나 다른 특징과 기능을 가지고 있다. 따라서 포유류 클래스를 사람클래스에 상속해주면, 우리는 포유류의 특징과 기능은 그대로 사용하고, 이를 간단하게 변형하거나 추가하여 사용할 수 있는 것이다.</p>
+
+<h2 id="상속을-사용하여-고객-관리-프로그램-구현하기">상속을 사용하여 고객 관리 프로그램 구현하기</h2>
+<p>회사에서 고객 정보를 갖고 맞춤 서비스를 제공하기 위해 고객관리 프로그램을 구현하려고 한다고 가정해보자. <br />
+그렇다면 먼저, 고객 클래스를 만들어주어야 할 것 이다. 앞서 배웠듯이 고객 클래스의 속성을 멤버 변수로 선언 해주면 된다.  <br />
+이 예제에서는 고객 아이디, 이름, 고객 등급, 보너스 포인트, 보너스 포인트 적립 비율을 속성으로 선언한다고 해보겠다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre>package inheritance;
+
+public class Customer {
+    private int customerID;
+    private String customerName;
+    private String customerGrade;
+    int bonusPoint;
+    double bonusRatio;
+
+    public Customer(){
+        customerGrade = "SILVER";
+        bonusRatio = 0.01;
+    }
+    public int calcPrice(int price) {
+        bonusPoint += price * bonusRatio;
+        return price;
+    }
+    public String getCustomerInfo(){
+        return customerName+" 님의 등급은 "+ customerGrade+"이며, 보너스 포인트는"+bonusPoint+"입니다.";
+    }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위의 클래스는 인스턴스가 생성될 경우 기본적으로 customerGrade가 SILVER 등급으로 설정되고, bonusRatio가 0.01로 설정된다.
+또, 보너스 포인트를 적립하고 지불 가격을 계산하는 calcPrice() 메서드와 고객 정보를 가져오는 getCustomerInfo() 메서드를 갖고있다.</p>
+
+<p>그럼 이제 이러한 상황에서 새로운 고객등급이 필요한 경우를 생각해보자.  <br />
+만약 고객이 점점 늘어나고 판매가 늘어나 단골 고객이 생긴 경우에는, 단골 고객은 회사 매출에 많은 기여를 하는 우수 고객이기 때문에, 이들에게 더 우수한 혜택을 주어야 할 것이다. 우수 고객 등급은 VIP 등급이며, 다음과 같은 혜택을 제공한다고 가정해보자.</p>
+
+<ul>
+  <li>제품을 살때는 항상 10% 할인</li>
+  <li>보너스 포인트를 5% 적립</li>
+  <li>담당 전문 상담원 배정</li>
+</ul>
+
+<p>이러한 혜택을 추가하고 싶다면 어떻게 해야 할까? 가장 간단하게 생각한다면, Customer 클래스에 VIP고객 등급에 필요한 변수와 메서드를 추가하여 구현하는 것이다. 하지만 그렇게 하면 Customer 클래스의 코드가 복잡해 진다. 게다가 일반 고객의 인스턴스를 생성할 때에는 VIP 고객과 관련된 기능은 필요가 없는데, VIP 고객의 내용이 계속 생성되기 때문에 메모리 낭비가 발생할 수 있다.
+따라서 이러한 경우에 상속을 사용하여 VIPCustomer 클래스를 따로 만들어주는 것이 좋다.</p>
+
+<p>VIP 클래스의 경우는 Customer의 속성과 메서드를 모두 포함한 상태로 추가적인 혜택이 제공 되는 것이기 때문에, Customer를 상속하여 만들어주면 추가적인 멤버변수와 메서드만 작성해주면 된다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre>package inheritance;
+
+public class VIPCustomer extends Customer {
+    private  int agentID;
+    double saleRatio;
+    
+    public VIPCustomer(){
+        customerGrade = "VIP";//오류 발생
+        bonusRatio = 0.05;
+        saleRatio = 0.1;
+        
+    }
+    public  int getAgentID(){
+        return agentID;
+    }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이렇게 위 처럼 Customer를 상속한 VIPCustomer 클래스를 만들어 보았다. <br />
+하지만, 상속을 해주었음에도 customerGrade의 변수를 사용하려고 하니, 오류가 발생한다.  <br />
+우리는 아까 Customer 변수를 선언할 때 private으로 customerGrade를 선언해주었기 때문에, 이 변수를 외부 클래스에서 사용할 수 없어 오류가 발생한 것이다. 이럴 때 사용하는 것이 protected 예약어이다.</p>
+
+<p>protected는 private와 동일하게 다른 외부클래스에서 접근하지 못하도록 해주지만, 하위클래스에서는 사용할 수 있도록 해준다. <br />
+따라서 상속받은 클래스에서는 public과 동일하게 작동하게 되는것이기 때문에, 외부클래스에서의 접근은 막고싶지만, 상속받은 클래스에서는 사용할 수 있도록 해주려면, protected 예약어를 사용해주면 된다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre></td><td class="rouge-code"><pre>package inheritance;
+
+public class Customer {
+    protected int customerID;
+    protected String customerName;
+    protected String customerGrade;
+    int bonusPoint;
+    double bonusRatio;
+
+    public Customer(){
+        customerGrade = "SILVER";
+        bonusRatio = 0.01;
+    }
+    public int calcPrice(int price) {
+        bonusPoint += price * bonusRatio;
+        return price;
+    }
+    public String getCustomerInfo(){
+        return customerName+" 님의 등급은 "+ customerGrade+"이며, 보너스 포인트는"+bonusPoint+"입니다.";
+    }
+    public void setCustomerID(int customerID){
+        this.customerID = customerID;
+    }
+    public void setCustomerName(String customerName){
+        this.customerName = customerName;
+    }
+}
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>다시 Customer 클래스의 private를 protected로 변경 해줌으로써, VIPCustomer에서도 멤버 변수를 사용 할 수 있게 되었다.  <br />
+추가로, 외부 클래스에서 접근 할 수 있도록, set() 메서드를 추가해주었다.</p>
+
+<p>그러면 간단하게 테스트 프로그램을 만들어 다음의 예제를 구현해보자.</p>
+
+<p>일반 고객 1명과 VIP 고객 1명이 있다. 일반 고객의 이름은 이순신, 아이디는 100010이고, 이 고객은 현재 보너스 포인트를 1000점 갖고있다. VIP 고객의 이름은 김유신, 아이디는 10020이며, 이 고객은 보너스 포인트를 10000점 가지고 있다고 가정해보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre>package inheritance;
+
+public class Test {
+    public static void main(String[] args){
+        Customer customerLee = new Customer();
+        customerLee.setCustomerID(10010);
+        customerLee.bonusPoint = 1000;
+        customerLee.setCustomerName("이순신");
+        System.out.println(customerLee.getCustomerInfo());
+
+        VIPCustomer customerKim = new VIPCustomer();
+        customerKim.setCustomerID(10020);
+        customerKim.bonusPoint = 10000;
+        customerKim.setCustomerName("김유신");
+        System.out.println(customerKim.getCustomerInfo());
+    }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위처럼 고객들의 인스턴스를 생성하여 메서드를 사용해 이름과 고객번호, 보너스포인트를 저장해 준 뒤, 고객의 정보를 출력해보았다.</p>
+
+<h2 id="상속에서-클래스-생성과-형-변환">상속에서 클래스 생성과 형 변환</h2>
+<p>하위 클래스가 생성될 때는 상위 클래스의 생성자가 먼저 호출된다. 상속관계에서 클래스의 생성 과정을 살펴보면 하위 클래스가 상위 클래스의 변수와 메서드를 사용할 수 있는 이유와 하위클래스가 상위클래스의 자료형으로 형 변환이 가능한 이유를 이해하기 쉽다.</p>
+
+<p>## 하위 클래스가 생성되는 과정
+ 상속을 받은 하위 클래스는 상위 클래스의 변수와 메서드를 사용할 수 있다고 했었다. 즉 Test 예제를 보면, VIPCustomer 클래스로 선언한 customerKim 인스턴스는 상속받은 상위 클래스의 변수를 자기 것처럼 사용할 수 있다. 변수를 사용할 수 있다는 것은 그 변수를 저장하고 있는 메모리가 존재한다는 뜻이다. 그런데 VIPCousomer 클래스 코드에는 해당 변수가 존재하지 않는다. Custmer 클래스를 상속받았을 뿐이다. 여기서 우리는 상속된 하위 클래스가 생성되는 과정을 생각해볼 필요가 있다.</p>
+
+<p>테스트 해보기 위해 Customer  클래스와 VIPCustomer 클래스 생성자에 출력문을 추가해 보자.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre></td><td class="rouge-code"><pre> package inheritance;
+
+ public class Customer {
+     protected int customerID;
+     protected String customerName;
+     protected String customerGrade;
+     int bonusPoint;
+     double bonusRatio;
+
+     public Customer(){
+         customerGrade = "SILVER";
+         bonusRatio = 0.01;
+         System.out.println("Customer() 생성자 호출");
+     }
+     public int calcPrice(int price) {
+         bonusPoint += price * bonusRatio;
+         return price;
+     }
+     public String getCustomerInfo(){
+         return customerName+" 님의 등급은 "+ customerGrade+"이며, 보너스 포인트는"+bonusPoint+"입니다.";
+     }
+     public void setCustomerID(int customerID){
+         this.customerID = customerID;
+     }
+     public void setCustomerName(String customerName){
+         this.customerName = customerName;
+     }
+ }
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre>package inheritance;
+
+public class VIPCustomer extends Customer {
+    private  int agentID;
+    double saleRatio;
+    
+    public VIPCustomer(){
+        customerGrade = "VIP";
+        bonusRatio = 0.05;
+        saleRatio = 0.1;
+        System.out.println("VIPCustomer() 생성자 호출");
+
+    }
+    public  int getAgentID(){
+        return agentID;
+    }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>두 클래스 모두 생성자 안에 “(생성자이름) 생성자 호출” 이라는 문자열을 출력하도록 했다.  <br />
+따라서 생성자가 호출되면 위 문자열이 출력될 것이므로, 한번 생성자가 호출될때 어떻게 되는지 확인해 보도록 하자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre>package inheritance;
+
+public class Test2 {
+    public static void main(String[] args){
+        VIPCustomer customerKim = new VIPCustomer();
+        customerKim.setCustomerID(10020);
+        customerKim.setCustomerName("김유신");
+        customerKim.bonusPoint = 10000;
+        System.out.println(customerKim.getCustomerInfo());
+    }
+}
+
+&gt;&gt;&gt; Customer() 생성자 호출
+&gt;&gt;&gt; VIPCustomer() 생성자 호출
+&gt;&gt;&gt; 김유신 님의 등급은 VIP이며, 보너스 포인트는10000입니다.
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Test2 클래스를 만들어 VIPCustomer의 인스턴스인 customerKim을 만들어 생성자가 어떻게 호출되는지 확인해 보았다. <br />
+출력 내용을 보면, 먼저 Customer() 생성자가 호출된 뒤, 그 다음에 VIPCustomer()가 호출되는 것을 알 수 있다.</p>
+
+<p>정리해보면, 상위클래스를 상속받은 하위 클래스가 생성될 때는 반드시 상위클래스의 생성자가 먼저 호출된다. <br />
+그 이후 상위 클래스 생성자가 호출될 때 상위 클래스의 멤버 변수가 메모리에 생성되는 것이다. 
+따라서 상위클래스의 변수가 메모리에 먼저 생성되기 때문에 하위 클래스에서도 이 값들을 모두 사용할 수 있는 것이다.</p>
+
+<h2 id="부모를-부르는-예약어-super">부모를 부르는 예약어, super</h2>
+<p>super 예약어는 하위 클래스에서 상위 클래스로 접근할 때 사용한다. 하위 클래스는 상위 클래스의 주소, 즉 참조 값을 알고 있다.
+이 참조 값을 갖고 있는 예약어가 바로 super로, this가 자기 자신의 참조 값을 가지고 있는 것과 같다고 생각하면 된다. 또한 supers는 상위 클래스의 생성자를 호출할 때도 사용된다.  <br />
+이러한 super()는 상속된 하위 클래스를 호출하면 하위 클래스 생성자가 자동으로 호출한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>public VIPCustomer(){
+    super();
+    customerGrade = "VIP";
+    bonusRatio = 0.05;
+    saleRatio = 0.1;
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위와 같이 디폴트 코드로 변환되기전에 super();를 자동으로 호출한다.</p>
+
+<p>이런 경우를 생각해 보자. Customer 클래스를 생성할 때 고객 ID와 이름을 반드시 지정하도록 할때를 생각해보자. 이런 경우에 set() 메서드로 값을 지정하는게 아니고, 새로운 생성자를 만들어 매개변수로 값을 전달 받아야 할 것 이다. 즉 자동으로 생성되는 디폴트 생성자가 아닌 매개변수가 있는 생성자를 직접 구현해야 한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>public Customer(){
+       this.customerID = customerID;
+       this.customerName = customerName;
+       customerGrade = "SILVER";
+       bonusRatio = 0.01;
+       System.out.println("Customer() 생성자 호출");
+       
+   }
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위의 Customer 클래스의 생성자는 반드시 customerID와 customerName을 지정해야하는 생성자이다. 이렇게 디폴트 생성자가 아닌 새로운 생성자를 작성하면, Customer를 상속받은 VIPCustomer 클래스에서 오류가 발생한다.  Customer 클래스를 새로 생성할 때 반드시 멤버변수를 지정하도록 했으므로, VIPCustomer 클래스를 생성할 때도 당연히 이 멤버변수를 지정해주어야 할 것 이다. 따라서 super()를 사용하여 상위클래스의 생성자를 호출해 주어야 한다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>ublic VIPCustomer(int customerID, String customerName, int agentID){
+        super(customerID, customerName);
+        customerGrade = "VIP";
+        bonusRatio = 0.05;
+        saleRatio = 0.1;
+        System.out.println("VIPCustomer() 생성자 호출");
+        this.agentID = agentID;
+
+    }
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위처럼 상위 생성자를 super()로 호출후 매개변수를 지정 해주어야 정상적으로 코드가 작동하는 것을 볼 수 있다.</p>
+
+<h2 id="상위-클래스로-묵시적-클래스-형-변환">상위 클래스로 묵시적 클래스 형 변환</h2>
+<p>상속을 공부하면서 우리가 이해해야 하는 중요한 관계가 클래스 간의 형 변환이다. 일단 Customer와 VIPCustomer의 관계를 생각해보자. 개념 면에서 보면 상위클래스인 Customer가 VIPCustomer보다 일반적 개념이지만, 기능 면에서 보면 VIPCustomer가 Customer보다 상위에 있다.</p>
+
+<p>따라서 VIPCustomer는 VIPCustomer형이면서 동시에 Customer형이기도 하다. 즉 VIPCustomer 클래스로 인스턴스를 생성할 때 이 인스턴스의 자료형을 Customer형으로 클래스 형 변환하여 선언할 수 있다.</p>
+
+<p>형 변환을 선언하는 방법은 다음과 같다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>Cutomer vc = new VIPCustomers();
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이렇게 선언하면 VIPCustomer의 생성자가 호출되지만, 그 클래스의 자료형이 Customer로 한정된다. 따라서 선언해준 vc는 Customer 클래스의 멤버 변수와 메서드만 사용가능하게 된다.</p>
+
+<h2 id="메서드-오버라이딩">메서드 오버라이딩</h2>
+<p>위에서 새로운 등급을 만들면서 VIP 고객에게 제공하는 할인율과 세일 가격을 어떻게 적용 할지는 구현하지 않았다. 이번에는 그 기능을 구현해보도록 하자.</p>
+
+<p>상위클래스 Customer에는 제품 가격을 계산하는 calcPrice() 메서드가 이미 정의 되어있는데, 이 메서드는 포인트를 적립 후 정가를 그대로 지불한다. 그런데 VIP 고객은 정가에서 10%의 할인을 받을 수 있어야 하므로, 상위클래스인 Customer의 메서드를 그대로 사용해서는 할인이 적용되지 않는다.</p>
+
+<p>이렇게 상위클래스에서 정의한 메서드가 하위 클래스에서 구현할 내용과 맞지 않는 경우에는 이 메서드를 재정의 할 수 있는데, 이를 <strong>메서드 오버라이딩(method overiding)</strong> 이라고 한다.</p>
+
+<p>오버라이딩을 하려면 반환형, 메서드 이름, 매개변수 개수, 매개변수 자료형이 반드시 같아야한다. 그렇지 않으면 자바 컴파일러는 재정의한 메서드를 기존 메서드와 다른 메서드로 인식한다.</p>
+
+<p>한번 VIPCustomer 에서 calPrice() 메서드를 오버라이딩 해보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="rouge-code"><pre>package inheritance;
+
+public class VIPCustomer extends Customer {
+    private  int agentID;
+    double saleRatio;
+    
+    public VIPCustomer(int customerID, String customerName){
+        super(customerID, customerName);
+        customerGrade = "VIP";
+        bonusRatio = 0.05;
+        saleRatio = 0.1;
+        System.out.println("VIPCustomer() 생성자 호출");
+
+
+    }
+    public int getAgentID(){
+        return agentID;
+    }
+    public int calcPrice(int price){
+        bonusPoint +=price * bonusRatio;
+        return price - (int)(price * saleRatio);
+    }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위와 같이 calcPrice를 매개변수의 자료형 및 개수가 같고, 반환형도 int형으로 같다.  <br />
+이렇게 하면 자바 컴파일러는 이 메서드를 오버라이딩한다. 이런 오버라이딩은 이클립스의 기능을 사용해서 오버라이딩 할 수도 있다.</p>
+
+<p>이렇게 메서드를 오버라이딩한 결과를 출력해보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre>package inheritance;
+
+public class Test {
+    public static void main(String[] args){
+        Customer customerLee = new Customer(10010, "이순신");
+        customerLee.bonusPoint = 1000;
+
+        VIPCustomer customerKim = new VIPCustomer(10020,"김유신");
+        customerKim.bonusPoint = 10000;
+        int price = 10000;
+        System.out.println(customerLee.getCustomerInfo()+"님이 지불해야 하는 금액은"+customerLee.calcPrice(price)+"원입니다.");
+        System.out.println(customerKim.getCustomerInfo()+"님이 지불해야 하는 금액은"+customerKim.calcPrice(price)+"원입니다.");
+    }
+}
+
+&gt;&gt;&gt; 이순신 님의 등급은 SILVER이며, 보너스 포인트는1000입니다.님이 지불해야 하는 금액은10000원입니다.
+&gt;&gt;&gt; 김유신 님의 등급은 VIP이며, 보너스 포인트는10000입니다.님이 지불해야 하는 금액은9000원입니다.
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>VIP회원인 김유신은 올바르게 지불 금액이 할인된것을 볼 수 있다.</p>
+
+<h2 id="묵시적-클래스-형-변환과-메서드-재정의">묵시적 클래스 형 변환과 메서드 재정의</h2>
+<p>다음과 같은 경우에는 어떻게 실행될지 생각해 보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>Customer vc = new VIPCustomer("10030", "나몰라, 2000);
+vc.calcPrice(10000);
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>VIPCustomer 가 Customer형으로 변환되었다.  calcPrice()는 Customer 클래스와 VIPCustomer 클래스에 모두 존재한다. 그렇다면, vc.calcPrice(10000)은 어떤 클래스의 메서드를 호출할까??</p>
+
+<p>고객이 지불해야 하는 금액은 얼마일지 다음 코드로 테스트해 보겠습니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre>package inheritance;
+
+public class OveridngTest {
+    public static void main(String[] args){
+        Customer vc = new VIPCustomer(10030,"나몰라", 2000);
+        vc.bonusPoint = 1000;
+
+        System.out.println(vc.getCustomerName()+"님이 지불해야 하는 금액은"+vc.calcPrice(10000)+" 원 입니다.");
+    }
+}
+
+&gt;&gt;&gt; 나몰라님이 지불해야 하는 금액은9000원 입니다.
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>호출한 결과 분명 묵시적 형변환으로 Customer() 클래스로 형변환을 해주었음에도 VIPCustomer 클래스의 calcPrice() 메서드가 호출된것을 볼 수 있다. 왜일까?</p>
+
+<p>상속에서 상위 클래스와 하위 클래스에 같은 이름의 메서드가 존재할 때 호출되는 메서드는 인스턴스에 따라 결정된다. 다시 말해 선언한 클래스형이 아니라 생성된 인스턴스의 메서드를 호출하는 것이다. 이렇게 인스턴스의 메서드가 호출되는 것을 <strong>가상 메서드(virtual mehod)</strong> 라고 한다. 가상메서드가 실행되는 원리를 이해하면 왜 위의 예제가 Customer() 클래스의 메서드가 아닌 VIPCustomer의 메서드를 호출하는지 이해할 수 있다.</p>
+
+<h2 id="가상-메서드">가상 메서드</h2>
+<p>자바의 클래스는 멤버 변수와 메서드로 이루어져 있다. 클래스를 생성하여 인스턴스가 생성되면 멤버 변수는 힙 메모리에 위치한다. 그렇다면 메서드는 어디에 위치할까? 변수가 사용하는 메모리와 메서드가 사용하는 메모리는 다르다. 변수는 인스턴스가 생성될 때마다 새로 생성되지만, 메서드는 실행해야 할 명령 집합이기 때문에 인스턴스가 달라도 같은 로직을 수행하게 된다. 즉 같은 객체의 인스턴스를 여러 개 생성해도 메서드는 여러 개 생성되지 않는다.</p>
+
+<p>따라서 인스턴스가 달라도 동일한 메서드가 실행된다.</p>
+
+<p>calcPrice() 메서드는 두 클래스에서 서로 다른 메서드 주소를 가지고 있다. 이렇게 재정의된 메서드는 실제 인스턴스에 해당하는 메서드가 호출되는데, getCustomInfo()와 같이 재정의되지 않은 메서드인 경우는 메서드 주소가 같으며, 상위클래스의 메서드가 호출된다.</p>
+
+<p>이렇게 변수를 선언할 때 사용한 자료형의 메서드가 호출되는 것이 아니라 생성된 인스턴스의 메서드가 호출되는것을 가상 메서드라한다. 자바의 모든 메서드는 가상 메서드이다.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#java" class="page__taxonomy-item" rel="tag">java</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-07-30T00:00:00+00:00">July 30, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BJava%5D+%EC%83%81%EC%86%8D%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2FJava-%25EC%2583%2581%25EC%2586%258D%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2FJava-%25EC%2583%2581%25EC%2586%258D%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2FJava-%25EC%2583%2581%25EC%2586%258D%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/programmers/%EC%A3%BC%EC%8B%9D%EA%B0%80%EA%B2%A9/" class="pagination--pager" title="[Programmers] 주식가격 (Python3)
+">이전</a>
+    
+    
+      <a href="/baekjoon/%EB%85%B9%EC%83%89-%EC%98%B7-%EC%9E%85%EC%9D%80-%EC%95%A0%EA%B0%80-%EC%A0%A4%EB%8B%A4%EC%A7%80/" class="pagination--pager" title="[BOJ] 녹색 옷 입은 애가 젤다지? (Python3)
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%97%AC%EB%A6%84/" rel="permalink">여름
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-30T00:00:00+00:00">July 30, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2021.07.30
+요즘 날씨가 진짜 너무 덥다….  
+지구온난화 솔직히 어느정도 과장했다고 생각하고 있었는데, 과장이 아닐지도…?   
+에어컨을 하루종일 틀어도 잘 시원해지지가 않을정도로 덥다. 이렇게 더운 여름이 있었나 싶을정도로 요즘 더운 것 같다.  
+밖에 그냥 나가기가 싫...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/baekjoon/%EC%B5%9C%EC%86%8C%EB%B9%84%EC%9A%A9-%EA%B5%AC%ED%95%98%EA%B8%B0/" rel="permalink">[BOJ] 최소비용 구하기 (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-30T00:00:00+00:00">July 30, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+N개의 도시가 있다. 그리고 한 도시에서 출발하여 다른 도시에 도착하는 M개의 버스가 있다. 우리는 A번째 도시에서 B번째 도시까지 가는데 드는 버스 비용을 최소화 시키려고 한다. A번째 도시에서 B번째 도시까지 가는데 드는 최소비용을 출력하여라. 도시의 번호는 1부터 N까지...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/baekjoon/%EB%85%B9%EC%83%89-%EC%98%B7-%EC%9E%85%EC%9D%80-%EC%95%A0%EA%B0%80-%EC%A0%A4%EB%8B%A4%EC%A7%80/" rel="permalink">[BOJ] 녹색 옷 입은 애가 젤다지? (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-30T00:00:00+00:00">July 30, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+젤다의 전설 게임에서 화폐의 단위는 루피(rupee)다. 그런데 간혹 ‘도둑루피’라 불리는 검정색 루피도 존재하는데, 이걸 획득하면 오히려 소지한 루피가 감소하게 된다!
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programmers/%EC%A3%BC%EC%8B%9D%EA%B0%80%EA%B2%A9/" rel="permalink">[Programmers] 주식가격 (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-29T00:00:00+00:00">July 29, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+초 단위로 기록된 주식가격이 담긴 배열 prices가 매개변수로 주어질 때, 가격이 떨어지지 않은 기간은 몇 초인지를 return 하도록 solution 함수를 완성하세요.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/leeminjae-dev" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/java/Java-%EC%83%81%EC%86%8D/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/java/[Java] 상속"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://leeminjae-dev-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
+
+
+<!-- 웹 폰트 설정 -->
+<link rel="stylesheet" href="/assets/css/high3.css">
