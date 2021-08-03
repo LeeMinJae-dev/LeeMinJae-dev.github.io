@@ -1,0 +1,1778 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Java] 인터페이스 - Learnote-Dev</title>
+<meta name="description" content="인터페이스란? **인터페이스(Interface)는 클래스 혹은 프로그램이 제공하는 기능을 명시적으로 선언하는 역할을 한다. 인터페이스는 추상 메서드와 상수로만 이루어져 있다. 구현된 코드가 없기 때문에 당연히 인터페이스로는 인스턴스도 생성 할 수 없다. 그렇다면 구현코드도 없는 인터페이스는 어떻게 사용하는 걸까? 인터페이스를 직접 만들어 보면서 살펴보자.">
+
+
+  <meta name="author" content="이민재">
+  
+  <meta property="article:author" content="이민재">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Learnote-Dev">
+<meta property="og:title" content="[Java] 인터페이스">
+<meta property="og:url" content="http://localhost:4000/java/%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/">
+
+
+  <meta property="og:description" content="인터페이스란? **인터페이스(Interface)는 클래스 혹은 프로그램이 제공하는 기능을 명시적으로 선언하는 역할을 한다. 인터페이스는 추상 메서드와 상수로만 이루어져 있다. 구현된 코드가 없기 때문에 당연히 인터페이스로는 인스턴스도 생성 할 수 없다. 그렇다면 구현코드도 없는 인터페이스는 어떻게 사용하는 걸까? 인터페이스를 직접 만들어 보면서 살펴보자.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-08-03T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/java/%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이민재",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Learnote-Dev Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Learnote-Dev
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/about/">About me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile.jpg" alt="이민재" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이민재</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>포트폴리오/일상 기록</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Incheon, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="lmj938@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://blog.naver.com/lmj938" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/leeminjae-dev/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:lmj938@naver.com">
+            <meta itemprop="email" content="lmj938@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+        <!--span 태그로 카테고리들을 크게 분류 ex) Life-->
+       <span class="nav__sub-title">Life</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (39)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Tech-->
+       <span class="nav__sub-title">Tech</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java" class="">Java (14)</a></li>
+                    
+                
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (28)</a></li>
+                    
+                
+                    
+                
+                    
+                
+
+		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/programmers" class="">Programmers(48)</a></li>
+                    
+                
+                    
+                
+<!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Knowledge</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                        <li><a href="/categories/machinelearning" class="">Machine Learning (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+          
+      </li>
+  </ul>
+</nav>
+
+  
+
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Java] 인터페이스">
+    <meta itemprop="description" content="인터페이스란?**인터페이스(Interface)는 클래스 혹은 프로그램이 제공하는 기능을 명시적으로 선언하는 역할을 한다. 인터페이스는 추상 메서드와 상수로만 이루어져 있다. 구현된 코드가 없기 때문에 당연히 인터페이스로는 인스턴스도 생성 할 수 없다. 그렇다면 구현코드도 없는 인터페이스는 어떻게 사용하는 걸까? 인터페이스를 직접 만들어 보면서 살펴보자.">
+    <meta itemprop="datePublished" content="2021-08-03T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[Java] 인터페이스
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-03T00:00:00+00:00">August 3, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          13 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this Page</h4></header>
+              <ul class="toc__menu"><li><a href="#인터페이스란">인터페이스란?</a></li><li><a href="#클래스에서-인터페이스-구현하기">클래스에서 인터페이스 구현하기</a></li><li><a href="#인터페이스-구현과-형-변환">인터페이스 구현과 형 변환</a></li><li><a href="#인터페이스의-역할">인터페이스의 역할</a></li><li><a href="#인터페이스와-다형성">인터페이스와 다형성</a></li><li><a href="#인터페이스-상수">인터페이스 상수</a></li><li><a href="#디폴트-메서드와-정적-메서드">디폴트 메서드와 정적 메서드</a><ul><li><a href="#디폴트-메서드">디폴트 메서드</a></li><li><a href="#정적-메서드">정적 메서드</a></li></ul></li><li><a href="#private-메서드">private 메서드</a></li><li><a href="#인터페이스-활용하기">인터페이스 활용하기</a></li><li><a href="#두-인터페이스의-디폴트-메서드가-중복되는-경우">두 인터페이스의 디폴트 메서드가 중복되는 경우</a></li><li><a href="#인터페이스-상속">인터페이스 상속</a></li><li><a href="#인터페이스-구현과-클래스-상속-함께-쓰기">인터페이스 구현과 클래스 상속 함께 쓰기</a></li><li><a href="#실무에서-인터페이스를-사용하는-경우">실무에서 인터페이스를 사용하는 경우</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="인터페이스란">인터페이스란?</h2>
+<p>**인터페이스(Interface)는 클래스 혹은 프로그램이 제공하는 기능을 명시적으로 선언하는 역할을 한다. 인터페이스는 추상 메서드와 상수로만 이루어져 있다. 구현된 코드가 없기 때문에 당연히 인터페이스로는 인스턴스도 생성 할 수 없다. 그렇다면 구현코드도 없는 인터페이스는 어떻게 사용하는 걸까? 인터페이스를 직접 만들어 보면서 살펴보자.</p>
+
+<p>인터페이스를 사용해 간단한 계산기 프로그램을 만들어보자.
+내가 사용하고 있는 책에서는 이클립스를 사용하고 있는데, 패키지에서 오른쪽 버튼 클릭 후 New -&gt; Interface를 클릭하면된다. 나는 IntelliJ를 사용하고 있기 때문에 방법이 다른데, 클래스를 추가하면 클래스 이름을 설정하라고 나올때, 형식을 클래스가 아닌 Interface로 설정하면 된다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>package interfaceex;
+
+public interface Calc {
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이렇게 하면 인터페이스를 사용할 준비가 끝났다.</p>
+
+<p>그럼 인터페이스의 구현부를 추상 클래스와 상수로 채워보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>package interfaceex;
+
+public interface Calc {
+    double PI = 3.14;
+    int ERROR = -99999999;
+    
+    int add(int num1,int num2);
+    int substract(int num1, int num2);
+    int times(int num1, int num2);
+    int divide(int num1,int num2);
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>인터페이스의 메서드와 멤버변수는 추상메서드와 상수로만 이루어져야 한다고 했다. 근데 위 인터페이스는 파이와 에러가 변수로 선언되어있으며 메서드도 추상메서드로 선언하는 예약어인 abstract로 선언하지 않았다.</p>
+
+<p>인터페이스의 메서드와 변수는 예약어를 명시하지않아도 컴파일 과정에서 자동으로 추상메서드로 변환되고, 변수는 상수가 된다. 따라서 public abstract나 public static final 예약어를 선언하지 않아도 된다.</p>
+
+<h2 id="클래스에서-인터페이스-구현하기">클래스에서 인터페이스 구현하기</h2>
+<p>그럼 이제 선언한 인터페이스를 클래스에서 사용해보자. 상속을 할때는 기능을 확장한다는 의미로 extends를 썼었다. 인터페이스에서는 인터페이스에서 선언한 기능을 클래스가 구현한다는 의미로 implements 예약어를 사용한다. calc 인터페이스를 Calculator에서 구현하는 방법은 다음과 같다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>package interfaceex;
+
+public class Calculator implements Calc{
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이렇게 implements로 선언해주면 추상 메서드 4개를 포함하는 Calculator 클래스가 선언된다. 이 추상메서드 4개를 구현하지 않으면, Calcultor 클래스도 추상클래스가 된다. 그럼 추상메서드의 개념까지 한번 더 생각해 볼겸, add()와 substract() 메서드만 구현한 추상메서드로 한번 더 추상클래스를 선언해보고, CompleteCalc에서 모든 기능을 구현해보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre>package interfaceex;
+
+public abstract class Calculator implements Calc{
+    @Override
+    public int add(int num1, int num2) {
+        return num1 + num2;
+    }
+
+    @Override
+    public int substract(int num1, int num2) {
+        return num1 - num2;
+    }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>2개의 메서드만 구현했으므로 이 클래스 또한 추상 클래스이다. 따라서 abstract 예약어를 사용해서 선언한다.</p>
+
+<p>그럼 이제 모든 메서드를 구현한 클래스를 만들어보자. 위에서 만든 추상클래스 Calculator를 상속받아 CompleteCalc에 아직 구현되지 않은 times()와 divide() 추상 메서드를 이 클래스에 구현해주면 된다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre>package interfaceex;
+
+public class CompleteCalc extends Calculator{
+
+
+    @Override
+    public int times(int num1, int num2) {
+        return num1 * num2;
+    }
+
+    @Override
+    public int divide(int num1, int num2) {
+        if(num2 != 0)
+            return num1 / num2;
+        else
+            return Calc.ERROR;
+    }   
+    public void showInfo(){
+        System.out.println("Calc 인터페이스 구현 완료");
+    }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이제 이렇게 만든 클래스를 Test 파일에서 메인함수를 만들어 출력해보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre></td><td class="rouge-code"><pre>package interfaceex;
+
+public class Test {
+    public static void main(String[] args){
+        int num1 = 10;
+        int num2 = 5;
+        
+        CompleteCalc cal = new CompleteCalc();
+        System.out.println(cal.add(num1,num2));
+        System.out.println(cal.substract(num1,num2));
+        System.out.println(cal.divide(num1,num2));
+        System.out.println(cal.times(num1,num2));
+        cal.showInfo();
+    }
+}
+
+
+&gt;&gt;&gt; 15
+&gt;&gt;&gt; 5
+&gt;&gt;&gt; 2
+&gt;&gt;&gt; 50
+&gt;&gt;&gt; Calc 인터페이스 구현 완료
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>덧셈, 뺄셈, 나눗셈, 곱셈 연산을 실행하고 그 값을 출력해보았다. 이처럼 인터페이스는 선언부를 모아놓았기 때문에, 해당 메서드의 구현부를 재정의하여 사용 할 수 있게 해준다.</p>
+
+<h2 id="인터페이스-구현과-형-변환">인터페이스 구현과 형 변환</h2>
+<p>Calculator 클래스는 인터페이스에서 선언한 추상 메서드 중 일부 메서드만 구현했으므로 추상 클래스이다.
+그리고 이를 상속받은 CompleteCalc 클래스는 Calc에서 구현하지 않은 나머지 추상 메서드를 모두 구현하고 showInfo() 메서드를 추가로 구현했다. 이러한 관계에서 하위 클래스의 형 변환은 어떻게 이루어지는지 알아보자.</p>
+
+<p>상속관계에서는 하위클래스는 상위클래스로 묵시적 형변환이 언제든 가능하다고 했다. 인터페이스도 마찬가지로 CompleteCalc 클래스는 상위클래스인 Calculator 형이면서 Calc형이다. 따라서 다음과 같은 코드 선언이 가능하다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>Calc calc = new CompleteCalc();
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이렇게 하면 calc 변수에 대입한 newCalc는 인터페이스에서 선언한 메서드만 사용할 수 있고, CompleteCalc 에서 구현한 showInfo() 메서드는 사용할 수 없다. 이것이 바로 인터페이스의 중요한 역할이다.</p>
+
+<h2 id="인터페이스의-역할">인터페이스의 역할</h2>
+<p>지금까지 인터페이스를 정의하고 클래스에서 구현해보았는데, 그러면 이러한 인스턴스는 어디에 쓰는 코드일까?</p>
+
+<p>인터페이스는 클라이언트 프로그램에 어떤 메서드를 제공하는지 미리 알려주는 명제 또는 약속의 역할로, 만약 Abc 클래스를 구현한 A클래스가 있다고 가정하자. 이 클래스를 사용하는 Z라는 프로그램이 있다면, Abc인터페이스에는 구현해야할 추상메서드가 모두 선언되어있고, 어떤 매개변수가 사용되는지, 어떤 자료형 값이 반환되는지 선언되어 있을 것이다. 즉 Z프로그램에서는 A클래스의 구현부를 살펴보지 않고 Abc 인터페이스의 선언 부분만 보고도 A클래스의 사용방법을 알게되는 것이다.</p>
+
+<p>만약 Z프로그램에서 Abc 인터페이스를 구현한 다른 클래스 B를 사용하고 싶다면, 인터페이스 명을 B클래스로 교체하여 사용가능하다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>Abc abc;
+abc = new A();
+abc = new B();
+abc = new C();
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이렇게 Z프로그램에서 각 클래스를 사용하려고 할 떄, 클래스에서 구현한 내용을 몰라도 Abc 인터페이스에서 선언한 메서드의 매개변수 자료형과 반환값을 알면 인터페이스를 구현한 어떤 클래스든 사용가능하다.</p>
+
+<h2 id="인터페이스와-다형성">인터페이스와 다형성</h2>
+<p>인터페이스를 사용하면 다형성을 구현하여 확장성 있는 프로그램을 만들 수 있다. <br />
+즉, 클라이언트 프로그램을 많이 수정하지 않고 기능을 추가하고 다른 기능을 사용할 수 있게된다.</p>
+
+<p>다음 예제를 보자.</p>
+
+<p>고객센터에는 전화 상담을 하는 상담원이 있다. 고객센터로 전화가 오면 대기열에 저장되고, 상담원이 지정되기 전까지 대기 상태가 된다. 전화를 상담원에게 분배하는 방법은 세가지가 있는데,</p>
+
+<ul>
+  <li>순서대로 배분하기: 모든 상담원에게 순서대로 전화를 준다.</li>
+  <li>짧은 대디열 찾아 헤메기 : 가장 적은 대기명을 보유하지않은 상담원에게 전화를 준다.</li>
+  <li>우선순위에 따라 배분하기 : 고객 등급에 따라 등급이 높을 수록 업무능력이 높은 상담원에게 우선 배분한다.</li>
+</ul>
+
+<p>이 전화를 배분하기 위해 Scheduler 인터페이스를 만들어보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>package interfaceex;
+
+public interface Scheduler {
+    public void getNextCall();
+    public void sendCallToAgent();
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>그럼 순서대로 배분하는 경우 부터 인터페이스의 구현부를 채워보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre>package interfaceex;
+
+public class RoundRobin implements Scheduler {
+    @Override
+    public void getNextCall(){
+        System.out.println("전화를 순서대로 대기열에서 가져온다.");
+    }
+
+    @Override
+    public void sendCall() {
+        System.out.println("다음 순서 상담원에게 배분");
+    }
+
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>먼저 순서대로 배정하는 경우 (RoundRobin)를 구현해보았다.
+마찬가지로implements를 사용하여 Scheduler 인터페이스를 기반으로 클래스를 선언헀다.</p>
+
+<p>다음은 짧은 대기열 먼저 분배하는 LeastJob 클래스, 우선순위에 따라 배분하는 PriorityAllocation 클래스를 구현해보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre>package interfaceex;
+
+public class LeastJob implements Scheduler{
+
+    @Override
+    public void getNextCall() {
+        System.out.println("상담 전화를 순서대로 대기열에서 가져옵니다.");
+    }
+
+    @Override
+    public void sendCall() {
+        System.out.println("대기가 적은 순으로 상담원에게 할당합니다.");
+
+    }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre>package interfaceex;
+
+public class PriorityAllocation implements Scheduler{
+
+    @Override
+    public void getNextCall() {
+        System.out.println("고객등급이 높은 순서대로 대기열에서 가져온다.");
+    }
+
+    @Override
+    public void sendCall() {
+        System.out.println("업무 역량이 높은 상담원 우선 배정한다.");
+
+    }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이제 해당 클래스들을 main 함수에서 구동해보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+</pre></td><td class="rouge-code"><pre>package interfaceex;
+
+import java.io.IOException;
+
+public class SchedulerTest {
+    public static void main(String[] args)throws IOException {
+        System.out.println("전화 상담 할당 방식을 선택하세요");
+        System.out.println("R : 한명씩 차례로 할당");
+        System.out.println("L : 대기가 적은 상담원에게 할당");
+        System.out.println("P : 우선순위가 높은 고객 먼저 할당");
+
+        int ch = System.in.read();
+        Scheduler scheduler = null;
+
+        if(ch == 'R' || ch == 'r'){
+            scheduler = new RoundRobin();
+        }
+        else if(ch == 'L' || ch == 'l'){
+            scheduler = new LeastJob();
+        }
+        else if(ch == 'P' || ch == 'p'){
+            scheduler = new PriorityAllocation();
+        }
+        else{
+            System.out.println("지원하지 않는 기능입니다.");
+            return;
+        }
+        scheduler.getNextCall();
+        scheduler.sendCall();
+    }
+}
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위 함수를 실행하면, 입력받은 전화 할당 방식에 따라서 각 기능에 따른 메서드가 실행된다.</p>
+
+<p>만약 새로운 정책을 추가해야 한다면, 앞에서와 마찬가지로 Scheduler 인터페이스를 구현하는 새 클래스로 만들면된다. 어떤 클래스를 구현하던간에 클라이언트가 인터페이스를 구현한 클래스를 사용하는 방식은 다음과 같다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>scheduler.getNextCall()
+scheduler.sendCall();
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이렇게 클라이언트 프로그램은 각 클래스의 구현 방법을 몰라도 인터페이스에서 선언된 매개변수, 반환값을 보고 클래스를 사용할 수 있다.</p>
+
+<h2 id="인터페이스-상수">인터페이스 상수</h2>
+<p>인터페이스는 추상 메서드로 이루어지므로 인스를 생성할 수 없으며 멤버 변수도 사용할 수 없다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>public interface Calc{
+    double PI = 3.14;
+    int ERROR = -9999999999;
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>그런데, 위의 코드와 같이 변수를 선언해도 오류가 발생하지 않는다. 그 이유는 인터페이스에서 선언한 변수를 컴파일하면 상수로 변환 되기 떄문이다.</p>
+
+<h2 id="디폴트-메서드와-정적-메서드">디폴트 메서드와 정적 메서드</h2>
+<p>원래 자바는 인터페이스를 구현한 여러 클래스에서 사용할 메서드가 클래스마다 같은 기능을 제공하는 경우에도 인터페이스에 메서드를 구현할 수 없기 때문에 클래스마다 똑같이 그 기능을 반복해 구현해야 했다. 하지만 자바 8부터는 인터페이스 활용성을 높이기 위해 디폴트 메서드와 정적 메서드를 지원한다.</p>
+
+<p>정적 메서드는 인스턴스 생성과 관계없이 사용할 수 있는 메서드이다. 하지만 디폴트 메서드나 정적 메서드를 추가 했다고 해서 인터페이스가 인스턴스를 생성할 수 있는건 아니다. 그럼 인터페이스에 구현하는 디폴트 메서드와 정적 메서드가 무엇인지 살펴보자.</p>
+
+<h3 id="디폴트-메서드">디폴트 메서드</h3>
+<p>디폹트 메서드란 말 그대로 기본으로 제공되는 메서드로, 인터페이스에서 구현하지만 이후 인터페이스를 구현한 클래스가 생성되면 그 클래스에서 사용할 기본 기능이다. 디폴트 메서드는 default를 사용해 선언한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>public interface Calc {
+    ...
+    
+    default void description(){
+        System.out.println("정수 계산기를 구한다.");
+    }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>디폴트는 일반 메서드와 동일하게 구현하고 자료형 앞에 default만 붙여주면 된다.
+그럼 디폴트 메서드를 호출해보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre>package interfaceex;
+
+public class Test {
+    public static void main(String[] args){
+        int num1 = 10;
+        int num2 = 5;
+
+        CompleteCalc cal = new CompleteCalc();
+        System.out.println(cal.add(num1,num2));
+        System.out.println(cal.substract(num1,num2));
+        System.out.println(cal.divide(num1,num2));
+        System.out.println(cal.times(num1,num2));
+        cal.showInfo();
+        cal.description();
+    }
+}
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>다음과 같이 인스턴스 cal을 생성하면 디폴트 메서드를 호출 할 수 있다.  <br />
+이러한 디폴트 메서드도 마찬가지로 하위클래스에서 기능을 다르게 구현하고 싶다면, 재정의가 가능하다.</p>
+
+<h3 id="정적-메서드">정적 메서드</h3>
+<p>정적 메서드는 static 예약어를 사용하여 선언하며 클래스 생성과 무관하게 사용할 수 있다. <br />
+정적 메서드를 사용할 때는 인터페이스 이름으로 직접 참조하여 사용한다. 그러면 Calc 인터페이스에 매개변수로 전달된 배열의 모든 요소 값을 더하는 정적 메서드 total()을 추가해 보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="rouge-code"><pre>package interfaceex;
+
+public interface Calc {
+    double PI = 3.14;
+    int ERROR = -9999999;
+
+
+    int add(int num1,int num2);
+    int substract(int num1, int num2);
+    int times(int num1, int num2);
+    int divide(int num1,int num2);
+
+    default void description(){
+        System.out.println("정수 계산기를 구한다.");
+    }
+    
+    static int total(int[] arr){
+        int total = 0;
+        
+        for(int i : arr){
+            total+=i;
+        }
+        return total
+    }
+}
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위 처럼 static을 사용하여 정적 메서드인 total을 선언해보았다.  <br />
+마찬가지로 main함수에서 호출해보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre>package interfaceex;
+
+public class Test {
+    public static void main(String[] args){
+        int num1 = 10;
+        int num2 = 5;
+
+        CompleteCalc cal = new CompleteCalc();
+        System.out.println(cal.add(num1,num2));
+        System.out.println(cal.substract(num1,num2));
+        System.out.println(cal.divide(num1,num2));
+        System.out.println(cal.times(num1,num2));
+        cal.showInfo();
+        cal.description();
+
+        int[] arr = {1,2,3,4,5}
+        System.out.println("총합 :"+ Calc.total(arr));
+    }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>마지막줄에 정적메서드인 total을 호출하였다. 특이한점은 인스턴스로 참조한게 아니라 직접 인터페이스 이름으로 정적메서드를 호출하였다.</p>
+
+<h2 id="private-메서드">private 메서드</h2>
+<p>자바 9부터는 인터페이스에 private 메서드를 구현할 수 있다. private 메서드는 인터페이스를 구현한 클래스에서 사용하거나 재정의할 수 없다. 따라서 기존에 구현된 코드를 변경하지 않고 인터페이스를 구현한 클래스에서 공통으로 사용하는 경우에 private 메서드로 구현하면 코드 재사용성을 높일 수 있다.</p>
+
+<p>private 메서드는 코드를 모두 구현해야 하므로 추상 메서드에 private을 사용할 순 없지만, static은 함께 사용할 수 있다. 그럼 Calc인터페이스에 private와 private static을 구현하고 이를 호출해보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+</pre></td><td class="rouge-code"><pre>package interfaceex;
+
+public interface Calc {
+    double PI = 3.14;
+    int ERROR = -9999999;
+
+
+    int add(int num1,int num2);
+    int substract(int num1, int num2);
+    int times(int num1, int num2);
+    int divide(int num1,int num2);
+
+    default void description(){
+        System.out.println("정수 계산기를 구한다.");
+        myMethod();
+    }
+
+    static int total(int[] arr){
+        int total = 0;
+
+        for(int i : arr){
+            total+=i;
+        }
+        myStaticMethod();
+        return total;
+    }
+
+    private void myMethod() {
+        System.out.println("private 메서드입니다.");
+    }
+    private static void myStaticMethod(){
+        System.out.println("private static 메서드 입니다.");
+    }
+}
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>private와 static private로 선언한 메서드를 각각 디폴트 메서드와 정적메서드에서 호출시켜주면 올바르게 호출 된 것을 확인 할 수 있다.</p>
+
+<h2 id="인터페이스-활용하기">인터페이스 활용하기</h2>
+<p>한 클래스가 여러 클래스를 상속받으면 메서드 호출이 모호해지는 문제가 발생하곤 한다. 하지만 인터페이스는 한 클래스가 여러 인터페이스를 구현할 수 있다. 만약 Customer 클래스가 추상 메서드 buy()와 sell() 두 인터페이스를 구현하고 있다고 하자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>public interface Buy{
+    void buy();
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>public interfce Sell{
+    void sell();
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이렇게 선언해준 추상메서드 두개를 구현해보면,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>public class Customer implemeent Buy,Sell{
+    @override
+    public void buy(){
+    System.out.println("구매하기)
+    }
+    public void sell(){
+    System.out.println("구매하기)
+    }   
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>인터페이스는 구현 코드나 멤버 변수를 갖지 않기 떄문에 여러 개를 동시에 구현 가능하다. 두 인터페이스에 이름이 같은 메서드가 선언되어도 구현은 클래스에서 이루어지므로, 어떤 메서드를 호출해야 하는지 모호하지 않은것이다.</p>
+
+<p>이제, 테스트 프로그램에서 두가지 인터페이스를 구현가능한 Customer를 호출해보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre>package interfaceex;
+
+public class Test2 {
+    public static void main(String[] args){
+        Customer customer = new Customer();
+        Buy buyer = customer;
+        buyer.buy();
+
+        Sell seller = customer;
+        seller.sell();
+
+        if(seller instanceof Customer){
+            Customer customer2 = (Customer) seller;
+            customer2.buy();
+            customer2.sell();
+        }
+
+    }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Customer 클래스형인 customer를 Buy 인터페이스 형인 buyer에 대입하여 형 변환한 뒤 buy()를 호출해주고, 다음은 customer를 Sell 인터페이스형은 seller에 대입하여 sell() 메서드를 호출 해보았다. 이처럼 우리가 구현한 Customer 클래스는 두가지를 다중 상속받은 것처럼 Buy와 Sell로 형변환이 가능한 것을 알 수 있다. 상속과 마찬가지로 instanceof로 하위클래스로의 형변환도 당연히 가능하다.</p>
+
+<h2 id="두-인터페이스의-디폴트-메서드가-중복되는-경우">두 인터페이스의 디폴트 메서드가 중복되는 경우</h2>
+<p>정적 메서드는 인스턴스 생성과 상관없이 사용이 가능하다. 만약 Customer 클래스가 Buy,Sell 두 인터페이스를 구현하고 
+두 인터페이스에 pay()라는 정적메서드가 있다고 생각해보자. 이 경우 Buy.pay()와 Sell.pay()로 특정하여 호출할 수 있기 떄문에 문제가 되지 않는다. 그런데 디폴트 메서드는 어떻게 될까? 디폴트 메서드는 인스턴스를 생성해야 호출 가능한 메서드이기 때문에, 다음처럼 이름이같은 디폴트 메서드가 두 인터페이스에 있으면 문제가 된다.</p>
+
+<p>다음 코드를 보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>public interface Buy{
+    void buy();
+    
+    default void order(){
+        System.out.println("구매 주문");
+        }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>public interface Sell{
+    void buy();
+    
+    default void order(){
+        System.out.println("판매 주문");
+        }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이렇게 정의 하고 두 인터페이스를 모두 구현하면 Customer 클래스에서는 오류가 발생한다.
+두 디폴트 메서드가 중복되었으므로, Customer 클래스에서 재정의 해주어야 동일한 이름이어도 오류가 발생하지 않는다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>public class Customer implements Buy, Sell{
+    
+    ...
+    
+    @Overide
+    public void order(){
+        System.out.println("고객 판매 주문")
+}
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위 와같이 재정의 해주면 오류가 발생하지않고, 재정의된 메서드가 호출된다.</p>
+
+<h2 id="인터페이스-상속">인터페이스 상속</h2>
+<p>인터페이스 간에도 상속이 가능합니다. 인터페이스 간 상속을 구현 코드를 통해 기능을 상속하는 것이 아니므로 <strong>형 상속(type inheritance)</strong> 라고 부른다. 클래스의 경우에는 하나의 클래스만 상속받을 수 있지만, 인터페이스는 여러 개를 동시에 상속 받을 수 있다. 한 인터페이스가 여러 인터페이스를 상속받으면, 상속받은 인터페이스는 상위 인터페이스에 선언한 추상 메서드를 모두 가지게 된다.</p>
+
+<p>만약 X와 Y라는 인터페이스를 선언해주고 이를 상속받는 인터페이스 MyInterface를 선언해준다면 이 인터페이스는 3개의 추상 메서드를 가진 인터페이스가 되는것이다. 따라서 MyInterface를 구현하려면 3개의 메서드를 구현해주어야 한다.</p>
+
+<h2 id="인터페이스-구현과-클래스-상속-함께-쓰기">인터페이스 구현과 클래스 상속 함께 쓰기</h2>
+<p>한 클래스에서 클래스 상속과 인터페이스 구현을 모두 할 수도 있다. 다음은 Queue 인터페이스를 구현하고 Shelf 클래스를 상속받는 BookShelf 클래스를 나타낸 그림입니다.</p>
+
+<p>BookShelf 클래스는 책을 넣은 순서대로 꺼내어 볼 수 있도록 만들려고 한다. BookShelf 클래스를 구현하기 전에 더 큰 개념인 Shelf 클래스를 먼저 만들어보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre>package bookshelf;
+
+import java.util.ArrayList;
+
+public class Shelf {
+    protected ArrayList&lt;String&gt; shelf;
+    
+    public Shelf(){
+        shelf = new ArrayList&lt;String&gt;();
+    }
+    
+    public ArrayList&lt;String&gt; getShelf(){
+        return shelf;
+    }
+    public int getCount(){
+        return shelf.size();
+    }
+}
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Shelf 클래스에는 자료를 순서대로 저장할 배열 객체를 선언했다. 이름을 저장 할 수 있도록 자료형은 String을 사용한다. getShelf() 메서드는 저장되어있는 배열 shelf를 반환하고, getCount() 메서드는 배열 shelf에 저장된 요소 개수를 반환한다.</p>
+
+<p>그럼 Queue 인터페이스를 정의해보자. Queue 인터페이스는 먼저 들어온 자료를 먼저 꺼내는 기능을 정의한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>package bookshelf;
+
+public interface Queue {
+    void enQueue(String title); //배열의 맨 마지막에 추가
+    String deQueue(); //배열의 맨 처음 항목 반환
+    int getSize(); //현재 Queue에 있는 개수 반환
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이제 Shelf 클래스와 Queue 인터페이스를 사용하여 BookShelf 클래스를 다음과 같이 구현 할 수 있다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre>package bookshelf;
+
+public class BookShelf extends Shelf implements Queue{
+
+    @Override
+    public void enQueue(String title) {
+        shelf.add(title);
+    }
+
+    @Override
+    public String deQueue() {
+        return shelf.remove(0)
+    }
+
+    @Override
+    public int getSize() {
+        return getCount();
+    }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위의 코드를 보면 Shelf를 상속받고 Queue도 구현하는 BookShelf의 코드이다. <br />
+상속받은 shelf 멤버 변수를 사용해서 Queue 인터페이스에서 선언한 메서드를 구현한 것을 볼 수있다.</p>
+
+<p>이제 책의 이름을 배열에 추가해주고, 순서대로 앞에서부터 출력해보자.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre>package bookshelf;
+
+public class BookShelfTest {
+    public static void main(String[] args){
+        Queue shelfQueue = new BookShelf();
+
+        shelfQueue.enQueue("태백산맥 1");
+        shelfQueue.enQueue("태백산맥 2");
+        shelfQueue.enQueue("태백산맥 3");
+
+        System.out.println(shelfQueue.deQueue());
+        System.out.println(shelfQueue.deQueue());
+        System.out.println(shelfQueue.deQueue());
+    }
+}
+
+&gt;&gt;&gt; 태백산맥 1
+&gt;&gt;&gt; 태백산맥 2
+&gt;&gt;&gt; 태백산맥 3
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>올바르게 배열의 앞에서부터 반환되어 큐의 역할을 잘 수행하는 것을 볼 수 있다.</p>
+
+<h2 id="실무에서-인터페이스를-사용하는-경우">실무에서 인터페이스를 사용하는 경우</h2>
+<p>인터페이스는 클래스가 제공할 기능을 선언하고 설계하는 것이다. 만약 여러 클래스가 같은 메서드를 서로 다르게 구현한다면 어떻게 해야할까? 우선 인터페이스에 메서드를 선언한 다음 인터페이스를 구현한 각 클래스에서 같은 메서드에 대해 다양한 기능을 구현하면 된다. 이것이 바로 인터페이스를 이용한 다형성의 구현이다.</p>
+
+<p>이런 경우를 생각해보자. 어느회사에서 자료를 저장하기 위해 데이터베이스를 사용한다고 하면, 처음에는 MySQL 데이터 베이스를 사용했는데, 이 시스템을 다른 회사에 가서 설치하려고 하니 오라클 데이터 베이스를 사용하여 해달라고 하고, 또 다른 회사는 MS-SQL을 사용한다고 한다. 프로그램은 하나인데 사용하는 데이터 베이스가 제각각 인 것이다. 하지만 이프로그램의 웹페이지나 모바일 페이지는 데이터베이스의 종류와 관계없이 동일하게 수행된다.</p>
+
+<p>데이터베이스와 연관되는 코드는 프로그램의 특정 부분인 것이지,나머지는 동일한것이다. <br />
+이런경우에 데이터베이스 기능을 인터페이스로 정의해주면 된다. 그리고 인터페이스 정의에 맞게 여러 데이터베이스 관련 모듈을 개발하면 되는것이다.</p>
+
+<p>인터페이스를 잘 정의하는 것이 확장성 있는 프로그램을 만드는 시작이라고 할 수 있다.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#java" class="page__taxonomy-item" rel="tag">java</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-08-03T00:00:00+00:00">August 3, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BJava%5D+%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2F%25EC%259D%25B8%25ED%2584%25B0%25ED%258E%2598%25EC%259D%25B4%25EC%258A%25A4%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F%25EC%259D%25B8%25ED%2584%25B0%25ED%258E%2598%25EC%259D%25B4%25EC%258A%25A4%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F%25EC%259D%25B8%25ED%2584%25B0%25ED%258E%2598%25EC%259D%25B4%25EC%258A%25A4%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/programmers/%EA%B1%B0%EB%A6%AC%EB%91%90%EA%B8%B0-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/" class="pagination--pager" title="[Programmers] 거리두기 확인하기 (Python3)
+">이전</a>
+    
+    
+      <a href="/programmers/%ED%94%84%EB%A0%8C%EC%A6%884%EB%B8%94%EB%A1%9D/" class="pagination--pager" title="[Programmers] 프렌즈4블록 (Python3)
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programmers/%ED%94%84%EB%A0%8C%EC%A6%884%EB%B8%94%EB%A1%9D/" rel="permalink">[Programmers] 프렌즈4블록 (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-03T00:00:00+00:00">August 3, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+프렌즈4블록
+블라인드 공채를 통과한 신입 사원 라이언은 신규 게임 개발 업무를 맡게 되었다. 이번에 출시할 게임 제목은 “프렌즈4블록”.
+같은 모양의 카카오프렌즈 블록이 2×2 형태로 4개가 붙어있을 경우 사라지면서 점수를 얻는 게임이다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programmers/%EA%B1%B0%EB%A6%AC%EB%91%90%EA%B8%B0-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/" rel="permalink">[Programmers] 거리두기 확인하기 (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-02T00:00:00+00:00">August 2, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+개발자를 희망하는 죠르디가 카카오에 면접을 보러 왔습니다.
+코로나 바이러스 감염 예방을 위해 응시자들은 거리를 둬서 대기를 해야하는데, 
+개발 직군 면접인 만큼  
+아래와 같은 규칙으로 대기실에 거리를 두고 앉도록 안내하고 있습니다.
+
+  
+    대기실은 5개이며, 각 대기...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/java/%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4/" rel="permalink">[Java] 추상 클래스
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-02T00:00:00+00:00">August 2, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          4 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">추상클래스란?
+‘추상적이다’라는 말의 뜻을 생각해 보자. 추상적이라는 것은 구체적이지 않고 막연한 것을 뜻한다.
+그렇다면 어떤 클래스가 추상적이다 라는 말은 무슨 뜻일까? 앞의 용어풀이를 대입해 보면 ‘구체적이지 않은 클래스’ 라는 뜻일 것이다. 추상 클래스를 영어로 하면 abst...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/java/%EB%8B%A4%EC%9A%B4%EC%BA%90%EC%8A%A4%ED%8C%85%EA%B3%BC-instanceof/" rel="permalink">[Java] 다운 캐스팅과 instanceof
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-02T00:00:00+00:00">August 2, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">하위 클래스로 형 변환, 다운캐스팅
+앞에서 상위 클래스로 형 변환이 묵시적으로 이루어지는 과정을 알아보왔다. 여기서는 다시 하위 클래스로 형 변환이 되는 과정을 살펴보자.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/leeminjae-dev" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/java/%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/java/인터페이스"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://leeminjae-dev-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
+
+
+<!-- 웹 폰트 설정 -->
+<link rel="stylesheet" href="/assets/css/high3.css">
