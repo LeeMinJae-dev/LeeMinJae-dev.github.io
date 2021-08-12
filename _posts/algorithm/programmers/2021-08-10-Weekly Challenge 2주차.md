@@ -2,7 +2,7 @@
 title : "[Programmers] Weekly Challenge 2주차 (Python3)"
 categories : programmers
 toc : true
-toc_sticky : ture
+toc_sticky : true
 toc_label : "On this Page"
 ---
 ## 문제 
