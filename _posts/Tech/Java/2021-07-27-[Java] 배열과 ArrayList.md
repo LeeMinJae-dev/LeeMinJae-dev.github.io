@@ -8,36 +8,36 @@ toc_stciky : true
 ## 배열 선언과 초기화
 배열을 사용하려면 먼저 배열을 선언해야한다.   
 배열도 변수와 마찬가지로 자료형을 함께 선언하는데, 배열을 선언하는 문법은 다음과 같다.   
-```
+```java
 자료형[] 배열 이름 = new 자료형[개수];
 자료형 배열 이름[] = new 자료형[개수];
 ```
 예를들어 학생의 학번을 만약 배열로 선언한다고 하면,
-```
+```java
 int[] studentIDs = new int[10];
 ```
 이렇게 선언하면 studentIDs라는 이름을 가진 int형 10자리 배열이 생성된다.
 
 만약 선언과 동시에 배열의 값을 초기화하고 싶다면,   
 중괄호를 사용하면 배열의 값을 초기화하면서 선언할 수 있다.
-```
+```java
 int[] studentIDs = new int[]{101,102,103}
 ```
 이때, 알아서 초기화 되는 갯수 만큼 배열이 생성되므로, []안의 개수는 생략해야한다.
 또 다음과 같이 new int[] 부분을 아예 생략할 수도 있다.
-```
+```java
 int[] studentIDs = {102,102,103}
 ```
 ## 배열 사용하기
 선언한 배열의 요소에 접근하려면 [ ]를 사용한다.   
 만약 배열의 첫번째 요소에 10을 저장한다면 아래처럼 코드를 작성하면된다.
-```
+```java
 studentIDs[0] = 10;
 ```
 배열의 순서는 항상 0부터 시작한다.
 
 그럼 위의 코드를 하나의 프로그램으로 해서 배열을 출력해보도록 하자.
-```
+```java
 package array;
 
 public class ArrayTest {
@@ -66,7 +66,7 @@ public class ArrayTest {
 
 그럼 빈 값이 들어가있는 배열에서 값이 있는 요소만 출력하고 싶다면 어떻게 해야 할까?
 아래의 코드와 같이 size라는 변수를 하나 더 만들어 사용해주면 된다.
-```
+```java
 package array;
 
 public class ArrayTest {
@@ -87,7 +87,7 @@ public class ArrayTest {
 ## 객체 배열 사용하기
 이번에는 참조 자료형으로 선언하는 객체 배열에 대해 알아보자.   
 동일한 기본 자료형 변수 여러개를 사용할 수 있듯이 참조자료형 변수도 여러 개를 배열로 사용 가능하다. 책과 책 저자를 저장하는 클래스 Book을 만들어 객체 배열을 만들어보자.
-```
+```java
 package array;
 
 public class Book {
@@ -120,7 +120,7 @@ public class Book {
 Book 클래스를 만들어 책이름과 저자를 저장하는 변수 bookName, author를 만들어주고, 각각을 받아오는 get 함수와 각각을 저장하는 set함수를 만들고, 마지막으로 책이름과 저자를 출력하는 showBookInfo 함수를 만들어주었다.
 
 이제 도서관에 책이 5권있다고 가정하고 Book클래스를 사용하여 책 5권을 객체 배열로 만들어보자.
-```
+```java
 package array;
 
 public class BookArray {
@@ -142,7 +142,7 @@ library = new Book[5]; 를 보면 마치 5개의 인스턴스가 생성된 것�
 담을 공간 5개를 생성하는 문장이다. 따라서 이 코드를 실행하게 되면 Book의 주소를 담을 공간 5개가 만들어지고 자동으로 공간이 null로 초기화 된다.
 
 그럼 이제 만들어준 빈공간에 인스턴스를 만들어 저장해보자.
-```
+```java
 package array;
 
 public class BookArray2 {
@@ -188,7 +188,7 @@ Sysyem.arraycopy(src,srcPos,dest,destPos,length)
 |length|src에서 dest로 자료를 복사할 요소 개수|
 
 그럼 예제를 통해 실제로 배열을 한번 복사해보도록 하자.
-```
+```java
 package array;
 
 public class ArrayCopy {
@@ -209,7 +209,7 @@ srcPos = 0, destPos = 1 이므로, array1의 값은 0부터 array2의 1부터의
 
 이번에는 객체 배열을 복사해보자.   
 객체 배열도 마찬가지로 동일한 방식으로 복사해서 사용 할 수 있다.   
-```
+```java
 package array;
 
 public class ObjectCopy1 {
@@ -237,7 +237,7 @@ public class ObjectCopy1 {
 다음과 같이 library1의 인스턴스가 library2로 복사된 것을 확인 할 수 있다.   
 이 상태에서 만약 library1의 값을 변경하게 되면 어떻게 될까??   
 예제를 통해 확인해보자.
-```
+```java
 package array;
 
 public class ObjectCopy2 {
@@ -274,7 +274,7 @@ library1[0]의 값을 변경해주었는데, library2[0]의 값도 변경되었�
 
 이렇게 하고 싶다면, 직접 인스턴스를 만들어 요소 값을 복사해야 한다.    
 아래의 코드를 보자.
-```
+```java
 package array;
 
 public class ObjectCopy3 {
@@ -310,7 +310,7 @@ public class ObjectCopy3 {
 
 ## 향상된 for문과 배열
 자바 5부터 제공되는 **향상된 for문(enhanced for loop)** 은 배열의 처음에서 끝까지 모든 요소를 참조할 때 사용하면 편리한 반복문으로, 향상된 for문은 배열 요소 값을 하나씩 가져와 변수에 대입한다. 따로 초기화와 종료조건을 명시하지 않아도 알아서 모든 배열의 시작요소부터 끝 요소까지를 실행해준다.
-```
+```java
 package array;
 
 public class EnhancedFor {
@@ -348,16 +348,16 @@ add( ) 메서드를 사용하면 배열 길이와 상관없이 객체를 추가 
 
 ## ArrayList 활용하기
 ArrayList를 사용하는 방법은 다음과 같다.
-```
+```java
 ArrayList<E> 배열 이름 = new ArrayList<E>();
 ```
 선언하는 부분 <>안에 사용할 객체의 자료형을 쓰면 된다.   
 예를들어 앞에서 살펴본 Book 클래스형을 자료형으로 사용해서 ArrayList 배열을 생성한다면 다음과 같다.
-```
+```java
 ArrayList<Book> library = new ArrayList<Book>();
 ```
 ArrayList는 java.util 패키지에 구현되어 있는 클래스로, 현재 만든 프로그램에는 이 패키지가 포함되어 있지 않기 때문에 컴파일러에게 ArrayList를 사용하기 위해서는 컴파일러에게 ArrayList가 어디에 구현되어 있다고 알려주기 위해 코드 맨 위에 선언하는 것을 **임포트(import)** 한다고 한다. 즉 ArrayList를 사용하려면 ArrayList를 import해주어야 사용할 수 있다.
-```
+```java
 package array;
 import java.util.ArrayList;
 

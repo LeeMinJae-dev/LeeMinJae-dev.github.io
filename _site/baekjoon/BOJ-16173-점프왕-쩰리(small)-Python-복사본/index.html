@@ -286,7 +286,7 @@
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
-                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (39)</a></li>
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (42)</a></li>
                     
                 
                     
@@ -318,7 +318,7 @@
                     
                 
                     
-                        <li><a href="/categories/java" class="">Java (14)</a></li>
+                        <li><a href="/categories/java" class="">Java (19)</a></li>
                     
                 
 
@@ -335,7 +335,7 @@
                     
                 
                     
-                        <li><a href="/categories/baekjoon" class="">Baekjoon (28)</a></li>
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (37)</a></li>
                     
                 
                     
@@ -354,7 +354,7 @@
                     
                 
                     
-                        <li><a href="/categories/programmers" class="">Programmers(48)</a></li>
+                        <li><a href="/categories/programmers" class="">Programmers(63)</a></li>
                     
                 
                     
@@ -464,11 +464,11 @@
         <h2 id="문제">문제</h2>
 <p>‘쩰리’는 점프하는 것을 좋아하는 젤리다. 단순히 점프하는 것에 지루함을 느낀 ‘쩰리’는 새로운 점프 게임을 해보고 싶어 한다. 새로운 점프 게임의 조건은 다음과 같다.</p>
 
-<p>‘쩰리’는 가로와 세로의 칸 수가 같은 정사각형의 구역 내부에서만 움직일 수 있다. ‘쩰리’가 정사각형 구역의 외부로 나가는 경우엔 바닥으로 떨어져 즉시 게임에서 패배하게 된다.
-‘쩰리’의 출발점은 항상 정사각형의 가장 왼쪽, 가장 위의 칸이다. 다른 출발점에서는 출발하지 않는다.
-‘쩰리’가 이동 가능한 방향은 오른쪽과 아래 뿐이다. 위쪽과 왼쪽으로는 이동할 수 없다.
-‘쩰리’가 가장 오른쪽, 가장 아래 칸에 도달하는 순간, 그 즉시 ‘쩰리’의 승리로 게임은 종료된다.
-‘쩰리’가 한 번에 이동할 수 있는 칸의 수는, 현재 밟고 있는 칸에 쓰여 있는 수 만큼이다. 칸에 쓰여 있는 수 초과나 그 미만으로 이동할 수 없다.
+<p>‘쩰리’는 가로와 세로의 칸 수가 같은 정사각형의 구역 내부에서만 움직일 수 있다. ‘쩰리’가 정사각형 구역의 외부로 나가는 경우엔 바닥으로 떨어져 즉시 게임에서 패배하게 된다.<br />
+‘쩰리’의 출발점은 항상 정사각형의 가장 왼쪽, 가장 위의 칸이다. 다른 출발점에서는 출발하지 않는다.<br />
+‘쩰리’가 이동 가능한 방향은 오른쪽과 아래 뿐이다. 위쪽과 왼쪽으로는 이동할 수 없다.<br />
+‘쩰리’가 가장 오른쪽, 가장 아래 칸에 도달하는 순간, 그 즉시 ‘쩰리’의 승리로 게임은 종료된다.<br />
+‘쩰리’가 한 번에 이동할 수 있는 칸의 수는, 현재 밟고 있는 칸에 쓰여 있는 수 만큼이다. 칸에 쓰여 있는 수 초과나 그 미만으로 이동할 수 없다.<br />
 새로운 게임이 맘에 든 ‘쩰리’는, 계속 게임을 진행해 마침내 최종 단계에 도달했다. 하지만, 게임을 진행하는 구역이 너무 넓어져버린 나머지, 이 게임에서 이길 수 있는지 없는지 가늠할 수 없어졌다. ‘쩰리’는 유능한 프로그래머인 당신에게 주어진 구역에서 승리할 수 있는 지 알아봐 달라고 부탁했다. ‘쩰리’를 도와 주어진 게임 구역에서 끝 점(오른쪽 맨 아래 칸)까지 도달할 수 있는지를 알아보자!</p>
 
 <h2 id="입력">입력</h2>
@@ -523,8 +523,8 @@ Hing
 
 <h2 id="풀이">풀이</h2>
 
-<p>이 문제는 dfs를 사용하여 풀이하는 문제이다.
-visited를 따로 만들어주어 방문을 확인하면서 큐에 넣어가며 탐색을 하고,
+<p>이 문제는 dfs를 사용하여 풀이하는 문제이다.<br />
+visited를 따로 만들어주어 방문을 확인하면서 큐에 넣어가며 탐색을 하고,<br />
 맵의 좌표에 적혀있는 숫자만큼 전진하여야 되므로 따로 step이라는 변수에 좌표의 숫자를 저장하여 그 숫자만큼 이동하여 탐색하도록 해주면 간단하게 풀 수 있다.</p>
 
 <h2 id="코드">코드</h2>
@@ -715,7 +715,7 @@ Hing
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/programmers/%ED%94%84%EB%A0%8C%EC%A6%884%EB%B8%94%EB%A1%9D/" rel="permalink">[Programmers] 프렌즈4블록 (Python3)
+        <a href="/baekjoon/2206-%EB%B2%BD-%EB%B6%80%EC%88%98%EA%B3%A0-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0/" rel="permalink">[BOJ] 2206 벽 부수고 이동하기 (Python3)
 </a>
       
     </h2>
@@ -727,105 +727,7 @@ Hing
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-03T00:00:00+00:00">August 3, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">문제
-프렌즈4블록
-블라인드 공채를 통과한 신입 사원 라이언은 신규 게임 개발 업무를 맡게 되었다. 이번에 출시할 게임 제목은 “프렌즈4블록”.
-같은 모양의 카카오프렌즈 블록이 2×2 형태로 4개가 붙어있을 경우 사라지면서 점수를 얻는 게임이다.
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/java/%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/" rel="permalink">[Java] 인터페이스
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-08-03T00:00:00+00:00">August 3, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          12 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">인터페이스란?
-**인터페이스(Interface)는 클래스 혹은 프로그램이 제공하는 기능을 명시적으로 선언하는 역할을 한다. 인터페이스는 추상 메서드와 상수로만 이루어져 있다. 구현된 코드가 없기 때문에 당연히 인터페이스로는 인스턴스도 생성 할 수 없다. 그렇다면 구현코드도 없는 인...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/programmers/%EA%B1%B0%EB%A6%AC%EB%91%90%EA%B8%B0-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/" rel="permalink">[Programmers] 거리두기 확인하기 (Python3)
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-08-02T00:00:00+00:00">August 2, 2021</time>
+        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
       </span>
     
 
@@ -846,13 +748,7 @@ Hing
 
 
     <p class="archive__item-excerpt" itemprop="description">문제
-개발자를 희망하는 죠르디가 카카오에 면접을 보러 왔습니다.
-코로나 바이러스 감염 예방을 위해 응시자들은 거리를 둬서 대기를 해야하는데, 
-개발 직군 면접인 만큼  
-아래와 같은 규칙으로 대기실에 거리를 두고 앉도록 안내하고 있습니다.
-
-  
-    대기실은 5개이며, 각 대기...</p>
+N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있는 곳을 나타내고, 1은 이동할 수 없는 벽이 있는 곳을 나타낸다. 당신은 (1, 1)에서 (N, M)의 위치까지 이동하려 하는데, 이때 최단 경로로 이동하려 한다. 최단경로는 맵에서 가장 적은 개수의 칸을 지나는...</p>
   </article>
 </div>
 
@@ -866,7 +762,7 @@ Hing
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/java/%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4/" rel="permalink">[Java] 추상 클래스
+        <a href="/java/%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC-(1)/" rel="permalink">[Java] 플레이그라운드 with TDD, 클린코드 - AssertJ (1)
 </a>
       
     </h2>
@@ -878,7 +774,7 @@ Hing
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-02T00:00:00+00:00">August 2, 2021</time>
+        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
       </span>
     
 
@@ -891,16 +787,114 @@ Hing
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          4 분 소요
+          7 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">추상클래스란?
-‘추상적이다’라는 말의 뜻을 생각해 보자. 추상적이라는 것은 구체적이지 않고 막연한 것을 뜻한다.
-그렇다면 어떤 클래스가 추상적이다 라는 말은 무슨 뜻일까? 앞의 용어풀이를 대입해 보면 ‘구체적이지 않은 클래스’ 라는 뜻일 것이다. 추상 클래스를 영어로 하면 abst...</p>
+    <p class="archive__item-excerpt" itemprop="description">시작하면서…
+자바로 간단한 프로젝트를 만들어보려 했는데, 그냥 무작정 혼자 만들다가는 나쁜 버릇이 들 것 같아서   
+강의 하나를 수강하기로 했다. 특히나 자바는 객체지향이라는 개념을 사용하는 언어이고, 난 대부분 절차지향 언어만
+사용해봤었기 때문에, 아직 간단한 책 한권으로는 객...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%ED%86%A0%EC%8A%A4-NEXT-%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%9B%90%EA%B8%88-%EB%8B%B9%EC%B2%A8%EB%90%98%EB%8B%A4/" rel="permalink">개발지원금 당첨되다…
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2021.08.18
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/baekjoon/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%ED%95%A8%EC%88%98/" rel="permalink">[BOJ] 1003 피보나치 함수 (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+다음 소스는 N번째 피보나치 수를 구하는 C++ 함수이다.
+
+</p>
   </article>
 </div>
 

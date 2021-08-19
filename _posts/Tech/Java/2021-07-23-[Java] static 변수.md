@@ -15,13 +15,13 @@ toc_stciky : true
 ## static 변수의 정의와 사용 방법
 static 변수는 다른 용어로 '정적 변수'라고도 한다. static 변수는 자바뿐만 아니라 다른 언어에서도 비슷한 개념으로 사용하는 변수로, 다른 멤버 변수와 동일하게 내부에 선언한다.   
 자료형앞에 static 예약어를 선언해주면 사용 할 수 있다.
-```
+```java
 static int seralNum;
 ```
 static 변수는 클래스 내부에 선언하지만, 다른 멤버 변수처럼 인스턴스가 생성될 때마다 새로 생성되는 변수가 아니라, 프로그램이 실행되어 메모리에 올라가면 딱 한 번 메모리 공간이 할당되고, 그 값을 모든 인스턴스가 공유하는 변수이다.
 
 그럼 이러한 static변수를 갖고 학번을 가지는 학생 클래스를 만들어 보자.
-```
+```java
 package staticex;
 
 public class Student {
@@ -42,7 +42,7 @@ public class Student {
 학생 클래스는 serialNum이라는 static 변수를 갖는데, 이 값은 1000이다.
 이제 테스트 코드에서 이 static 변수를 증가시키면, 이 값을 다른 인스턴스들이 공유하는지 한번 확인해보자.
 
-```
+```java
 package staticex;
 
 public class StudentTest {
@@ -68,7 +68,7 @@ public class StudentTest {
 ```
 Lee 학생의 serialNum을 증가시켰는데, Kim학생의 serialNum도 동일하게 증가된 것을 확인 할 수 있다.   
 이처럼 static변수의 값은 모든 인스턴스가 공유한다는 것을 알게되었다. 그럼 이제 인스턴스가 생성되면 자동으로 증가한 학번을 할당하도록 해보자.
-```
+```java
 package staticex;
 
 public class Student {
@@ -92,7 +92,7 @@ public class Student {
 }
 ```
 public Student를 만들어 새로운 인스턴스가 생성되면 serialNum을 1증가시키고, 그 값을 학번에다 할당하도록 했다. 그럼 다시 테스트 코드로 가서 학번이 올바르게 증가하며 할당되는지 확인 해보자.
-```
+```java
 package staticex;
 
 public class StudentTest {

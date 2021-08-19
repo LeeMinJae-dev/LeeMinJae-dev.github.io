@@ -286,7 +286,7 @@
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
-                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (39)</a></li>
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (42)</a></li>
                     
                 
                     
@@ -318,7 +318,7 @@
                     
                 
                     
-                        <li><a href="/categories/java" class="">Java (14)</a></li>
+                        <li><a href="/categories/java" class="">Java (19)</a></li>
                     
                 
 
@@ -335,7 +335,7 @@
                     
                 
                     
-                        <li><a href="/categories/baekjoon" class="">Baekjoon (28)</a></li>
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (37)</a></li>
                     
                 
                     
@@ -354,7 +354,7 @@
                     
                 
                     
-                        <li><a href="/categories/programmers" class="">Programmers(48)</a></li>
+                        <li><a href="/categories/programmers" class="">Programmers(63)</a></li>
                     
                 
                     
@@ -474,8 +474,8 @@
 <p>예를들어, 포유류와 사람의 관계를 생각해보자. 포유류는 사람보다 일반적인 개념으로써, 사람은 포유류의 특징과 기능을 기본으로 더 많거나 다른 특징과 기능을 가지고 있다. 따라서 포유류 클래스를 사람클래스에 상속해주면, 우리는 포유류의 특징과 기능은 그대로 사용하고, 이를 간단하게 변형하거나 추가하여 사용할 수 있는 것이다.</p>
 
 <h2 id="상속을-사용하여-고객-관리-프로그램-구현하기">상속을 사용하여 고객 관리 프로그램 구현하기</h2>
-<p>회사에서 고객 정보를 갖고 맞춤 서비스를 제공하기 위해 고객관리 프로그램을 구현하려고 한다고 가정해보자. <br />
-그렇다면 먼저, 고객 클래스를 만들어주어야 할 것 이다. 앞서 배웠듯이 고객 클래스의 속성을 멤버 변수로 선언 해주면 된다.  <br />
+<p>회사에서 고객 정보를 갖고 맞춤 서비스를 제공하기 위해 고객관리 프로그램을 구현하려고 한다고 가정해보자.   <br />
+그렇다면 먼저, 고객 클래스를 만들어주어야 할 것 이다. 앞서 배웠듯이 고객 클래스의 속성을 멤버 변수로 선언 해주면 된다.    <br />
 이 예제에서는 고객 아이디, 이름, 고객 등급, 보너스 포인트, 보너스 포인트 적립 비율을 속성으로 선언한다고 해보겠다.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -520,10 +520,10 @@ public class Customer {
     }
 }
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>위의 클래스는 인스턴스가 생성될 경우 기본적으로 customerGrade가 SILVER 등급으로 설정되고, bonusRatio가 0.01로 설정된다.
+<p>위의 클래스는 인스턴스가 생성될 경우 기본적으로 customerGrade가 SILVER 등급으로 설정되고, bonusRatio가 0.01로 설정된다.<br />
 또, 보너스 포인트를 적립하고 지불 가격을 계산하는 calcPrice() 메서드와 고객 정보를 가져오는 getCustomerInfo() 메서드를 갖고있다.</p>
 
-<p>그럼 이제 이러한 상황에서 새로운 고객등급이 필요한 경우를 생각해보자.  <br />
+<p>그럼 이제 이러한 상황에서 새로운 고객등급이 필요한 경우를 생각해보자.    <br />
 만약 고객이 점점 늘어나고 판매가 늘어나 단골 고객이 생긴 경우에는, 단골 고객은 회사 매출에 많은 기여를 하는 우수 고객이기 때문에, 이들에게 더 우수한 혜택을 주어야 할 것이다. 우수 고객 등급은 VIP 등급이며, 다음과 같은 혜택을 제공한다고 가정해보자.</p>
 
 <ul>
@@ -532,7 +532,7 @@ public class Customer {
   <li>담당 전문 상담원 배정</li>
 </ul>
 
-<p>이러한 혜택을 추가하고 싶다면 어떻게 해야 할까? 가장 간단하게 생각한다면, Customer 클래스에 VIP고객 등급에 필요한 변수와 메서드를 추가하여 구현하는 것이다. 하지만 그렇게 하면 Customer 클래스의 코드가 복잡해 진다. 게다가 일반 고객의 인스턴스를 생성할 때에는 VIP 고객과 관련된 기능은 필요가 없는데, VIP 고객의 내용이 계속 생성되기 때문에 메모리 낭비가 발생할 수 있다.
+<p>이러한 혜택을 추가하고 싶다면 어떻게 해야 할까? 가장 간단하게 생각한다면, Customer 클래스에 VIP고객 등급에 필요한 변수와 메서드를 추가하여 구현하는 것이다. 하지만 그렇게 하면 Customer 클래스의 코드가 복잡해 진다. 게다가 일반 고객의 인스턴스를 생성할 때에는 VIP 고객과 관련된 기능은 필요가 없는데, VIP 고객의 내용이 계속 생성되기 때문에 메모리 낭비가 발생할 수 있다.<br />
 따라서 이러한 경우에 상속을 사용하여 VIPCustomer 클래스를 따로 만들어주는 것이 좋다.</p>
 
 <p>VIP 클래스의 경우는 Customer의 속성과 메서드를 모두 포함한 상태로 추가적인 혜택이 제공 되는 것이기 때문에, Customer를 상속하여 만들어주면 추가적인 멤버변수와 메서드만 작성해주면 된다.</p>
@@ -569,11 +569,11 @@ public class VIPCustomer extends Customer {
     }
 }
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>이렇게 위 처럼 Customer를 상속한 VIPCustomer 클래스를 만들어 보았다. <br />
-하지만, 상속을 해주었음에도 customerGrade의 변수를 사용하려고 하니, 오류가 발생한다.  <br />
+<p>이렇게 위 처럼 Customer를 상속한 VIPCustomer 클래스를 만들어 보았다.   <br />
+하지만, 상속을 해주었음에도 customerGrade의 변수를 사용하려고 하니, 오류가 발생한다.    <br />
 우리는 아까 Customer 변수를 선언할 때 private으로 customerGrade를 선언해주었기 때문에, 이 변수를 외부 클래스에서 사용할 수 없어 오류가 발생한 것이다. 이럴 때 사용하는 것이 protected 예약어이다.</p>
 
-<p>protected는 private와 동일하게 다른 외부클래스에서 접근하지 못하도록 해주지만, 하위클래스에서는 사용할 수 있도록 해준다. <br />
+<p>protected는 private와 동일하게 다른 외부클래스에서 접근하지 못하도록 해주지만, 하위클래스에서는 사용할 수 있도록 해준다.   <br />
 따라서 상속받은 클래스에서는 public과 동일하게 작동하게 되는것이기 때문에, 외부클래스에서의 접근은 막고싶지만, 상속받은 클래스에서는 사용할 수 있도록 해주려면, protected 예약어를 사용해주면 된다.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -632,7 +632,7 @@ public class Customer {
 }
 
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>다시 Customer 클래스의 private를 protected로 변경 해줌으로써, VIPCustomer에서도 멤버 변수를 사용 할 수 있게 되었다.  <br />
+<p>다시 Customer 클래스의 private를 protected로 변경 해줌으로써, VIPCustomer에서도 멤버 변수를 사용 할 수 있게 되었다.    <br />
 추가로, 외부 클래스에서 접근 할 수 있도록, set() 메서드를 추가해주었다.</p>
 
 <p>그러면 간단하게 테스트 프로그램을 만들어 다음의 예제를 구현해보자.</p>
@@ -678,7 +678,7 @@ public class Test {
 <h2 id="상속에서-클래스-생성과-형-변환">상속에서 클래스 생성과 형 변환</h2>
 <p>하위 클래스가 생성될 때는 상위 클래스의 생성자가 먼저 호출된다. 상속관계에서 클래스의 생성 과정을 살펴보면 하위 클래스가 상위 클래스의 변수와 메서드를 사용할 수 있는 이유와 하위클래스가 상위클래스의 자료형으로 형 변환이 가능한 이유를 이해하기 쉽다.</p>
 
-<p>## 하위 클래스가 생성되는 과정
+<p>## 하위 클래스가 생성되는 과정<br />
  상속을 받은 하위 클래스는 상위 클래스의 변수와 메서드를 사용할 수 있다고 했었다. 즉 Test 예제를 보면, VIPCustomer 클래스로 선언한 customerKim 인스턴스는 상속받은 상위 클래스의 변수를 자기 것처럼 사용할 수 있다. 변수를 사용할 수 있다는 것은 그 변수를 저장하고 있는 메모리가 존재한다는 뜻이다. 그런데 VIPCousomer 클래스 코드에는 해당 변수가 존재하지 않는다. Custmer 클래스를 상속받았을 뿐이다. 여기서 우리는 상속된 하위 클래스가 생성되는 과정을 생각해볼 필요가 있다.</p>
 
 <p>테스트 해보기 위해 Customer  클래스와 VIPCustomer 클래스 생성자에 출력문을 추가해 보자.</p>
@@ -775,7 +775,7 @@ public class VIPCustomer extends Customer {
     }
 }
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>두 클래스 모두 생성자 안에 “(생성자이름) 생성자 호출” 이라는 문자열을 출력하도록 했다.  <br />
+<p>두 클래스 모두 생성자 안에 “(생성자이름) 생성자 호출” 이라는 문자열을 출력하도록 했다.    <br />
 따라서 생성자가 호출되면 위 문자열이 출력될 것이므로, 한번 생성자가 호출될때 어떻게 되는지 확인해 보도록 하자.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -808,16 +808,16 @@ public class Test2 {
 &gt;&gt;&gt; VIPCustomer() 생성자 호출
 &gt;&gt;&gt; 김유신 님의 등급은 VIP이며, 보너스 포인트는10000입니다.
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>Test2 클래스를 만들어 VIPCustomer의 인스턴스인 customerKim을 만들어 생성자가 어떻게 호출되는지 확인해 보았다. <br />
+<p>Test2 클래스를 만들어 VIPCustomer의 인스턴스인 customerKim을 만들어 생성자가 어떻게 호출되는지 확인해 보았다.   <br />
 출력 내용을 보면, 먼저 Customer() 생성자가 호출된 뒤, 그 다음에 VIPCustomer()가 호출되는 것을 알 수 있다.</p>
 
-<p>정리해보면, 상위클래스를 상속받은 하위 클래스가 생성될 때는 반드시 상위클래스의 생성자가 먼저 호출된다. <br />
-그 이후 상위 클래스 생성자가 호출될 때 상위 클래스의 멤버 변수가 메모리에 생성되는 것이다. 
+<p>정리해보면, 상위클래스를 상속받은 하위 클래스가 생성될 때는 반드시 상위클래스의 생성자가 먼저 호출된다.   <br />
+그 이후 상위 클래스 생성자가 호출될 때 상위 클래스의 멤버 변수가 메모리에 생성되는 것이다. <br />
 따라서 상위클래스의 변수가 메모리에 먼저 생성되기 때문에 하위 클래스에서도 이 값들을 모두 사용할 수 있는 것이다.</p>
 
 <h2 id="부모를-부르는-예약어-super">부모를 부르는 예약어, super</h2>
-<p>super 예약어는 하위 클래스에서 상위 클래스로 접근할 때 사용한다. 하위 클래스는 상위 클래스의 주소, 즉 참조 값을 알고 있다.
-이 참조 값을 갖고 있는 예약어가 바로 super로, this가 자기 자신의 참조 값을 가지고 있는 것과 같다고 생각하면 된다. 또한 supers는 상위 클래스의 생성자를 호출할 때도 사용된다.  <br />
+<p>super 예약어는 하위 클래스에서 상위 클래스로 접근할 때 사용한다. 하위 클래스는 상위 클래스의 주소, 즉 참조 값을 알고 있다.<br />
+이 참조 값을 갖고 있는 예약어가 바로 super로, this가 자기 자신의 참조 값을 가지고 있는 것과 같다고 생각하면 된다. 또한 supers는 상위 클래스의 생성자를 호출할 때도 사용된다.    <br />
 이러한 super()는 상속된 하위 클래스를 호출하면 하위 클래스 생성자가 자동으로 호출한다.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -943,7 +943,7 @@ public class VIPCustomer extends Customer {
     }
 }
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>위와 같이 calcPrice를 매개변수의 자료형 및 개수가 같고, 반환형도 int형으로 같다.  <br />
+<p>위와 같이 calcPrice를 매개변수의 자료형 및 개수가 같고, 반환형도 int형으로 같다.    <br />
 이렇게 하면 자바 컴파일러는 이 메서드를 오버라이딩한다. 이런 오버라이딩은 이클립스의 기능을 사용해서 오버라이딩 할 수도 있다.</p>
 
 <p>이렇게 메서드를 오버라이딩한 결과를 출력해보자.</p>
@@ -1108,7 +1108,7 @@ public class OveridngTest {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/programmers/%ED%94%84%EB%A0%8C%EC%A6%884%EB%B8%94%EB%A1%9D/" rel="permalink">[Programmers] 프렌즈4블록 (Python3)
+        <a href="/baekjoon/2206-%EB%B2%BD-%EB%B6%80%EC%88%98%EA%B3%A0-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0/" rel="permalink">[BOJ] 2206 벽 부수고 이동하기 (Python3)
 </a>
       
     </h2>
@@ -1120,105 +1120,7 @@ public class OveridngTest {
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-03T00:00:00+00:00">August 3, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">문제
-프렌즈4블록
-블라인드 공채를 통과한 신입 사원 라이언은 신규 게임 개발 업무를 맡게 되었다. 이번에 출시할 게임 제목은 “프렌즈4블록”.
-같은 모양의 카카오프렌즈 블록이 2×2 형태로 4개가 붙어있을 경우 사라지면서 점수를 얻는 게임이다.
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/java/%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/" rel="permalink">[Java] 인터페이스
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-08-03T00:00:00+00:00">August 3, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          12 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">인터페이스란?
-**인터페이스(Interface)는 클래스 혹은 프로그램이 제공하는 기능을 명시적으로 선언하는 역할을 한다. 인터페이스는 추상 메서드와 상수로만 이루어져 있다. 구현된 코드가 없기 때문에 당연히 인터페이스로는 인스턴스도 생성 할 수 없다. 그렇다면 구현코드도 없는 인...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/programmers/%EA%B1%B0%EB%A6%AC%EB%91%90%EA%B8%B0-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/" rel="permalink">[Programmers] 거리두기 확인하기 (Python3)
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-08-02T00:00:00+00:00">August 2, 2021</time>
+        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
       </span>
     
 
@@ -1239,13 +1141,7 @@ public class OveridngTest {
 
 
     <p class="archive__item-excerpt" itemprop="description">문제
-개발자를 희망하는 죠르디가 카카오에 면접을 보러 왔습니다.
-코로나 바이러스 감염 예방을 위해 응시자들은 거리를 둬서 대기를 해야하는데, 
-개발 직군 면접인 만큼  
-아래와 같은 규칙으로 대기실에 거리를 두고 앉도록 안내하고 있습니다.
-
-  
-    대기실은 5개이며, 각 대기...</p>
+N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있는 곳을 나타내고, 1은 이동할 수 없는 벽이 있는 곳을 나타낸다. 당신은 (1, 1)에서 (N, M)의 위치까지 이동하려 하는데, 이때 최단 경로로 이동하려 한다. 최단경로는 맵에서 가장 적은 개수의 칸을 지나는...</p>
   </article>
 </div>
 
@@ -1259,7 +1155,7 @@ public class OveridngTest {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/java/%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4/" rel="permalink">[Java] 추상 클래스
+        <a href="/java/%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC-(1)/" rel="permalink">[Java] 플레이그라운드 with TDD, 클린코드 - AssertJ (1)
 </a>
       
     </h2>
@@ -1271,7 +1167,7 @@ public class OveridngTest {
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-02T00:00:00+00:00">August 2, 2021</time>
+        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
       </span>
     
 
@@ -1284,16 +1180,114 @@ public class OveridngTest {
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          4 분 소요
+          7 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">추상클래스란?
-‘추상적이다’라는 말의 뜻을 생각해 보자. 추상적이라는 것은 구체적이지 않고 막연한 것을 뜻한다.
-그렇다면 어떤 클래스가 추상적이다 라는 말은 무슨 뜻일까? 앞의 용어풀이를 대입해 보면 ‘구체적이지 않은 클래스’ 라는 뜻일 것이다. 추상 클래스를 영어로 하면 abst...</p>
+    <p class="archive__item-excerpt" itemprop="description">시작하면서…
+자바로 간단한 프로젝트를 만들어보려 했는데, 그냥 무작정 혼자 만들다가는 나쁜 버릇이 들 것 같아서   
+강의 하나를 수강하기로 했다. 특히나 자바는 객체지향이라는 개념을 사용하는 언어이고, 난 대부분 절차지향 언어만
+사용해봤었기 때문에, 아직 간단한 책 한권으로는 객...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%ED%86%A0%EC%8A%A4-NEXT-%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%9B%90%EA%B8%88-%EB%8B%B9%EC%B2%A8%EB%90%98%EB%8B%A4/" rel="permalink">개발지원금 당첨되다…
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2021.08.18
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/baekjoon/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%ED%95%A8%EC%88%98/" rel="permalink">[BOJ] 1003 피보나치 함수 (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+다음 소스는 N번째 피보나치 수를 구하는 C++ 함수이다.
+
+</p>
   </article>
 </div>
 

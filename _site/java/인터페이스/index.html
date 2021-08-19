@@ -286,7 +286,7 @@
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
-                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (39)</a></li>
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (42)</a></li>
                     
                 
                     
@@ -318,7 +318,7 @@
                     
                 
                     
-                        <li><a href="/categories/java" class="">Java (14)</a></li>
+                        <li><a href="/categories/java" class="">Java (19)</a></li>
                     
                 
 
@@ -335,7 +335,7 @@
                     
                 
                     
-                        <li><a href="/categories/baekjoon" class="">Baekjoon (28)</a></li>
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (37)</a></li>
                     
                 
                     
@@ -354,7 +354,7 @@
                     
                 
                     
-                        <li><a href="/categories/programmers" class="">Programmers(48)</a></li>
+                        <li><a href="/categories/programmers" class="">Programmers(63)</a></li>
                     
                 
                     
@@ -464,7 +464,7 @@
         <h2 id="인터페이스란">인터페이스란?</h2>
 <p>**인터페이스(Interface)는 클래스 혹은 프로그램이 제공하는 기능을 명시적으로 선언하는 역할을 한다. 인터페이스는 추상 메서드와 상수로만 이루어져 있다. 구현된 코드가 없기 때문에 당연히 인터페이스로는 인스턴스도 생성 할 수 없다. 그렇다면 구현코드도 없는 인터페이스는 어떻게 사용하는 걸까? 인터페이스를 직접 만들어 보면서 살펴보자.</p>
 
-<p>인터페이스를 사용해 간단한 계산기 프로그램을 만들어보자.
+<p>인터페이스를 사용해 간단한 계산기 프로그램을 만들어보자.<br />
 내가 사용하고 있는 책에서는 이클립스를 사용하고 있는데, 패키지에서 오른쪽 버튼 클릭 후 New -&gt; Interface를 클릭하면된다. 나는 IntelliJ를 사용하고 있기 때문에 방법이 다른데, 클래스를 추가하면 클래스 이름을 설정하라고 나올때, 형식을 클래스가 아닌 Interface로 설정하면 된다.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -640,7 +640,7 @@ public class Test {
 <p>덧셈, 뺄셈, 나눗셈, 곱셈 연산을 실행하고 그 값을 출력해보았다. 이처럼 인터페이스는 선언부를 모아놓았기 때문에, 해당 메서드의 구현부를 재정의하여 사용 할 수 있게 해준다.</p>
 
 <h2 id="인터페이스-구현과-형-변환">인터페이스 구현과 형 변환</h2>
-<p>Calculator 클래스는 인터페이스에서 선언한 추상 메서드 중 일부 메서드만 구현했으므로 추상 클래스이다.
+<p>Calculator 클래스는 인터페이스에서 선언한 추상 메서드 중 일부 메서드만 구현했으므로 추상 클래스이다.<br />
 그리고 이를 상속받은 CompleteCalc 클래스는 Calc에서 구현하지 않은 나머지 추상 메서드를 모두 구현하고 showInfo() 메서드를 추가로 구현했다. 이러한 관계에서 하위 클래스의 형 변환은 어떻게 이루어지는지 알아보자.</p>
 
 <p>상속관계에서는 하위클래스는 상위클래스로 묵시적 형변환이 언제든 가능하다고 했다. 인터페이스도 마찬가지로 CompleteCalc 클래스는 상위클래스인 Calculator 형이면서 Calc형이다. 따라서 다음과 같은 코드 선언이 가능하다.</p>
@@ -667,7 +667,7 @@ abc = new C();
 <p>이렇게 Z프로그램에서 각 클래스를 사용하려고 할 떄, 클래스에서 구현한 내용을 몰라도 Abc 인터페이스에서 선언한 메서드의 매개변수 자료형과 반환값을 알면 인터페이스를 구현한 어떤 클래스든 사용가능하다.</p>
 
 <h2 id="인터페이스와-다형성">인터페이스와 다형성</h2>
-<p>인터페이스를 사용하면 다형성을 구현하여 확장성 있는 프로그램을 만들 수 있다. <br />
+<p>인터페이스를 사용하면 다형성을 구현하여 확장성 있는 프로그램을 만들 수 있다.   <br />
 즉, 클라이언트 프로그램을 많이 수정하지 않고 기능을 추가하고 다른 기능을 사용할 수 있게된다.</p>
 
 <p>다음 예제를 보자.</p>
@@ -724,7 +724,7 @@ public class RoundRobin implements Scheduler {
 
 }
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>먼저 순서대로 배정하는 경우 (RoundRobin)를 구현해보았다.
+<p>먼저 순서대로 배정하는 경우 (RoundRobin)를 구현해보았다.<br />
 마찬가지로implements를 사용하여 Scheduler 인터페이스를 기반으로 클래스를 선언헀다.</p>
 
 <p>다음은 짧은 대기열 먼저 분배하는 LeastJob 클래스, 우선순위에 따라 배분하는 PriorityAllocation 클래스를 구현해보자.</p>
@@ -901,7 +901,7 @@ scheduler.sendCall();
     }
 }
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>디폴트는 일반 메서드와 동일하게 구현하고 자료형 앞에 default만 붙여주면 된다.
+<p>디폴트는 일반 메서드와 동일하게 구현하고 자료형 앞에 default만 붙여주면 된다.<br />
 그럼 디폴트 메서드를 호출해보자.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -938,11 +938,11 @@ public class Test {
 }
 
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>다음과 같이 인스턴스 cal을 생성하면 디폴트 메서드를 호출 할 수 있다.  <br />
+<p>다음과 같이 인스턴스 cal을 생성하면 디폴트 메서드를 호출 할 수 있다.    <br />
 이러한 디폴트 메서드도 마찬가지로 하위클래스에서 기능을 다르게 구현하고 싶다면, 재정의가 가능하다.</p>
 
 <h3 id="정적-메서드">정적 메서드</h3>
-<p>정적 메서드는 static 예약어를 사용하여 선언하며 클래스 생성과 무관하게 사용할 수 있다. <br />
+<p>정적 메서드는 static 예약어를 사용하여 선언하며 클래스 생성과 무관하게 사용할 수 있다.   <br />
 정적 메서드를 사용할 때는 인터페이스 이름으로 직접 참조하여 사용한다. 그러면 Calc 인터페이스에 매개변수로 전달된 배열의 모든 요소 값을 더하는 정적 메서드 total()을 추가해 보자.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -997,7 +997,7 @@ public interface Calc {
 }
 
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>위 처럼 static을 사용하여 정적 메서드인 total을 선언해보았다.  <br />
+<p>위 처럼 static을 사용하여 정적 메서드인 total을 선언해보았다.    <br />
 마찬가지로 main함수에서 호출해보자.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1198,7 +1198,7 @@ public class Test2 {
 <p>Customer 클래스형인 customer를 Buy 인터페이스 형인 buyer에 대입하여 형 변환한 뒤 buy()를 호출해주고, 다음은 customer를 Sell 인터페이스형은 seller에 대입하여 sell() 메서드를 호출 해보았다. 이처럼 우리가 구현한 Customer 클래스는 두가지를 다중 상속받은 것처럼 Buy와 Sell로 형변환이 가능한 것을 알 수 있다. 상속과 마찬가지로 instanceof로 하위클래스로의 형변환도 당연히 가능하다.</p>
 
 <h2 id="두-인터페이스의-디폴트-메서드가-중복되는-경우">두 인터페이스의 디폴트 메서드가 중복되는 경우</h2>
-<p>정적 메서드는 인스턴스 생성과 상관없이 사용이 가능하다. 만약 Customer 클래스가 Buy,Sell 두 인터페이스를 구현하고 
+<p>정적 메서드는 인스턴스 생성과 상관없이 사용이 가능하다. 만약 Customer 클래스가 Buy,Sell 두 인터페이스를 구현하고 <br />
 두 인터페이스에 pay()라는 정적메서드가 있다고 생각해보자. 이 경우 Buy.pay()와 Sell.pay()로 특정하여 호출할 수 있기 떄문에 문제가 되지 않는다. 그런데 디폴트 메서드는 어떻게 될까? 디폴트 메서드는 인스턴스를 생성해야 호출 가능한 메서드이기 때문에, 다음처럼 이름이같은 디폴트 메서드가 두 인터페이스에 있으면 문제가 된다.</p>
 
 <p>다음 코드를 보자.</p>
@@ -1232,7 +1232,7 @@ public class Test2 {
         }
 }
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>이렇게 정의 하고 두 인터페이스를 모두 구현하면 Customer 클래스에서는 오류가 발생한다.
+<p>이렇게 정의 하고 두 인터페이스를 모두 구현하면 Customer 클래스에서는 오류가 발생한다.<br />
 두 디폴트 메서드가 중복되었으므로, Customer 클래스에서 재정의 해주어야 동일한 이름이어도 오류가 발생하지 않는다.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1363,7 +1363,7 @@ public class BookShelf extends Shelf implements Queue{
     }
 }
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>위의 코드를 보면 Shelf를 상속받고 Queue도 구현하는 BookShelf의 코드이다. <br />
+<p>위의 코드를 보면 Shelf를 상속받고 Queue도 구현하는 BookShelf의 코드이다.   <br />
 상속받은 shelf 멤버 변수를 사용해서 Queue 인터페이스에서 선언한 메서드를 구현한 것을 볼 수있다.</p>
 
 <p>이제 책의 이름을 배열에 추가해주고, 순서대로 앞에서부터 출력해보자.</p>
@@ -1414,7 +1414,7 @@ public class BookShelfTest {
 
 <p>이런 경우를 생각해보자. 어느회사에서 자료를 저장하기 위해 데이터베이스를 사용한다고 하면, 처음에는 MySQL 데이터 베이스를 사용했는데, 이 시스템을 다른 회사에 가서 설치하려고 하니 오라클 데이터 베이스를 사용하여 해달라고 하고, 또 다른 회사는 MS-SQL을 사용한다고 한다. 프로그램은 하나인데 사용하는 데이터 베이스가 제각각 인 것이다. 하지만 이프로그램의 웹페이지나 모바일 페이지는 데이터베이스의 종류와 관계없이 동일하게 수행된다.</p>
 
-<p>데이터베이스와 연관되는 코드는 프로그램의 특정 부분인 것이지,나머지는 동일한것이다. <br />
+<p>데이터베이스와 연관되는 코드는 프로그램의 특정 부분인 것이지,나머지는 동일한것이다.   <br />
 이런경우에 데이터베이스 기능을 인터페이스로 정의해주면 된다. 그리고 인터페이스 정의에 맞게 여러 데이터베이스 관련 모듈을 개발하면 되는것이다.</p>
 
 <p>인터페이스를 잘 정의하는 것이 확장성 있는 프로그램을 만드는 시작이라고 할 수 있다.</p>
@@ -1495,7 +1495,7 @@ public class BookShelfTest {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/programmers/%ED%94%84%EB%A0%8C%EC%A6%884%EB%B8%94%EB%A1%9D/" rel="permalink">[Programmers] 프렌즈4블록 (Python3)
+        <a href="/baekjoon/2206-%EB%B2%BD-%EB%B6%80%EC%88%98%EA%B3%A0-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0/" rel="permalink">[BOJ] 2206 벽 부수고 이동하기 (Python3)
 </a>
       
     </h2>
@@ -1507,58 +1507,7 @@ public class BookShelfTest {
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-03T00:00:00+00:00">August 3, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">문제
-프렌즈4블록
-블라인드 공채를 통과한 신입 사원 라이언은 신규 게임 개발 업무를 맡게 되었다. 이번에 출시할 게임 제목은 “프렌즈4블록”.
-같은 모양의 카카오프렌즈 블록이 2×2 형태로 4개가 붙어있을 경우 사라지면서 점수를 얻는 게임이다.
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/programmers/%EA%B1%B0%EB%A6%AC%EB%91%90%EA%B8%B0-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/" rel="permalink">[Programmers] 거리두기 확인하기 (Python3)
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-08-02T00:00:00+00:00">August 2, 2021</time>
+        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
       </span>
     
 
@@ -1579,13 +1528,7 @@ public class BookShelfTest {
 
 
     <p class="archive__item-excerpt" itemprop="description">문제
-개발자를 희망하는 죠르디가 카카오에 면접을 보러 왔습니다.
-코로나 바이러스 감염 예방을 위해 응시자들은 거리를 둬서 대기를 해야하는데, 
-개발 직군 면접인 만큼  
-아래와 같은 규칙으로 대기실에 거리를 두고 앉도록 안내하고 있습니다.
-
-  
-    대기실은 5개이며, 각 대기...</p>
+N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있는 곳을 나타내고, 1은 이동할 수 없는 벽이 있는 곳을 나타낸다. 당신은 (1, 1)에서 (N, M)의 위치까지 이동하려 하는데, 이때 최단 경로로 이동하려 한다. 최단경로는 맵에서 가장 적은 개수의 칸을 지나는...</p>
   </article>
 </div>
 
@@ -1599,7 +1542,7 @@ public class BookShelfTest {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/java/%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4/" rel="permalink">[Java] 추상 클래스
+        <a href="/java/%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC-(1)/" rel="permalink">[Java] 플레이그라운드 with TDD, 클린코드 - AssertJ (1)
 </a>
       
     </h2>
@@ -1611,7 +1554,7 @@ public class BookShelfTest {
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-02T00:00:00+00:00">August 2, 2021</time>
+        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
       </span>
     
 
@@ -1624,16 +1567,17 @@ public class BookShelfTest {
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          4 분 소요
+          7 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">추상클래스란?
-‘추상적이다’라는 말의 뜻을 생각해 보자. 추상적이라는 것은 구체적이지 않고 막연한 것을 뜻한다.
-그렇다면 어떤 클래스가 추상적이다 라는 말은 무슨 뜻일까? 앞의 용어풀이를 대입해 보면 ‘구체적이지 않은 클래스’ 라는 뜻일 것이다. 추상 클래스를 영어로 하면 abst...</p>
+    <p class="archive__item-excerpt" itemprop="description">시작하면서…
+자바로 간단한 프로젝트를 만들어보려 했는데, 그냥 무작정 혼자 만들다가는 나쁜 버릇이 들 것 같아서   
+강의 하나를 수강하기로 했다. 특히나 자바는 객체지향이라는 개념을 사용하는 언어이고, 난 대부분 절차지향 언어만
+사용해봤었기 때문에, 아직 간단한 책 한권으로는 객...</p>
   </article>
 </div>
 
@@ -1647,7 +1591,7 @@ public class BookShelfTest {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/java/%EB%8B%A4%EC%9A%B4%EC%BA%90%EC%8A%A4%ED%8C%85%EA%B3%BC-instanceof/" rel="permalink">[Java] 다운 캐스팅과 instanceof
+        <a href="/diary-univ/%ED%86%A0%EC%8A%A4-NEXT-%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%9B%90%EA%B8%88-%EB%8B%B9%EC%B2%A8%EB%90%98%EB%8B%A4/" rel="permalink">개발지원금 당첨되다…
 </a>
       
     </h2>
@@ -1659,7 +1603,7 @@ public class BookShelfTest {
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-02T00:00:00+00:00">August 2, 2021</time>
+        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
       </span>
     
 
@@ -1672,15 +1616,63 @@ public class BookShelfTest {
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          3 분 소요
+          최대 1 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">하위 클래스로 형 변환, 다운캐스팅
-앞에서 상위 클래스로 형 변환이 묵시적으로 이루어지는 과정을 알아보왔다. 여기서는 다시 하위 클래스로 형 변환이 되는 과정을 살펴보자.
+    <p class="archive__item-excerpt" itemprop="description">2021.08.18
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/baekjoon/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%ED%95%A8%EC%88%98/" rel="permalink">[BOJ] 1003 피보나치 함수 (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+다음 소스는 N번째 피보나치 수를 구하는 C++ 함수이다.
 
 </p>
   </article>

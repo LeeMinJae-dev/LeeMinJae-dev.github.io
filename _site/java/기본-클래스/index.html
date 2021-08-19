@@ -1,0 +1,1029 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Java] 기본 클래스 - Learnote-Dev</title>
+<meta name="description" content="java.lang 지금까지 자바로 프로그램을 구현하면서 String, Integer와 같은 클래스를 사용했다. 이러한 클래스들은 어디에 있는 걸까? 이들은 모두 java.lang 패키지에 속해 있다. String 클래스의 전체 이름은 java.lang.String이고, Integer 클래스의 전체 이름은 java.lang.Integer이다. 이처럼 java.lang 패키지에는 기본적으로 많이 사용하는 클래스들이 포함되어 있다.">
+
+
+  <meta name="author" content="이민재">
+  
+  <meta property="article:author" content="이민재">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Learnote-Dev">
+<meta property="og:title" content="[Java] 기본 클래스">
+<meta property="og:url" content="http://localhost:4000/java/%EA%B8%B0%EB%B3%B8-%ED%81%B4%EB%9E%98%EC%8A%A4/">
+
+
+  <meta property="og:description" content="java.lang 지금까지 자바로 프로그램을 구현하면서 String, Integer와 같은 클래스를 사용했다. 이러한 클래스들은 어디에 있는 걸까? 이들은 모두 java.lang 패키지에 속해 있다. String 클래스의 전체 이름은 java.lang.String이고, Integer 클래스의 전체 이름은 java.lang.Integer이다. 이처럼 java.lang 패키지에는 기본적으로 많이 사용하는 클래스들이 포함되어 있다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-07-20T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/java/%EA%B8%B0%EB%B3%B8-%ED%81%B4%EB%9E%98%EC%8A%A4/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이민재",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Learnote-Dev Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Learnote-Dev
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/about/">About me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile.jpg" alt="이민재" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이민재</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>포트폴리오/일상 기록</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Incheon, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="lmj938@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://blog.naver.com/lmj938" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/leeminjae-dev/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:lmj938@naver.com">
+            <meta itemprop="email" content="lmj938@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+        <!--span 태그로 카테고리들을 크게 분류 ex) Life-->
+       <span class="nav__sub-title">Life</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (42)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Tech-->
+       <span class="nav__sub-title">Tech</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java" class="">Java (19)</a></li>
+                    
+                
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (37)</a></li>
+                    
+                
+                    
+                
+                    
+                
+
+		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/programmers" class="">Programmers(63)</a></li>
+                    
+                
+                    
+                
+<!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Knowledge</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                        <li><a href="/categories/machinelearning" class="">Machine Learning (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+          
+      </li>
+  </ul>
+</nav>
+
+  
+
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Java] 기본 클래스">
+    <meta itemprop="description" content="java.lang지금까지 자바로 프로그램을 구현하면서 String, Integer와 같은 클래스를 사용했다. 이러한 클래스들은 어디에 있는 걸까? 이들은 모두 java.lang 패키지에 속해 있다. String 클래스의 전체 이름은 java.lang.String이고, Integer 클래스의 전체 이름은 java.lang.Integer이다. 이처럼 java.lang 패키지에는 기본적으로 많이 사용하는 클래스들이 포함되어 있다.">
+    <meta itemprop="datePublished" content="2021-07-20T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[Java] 기본 클래스
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-20T00:00:00+00:00">July 20, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this Page</h4></header>
+              <ul class="toc__menu"><li><a href="#javalang">java.lang</a></li><li><a href="#최상위-클래스-object">최상위 클래스, Object</a></li><li><a href="#tostring-메서드">toString() 메서드</a></li><li><a href="#equals-메서드">equals 메서드</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="javalang">java.lang</h2>
+<p>지금까지 자바로 프로그램을 구현하면서 String, Integer와 같은 클래스를 사용했다. 이러한 클래스들은 어디에 있는 걸까? 이들은 모두 java.lang 패키지에 속해 있다. String 클래스의 전체 이름은 java.lang.String이고, Integer 클래스의 전체 이름은 java.lang.Integer이다. 이처럼 java.lang 패키지에는 기본적으로 많이 사용하는 클래스들이 포함되어 있다.</p>
+
+<p>자바에서는 외부 패키지에서 선언한 클래스를 사용하고자 할 때는 import문으로 클래스가 어느 패키지에 속해 있는지 선언해야한다. 근데 우리는 지금까지 String 클래스를 쓰면서 import java.lang.String을 쓴 적이 없다. 그럼에도 우리는 String 클래스를 바로바로 사용할 수 있었다. 그 이유는 컴파일을 하게 되면 자동으로 컴파일러가 import java.lang.*; 을 추가 하기 때문에 직접 써주지 않아도 우리는 java.lang의 하위 클래스를 사용 할 수 있다.</p>
+
+<p>우리가 여기서 다룰 기본 클래스들은 모두 java.lang 패키지에 속한 클래스들이다.    <br />
+그러면 모든 자바 클래스의 최상위 클래스인 java.lang.Object에 대해서 알아보자.</p>
+
+<h2 id="최상위-클래스-object">최상위 클래스, Object</h2>
+<p>Object 클래스는 모든 자바 클래스의 최상위 클래스로, 모든 클래스는 Object 클래스를 상속받는다. 이 역시 컴파일러가 자동으로 extends Object를 추가해주기 때문에, 우리가 따로 추가할 필요는 없다.</p>
+
+<p>우리가 직접 만드는 클래스 뿐만 아니라, JDK에서 제공하는 클래스도 모두 Object 클래스에서 상속을 받는다.</p>
+
+<p>Object 클래스에 정의된 메서드 중 주로 사용하는 메서드는 다음과 같다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">메서드</th>
+      <th style="text-align: center">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">String toString()</td>
+      <td style="text-align: center">객체를 문자열로 표현하여 반환한다. 재정의하여 객체에 대한 설명이나 특정 멤버 변수 값을 반환한다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">boolean equals(Object obj)</td>
+      <td style="text-align: center">두 인스턴스가 동일한지 여부를 반환한다. 재정의하여 논리적으로 동일한 인스턴스임을 정의할 수 있다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">int hashCode()</td>
+      <td style="text-align: center">객체의 해시 코드 값을 반환한다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">class getClass()</td>
+      <td style="text-align: center">객체의 클래스를 반환한다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">void finalize()</td>
+      <td style="text-align: center">인스턴스가 힙 메모리에서 제거될 때 가비지 컬렉터(GC)에 의해 호출되는 메서드이다. 네트워크 연결 해제, 열려있는 파일 스트림 해제 등을 구현한다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">void wait()</td>
+      <td style="text-align: center">멀티스레드 프로그램에서 사용하는 메서드이다. 스레드를 ‘기다리는 상태’ (non runnable)로 만든다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">void notify()</td>
+      <td style="text-align: center">wait() 메서드에 의해 기다리고 있는 스레드(non runnable)를 실행가능한 상태 (runnable)로 바꾼다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Object 메서드 중에는 재정의할 수 있는 메서드가 있고, 그렇지 않은 메서드가 있다. 여기서는 자주 재정의하여 사용하는 메서드 위주로 알아보자.</p>
+
+<h2 id="tostring-메서드">toString() 메서드</h2>
+<p>toString()은 객체 정보를 문자열로 바꾸어 준다. Object 클래스를 상속받은 모든 클래스는 toString()을 재정의할 수 있는데, String 이나 Integer등의 여러 JDK 클래스에는 toString() 클래스가 이미 재정의 되어있다.</p>
+
+<p>toString의 원형은 인스턴스 클래스의 이름과 주소 값을 보여준다.   <br />
+예제로 책 번호와 제목을 담고 있는 Book 클래스의 인스턴스를 생성하여 참조변수를 출력해보자.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="rouge-code"><pre>package objectclass;
+
+public class ToStringEx {
+    public static void main(String[] args){
+        Book book1 = new Book(200,"개미");
+
+        System.out.println(book1);
+        System.out.println(book1.toString());
+    }
+
+}
+class Book{
+    int bookNumber;
+    String bookTile;
+
+    Book(int bookNumber, String bookTile){
+        this.bookNumber = bookNumber;
+        this.bookTile = bookTile;
+    }
+}
+
+&gt;&gt;&gt; objectclass.Book@3fb6a447
+&gt;&gt;&gt; objectclass.Book@3fb6a447
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>System.out.println()에 참조 변수를 넣으면 인스턴스의 정보가 호출되는데, 이는 자동으로 toString()을 호출하는 것이다. <br />
+toString() 메서드의 원형은 다음과 같다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>getClass().getName()+'@'+Integer.toHexString(hashCode())
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위의 정의를 살펴보면,  ‘클래스 이름@해시코드 값’을 출력하라는 뜻인걸 알 수 있다.    <br />
+따라서 위처럼 objectclass.Book@해시코드값이 출력된다.</p>
+
+<h2 id="equals-메서드">equals 메서드</h2>
+<p>equals() 의 원래 기능은 두 인스턴스의 주소값을 비교하여 boolean 값으로 반환해 주는 것이다. 주소 값이 같다면 당연히 같은 인스턴스이다. 그런데 서로 다른 주소 값을 가짐에도 같은 인스턴스라고 정의해줄 수 있는 경우가 있다. 따라서 물리적 동일성(인스턴스의 메모리 주소가 같음) 뿐 아니라 논리적 동일성(논리적으로 두 인스턴스가 같음)을 구현할 때도 equals() 메서드를 재정의하여 사용한다.</p>
+
+<p>생성된 두 인스턴스가 ‘같다’는건 어떤 의미일까?</p>
+
+<p>먼저 물리적 동일성의 경우, 당연히 메모리 주소값이 같은 경우 일 것이다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>Student studentLee = new Student(100, "이민재");
+Student studentLee2 = studentLee;
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>예를 들어 위처럼 동일한 인스턴스를 두 변수가 가르키게 한다면, studentLee와 studentLee2의 힙메모리 주소는 같으므로 물리적으로 동일하다 할 수 있다.</p>
+
+<p>하지만 이 경우를 보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>Student studentLee = new Student(100, "이민재");
+Student studentLee2 = studentLee;
+Student studentMin = new Student(100,"이민재");
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이러한 경우는 studentLee와 studentMin이 다른 메모리 주소를 가르키지만, 논리적으로는 같은 학생으로 처리해주어야 할 것이다. 이 상황을 구현할 에제를 만들어 살펴보자.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+</pre></td><td class="rouge-code"><pre>package objectclass;
+
+class Student{
+    String studentName;
+    int studentID;
+
+    public Student(String studentName, int studentID){
+        this.studentName = studentName;
+        this.studentID = studentID;
+    }
+}
+public class EqualsTest {
+    public static void main(String[] args){
+        Student studentLee = new Student("이민재", 100);
+        Student studentLee2 = studentLee;
+        Student studentMin = new Student("이민재",100);
+
+        if (studentLee.equals(studentLee2)){
+            System.out.println("두 주소값이 같습니다.");
+        }
+        else{
+            System.out.println("두 주소값이 다릅니다..");
+        }
+        if (studentLee.equals(studentMin)){
+            System.out.println("두 주소값이 같습니다.");
+        }
+        else{
+            System.out.println("두 주소값이 다릅니다.");
+        }
+    }
+
+
+}
+
+&gt;&gt;&gt; 두 주소값이 같습니다.
+&gt;&gt;&gt; 두 주소값이 다릅니다.
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위는 equals()의 원래 기능으로 두 변수의 논리적 동일성이 어떻든간에, 두 인스턴스의 주소가 다르다면 false를 반환한다.<br />
+만약 논리적으로 같은 인스턴스인지 확인하고싶다면, 재정의 하여 그렇게 확인하도록 구현해주어야 한다.</p>
+
+<p>따라서 앞서 말한것 처럼 String 클래스와 Integer 클래스에서는 이미 equals()가 재정의 되어있기 때문에, 주소값과 관계없이 두 인스턴스가 논리적으로 같다면 true를 반환한다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#java" class="page__taxonomy-item" rel="tag">java</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-07-20T00:00:00+00:00">July 20, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BJava%5D+%EA%B8%B0%EB%B3%B8+%ED%81%B4%EB%9E%98%EC%8A%A4%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2F%25EA%25B8%25B0%25EB%25B3%25B8-%25ED%2581%25B4%25EB%259E%2598%25EC%258A%25A4%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F%25EA%25B8%25B0%25EB%25B3%25B8-%25ED%2581%25B4%25EB%259E%2598%25EC%258A%25A4%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F%25EA%25B8%25B0%25EB%25B3%25B8-%25ED%2581%25B4%25EB%259E%2598%25EC%258A%25A4%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/java/Java-%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95/" class="pagination--pager" title="[Java] 변수와 자료형
+">이전</a>
+    
+    
+      <a href="/baekjoon/BOJ-1325-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-%ED%95%B4%ED%82%B9-(Python3)/" class="pagination--pager" title="[BOJ] 1325 효율적인 해킹 (Python3)
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/baekjoon/2206-%EB%B2%BD-%EB%B6%80%EC%88%98%EA%B3%A0-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0/" rel="permalink">[BOJ] 2206 벽 부수고 이동하기 (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있는 곳을 나타내고, 1은 이동할 수 없는 벽이 있는 곳을 나타낸다. 당신은 (1, 1)에서 (N, M)의 위치까지 이동하려 하는데, 이때 최단 경로로 이동하려 한다. 최단경로는 맵에서 가장 적은 개수의 칸을 지나는...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/java/%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC-(1)/" rel="permalink">[Java] 플레이그라운드 with TDD, 클린코드 - AssertJ (1)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          7 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">시작하면서…
+자바로 간단한 프로젝트를 만들어보려 했는데, 그냥 무작정 혼자 만들다가는 나쁜 버릇이 들 것 같아서   
+강의 하나를 수강하기로 했다. 특히나 자바는 객체지향이라는 개념을 사용하는 언어이고, 난 대부분 절차지향 언어만
+사용해봤었기 때문에, 아직 간단한 책 한권으로는 객...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%ED%86%A0%EC%8A%A4-NEXT-%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%9B%90%EA%B8%88-%EB%8B%B9%EC%B2%A8%EB%90%98%EB%8B%A4/" rel="permalink">개발지원금 당첨되다…
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2021.08.18
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/baekjoon/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%ED%95%A8%EC%88%98/" rel="permalink">[BOJ] 1003 피보나치 함수 (Python3)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">문제
+다음 소스는 N번째 피보나치 수를 구하는 C++ 함수이다.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/leeminjae-dev" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/java/%EA%B8%B0%EB%B3%B8-%ED%81%B4%EB%9E%98%EC%8A%A4/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/java/기본 클래스"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://leeminjae-dev-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
+
+
+<!-- 웹 폰트 설정 -->
+<link rel="stylesheet" href="/assets/css/high3.css">

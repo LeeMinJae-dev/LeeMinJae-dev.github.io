@@ -14,7 +14,7 @@ Animal 이라는 클래스가 있고, 하위 클래스로  Human, Tiger, Eagle �
 
 ## instanceof
 상속관계를 생각해보면 모든 인간은 동물이지만, 모든 동물이 인간은 아니다. 따라서 다운캐스팅을 하기 전에 상위 클래스로 형 변환된 인스턴스의 원래 자료형을 확인해야 변환할 때 오류를 막을 수 있다. 이를 확인하는 예약어가 바로 instanceof 인데, instanceof의 사용 방법은 다음과 같다.
-```
+```java
 Animal hAnimal = new Human();
 if(hAnimal instanceof Human){
     Human human = (Human)hAnimal
@@ -24,14 +24,14 @@ if(hAnimal instanceof Human){
 상위 클래스 형변환은 묵시적으로 가능하지만, 하위클래스로 형변환은 명시적으로 해야하기 때문이다.
 
 다음처럼 원래 자료형이 Human이 아닌 경우를 보자.
-```
+```java
 Animal ani = new Tiger();
 Human h = (Human)ani;
 ```
 위와 같이 코딩해도 컴파일 오류는 나지 않는다. 왜일까? 일단 Tiger 인스턴스는 상위클래스로의 형 변환이기 때문에 자동으로 형 변환이 된다. 변수 h의 자료형 Human과 강제 형 변환되는 ani(Human)의 자료형이 동일하므로 컴파일 오류는 일어나지 않는다. 그 대신 이 코드를 실행하면 오류가 발생한다.
 
 따라서 참조 변수의 원래 인스턴스형을 정확히 확인하고 다운 캐스팅을 해야 안전하며, 이때 instanceof를 사용하는 것이다. 그럼 원래 인스턴스 형으로 가운 캐스팅하는 예를 살펴보도록 하자.
-```
+```java
 package downcasting;
 import java.util.ArrayList;
 
