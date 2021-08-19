@@ -199,7 +199,7 @@ incremental: false
 highlighter: rouge
 kramdown:
   input: GFM
-  hard_wrap: false
+  hard_wrap: true
   auto_ids: true
   footnote_nr: 1
   entity_output: as_char
