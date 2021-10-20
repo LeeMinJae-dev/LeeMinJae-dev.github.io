@@ -8,7 +8,7 @@ toc_stciky : true
 ## 문제
  키보드를 사용하려고 하면 화면 전체가 말려올라가서, 화면이 깨질 뿐더러, 밑에 식단 버튼이 올라오지 않았다.
  
-![develop](/assets/images/Tech/SwiftUI/ignoreSafe/Image1.PNG)
+![develop](/assets/images/tech/SwiftUI/ignoreSafe/Image1.PNG)
 
 따라서 엔터를 눌러 식단추가 버튼이 보이도록 해야 했고, 텍스트필드도 위로 올라가서 자신이 무슨 검색어를 입력하는지
 보이지 않았다. 
@@ -39,7 +39,7 @@ TextField("텍스트 필드", text: $text, onEditingChanged: { (editingChanged) 
 
 따라서 이를 통해 이미지 자체의 사이즈를 줄였는데, 
 
-![develop](/assets/images/Tech/SwiftUI/ignoreSafe/Image2.PNG)
+![develop](/assets/images/tech/SwiftUI/ignoreSafe/Image2.PNG)
 
 
 내가 원하는건 키보드 거리 만큼 이미지는 그대로 사이즈만 줄어들어 자연스럽게 움직이는것이었는데, 그냥 이미지 사이즈가 줄은대로 왜곡되어
