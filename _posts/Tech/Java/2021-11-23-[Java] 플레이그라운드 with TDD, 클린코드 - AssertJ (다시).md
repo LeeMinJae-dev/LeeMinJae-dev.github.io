@@ -1,5 +1,5 @@
 ---
-title : "[Java] 플레이그라운드 with TDD, 클린코드 - AssertJ (다시 1)"
+title : "[Java] 플레이그라운드 with TDD, 클린코드 - AssertJ (다시)"
 categories : java
 toc : true
 toc_label : "On this Page"
