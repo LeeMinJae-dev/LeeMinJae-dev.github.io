@@ -1,5 +1,5 @@
 ---
-title : "[Java] WAS란 무엇일까?"
+title : "[Spring] WAS란 무엇일까?"
 categories : java
 toc : true
 toc_label : "On this Page"
