@@ -120,5 +120,35 @@ public class HelloControllerTest {
 
 여기서 나오는 Bean이 무엇인지 잘몰라서 아래 게시물에 정리해보았다.
 
-[Bean이란 무엇일까?]()
+> [Bean이란 무엇일까?](https://learnote-dev.com/java/Spring-Bean이란-무엇일까/)
 
+### private MockMvc mvc
+- 웹 API를 테스트 할 때 사용한다.
+- 스프링 MVC 테스트의 시작점이다.
+- 이 클래스트를 통해서 HTTP GET, POST 등에 대한 API 테스트를 할 수 있다.
+
+### mvc.perform(get("/hello"))
+- MockMvc를 통해서 /hello 주소로 HTTP GET 요청을 한다.
+- 체이닝이 지원되어 아래와 같이 여러 검증 기능을 이어서 선언할 수 있다.
+
+### .andExpect(status().isOk())
+- mvc.perform의 결과를 검증한다.
+- HTTP Header의 Status를 검증한다.
+- 우리가 알고 있는 200,404,400등의 상태를 검증하는데, isOk()는 200인지 아닌지를 검증한다.
+
+###​ .andExpect(content().string(hello))
+- mvc.perform의 결과를 검증한다.
+- 응답 본문의 내용을 검증한다.
+- Controller에서 "hello"를 리턴하기 떄문에 이 값이 맞는지 검증한다.
+
+이렇게 작성한 테스트를 실행시켜보면, 테스트가 통과 됨을 볼 수 있다. /hello 주소로 GET요청을 하면 hello라는 문자열이 정상적으로 출력되는 것을 직접 눈으로 보지 않고도 우리가 작성한 테스트 코드로 확인 할 수 있는 것 이다.
+
+## 실제로 확인해보기
+테스트 코드가 아니라 실제로 hello가 출력되는지 직접 확인하고 싶다면, Application 클래스를 실행 시키면 된다.
+
+```
+2022-01-03 21:45:50.916  INFO 66709 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+``` 
+그럼 이러한 스프링 부트 로그가 여러개 뜨는데 위 로그를 보면 톰캣 서버가 8080 포트로 실행되었다는 것을 알 수 있다.
+
+이제 웹브라우저를 열어 localhost:8080/hello로 접속해보면, 문자열 hello가 잘 출력되는 것을 확인 할 수 있다.
