@@ -91,3 +91,80 @@ public class GreetingsController {
 ![image1](/assets/images/tech/Java/hongpark1/image4.PNG)
 
 
+그럼 이번에는 뷰템플릿을 만들어 hello world 부분에서 wordl부분에 사람의 이름이 들어갈 수 있도록 해보자. 
+
+다시 html로가서, world 부분이 변수가 들어갈 수 있도록 바꾸어보면,
+```
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport"
+            content="width = device-width, user-scalable = no, initial-scale = 1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Hello {{username}}</h1>
+    </body>
+    </head>
+</html>
+```
+이렇게 mustache 문법에 따라 {{}}와 같이 중괄호 두개를 사용해주면, 해당 부분을 변수화 하게 됨으로, 고정되어있던 웹페이지가 변수에 따라 달라질 수 있는 뷰템플릿이 된다.
+
+그럼 이제 username이라는 변수를 프로그램이 인식할 수 있도록 Model을 추가하고, 이를 컨트롤러가 받아오도록 해주자.
+
+```
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class GreetingsController {
+
+    @GetMapping("/greetings")
+    public String greetings(Model model) {
+        model.addAttribute("username", "민재");
+        return "greetings";
+    }
+```
+greetings 메서드가 Model 형태의 model이 받아와서, "username"이라는 변수명을 찾아 "민재"라는 문자열을 넣은 뒤, 이를 웹페이지에 출력해준다.
+
+![image1](/assets/images/tech/Java/hongpark1/image5.PNG)
+
+## 테스트 코드 작성해보기
+이를 일일히 서버를 작동하고 직접 웹페이지로 가서 확인하는게 아니라, 테스트 코드 동작만으로 현재 프로그램에 이상이 없는지를 확인하는 코드를 만들어 간편하게 테스트를 진행 할 수 있도록 해보자.
+
+GreetingsControllerTest라는 클래스를 test폴더에 만들어 준 뒤, 아래와 같은 코드를 작성한다.
+
+```
+import com.example.hongPark.Message;
+import org.junit.jupiter.api.Test;
+
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.test.context.junit4.SpringRunner;
+
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = RANDOM_PORT)
+class GreetingsControllerTest {
+
+    @Autowired
+    private TestRestTemplate restTemplate;
+
+    @Test
+    public void Hello_민재를_잘_출력하는지_확인() throws Exception {
+        Message message;
+        String body = this.restTemplate.getForObject("/greetings", String.class);
+
+        assertThat(body).contains("Hello 민재");
+    }
+}
+```
+이렇게 변하는 변수가 있는 뷰템플릿은 TestRestTemplate 객체를 만들어 준 뒤, getForObject 메서드를 사용해서 해당 주소를 입력해준 뒤 이를 assertThat을 사용하여 해당 문자열을 포함하는 뷰가 정상적으로 출력되었는지 확인해 줄 수 있다.
