@@ -67,7 +67,8 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
 
 이제 본격적으로 데이터를 등록, 삭제, 변경하는 Rest API를 만들어보자.
 
-## Service
+## Service
+
 서비스 메소드는 도메인에 접근하는 기능들의 순서를 보장해주며, 이를 @Transactional 어노테이션을 사용함으로써, 데이터베이스에 접근하는 도중 오류가 발생하면 해당 기능을 모두 완수하지 않은 상태로 멈추는게 아니라, 아예 데이터베이스에 접근하기 전의 상태로 돌아가게 해주는 역할을 해서 데이터자체에 오류가 섞이지 않도록 해준다.
 
 ### springboot/service/posts
@@ -122,6 +123,7 @@ Dto 클래스의 모습을 보면 Entity 와 거의 똑같은 모습을 볼 수 
 이렇게 PostsRequestDto를 통해서 Service는 Dto 형태의 Post 요청을 받아 Repository로 넘겨 이를 데이터베이스에 저장하도록 한다. 그럼 JSon형태의 요청을 받아오기 위한 마지막 단계를 알아보자.
 
 ## Controller
+
 Contoller는 우리가 요청을 보내고 받는 부분으로, 웹페이지를 보는 View에서 서버에게 보내는 모든 요청은 Controller를 통해 서버에 전달 된다. 따라서 사용자가 보는 View에서 가장 가까이있는 클래스이다.
 
 ### springboot/web/PostsApiController
