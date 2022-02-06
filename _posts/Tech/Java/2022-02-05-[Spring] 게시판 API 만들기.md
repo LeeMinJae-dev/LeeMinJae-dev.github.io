@@ -122,8 +122,7 @@ Dto 클래스의 모습을 보면 Entity 와 거의 똑같은 모습을 볼 수 
 
 이렇게 PostsRequestDto를 통해서 Service는 Dto 형태의 Post 요청을 받아 Repository로 넘겨 이를 데이터베이스에 저장하도록 한다. 그럼 JSon형태의 요청을 받아오기 위한 마지막 단계를 알아보자.
 
-## Controller
-
+## Controller
 Contoller는 우리가 요청을 보내고 받는 부분으로, 웹페이지를 보는 View에서 서버에게 보내는 모든 요청은 Controller를 통해 서버에 전달 된다. 따라서 사용자가 보는 View에서 가장 가까이있는 클래스이다.
 
 ### springboot/web/PostsApiController
