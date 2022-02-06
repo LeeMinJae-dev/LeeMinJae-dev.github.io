@@ -1,5 +1,5 @@
 ---
-title : "[Spring] 게시판 API 만들기 - 데이터 등록"
+title : "[Spring] 게시판 만들기 - 데이터 등록"
 categories : java
 toc : true
 toc_label : "On this Page"

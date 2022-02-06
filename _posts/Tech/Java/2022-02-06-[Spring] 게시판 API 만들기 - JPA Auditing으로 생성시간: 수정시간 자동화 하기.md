@@ -1,5 +1,5 @@
 ---
-title : "[Spring] 게시판 API 만들기 - JPA Auditiong으로 생성시간 / 수정시간 자동화 하기"
+title : "[Spring] 게시판 만들기 - JPA Auditiong으로 생성시간 / 수정시간 자동화 하기"
 categories : java
 toc : true
 toc_label : "On this Page"

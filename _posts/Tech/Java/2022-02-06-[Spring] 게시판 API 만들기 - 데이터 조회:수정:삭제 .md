@@ -1,5 +1,5 @@
 ---
-title : "[Spring] 게시판 API 만들기 - 데이터 조회/수정/삭제"
+title : "[Spring] 게시판 만들기 - 데이터 조회/수정/삭제"
 categories : java
 toc : true
 toc_label : "On this Page"
