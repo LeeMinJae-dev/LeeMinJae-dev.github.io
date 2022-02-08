@@ -16,7 +16,7 @@ toc_stciky : true
 ## 일반적인 제어권
 일반적으로 자바에서는 의존성에 대한 제어권이 개발자에게 있다. 따라서 내가 사용할 의존성은 내가 만들어야한다.
 
-```
+```java
 class OwnerContoller {
     private OwnerRepository repository = new OwnerRepository();
 }
@@ -25,7 +25,7 @@ class OwnerContoller {
 
 ## IoC
 하지만 위와 다르게 아래 코드를 보면,
-```
+```java
 class OwnerController{
     private OwnerRepository repo;
     

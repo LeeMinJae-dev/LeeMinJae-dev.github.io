@@ -21,7 +21,7 @@ toc_stciky : true
 그럼 먼저 게시판의 게시글이 될 Posts 클래스부터 구현해보자.
 
 ### springboot/domain/posts/Posts
-```
+```java
 @NoArgsConstructor
 @Entity
 public class Posts extends BaseTimeEntity{
@@ -56,7 +56,7 @@ Entity를 만들었으니, 이 Entity를 데이터베이스에 접근하게 해�
 Repository는 직접적으로 데이터베이스에 접근할 수 있도록 해주는 역할을 하는데, 굳이 데이터베이스에 복잡하게 SQL명령을 보내지 않아도 Jpa를 사용하면, 객체지향적으로 훨씬 편하게 데이터베이스를 관리할 수 있다.
 
 ### springbood/domain/posts/PostsRepository
-```
+```java
 public interface PostsRepository extends JpaRepository<Posts, Long> {
 
 }
@@ -72,7 +72,7 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
 서비스 메소드는 도메인에 접근하는 기능들의 순서를 보장해주며, 이를 @Transactional 어노테이션을 사용함으로써, 데이터베이스에 접근하는 도중 오류가 발생하면 해당 기능을 모두 완수하지 않은 상태로 멈추는게 아니라, 아예 데이터베이스에 접근하기 전의 상태로 돌아가게 해주는 역할을 해서 데이터자체에 오류가 섞이지 않도록 해준다.
 
 ### springboot/service/posts
-```
+```java
 @RequiredArgsConstructor
 @Service
 public class PostsService {
@@ -92,7 +92,7 @@ public class PostsService {
 만약 우리가 어떤 밑그림만 그려져 있는 그림을 칠한다고 생각해보자. 바로 밑그림에다가 색부터 칠한다면, 색을 칠하고보니 잘 안어울리거나 잘못된 색을 칠했을때는 이미 원본이 훼손되었기 때문에 돌이킬 수 없을 것이고, 돌이킬 수 있더라도 많은 고생과 시간이 소요될 것 이다. 하지만 그 밑그림을 복사해서 한번 칠해보고 오류가 없는 것이 확인되면, 복사본을 토대로 원본에 색을 안전하게 입힐 수 있을 것이다. 여기서 원본이 Entity라면 Dto가 바로 이 원본의 복사본이다.
 
 ### springboot/web/dto/PostsSaveRequestDto
-```
+```java
 Getter
 @NoArgsConstructor
 public class PostsSaveRequestDto {
@@ -126,7 +126,7 @@ Dto 클래스의 모습을 보면 Entity 와 거의 똑같은 모습을 볼 수 
 Contoller는 우리가 요청을 보내고 받는 부분으로, 웹페이지를 보는 View에서 서버에게 보내는 모든 요청은 Controller를 통해 서버에 전달 된다. 따라서 사용자가 보는 View에서 가장 가까이있는 클래스이다.
 
 ### springboot/web/PostsApiController
-```
+```java
 @RequiredArgsConstructor
 @RestController
 public class PostsApiController {

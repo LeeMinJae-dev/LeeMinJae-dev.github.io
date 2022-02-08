@@ -12,7 +12,7 @@ toc_stciky : true
 위 사진과 같이 로그인후에 홈으로 가지지 않고 js파일이 노출되는 현상이 발생했다.
 
 # 원래 코드
-```
+```java
 @RequiredArgsConstructor
 @EnableWebSecurity
 public class WebSecurityConfigurerAdapter extends org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter {
@@ -42,7 +42,7 @@ public class WebSecurityConfigurerAdapter extends org.springframework.security.c
 
 # 해결 과정
 구글링 결과 WebSecurityConfigurerAdapter의 configure에 다음과 같은 메서드를 추가하면 된다고 해서 따라해봤는데,
-```
+```java
 @Override public void configure(WebSecurity web) throws Exception {
         web.ignoring()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations());
@@ -58,7 +58,7 @@ antMatcher()는 권한 관리 대상을 지정하는 옵션인데, 디렉토리 
 > 노출된 주소 :​ http://localhost:8080/static/js/app/index.js 
 
 # 변경된 코드
-```
+```java
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http

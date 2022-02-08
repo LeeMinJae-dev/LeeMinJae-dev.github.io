@@ -16,7 +16,7 @@ Java8부터는 LocalDate와 LocalDateTime이 등장했는데, 그동안 Java의 
 데이터에 날짜를 추가하기 위해서 BaseTimeEntity 클래스를 만들어주자.
 
 ### springboot/domain/posts/BaseTimeEntity
-```
+```java
 @Getter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
@@ -45,7 +45,7 @@ Entity가 생성되면, createdDate에 저장 시간이 자동으로 저장된�
 이렇게 만들어준 BaseTimeEntity를 Entity인 Posts에 상속해주고, JPA Auditing을 활성화 할 수 있도록 Application 클래스에 활성화 어노테이션을 추가해주면, 자동으로 데이터베이스에 생성시간과 수정시간을 포함하여 저장할 수 있다.
 
 ### springboot/domain/posts/Posts
-```
+```java
 @Getter
 @NoArgsConstructor
 @Entity
@@ -57,7 +57,7 @@ public class Posts extends BaseTimeEntity{
 BaseTimeEntity를 상속해준다.
 
 ### springboot/Application
-```
+```java
 @EnableJpaAuditing
 @SpringBootApplication
 public class Application {

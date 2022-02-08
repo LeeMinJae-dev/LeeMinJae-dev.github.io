@@ -33,7 +33,7 @@ toc_stciky : true
 ![image1](/assets/images/tech/Java/hongpark1/image2.PNG)
 
 이제 만들어준 greetings.mustache 파일에 아래와 같은 html을 입력해준다.
-```
+```java
 <html>
     <head>
         <meta charset="UTF-8">
@@ -53,7 +53,7 @@ toc_stciky : true
 
 main 폴더에 controller 폴더를 만들어주고, GreetingsController라는 클래스를 하나 만들어준다.
 
-```
+```java
 import org.springframework.stereotype.Controller;
 
 @Controller
@@ -72,7 +72,7 @@ public class GreetingsController {
 
 그럼 위처럼 NotFound 404 에러가 뜬다. 아직 파일을 찾을 수 없다는 것으로, 브라우저에 mustache 파일을 전송하려면 추가적인 코드가 더 필요하다.
 
-```
+```java
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -94,7 +94,7 @@ public class GreetingsController {
 그럼 이번에는 뷰템플릿을 만들어 hello world 부분에서 wordl부분에 사람의 이름이 들어갈 수 있도록 해보자. 
 
 다시 html로가서, world 부분이 변수가 들어갈 수 있도록 바꾸어보면,
-```
+```java
 <html>
     <head>
         <meta charset="UTF-8">
@@ -113,7 +113,7 @@ public class GreetingsController {
 
 그럼 이제 username이라는 변수를 프로그램이 인식할 수 있도록 Model을 추가하고, 이를 컨트롤러가 받아오도록 해주자.
 
-```
+```java
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -136,7 +136,7 @@ greetings 메서드가 Model 형태의 model이 받아와서, "username"이라�
 
 GreetingsControllerTest라는 클래스를 test폴더에 만들어 준 뒤, 아래와 같은 코드를 작성한다.
 
-```
+```java
 import com.example.hongPark.Message;
 import org.junit.jupiter.api.Test;
 

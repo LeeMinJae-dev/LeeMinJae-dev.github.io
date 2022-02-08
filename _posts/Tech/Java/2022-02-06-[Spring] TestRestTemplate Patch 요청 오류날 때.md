@@ -8,7 +8,7 @@ toc_stciky : true
 ---
 # 문제
 게시글 수정 테스트 코드를 작성하던 중, restTemplate의 exchange() 메서드에 아래와 같이
-```
+```java
 HttpEntity<PostsUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
 
 
@@ -26,13 +26,13 @@ PATCH를 아예 올바른 HTTP 요청으로 인식하지 못하는 것 같았다
 
 apache를 사용하기 위해 build.gradle 파일에 의존성을 아래와 같이 추가해주고,
 
-```
+```java
 implementation 'org.apache.httpcomponents:httpclient:4.5.13'
 ```
 
 테스트 코드가 동작하기전에 준비할 작업을 모아두는 @Before 어노테이션의 setUp 메서드에 다음을 추가해주면 된다.
 
-```
+```java
 @Before
 public void setup() {
     restTemplate.getRestTemplate().setRequestFactory(new HttpComponentsClientHttpRequestFactory());

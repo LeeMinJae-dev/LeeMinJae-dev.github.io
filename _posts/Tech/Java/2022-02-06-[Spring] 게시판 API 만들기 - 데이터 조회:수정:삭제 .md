@@ -17,7 +17,7 @@ Get 요청을 보내 서버로부터 작성한 특정 게시물을 가져오는 
 
 ## Contoller
 ### springboot/web/PostsController
-```
+```java
 @RequiredArgsConstructor
 @RestController
 public class PostsApiController {
@@ -41,7 +41,7 @@ PostsController에 @GetMapping()으로 조회 요청을 받을 주소를 작성�
 
 ## Service
 ### springboot/service/posts/PostsService
-```
+```java
 @RequiredArgsConstructor
 @Service
 public class PostsService {
@@ -63,9 +63,9 @@ public class PostsService {
 ```
 이제 Controller로 들어온 id를 Service 클래스에서 받아 Repository에서 해당 id에 맞는 데이터를 꺼내온다. 이렇게 꺼내온 데이터를 마찬가지로 Dto에 담아서 반환해준다. 응답에 대한 Dto이므로 또 새로운 Dto인 PostsResponseDto를 만들어주자. 앞으로 어떤 요청에 대해서 응답이 필요하다면, 데이터를 PostsResponseDto에 담아 반환해줄 것이다.
  
- ### springboot/web/dto/PostsResponseDto
- ```
- @Getter
+### springboot/web/dto/PostsResponseDto
+```java
+@Getter
 public class PostsResponseDto {
     private String title;
     private String content;
@@ -99,7 +99,7 @@ Get요청을 api/v1/posts/1로 보내면 위 사진과 같이 올바른 응답�
 조회 기능과 동일하게 Controller 부터 작성해보자.
 ## Contoller
 ### springboot/web/PostsController
-```
+```java
 @RequiredArgsConstructor
 @RestController
 public class PostsApiController {
@@ -124,8 +124,8 @@ public class PostsApiController {
 ```
 마찬가지로 @PathVariable을 사용해 주소로부터 수정할 게시물의 id를 받아오고, 수정할 내용도 받아와야하므로, @RequestBody를 사용해서 변경요청 사항을 Json으로 받아오도록 하자. 이번에는 PostsUpdateRequestDto에 해당 Json 데이터를 받아 Dto로 Service에 전달할건데, 변경이라면 제목과 내용만 변경하고 작성자는 변경할 필요가 없으므로 PostsUpdateRequestDto에는 title과 content만 존재해도 된다.
 
-### ### springboot/web/dto/PostsResponseDto
-```
+### springboot/web/dto/PostsResponseDto
+```java
 @Getter
 @NoArgsConstructor
 public class PostsUpdateRequestDto {
@@ -143,7 +143,7 @@ public class PostsUpdateRequestDto {
 
 ## Service
 ### springboot/service/posts/PostsService
-```
+```java
 @RequiredArgsConstructor
 @Service
 public class PostsService {
@@ -177,7 +177,7 @@ public class PostsService {
 조회와 마찬가지로 우선 수정할 데이터가 있는지 Repository를 통해 조회 해준다. 만약 해당 id에 해당하는 게시물이 없다면, IllegalArgumentException을 출력한다. 이렇게 조회해온 Entity를 update 함수를 통해 직접 변경해준다. 그리고 변경한 Entity를 다시 Repository를 통해 저장해주면 변경이 완료 된다.
 
 ### springboot/web/dto/PostsUpdateDto
-```
+```java
 @Getter
 @NoArgsConstructor
 @Entity
@@ -223,7 +223,7 @@ Entity 클래스에 update라는 메서드를 만들어서 새로운 정보로 �
 
 ## Contoller
 ### springboot/web/PostsController
-```
+```java
 @RequiredArgsConstructor
 @RestController
 public class PostsApiController {
@@ -255,7 +255,7 @@ public class PostsApiController {
 
 ## Service
 ### springboot/service/posts/PostsService
-```
+```java
 @RequiredArgsConstructor
 @Service
 public class PostsService {

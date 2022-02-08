@@ -21,7 +21,7 @@ toc_stciky : true
 
 웹 애플리케이션의 이름을 설정해주고, 승인된 리디렉셕 URI에는 로그인에 성공시 리다이렉션할 URL을 적어준다. 이 주소는 AWS 서버 배포시에는 추가로 주소를 추가해야한다.
 스프링 부트 2버전의 시큐리티는 기본적으로 {도메인}/login/oauth2/code/{소셜서비스 코드}로 리다이렉트 URL을 지원하고 있기 때문에, 다음과 같이 입력해준다.
-```
+```java
 http://localhost/login/oauth2/code/google
 ```
 
@@ -35,7 +35,7 @@ http://localhost/login/oauth2/code/google
 먼저 application.properties가 있는 resources 폴더에 application-oauth.properties 파일을 생성해준다. 그리고 해당파일에 아까 받아온
 클라이언트ID와 클라이언트 보안 비밀 코드를 다음과 같이 등록 해준다.
 
-```
+```java
 spring.security.oauth2.client.registration.google.client-id = {클라이언트 id}
 spring.security.oauth2.client.registration.google.client-secret = {클라이언트 비밀번호}
 spring.security.oauth2.client.registration.google.scope = profile,email
@@ -45,7 +45,7 @@ spring.security.oauth2.client.registration.google.scope = profile,email
 
 따라서 이를 호출하기 위해서 application.properties에 가서 다음과 같은 코드를 추가한다.
 
-```
+```java
 spring.profils.include = oauth
 
 ```
@@ -61,7 +61,7 @@ spring.profils.include = oauth
 먼저 User라는 테이블을 데이터베이스에 만들어주기 위해서 domain 폴더에 user 패키지를 만들고, User클래스를 만들어준다.
 
 ### springboot/domain/user/User 
-```
+```java
 @Getter
 @NoArgsConstructor
 @Entity
@@ -109,7 +109,7 @@ role에 쓰인 @Enumerated(EnumType.STRING) 어노테이션은 JPA로 데이터�
 Role은 사용자의 권한을 관리할 클래스로, Enum 타입으로 선언해준다.
 
 ### springboot/domain/user/Role 
-```
+```java
 @Getter
 @RequiredArgsConstructor
 public enum Role {
@@ -126,7 +126,7 @@ public enum Role {
 마지막으로 User를 데이터베이스에 접근할 수 있도록 UserRepository도 선언해준다.
 
 ### springboot/domain/user/UserRepository
-```
+```java
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
 }
@@ -139,7 +139,7 @@ UserRepository에는 마찬가지로 JpaRepository를 상속해주고, 데이터
 
 먼저 build.gradle 파일에 의존성을 하나 추가해준다.
 
-```
+```java
 implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 ```
 
@@ -148,7 +148,7 @@ implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 그 다음 이곳에 WebSecurityConfigurerAdapter 클래스를 만들어준다.
 
 ### springboot/config/auth/WebSecurityConfigurerAdapter
-```
+```java
 @RequiredArgsConstructor
 @EnableWebSecurity
 public class WebSecurityConfigurerAdapter extends org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter {
@@ -207,7 +207,7 @@ OAuth 2 로그인 성공 이후 사용자 정보를 가져올 때의 설정등�
 여기까지 작성했다면, 아직 CustomOAuth2UserService 클래스가 없어 오류가 날것이다. 아래와 같이 작성해주도록 하자.
 
 ###  springboot/config/auth/CustomOAuth2UserService
-```
+```java
 @RequiredArgsConstructor
 @Service
 public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
@@ -258,7 +258,7 @@ OAuth2 로그인 진행 시 키가 되는 필드값을 이야기한다. Primary 
 구글의 기본코드는 "sub"이다.
 
 ### springboot/config/auth/dto/OAuthAttributes
-```
+```java
 @Getter
 public class OAuthAttributes {
     private Map<String, Object> attributes;
@@ -311,7 +311,7 @@ OAtuh2User가 반환하는 사용자 정보는 Map의 자료형으로 반환되�
 User 엔티티를 생성한다. OAuthAttributes에서 엔티티를 생성하는 시점은 처음 가입할때 이며, 가입할때의 기본 권한을 GUEST로 주기 위해서 role값으로 Role.GUEST를 넘겨준다.
 
 ### springboot/config/auth/dto/OAuthAttributes
-```
+```java
 @Getter
 public class SessionUser {
     private String name;
@@ -336,7 +336,7 @@ SessionUser에는 인증된 사용자 정보만 필요한데, 그 외에 필요�
 작성한 글들의 목록을 보여주는 페이지인 index.mustache에 다음과 같은 코드를 추가한다.
 
 ### springboot/resources/templayes/index.mustache
-```
+```java
   <div class="row">
         <div class="col-md-6">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#savePostsModal">글 등록</button>
@@ -369,7 +369,7 @@ SessionUser에는 인증된 사용자 정보만 필요한데, 그 외에 필요�
 이제 이 mustache 파일이 인식할 수 있도록 IndexController에서 userName을 받아와 Model을 등록해주도록 하자.
 
 ### springboot/web/IndexController
-```
+```java
 @GetMapping("/")
     public String index(Model model) {
         List<PostsListResponseDto> postsList = postsService.findAllDesc();
