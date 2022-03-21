@@ -169,6 +169,7 @@
      ========================================================================== */
 
 .greedy-nav {
+  background-color: #ffffff;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -180,6 +181,7 @@
   background: $background-color;
 
   a {
+    background-color: #ffffff;
     display: block;
     margin: 0 1rem;
     color: $masthead-link-color;
@@ -197,6 +199,7 @@
     }
 
     &.site-title {
+      color: #000000;
       margin-left: 0;
     }
   }
@@ -217,6 +220,7 @@
   }
 
   .visible-links {
+    background-color: #ffffff;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -235,15 +239,16 @@
     }
 
     a {
+      color: #000000;
       position: relative;
-
+      
       &:before {
         content: "";
         position: absolute;
         left: 0;
         bottom: 0;
         height: 4px;
-        background: $primary-color;
+        background: #db4455;
         width: 100%;
         -webkit-transition: $global-transition;
         transition: $global-transition;
@@ -324,8 +329,13 @@
   }
 }
 
+.greedy-nav{
+    background-color: #ffffff;
+}
+
 .no-js {
   .greedy-nav {
+    
     .visible-links {
       -ms-flex-wrap: wrap;
       flex-wrap: wrap;
@@ -515,7 +525,7 @@
   .nav__title {
     color: #fff;
     font-size: $type-size-6;
-    background: #000;
+    background: #db4455;
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
   }

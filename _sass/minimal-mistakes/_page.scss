@@ -85,6 +85,7 @@ body {
 
 .page__content {
   h2 {
+    margin-top: -0.13em;
     padding-bottom: 0.5em;
     border-bottom: 1px solid $border-color;
   }
@@ -344,6 +345,7 @@ body {
   }
 
   .archive__item-title {
+  
     margin-top: 0;
   }
 
@@ -357,6 +359,11 @@ body {
   }
 }
 
+.archive__item-title {
+
+ margin-top: 5px;
+}
+  
 .taxonomy__title {
   margin-bottom: 0.5em;
   color: $muted-text-color;
