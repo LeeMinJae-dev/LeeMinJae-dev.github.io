@@ -282,11 +282,34 @@
        <span class="nav__sub-title">Life</span>
             <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
             <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
-                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (42)</a></li>
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (64)</a></li>
+                    
+                
                     
                 
                     
@@ -318,14 +341,14 @@
                     
                 
                     
-                        <li><a href="/categories/java" class="">Java (19)</a></li>
+                        <li><a href="/categories/java" class="">Java (44)</a></li>
                     
                 
-
-        <span class="nav__sub-title">Algorithm</span>
-            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
-            <ul>
-                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
@@ -335,7 +358,56 @@
                     
                 
                     
-                        <li><a href="/categories/baekjoon" class="">Baekjoon (37)</a></li>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (61)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -354,7 +426,11 @@
                     
                 
                     
-                        <li><a href="/categories/programmers" class="">Programmers(63)</a></li>
+                        <li><a href="/categories/programmers" class="">Programmers(66)</a></li>
+                    
+                
+                    
+                
                     
                 
                     
@@ -365,6 +441,8 @@
             <ul>
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
                 
                     
                 
@@ -380,8 +458,12 @@
                 
                     
                 
+                    
+                
 
 
+                
+                    
                 
                     
                 
@@ -389,6 +471,8 @@
                 
                     
                         <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
                     
                 
                     
@@ -465,7 +549,7 @@
 <p>크기가 정해진 기본 자료형 ( int, char, float, double등)으로 선언하는 변수가 있고, 클래스 자료형으로 선언하는 참조 자료형 변수가 있다. 참조 자료형 변수의 특징에 대해 좀 더 자세히 살펴보고, 클래스를 선언하여 참조형을 이용한 프로그램을 구현해보자.</p>
 
 <p>어떤 학생이 있다고 가정하자. 이 학생이 국어와 수학 과목을 수강하는데, 이 시험의 수학과 국어 점수를 저장하는 프로그램을 만든다고 생각해보면,</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -473,20 +557,20 @@
 6
 7
 8
-</pre></td><td class="rouge-code"><pre>package reference;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">reference</span><span class="o">;</span>
 
-public class Student1 {
-    int studendID;
-    String studentName;
-    int koreaScore;
-    int mathScore;
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student1</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">studendID</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">studentName</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">koreaScore</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">mathScore</span><span class="o">;</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>이렇게 Student1이라는 클래스를 만들어보았다. 근데 만약 이 클래스에 성적뿐만 아니라 이 학생이 수강하고 있는 과목의 이름도 함께 저장하고 싶다면 어떻게 해야할까? 아주 간단한 방법으로는 <br />
 String을 사용해서 클래스 안에 과목이름 변수를 추가해주는 것이다.   <br />
 Student2라는 과목이름 변수도 함께있는 클래스를 만들어보자</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -495,36 +579,36 @@ Student2라는 과목이름 변수도 함께있는 클래스를 만들어보자<
 7
 8
 9
-</pre></td><td class="rouge-code"><pre>package reference;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">reference</span><span class="o">;</span>
 
-public class Student1 {
-    int studentID;
-    String studentName;
-    int koreaScore;
-    int mathScore;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student1</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">studentID</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">studentName</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">koreaScore</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">mathScore</span><span class="o">;</span>
 
-}
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>이렇게 구현하고보니, 이 클래스는 학생에 관한 클래스인데 과목에 대한 변수가 늘어나 Student라는 이름의 클래스하나로 구현하게 되면 나중에 참조 할때 헷갈리거나 문제가 생길 수 있다.</p>
 
 <p>따라서 과목에 대한 변수는 Subject라는 클래스를 따로 만들어 분리해보도록 하자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
-</pre></td><td class="rouge-code"><pre>package reference;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">reference</span><span class="o">;</span>
 
-public class Subject {
-    String SubjectName;
-    int scorePoint;
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Subject</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="nc">SubjectName</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">scorePoint</span><span class="o">;</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>이렇게 Subject로 따로 클래스를 만들어 주면, 우리는 기본 자료형이 아닌 우리가 만들어준 참조 자료형으로 변수를 선언 할 수 있게된다. Subject에 과목의 이름과 과목의 점수를 저장할 수 있는 변수가 있으니, 우리는 다른 클래스에서 이 참조 자료형을 사용하여 변수를 선언 할 수가 있게 된다.</p>
 
 <p>Student3 클래스를 만들어 참조자료형 선언을 해보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -532,14 +616,14 @@ public class Subject {
 6
 7
 8
-</pre></td><td class="rouge-code"><pre>package reference;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">reference</span><span class="o">;</span>
 
-public class Student3 {
-    int studentID;
-    String studentName;
-    Subject korean;
-    Subject math;
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student3</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">studentID</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">studentName</span><span class="o">;</span>
+    <span class="nc">Subject</span> <span class="n">korean</span><span class="o">;</span>
+    <span class="nc">Subject</span> <span class="n">math</span><span class="o">;</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>이렇게 구현하게 되면 기존에는 Student2 클래스의 경우처럼 과목이름을 koreanSubjectName, mathSubjectName 이런식으로 두개의 변수를 추가 해주어야 한다. 그러나 Subject와 같이 클래스를 분리해주면 subjectName은 Subject클래스에 선언한뒤 korean.subjectName과 같이 사용해줄 수 있어 매우 편리하다.</p>
 
@@ -547,7 +631,7 @@ public class Student3 {
 <p>지금까지 클래스를 선언할때 public이라는 예약어를 사용하였다. 이제 이 예약어가 어떤 의미를 갖는지에 대해 알아보자.</p>
 
 <p>객체 지향 프로그램에서는 예약어를 사용하여 클래스 내부의 변수나 메서드, 생성자에 대한 접근 권한을 지정한다. 이러한 예약어들을 <strong>접근 제어자(acces modifier)</strong> 라고 하는데, 우리가 사용하던 public이라고 선언했던 예약어는 외부클래스에서 접근이 가능하게 설정되었다는 뜻이다. 반대로 외부클래스에서 사용하게 하고 싶지 않은 클래스는 private으로 선언해주면 된다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -555,17 +639,17 @@ public class Student3 {
 6
 7
 8
-</pre></td><td class="rouge-code"><pre>package hiding;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">hiding</span><span class="o">;</span>
 
-public class Student {
-    int studentID;
-    private String studentName;
-    int grade;
-    String address;
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">studentID</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">studentName</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">grade</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">address</span><span class="o">;</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>위 코드는 Student라는 클래스를 만들어주어 안에 변수를 만들어주었는데, studentName 변수를 private를 사용하여 선언해주었다.  이렇게 private 예약어를 사용한 변수를 한번 다른 클래스에서 접근해보면,</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -575,22 +659,22 @@ public class Student {
 8
 9
 10
-</pre></td><td class="rouge-code"><pre>package hiding;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">hiding</span><span class="o">;</span>
 
-public class StudentTest {
-    public static void main(String[] args){
-        Student studentLee = new Student();
-        studentLee.studentName = "이민재";
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StudentTest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">Student</span> <span class="n">studentLee</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Student</span><span class="o">();</span>
+        <span class="n">studentLee</span><span class="o">.</span><span class="na">studentName</span> <span class="o">=</span> <span class="s">"이민재"</span><span class="o">;</span>
 
-        System.out.println(studentLee.getStudentName());
-    }
-}
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">studentLee</span><span class="o">.</span><span class="na">getStudentName</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>위의 코드는 private로 선언한 studentName 변수에 접근했으므로, 프로그램에서 오류를 출력한다.</p>
 
 <p>그렇다면 private으로 선언한 studentName에 접근하고 싶다면 어떻게 해야 할까? 이 때 사용 할 수 있는것이 바로 내부클래스에서 접근을 할수 있도록 해주는 메서드를 만들어 주는 것이다.   <br />
 다시 Student 파일을 열어 메서드 두개를 추가해주도록 하자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -606,25 +690,25 @@ public class StudentTest {
 14
 15
 16
-</pre></td><td class="rouge-code"><pre>package hiding;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">hiding</span><span class="o">;</span>
 
-public class Student {
-    int studentID;
-    private String studentName;
-    int grade;
-    String address;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">studentID</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">studentName</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">grade</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">address</span><span class="o">;</span>
     
-    public String getStudentName(){
-        return studentName
-    }
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getStudentName</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">studentName</span>
+    <span class="o">}</span>
     
-    public void setStudentName(String studentName){
-        this.studentName = studentName;
-    }
-}
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setStudentName</span><span class="o">(</span><span class="nc">String</span> <span class="n">studentName</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">studentName</span> <span class="o">=</span> <span class="n">studentName</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>getStudentName() 클래스는 public으로 선언되어 있으며, 이 메서드는 studentName과 같은 클래스에 있으므로 접근도 가능하다. 그럼 직접 저 변수에 접근하는게 아니라 우리가 만들어준 메서드를 사용하여 우리가 private로 선언한 studentName에 접근해보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -634,16 +718,16 @@ public class Student {
 8
 9
 10
-</pre></td><td class="rouge-code"><pre>package hiding;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">hiding</span><span class="o">;</span>
 
-public class StudentTest {
-    public static void main(String[] args){
-        Student studentLee = new Student();
-        studentLee.setStudentName("이민재");
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StudentTest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">Student</span> <span class="n">studentLee</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Student</span><span class="o">();</span>
+        <span class="n">studentLee</span><span class="o">.</span><span class="na">setStudentName</span><span class="o">(</span><span class="s">"이민재"</span><span class="o">);</span>
 
-        System.out.println(studentLee.getStudentName());
-    }
-}
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">studentLee</span><span class="o">.</span><span class="na">getStudentName</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>이렇게 우리가 만들어준 메서드로 접근을 할 수 있도록 코드를 작성해주니, 올바르게 프로그램에 동작하는 것을 볼 수 있다.</p>
 
@@ -757,7 +841,7 @@ public class StudentTest {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/baekjoon/2206-%EB%B2%BD-%EB%B6%80%EC%88%98%EA%B3%A0-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0/" rel="permalink">[BOJ] 2206 벽 부수고 이동하기 (Python3)
+        <a href="/diary-univ/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8-%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4/" rel="permalink">아두이노 라즈베리파이
 </a>
       
     </h2>
@@ -769,7 +853,7 @@ public class StudentTest {
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
+        <time datetime="2022-03-21T00:00:00+00:00">March 21, 2022</time>
       </span>
     
 
@@ -789,8 +873,10 @@ public class StudentTest {
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">문제
-N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있는 곳을 나타내고, 1은 이동할 수 없는 벽이 있는 곳을 나타낸다. 당신은 (1, 1)에서 (N, M)의 위치까지 이동하려 하는데, 이때 최단 경로로 이동하려 한다. 최단경로는 맵에서 가장 적은 개수의 칸을 지나는...</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.21
+올해 듣는 수업이 대부분 프로젝트 수업이라서 사실 수업보다는 그냥 실험하고, 프로젝트 하나 완료하는것들이 전공수업의 전부가 되었다.
+
+</p>
   </article>
 </div>
 
@@ -804,7 +890,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/java/%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC-(1)/" rel="permalink">[Java] 플레이그라운드 with TDD, 클린코드 - AssertJ (1)
+        <a href="/diary-univ/%EA%B0%80%EB%8A%A5%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" rel="permalink">가능성에 대하여
 </a>
       
     </h2>
@@ -816,7 +902,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
+        <time datetime="2022-03-19T00:00:00+00:00">March 19, 2022</time>
       </span>
     
 
@@ -829,17 +915,15 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          7 분 소요
+          3 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">시작하면서…
-자바로 간단한 프로젝트를 만들어보려 했는데, 그냥 무작정 혼자 만들다가는 나쁜 버릇이 들 것 같아서   
-강의 하나를 수강하기로 했다. 특히나 자바는 객체지향이라는 개념을 사용하는 언어이고, 난 대부분 절차지향 언어만
-사용해봤었기 때문에, 아직 간단한 책 한권으로는 객...</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.19
+요즘 인생의 방향성에 대해 생각이 좀 많다. 원래는 이번년도에 창업을 해보면서 대략 어떤 느낌인지 맛을 보자는 느낌이었는데, 계획서를 써보고 공부해볼 수록 그렇게 1년만 해볼 수 있는 문제가 아니란걸 깨닫는다. 그런식으로 1년만 하려는 마음가짐으로 뭔가를 이뤄내...</p>
   </article>
 </div>
 
@@ -853,7 +937,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/diary-univ/%ED%86%A0%EC%8A%A4-NEXT-%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%9B%90%EA%B8%88-%EB%8B%B9%EC%B2%A8%EB%90%98%EB%8B%A4/" rel="permalink">개발지원금 당첨되다…
+        <a href="/diary-univ/%EC%9D%BC%EB%A6%AC-%EC%BB%A4%ED%94%BC%EB%A8%B8%EC%8B%A0/" rel="permalink">일리 커피머신
 </a>
       
     </h2>
@@ -865,7 +949,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+        <time datetime="2022-03-15T00:00:00+00:00">March 15, 2022</time>
       </span>
     
 
@@ -885,7 +969,8 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">2021.08.18
+    <p class="archive__item-excerpt" itemprop="description">2022.03.15
+
 
 </p>
   </article>
@@ -901,7 +986,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/baekjoon/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%ED%95%A8%EC%88%98/" rel="permalink">[BOJ] 1003 피보나치 함수 (Python3)
+        <a href="/diary-univ/%EC%98%81%EC%96%B4/" rel="permalink">영어…
 </a>
       
     </h2>
@@ -913,7 +998,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+        <time datetime="2022-03-14T00:00:00+00:00">March 14, 2022</time>
       </span>
     
 
@@ -926,17 +1011,15 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          1 분 소요
+          최대 1 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">문제
-다음 소스는 N번째 피보나치 수를 구하는 C++ 함수이다.
-
-</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.14
+요즘 부쩍 영어에 관심이 많아져서 열심히 해보려고 하는데, 진짜 벽느껴진다… 그냥 고등학교때만 열심히 했어도 이렇게까지 고생 안 했을텐데… 새롭게 뭐 해보려고 하지만 옛날의 업보가 결국 불쑥 불쑥 나타나 앞을 막기 시작한다. 근데 뭐 다른 사람들은 열심히 공부한...</p>
   </article>
 </div>
 
@@ -988,7 +1071,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2021 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

@@ -1,0 +1,905 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>맥북 프로 사다! - Learnote-Dev</title>
+<meta name="description" content="2022.02.16 출시때부터 맨날 꿈에도 나오고 너무너무 갖고싶었던 맥북프로를 샀다. 사실 산 지 이틀정도 되었는데, 요즘 새로 어플 만드느라 바빠서 이제야 쓴다. 가격이 너무 쎄고, 솔직히 개발하는데 에어면 충분한 것 같아서 안사려고 했는데, 점점 프로젝트가 커지고 앱개발 하느라 gpu를 잔뜩 잡아먹는 xcode로 ios개발을 하려니 점점 버벅이고 램도 8기가 밖에 안되서 프로그램 한 네개정도를 켜놓으면 좀 많이 버벅이기 시작해서 결국 못 참고 질러버렸다. 16인치를 살짝 고민도 해봤지만, 가격도 가격이지만 16인치 맥북을 들고 다닐 자신이 정말 너무 없어서 14인치 모델로 샀다. ssd 올리는걸 살짝 고민했지만 어차피 외장 ssd가 있기도하고, 개발자라는 직업이 막 용량이 부족한 직업은 아니어서 그냥 14인치 깡통으로 갔다. 그 결과는 정말 대만족…">
+
+
+  <meta name="author" content="이민재">
+  
+  <meta property="article:author" content="이민재">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Learnote-Dev">
+<meta property="og:title" content="맥북 프로 사다!">
+<meta property="og:url" content="http://localhost:4000/diary-univ/%EB%A7%A5%EB%B6%81-%ED%94%84%EB%A1%9C-%EC%82%AC%EB%8B%A4!/">
+
+
+  <meta property="og:description" content="2022.02.16 출시때부터 맨날 꿈에도 나오고 너무너무 갖고싶었던 맥북프로를 샀다. 사실 산 지 이틀정도 되었는데, 요즘 새로 어플 만드느라 바빠서 이제야 쓴다. 가격이 너무 쎄고, 솔직히 개발하는데 에어면 충분한 것 같아서 안사려고 했는데, 점점 프로젝트가 커지고 앱개발 하느라 gpu를 잔뜩 잡아먹는 xcode로 ios개발을 하려니 점점 버벅이고 램도 8기가 밖에 안되서 프로그램 한 네개정도를 켜놓으면 좀 많이 버벅이기 시작해서 결국 못 참고 질러버렸다. 16인치를 살짝 고민도 해봤지만, 가격도 가격이지만 16인치 맥북을 들고 다닐 자신이 정말 너무 없어서 14인치 모델로 샀다. ssd 올리는걸 살짝 고민했지만 어차피 외장 ssd가 있기도하고, 개발자라는 직업이 막 용량이 부족한 직업은 아니어서 그냥 14인치 깡통으로 갔다. 그 결과는 정말 대만족…">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-02-16T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/diary-univ/%EB%A7%A5%EB%B6%81-%ED%94%84%EB%A1%9C-%EC%82%AC%EB%8B%A4!/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이민재",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Learnote-Dev Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Learnote-Dev
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/about/">About me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile.jpg" alt="이민재" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이민재</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>포트폴리오/일상 기록</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Incheon, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="lmj938@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://blog.naver.com/lmj938" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/leeminjae-dev/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:lmj938@naver.com">
+            <meta itemprop="email" content="lmj938@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+        <!--span 태그로 카테고리들을 크게 분류 ex) Life-->
+       <span class="nav__sub-title">Life</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (64)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Tech-->
+       <span class="nav__sub-title">Tech</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java" class="">Java (44)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (61)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/programmers" class="">Programmers(66)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+<!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Knowledge</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/machinelearning" class="">Machine Learning (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+          
+      </li>
+  </ul>
+</nav>
+
+  
+
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="맥북 프로 사다!">
+    <meta itemprop="description" content="2022.02.16출시때부터 맨날 꿈에도 나오고 너무너무 갖고싶었던 맥북프로를 샀다. 사실 산 지 이틀정도 되었는데, 요즘 새로 어플 만드느라 바빠서 이제야 쓴다. 가격이 너무 쎄고, 솔직히 개발하는데 에어면 충분한 것 같아서 안사려고 했는데, 점점 프로젝트가 커지고 앱개발 하느라 gpu를 잔뜩 잡아먹는 xcode로 ios개발을 하려니 점점 버벅이고 램도 8기가 밖에 안되서 프로그램 한 네개정도를 켜놓으면 좀 많이 버벅이기 시작해서 결국 못 참고 질러버렸다. 16인치를 살짝 고민도 해봤지만, 가격도 가격이지만 16인치 맥북을 들고 다닐 자신이 정말 너무 없어서 14인치 모델로 샀다. ssd 올리는걸 살짝 고민했지만 어차피 외장 ssd가 있기도하고, 개발자라는 직업이 막 용량이 부족한 직업은 아니어서 그냥 14인치 깡통으로 갔다. 그 결과는 정말 대만족…">
+    <meta itemprop="datePublished" content="2022-02-16T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">맥북 프로 사다!
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-16T00:00:00+00:00">February 16, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this Page</h4></header>
+              <ul class="toc__menu"><li><a href="#20220216">2022.02.16</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="20220216">2022.02.16</h1>
+<p>출시때부터 맨날 꿈에도 나오고 너무너무 갖고싶었던 맥북프로를 샀다. 사실 산 지 이틀정도 되었는데, 요즘 새로 어플 만드느라 바빠서 이제야 쓴다. 가격이 너무 쎄고, 솔직히 개발하는데 에어면 충분한 것 같아서 안사려고 했는데, 점점 프로젝트가 커지고 앱개발 하느라 gpu를 잔뜩 잡아먹는 xcode로 ios개발을 하려니 점점 버벅이고 램도 8기가 밖에 안되서 프로그램 한 네개정도를 켜놓으면 좀 많이 버벅이기 시작해서 결국 못 참고 질러버렸다. 16인치를 살짝 고민도 해봤지만, 가격도 가격이지만 16인치 맥북을 들고 다닐 자신이 정말 너무 없어서 14인치 모델로 샀다. ssd 올리는걸 살짝 고민했지만 어차피 외장 ssd가 있기도하고, 개발자라는 직업이 막 용량이 부족한 직업은 아니어서 그냥 14인치 깡통으로 갔다. 그 결과는 정말 대만족…</p>
+
+<p>우선 화면이 너무 쨍하고 좋은건 물론이고, 진짜 지금까지 한번도 버벅인적이 없다. 오늘 작업을 하다가 엑셀이 잠깐 이상해서 끄려고 강제종료를 켰는데, 내가 지금 프로그램을 거의 열개 넘게 켜놓은걸 보고 깜짝 놀랐다. 에어에서는 한 4개 정도 켜면 버벅거려서 강제종료창을 자주 켰었는데 구매한지 3일만에 처음으로 강제종료창을 켜봤다. 이래서 돈이 좋은건가… 사실 좋은 회사 가면 보통 사주니까 그때 사야지 싶었는데, 사고나니까 진작 살걸 그랬다는 생각이 들었다. 너무 쾌적하고 공부하는게 즐겁다…</p>
+
+<p>거기다가 그 동안 듀얼 모니터 세팅이 너무너무 하고싶었었는데, 에어는 외장 모니터 1대 지원이라 모니터를 못사고 있었다. 그래서 맥북프로도 산김에 통크게 모니터도 같이 질렀다 ㅎㅎㅎ 솔직히 맥북도 맥북인데, 진짜 듀얼모니터의 체감과 능률향상이 말이 안된다. 맨처음에는 서브모니터니까 저렴하게 20만원짜리 FHD 모니터를 샀었는데, 난 맥북이 4k모니터 아니면 글자가 그렇게 깨지는지 모르고 있었다… 맨날 4k 보다가 FHD봐서 그런가? 했는데 진짜 보다보다 이건 아닌것 같아서 검색해보니, 맥북은 4k모니터 미만에서는 hidpi설정이 안되서 글자가 다 깨져보인다는걸 그제야 알았다… 그래서 눈이 진짜 너무 아프고 이걸로 코드보면 맨날 스트레스 받을 것 같아서, 바로 반품해버리고 다음 모니터를 찾고있었는데 아니나 다를까 지마켓에서 모니터들을 할인을 오지게 때려가며 팔고 있었다. 운도좋지… 그래서 지금 모니터를 서브로 보내버리고 아예 32인치 4k 모니터로 가버렸다. 할인을 거의 10만원 넘게 해줘서 이건 안 살수가 없었는데, 결과론적으로는 사길 너무 너무 잘했다. 솔직히 모니터가 맥북보다도 만족감이 클수도…?</p>
+
+<p>최근에는 플러터를 시작했는데, 너무 재미있어서 요즘 부쩍 코딩하는 시간이 늘것 같다. 원래는 처음부터 완벽하게 스프링부트 서버랑 ios 안드로이드 이렇게 세개를 개발할까 했었는데, 어쩌면 초기자본도 없다시피하고 인력도 없는 상황에서 그런 네이티브 앱을 사용하면 너무 질질 끌다가 이도저도 아니게 될것 같아서 플러터를 선택해서 빠르게 개발하기로 했다. 지금은 앱의 완벽한 퀄리티보다는 빠르게 시장진입하는게 우선인 것 같아서, 우선 플러터 + 스프링 부트를 생각하고 있는데 만약 스프링 부트가 너무 어려울것 같다면 그냥 미련없이 파이어베이스를 사용할 생각도 하고있다. 처음에는 망해도 스펙이 될 수 있도록 사업이 성공하는 방향이 아니라 그냥 내 공부겸 한다는 생각으로 접근했는데, 아무리 생각해도 아이템이 너무 매력적이고 지금 어느정도 구체화된 시장 진입 방법도 나쁘지 않은 것 같아서 올 한해정도는 빡세게 올인해볼 생각이다.</p>
+
+<p>복학도 있어서 너무 너무 바쁜 일년이 될것 같다는 생각이 든다. 그래도 화이팅 하는 맘으로 열심히 2022년을 보내야지.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#diary-univ" class="page__taxonomy-item" rel="tag">diary-univ</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-02-16T00:00:00+00:00">February 16, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EB%A7%A5%EB%B6%81+%ED%94%84%EB%A1%9C+%EC%82%AC%EB%8B%A4%21%20http%3A%2F%2Flocalhost%3A4000%2Fdiary-univ%2F%25EB%25A7%25A5%25EB%25B6%2581-%25ED%2594%2584%25EB%25A1%259C-%25EC%2582%25AC%25EB%258B%25A4%21%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdiary-univ%2F%25EB%25A7%25A5%25EB%25B6%2581-%25ED%2594%2584%25EB%25A1%259C-%25EC%2582%25AC%25EB%258B%25A4%21%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdiary-univ%2F%25EB%25A7%25A5%25EB%25B6%2581-%25ED%2594%2584%25EB%25A1%259C-%25EC%2582%25AC%25EB%258B%25A4%21%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/java/Spring-%EA%B2%8C%EC%8B%9C%ED%8C%90-API-%EB%A7%8C%EB%93%A4%EA%B8%B0-webSocket%EC%9C%BC%EB%A1%9C-%EC%B1%84%ED%8C%85%EC%84%9C%EB%B2%84-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/" class="pagination--pager" title="[Spring] webSocket으로 채팅서버 구현하기 (1)
+">이전</a>
+    
+    
+      <a href="/diary-univ/%EB%89%B4%EB%A1%9C%ED%93%A8%EC%A0%84/" class="pagination--pager" title="뉴로퓨전 프로젝트
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8-%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4/" rel="permalink">아두이노 라즈베리파이
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-21T00:00:00+00:00">March 21, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.21
+올해 듣는 수업이 대부분 프로젝트 수업이라서 사실 수업보다는 그냥 실험하고, 프로젝트 하나 완료하는것들이 전공수업의 전부가 되었다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EA%B0%80%EB%8A%A5%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" rel="permalink">가능성에 대하여
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-19T00:00:00+00:00">March 19, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.19
+요즘 인생의 방향성에 대해 생각이 좀 많다. 원래는 이번년도에 창업을 해보면서 대략 어떤 느낌인지 맛을 보자는 느낌이었는데, 계획서를 써보고 공부해볼 수록 그렇게 1년만 해볼 수 있는 문제가 아니란걸 깨닫는다. 그런식으로 1년만 하려는 마음가짐으로 뭔가를 이뤄내...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%9D%BC%EB%A6%AC-%EC%BB%A4%ED%94%BC%EB%A8%B8%EC%8B%A0/" rel="permalink">일리 커피머신
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-15T00:00:00+00:00">March 15, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.15
+
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%98%81%EC%96%B4/" rel="permalink">영어…
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-14T00:00:00+00:00">March 14, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.14
+요즘 부쩍 영어에 관심이 많아져서 열심히 해보려고 하는데, 진짜 벽느껴진다… 그냥 고등학교때만 열심히 했어도 이렇게까지 고생 안 했을텐데… 새롭게 뭐 해보려고 하지만 옛날의 업보가 결국 불쑥 불쑥 나타나 앞을 막기 시작한다. 근데 뭐 다른 사람들은 열심히 공부한...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/leeminjae-dev" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/diary-univ/%EB%A7%A5%EB%B6%81-%ED%94%84%EB%A1%9C-%EC%82%AC%EB%8B%A4!/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/diary-univ/맥북 프로 사다!"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://leeminjae-dev-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
+
+
+<!-- 웹 폰트 설정 -->
+<link rel="stylesheet" href="/assets/css/high3.css">

@@ -282,11 +282,34 @@
        <span class="nav__sub-title">Life</span>
             <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
             <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
-                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (42)</a></li>
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (64)</a></li>
+                    
+                
                     
                 
                     
@@ -318,14 +341,14 @@
                     
                 
                     
-                        <li><a href="/categories/java" class="">Java (19)</a></li>
+                        <li><a href="/categories/java" class="">Java (44)</a></li>
                     
                 
-
-        <span class="nav__sub-title">Algorithm</span>
-            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
-            <ul>
-                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
@@ -335,7 +358,56 @@
                     
                 
                     
-                        <li><a href="/categories/baekjoon" class="">Baekjoon (37)</a></li>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (61)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -354,7 +426,11 @@
                     
                 
                     
-                        <li><a href="/categories/programmers" class="">Programmers(63)</a></li>
+                        <li><a href="/categories/programmers" class="">Programmers(66)</a></li>
+                    
+                
+                    
+                
                     
                 
                     
@@ -365,6 +441,8 @@
             <ul>
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
                 
                     
                 
@@ -380,8 +458,12 @@
                 
                     
                 
+                    
+                
 
 
+                
+                    
                 
                     
                 
@@ -389,6 +471,8 @@
                 
                     
                         <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
                     
                 
                     
@@ -466,7 +550,7 @@
 
 <h2 id="컨테이너">컨테이너</h2>
 <p>GUI의 각각의 요소를 컴포넌트라고 한다. 버튼이나 텍스트등의 GUI의 요소들을 말하는데, 이러한 컴포넌트들이 자리를 잡을 화면, 창이 필요할 것이다. 이러한 창은 <strong>컨테이너</strong> 라고 한다. 컨테이너 조차도 하나의 컴포넌트라고 할 수 있는데, 이러한 컨테이너는 JFrame을 상속하여 만들어준다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -482,22 +566,22 @@
 14
 15
 16
-</pre></td><td class="rouge-code"><pre>package swing;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">swing</span><span class="o">;</span>
 
 
-import javax.swing.*;
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
 
-public class MyFrame{
-    public static void main(String[] args){
-        JFrame frame = new JFrame;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyFrame</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">JFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JFrame</span><span class="o">;</span>
         
-        frame.setSize(300,400);
-        frame.setTitle("첫 번째 프레임");
-        frame.setResizable(false);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
-}
+        <span class="n">frame</span><span class="o">.</span><span class="na">setSize</span><span class="o">(</span><span class="mi">300</span><span class="o">,</span><span class="mi">400</span><span class="o">);</span>
+        <span class="n">frame</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">"첫 번째 프레임"</span><span class="o">);</span>
+        <span class="n">frame</span><span class="o">.</span><span class="na">setResizable</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+        <span class="n">frame</span><span class="o">.</span><span class="na">setLocationRelativeTo</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+        <span class="n">frame</span><span class="o">.</span><span class="na">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>JFrame을 상속한 MyFrame() 클래스를 만들어 주었다.</p>
 
@@ -516,7 +600,7 @@ public class MyFrame{
 <p>위와 같이 컨테이너를 생성했음을 알 수 있다.</p>
 
 <p>이 창을 x를 눌러 닫으면 창은 닫혔지만, 다시 프로그램을 실행시키려 하면 이미 프로그램이 실행중이라고 종료 후 실행하겠다는 창이 뜬다. 따라서 창만 닫히고 프로그램은 종료되지 않고 있는 것이다. 따라서 창을 닫으면 프로그램이 종료 되는 기능을 추가해주어야 한다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -532,22 +616,22 @@ public class MyFrame{
 14
 15
 16
-</pre></td><td class="rouge-code"><pre>package swing;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">swing</span><span class="o">;</span>
 
 
-import javax.swing.*;
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
 
-public class MyFrame{
-    public static void main(String[] args){
-        JFrame frame = new JFrame;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyFrame</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">JFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JFrame</span><span class="o">;</span>
         
-        frame.setSize(300,400);
-        frame.setTitle("첫 번째 프레임");
-        frame.setResizable(false);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        frame.serDefaultCloseOperation();
-    }
+        <span class="n">frame</span><span class="o">.</span><span class="na">setSize</span><span class="o">(</span><span class="mi">300</span><span class="o">,</span><span class="mi">400</span><span class="o">);</span>
+        <span class="n">frame</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">"첫 번째 프레임"</span><span class="o">);</span>
+        <span class="n">frame</span><span class="o">.</span><span class="na">setResizable</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+        <span class="n">frame</span><span class="o">.</span><span class="na">setLocationRelativeTo</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+        <span class="n">frame</span><span class="o">.</span><span class="na">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        <span class="n">frame</span><span class="o">.</span><span class="na">serDefaultCloseOperation</span><span class="o">();</span>
+    <span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>MyFrame생성자 안에 setDefaultCloseOperation() 메서드를 추가해주었다. 매개변수로 JFram.EXIT_ON_CLOSE를 넣어주면 시스템의 exit 메소드를 사용해서 프로그램을 같이 종료해준다.</p>
 
@@ -555,26 +639,26 @@ public class MyFrame{
 
 <h2 id="버튼">버튼</h2>
 <p>그럼 이제 만들어준 컨테이너에 버튼을 한번 추가해보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
 7
-</pre></td><td class="rouge-code"><pre>MyFrame(){
-        setTitle("첫번째 프레임");
-        setSize(300,400);
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Container c = getContentPane();
-    }
+</pre></td><td class="rouge-code"><pre><span class="nc">MyFrame</span><span class="o">(){</span>
+        <span class="n">setTitle</span><span class="o">(</span><span class="s">"첫번째 프레임"</span><span class="o">);</span>
+        <span class="n">setSize</span><span class="o">(</span><span class="mi">300</span><span class="o">,</span><span class="mi">400</span><span class="o">);</span>
+        <span class="n">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        <span class="n">setDefaultCloseOperation</span><span class="o">(</span><span class="nc">JFrame</span><span class="o">.</span><span class="na">EXIT_ON_CLOSE</span><span class="o">);</span>
+        <span class="nc">Container</span> <span class="n">c</span> <span class="o">=</span> <span class="n">getContentPane</span><span class="o">();</span>
+    <span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>먼저 컨탠트팬을 만들어준다. 창 자체위에 버튼들이 올라올 수 있는 공간으로 보통 우리가 보는 창에서 위의 상태창을 제외한 공간을 말한다.<br />
 getContentPane(); 을 추가하여 만들어주었다.</p>
 
 <p>다음은 JButton 클래스를 사용해서 버튼의 인스턴스를 만들어 준 뒤, 컨테이너 자료형으로 선언한 c의 add() 메소드를 사용해서 버튼을 추가해주자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -600,32 +684,32 @@ getContentPane(); 을 추가하여 만들어주었다.</p>
 24
 25
 26
-</pre></td><td class="rouge-code"><pre>package swing;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">swing</span><span class="o">;</span>
 
 
-import javax.swing.*;
-import java.awt.*;
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
 
-public class MyFrame extends JFrame {
-    MyFrame(){
-        setTitle("첫번째 프레임");
-        setSize(300,400);
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Container c = getContentPane();
-        c.setLayout(new FlowLayout());
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyFrame</span> <span class="kd">extends</span> <span class="nc">JFrame</span> <span class="o">{</span>
+    <span class="nc">MyFrame</span><span class="o">(){</span>
+        <span class="n">setTitle</span><span class="o">(</span><span class="s">"첫번째 프레임"</span><span class="o">);</span>
+        <span class="n">setSize</span><span class="o">(</span><span class="mi">300</span><span class="o">,</span><span class="mi">400</span><span class="o">);</span>
+        <span class="n">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        <span class="n">setDefaultCloseOperation</span><span class="o">(</span><span class="nc">JFrame</span><span class="o">.</span><span class="na">EXIT_ON_CLOSE</span><span class="o">);</span>
+        <span class="nc">Container</span> <span class="n">c</span> <span class="o">=</span> <span class="n">getContentPane</span><span class="o">();</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">setLayout</span><span class="o">(</span><span class="k">new</span> <span class="nc">FlowLayout</span><span class="o">());</span>
 
-        JButton j = new JButton("확인");
-        JButton j2 = new JButton("취소");
+        <span class="nc">JButton</span> <span class="n">j</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"확인"</span><span class="o">);</span>
+        <span class="nc">JButton</span> <span class="n">j2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"취소"</span><span class="o">);</span>
 
-        c.add(j);
-        c.add(j2);
-        setVisible(true);
-    }
-    public static void main(String[] args){
-        new MyFrame();
-    }
-}
+        <span class="n">c</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">j2</span><span class="o">);</span>
+        <span class="n">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="k">new</span> <span class="nf">MyFrame</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <ul>
   <li>
@@ -650,7 +734,7 @@ JButton 자료형의 버튼 인스턴스를 만들어 준뒤, 매개변수로는
 <p><img src="/assets/images/tech/Java/계산기(1)/MyFrame_Lable.png" alt="MyFrame_Button" /></p>
 
 <p>또, 리스트를 통해서 버튼을 추가할 수도 있다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -679,35 +763,35 @@ JButton 자료형의 버튼 인스턴스를 만들어 준뒤, 매개변수로는
 27
 28
 29
-</pre></td><td class="rouge-code"><pre>package swing;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">swing</span><span class="o">;</span>
 
-import javax.swing.*;
-import java.awt.*;
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
 
-public class MyFrameEx extends JFrame {
-    Container c;
-    JButton buttonList[] = new JButton[4];
-    String strList[] ={"확인", "취소", "뒤로가기","앞으로가기"};
-    MyFrameEx(){
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(300,400);
-        setTitle("나의 두 번째 창");
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyFrameEx</span> <span class="kd">extends</span> <span class="nc">JFrame</span> <span class="o">{</span>
+    <span class="nc">Container</span> <span class="n">c</span><span class="o">;</span>
+    <span class="nc">JButton</span> <span class="n">buttonList</span><span class="o">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">[</span><span class="mi">4</span><span class="o">];</span>
+    <span class="nc">String</span> <span class="n">strList</span><span class="o">[]</span> <span class="o">={</span><span class="s">"확인"</span><span class="o">,</span> <span class="s">"취소"</span><span class="o">,</span> <span class="s">"뒤로가기"</span><span class="o">,</span><span class="s">"앞으로가기"</span><span class="o">};</span>
+    <span class="nc">MyFrameEx</span><span class="o">(){</span>
+        <span class="n">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        <span class="n">setDefaultCloseOperation</span><span class="o">(</span><span class="nc">JFrame</span><span class="o">.</span><span class="na">EXIT_ON_CLOSE</span><span class="o">);</span>
+        <span class="n">setSize</span><span class="o">(</span><span class="mi">300</span><span class="o">,</span><span class="mi">400</span><span class="o">);</span>
+        <span class="n">setTitle</span><span class="o">(</span><span class="s">"나의 두 번째 창"</span><span class="o">);</span>
 
-        c = getContentPane();
-        c.setLayout(new FlowLayout());
+        <span class="n">c</span> <span class="o">=</span> <span class="n">getContentPane</span><span class="o">();</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">setLayout</span><span class="o">(</span><span class="k">new</span> <span class="nc">FlowLayout</span><span class="o">());</span>
 
-        for(int i=0;i&lt;buttonList.length;i++){
-            buttonList[i] = new JButton(strList[i]);
-            c.add(buttonList[i]);
-        }
-        setVisible(true);
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">buttonList</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">buttonList</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="n">strList</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="n">c</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">buttonList</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+        <span class="n">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
 
-    }
-    public static void main(String[] args){
-        new MyFrameEx();
-    }
-}
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="k">new</span> <span class="nf">MyFrameEx</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>버튼과 버튼에 들어갈 문자열을 각각 리스트로 선언하여 버튼을 일일히 선언하지않고 한번에 처리하였다.</p>
 
@@ -717,7 +801,7 @@ public class MyFrameEx extends JFrame {
 <p>패널은 프레임을 세부적으로 나누어주는 컴포넌트로, 패널을 나누어 놓으면 패널마다의 각각의 컴포넌트를 추가해놓고 패널단위로 가리거나 패널 단위로 편집할 수 있게 되어 유지보수에 편리하다. 패널은 패널안에도 추가할 수 있다.</p>
 
 <p>패널은 JPanel로 선언하여, 배경색을 지정하고 안에 버튼을 넣어보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -759,48 +843,48 @@ public class MyFrameEx extends JFrame {
 40
 41
 42
-</pre></td><td class="rouge-code"><pre>package swing;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">swing</span><span class="o">;</span>
 
-import javax.swing.*;
-import java.awt.*;
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
 
 
 
-class MyFrame2 extends JFrame {
-    Container c;
-    JPanel jPanel = new JPanel();
-    JButton btn = new JButton();
-    JButton buttonList[] = new JButton[4];
-    String strList[] = {"확인", "취소", "뒤로가기","앞으로 가기"};
+<span class="kd">class</span> <span class="nc">MyFrame2</span> <span class="kd">extends</span> <span class="nc">JFrame</span> <span class="o">{</span>
+    <span class="nc">Container</span> <span class="n">c</span><span class="o">;</span>
+    <span class="nc">JPanel</span> <span class="n">jPanel</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JPanel</span><span class="o">();</span>
+    <span class="nc">JButton</span> <span class="n">btn</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">();</span>
+    <span class="nc">JButton</span> <span class="n">buttonList</span><span class="o">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">[</span><span class="mi">4</span><span class="o">];</span>
+    <span class="nc">String</span> <span class="n">strList</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="s">"확인"</span><span class="o">,</span> <span class="s">"취소"</span><span class="o">,</span> <span class="s">"뒤로가기"</span><span class="o">,</span><span class="s">"앞으로 가기"</span><span class="o">};</span>
 
-    MyFrame2(){
-        setTitle("나의 두번째 창");
-        setSize(300,400);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setButton();
-        setVisible(true);
-    }
-    void setButton(){
-        c = getContentPane();
-        jPanel.setBackground(Color.magenta);
-        jPanel.setLayout(new FlowLayout());
+    <span class="nc">MyFrame2</span><span class="o">(){</span>
+        <span class="n">setTitle</span><span class="o">(</span><span class="s">"나의 두번째 창"</span><span class="o">);</span>
+        <span class="n">setSize</span><span class="o">(</span><span class="mi">300</span><span class="o">,</span><span class="mi">400</span><span class="o">);</span>
+        <span class="n">setDefaultCloseOperation</span><span class="o">(</span><span class="no">EXIT_ON_CLOSE</span><span class="o">);</span>
+        <span class="n">setButton</span><span class="o">();</span>
+        <span class="n">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kt">void</span> <span class="nf">setButton</span><span class="o">(){</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">getContentPane</span><span class="o">();</span>
+        <span class="n">jPanel</span><span class="o">.</span><span class="na">setBackground</span><span class="o">(</span><span class="nc">Color</span><span class="o">.</span><span class="na">magenta</span><span class="o">);</span>
+        <span class="n">jPanel</span><span class="o">.</span><span class="na">setLayout</span><span class="o">(</span><span class="k">new</span> <span class="nc">FlowLayout</span><span class="o">());</span>
 
-        for(int i = 0; i&lt;4; i++){
-            buttonList[i] = new JButton(strList[i]);
-            jPanel.add(buttonList[i]);
-        }
-        c.add(jPanel);
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">4</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+            <span class="n">buttonList</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="n">strList</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="n">jPanel</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">buttonList</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">jPanel</span><span class="o">);</span>
 
-    }
+    <span class="o">}</span>
 
-}
+<span class="o">}</span>
 
-public class MyFrame3 {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyFrame3</span> <span class="o">{</span>
 
-    public static void main(String[] args){
-        new MyFrame2();
-    }
-}
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="k">new</span> <span class="nf">MyFrame2</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>깔끔하게 패널의 부분은 setButton() 메서드로 따로 정리 해주었다.</p>
 <ul>
@@ -887,7 +971,7 @@ public class MyFrame3 {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/baekjoon/2206-%EB%B2%BD-%EB%B6%80%EC%88%98%EA%B3%A0-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0/" rel="permalink">[BOJ] 2206 벽 부수고 이동하기 (Python3)
+        <a href="/diary-univ/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8-%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4/" rel="permalink">아두이노 라즈베리파이
 </a>
       
     </h2>
@@ -899,7 +983,7 @@ public class MyFrame3 {
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
+        <time datetime="2022-03-21T00:00:00+00:00">March 21, 2022</time>
       </span>
     
 
@@ -919,8 +1003,10 @@ public class MyFrame3 {
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">문제
-N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있는 곳을 나타내고, 1은 이동할 수 없는 벽이 있는 곳을 나타낸다. 당신은 (1, 1)에서 (N, M)의 위치까지 이동하려 하는데, 이때 최단 경로로 이동하려 한다. 최단경로는 맵에서 가장 적은 개수의 칸을 지나는...</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.21
+올해 듣는 수업이 대부분 프로젝트 수업이라서 사실 수업보다는 그냥 실험하고, 프로젝트 하나 완료하는것들이 전공수업의 전부가 되었다.
+
+</p>
   </article>
 </div>
 
@@ -934,7 +1020,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/java/%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC-(1)/" rel="permalink">[Java] 플레이그라운드 with TDD, 클린코드 - AssertJ (1)
+        <a href="/diary-univ/%EA%B0%80%EB%8A%A5%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" rel="permalink">가능성에 대하여
 </a>
       
     </h2>
@@ -946,7 +1032,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
+        <time datetime="2022-03-19T00:00:00+00:00">March 19, 2022</time>
       </span>
     
 
@@ -959,17 +1045,15 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          7 분 소요
+          3 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">시작하면서…
-자바로 간단한 프로젝트를 만들어보려 했는데, 그냥 무작정 혼자 만들다가는 나쁜 버릇이 들 것 같아서   
-강의 하나를 수강하기로 했다. 특히나 자바는 객체지향이라는 개념을 사용하는 언어이고, 난 대부분 절차지향 언어만
-사용해봤었기 때문에, 아직 간단한 책 한권으로는 객...</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.19
+요즘 인생의 방향성에 대해 생각이 좀 많다. 원래는 이번년도에 창업을 해보면서 대략 어떤 느낌인지 맛을 보자는 느낌이었는데, 계획서를 써보고 공부해볼 수록 그렇게 1년만 해볼 수 있는 문제가 아니란걸 깨닫는다. 그런식으로 1년만 하려는 마음가짐으로 뭔가를 이뤄내...</p>
   </article>
 </div>
 
@@ -983,7 +1067,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/diary-univ/%ED%86%A0%EC%8A%A4-NEXT-%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%9B%90%EA%B8%88-%EB%8B%B9%EC%B2%A8%EB%90%98%EB%8B%A4/" rel="permalink">개발지원금 당첨되다…
+        <a href="/diary-univ/%EC%9D%BC%EB%A6%AC-%EC%BB%A4%ED%94%BC%EB%A8%B8%EC%8B%A0/" rel="permalink">일리 커피머신
 </a>
       
     </h2>
@@ -995,7 +1079,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+        <time datetime="2022-03-15T00:00:00+00:00">March 15, 2022</time>
       </span>
     
 
@@ -1015,7 +1099,8 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">2021.08.18
+    <p class="archive__item-excerpt" itemprop="description">2022.03.15
+
 
 </p>
   </article>
@@ -1031,7 +1116,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/baekjoon/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%ED%95%A8%EC%88%98/" rel="permalink">[BOJ] 1003 피보나치 함수 (Python3)
+        <a href="/diary-univ/%EC%98%81%EC%96%B4/" rel="permalink">영어…
 </a>
       
     </h2>
@@ -1043,7 +1128,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+        <time datetime="2022-03-14T00:00:00+00:00">March 14, 2022</time>
       </span>
     
 
@@ -1056,17 +1141,15 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          1 분 소요
+          최대 1 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">문제
-다음 소스는 N번째 피보나치 수를 구하는 C++ 함수이다.
-
-</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.14
+요즘 부쩍 영어에 관심이 많아져서 열심히 해보려고 하는데, 진짜 벽느껴진다… 그냥 고등학교때만 열심히 했어도 이렇게까지 고생 안 했을텐데… 새롭게 뭐 해보려고 하지만 옛날의 업보가 결국 불쑥 불쑥 나타나 앞을 막기 시작한다. 근데 뭐 다른 사람들은 열심히 공부한...</p>
   </article>
 </div>
 
@@ -1118,7 +1201,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2021 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

@@ -282,11 +282,34 @@
        <span class="nav__sub-title">Life</span>
             <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
             <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
-                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (42)</a></li>
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (64)</a></li>
+                    
+                
                     
                 
                     
@@ -318,14 +341,14 @@
                     
                 
                     
-                        <li><a href="/categories/java" class="">Java (19)</a></li>
+                        <li><a href="/categories/java" class="">Java (44)</a></li>
                     
                 
-
-        <span class="nav__sub-title">Algorithm</span>
-            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
-            <ul>
-                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
@@ -335,7 +358,56 @@
                     
                 
                     
-                        <li><a href="/categories/baekjoon" class="">Baekjoon (37)</a></li>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (61)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -354,7 +426,11 @@
                     
                 
                     
-                        <li><a href="/categories/programmers" class="">Programmers(63)</a></li>
+                        <li><a href="/categories/programmers" class="">Programmers(66)</a></li>
+                    
+                
+                    
+                
                     
                 
                     
@@ -365,6 +441,8 @@
             <ul>
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
                 
                     
                 
@@ -380,8 +458,12 @@
                 
                     
                 
+                    
+                
 
 
+                
+                    
                 
                     
                 
@@ -389,6 +471,8 @@
                 
                     
                         <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
                     
                 
                     
@@ -466,34 +550,34 @@
 그렇다면 어떤 클래스가 추상적이다 라는 말은 무슨 뜻일까? 앞의 용어풀이를 대입해 보면 ‘구체적이지 않은 클래스’ 라는 뜻일 것이다. 추상 클래스를 영어로 하면 abstract class이고, 추상 클래스가 아닌 클래스는 concrete class 라고 한다. 우리가 지금까지 만든 클래스는 모두 concrete class이다. 추상 클래스 활용방법을 살펴보기 전에 추상 클래스 문법부터 배워보자.</p>
 
 <p>추상 클래스는 항상 <strong>추상메서드</strong> 를 포함한다. 추상메서드는 구현코드가 없다. 함수의 구현 코드가 없다는 것은 함수 몸체가 없다는 뜻이다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-</pre></td><td class="rouge-code"><pre>int add(int x, int y){
-    return x + y;
-}
+</pre></td><td class="rouge-code"><pre><span class="kt">int</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">){</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="o">;</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>중괄호 {}로 감싼 부분을 함수의 구현부(implementation)라고 하며, 이 부분이 없는 함수는 추상 함수(abstract function)이고 자바에서는 <strong>추상 메서드(abstract method)</strong> 라고 한다. 추상메서드는 다음과 같이 선언만 하며 abstract 예약어를 사용한다. 또한 {}대신 ;를 사용한다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>abstract int add(int x int y)
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="kd">abstract</span> <span class="kt">int</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>참고로 아래와 같은 메서드는 추상 메서드가 아니다.<br />
 중괄호를 사용한 것 만으로 메서드를 구현한 셈이기 때문이다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>int add(int x, int y){}
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="kt">int</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">){}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>정리하자면, 자바에서 추상 메서드는 abstract 예약어를 사용하여 선언만 하는 메서드이다.</p>
 
 <p>이러한 추상 클래스를 이해하려면 먼저 메서드 선언의 의미에 대해서 생각해보아야한다.   <br />
 아래의 코드를 보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>int add(int num1, int num2);
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="kt">int</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">num1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="o">);</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>위 코드처럼 선언한 메서드를 보면 두 개의 정수를 입력받은 후 더해서 그 결과 값을 반환한다는 것을 유추할 수 있다. 즉 이 메서드의 선언부(declaration)만 봐도 어떤일을 하는 메서드인지 알수 있는 것이다. 함수의 선언부 즉 반환 값, 함수 이름, 매개변수를 정의 한다는것은 곧 함수의 역할이 무엇인지, 어떻게 구현해야 하는지를 정의한다는 뜻이다. 우리가 자바에서 사용하는 메서드 역시 마찬가지이다. 메서드를 선언한다는 것은 해야 할 일을 명시해 두는 것이다.</p>
 
 <h2 id="추상클래스-구현하기">추상클래스 구현하기</h2>
 <p>아래의 코드를 보고, 추상클래스에 대해 알아보자</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -505,21 +589,21 @@
 10
 11
 12
-</pre></td><td class="rouge-code"><pre>package abstractex;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">abstractex</span><span class="o">;</span>
 
-public class Computer {
-    public void display();
-    public void typing();
-    public void turnOn(){
-        System.out.println("전원을 켭니다");
-    }
-    public void turnOff(){
-        System.out.println("전원을 끕니다.");
-    }
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Computer</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">typing</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">turnOn</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"전원을 켭니다"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">turnOff</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"전원을 끕니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>컴퓨터라는 클래스를 만들어주고 display와 typing, turnOn,turnOff 메서드를 선언해주었는데, 함수구현부를 써주지않은 display와 typing에서는 오류가 발생하고 있다. 이 부분이 오류가 나지 않으려면 몸체 부분을 작성하거나, 이 메서드를 추상 메서드로 선언해주어야 한다. 그럼 display와 typing 앞에 abstract 예약어를 사용해보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -531,21 +615,21 @@ public class Computer {
 10
 11
 12
-</pre></td><td class="rouge-code"><pre>package abstractex;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">abstractex</span><span class="o">;</span>
 
-public class Computer {
-    public abstract void display();
-    public abstract void typing();
-    public void turnOn(){
-        System.out.println("전원을 켭니다");
-    }
-    public void turnOff(){
-        System.out.println("전원을 끕니다.");
-    }
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Computer</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">typing</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">turnOn</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"전원을 켭니다"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">turnOff</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"전원을 끕니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>그러면 이제 오류가 없어졌지만, 이제는 class Computer에 오류가 뜬다. 왜냐하면 추상 메서드가 속한 클래스를 추상 클래스로 선언하지 않았기 때문이다. 그러니 이번에는 Computer 클래스를 추상 클래스로 바꿔서 선언해보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -557,18 +641,18 @@ public class Computer {
 10
 11
 12
-</pre></td><td class="rouge-code"><pre>package abstractex;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">abstractex</span><span class="o">;</span>
 
-public abstract class Computer {
-    public abstract void display();
-    public abstract void typing();
-    public void turnOn(){
-        System.out.println("전원을 켭니다");
-    }
-    public void turnOff(){
-        System.out.println("전원을 끕니다.");
-    }
-}
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Computer</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">typing</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">turnOn</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"전원을 켭니다"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">turnOff</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"전원을 끕니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>이제 모든 오류가 제거되었다. Computer 클래스에 이렇게 구현한 이유는 <br />
 Computer를 상속받는 클래스를 이와 같이 구현한것은 ‘Computer를 상속받는 클래스 중 turnOn과 turnOff( ) 구현 코드는 공통이다. 하지만 display()와 typing()은 하위 클래스에 따라 구현이 달라질 수 있다. 그래서 Computer에서는 구현하지 않고, 이 두 메서드 구현에 대한 책임을 상속받는 클래스에 위임한다’ 라는 의미이다.</p>
@@ -576,19 +660,19 @@ Computer를 상속받는 클래스를 이와 같이 구현한것은 ‘Computer�
 <p>따라서 Computer 클래스의 추상 메서드는 추상 클래스를 상속받은 DeskTop과 NoteBook에서 실제로 구현하게 된다. 이 클래스의 상위 클래스에서는 하위 클래스도 공통으로 사용할 메서드를 구현하고, 하위 클래스마다 다르게 구현할 메서드는 추상 메서드로 선언해 두는 것이다.</p>
 
 <p>그러면 DeskTop 클래스를 만들어보자. 다음과 같이 DeskTop 클래스를 선언하고 Computer 클래스를 상속받는다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
-</pre></td><td class="rouge-code"><pre>package abstractex;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">abstractex</span><span class="o">;</span>
 
-public class DeskTop extends Computer{
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DeskTop</span> <span class="kd">extends</span> <span class="nc">Computer</span><span class="o">{</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>이렇게 Computer를 상속한 DeskTop을 만들어주면 오류가 발생한다.</p>
 
 <p>추상 클래스를 상속했으므로, 위에서 추상메서드로 선언했던 display() 와 typing() 메서드의 몸체 부분을 상속받은 클래스에서 구현해주던가, 상속한 DeskTop도 추상 클래스로 선언해주던가 둘중에 하나를 해주어야 오류가 발생하지 않는다. display()와 typing() 메서드의 몸체 부분을 작성해보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -602,23 +686,23 @@ public class DeskTop extends Computer{
 12
 13
 14
-</pre></td><td class="rouge-code"><pre>package abstractex;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">abstractex</span><span class="o">;</span>
 
-public class DeskTop extends Computer{
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DeskTop</span> <span class="kd">extends</span> <span class="nc">Computer</span><span class="o">{</span>
 
-    @Override
-    public void display() {
-        System.out.println("DeskTop display()");
-    }
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"DeskTop display()"</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    @Override
-    public void typing() {
-        System.out.println("Desktop typing()");
-    }
-}
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">typing</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Desktop typing()"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>마찬가지로 NoteBook 클래스도 구현한다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -629,21 +713,21 @@ public class DeskTop extends Computer{
 9
 10
 11
-</pre></td><td class="rouge-code"><pre>package abstractex;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">abstractex</span><span class="o">;</span>
 
-public abstract class NoteBook extends Computer {
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">NoteBook</span> <span class="kd">extends</span> <span class="nc">Computer</span> <span class="o">{</span>
 
 
-    @Override
-    public void display() {
-        System.out.println("Notebook display");
-    }
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Notebook display"</span><span class="o">);</span>
+    <span class="o">}</span>
 
-}
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>NoteBook 클래스는 추상 클래스로 선언해주기 위해 abstract 예약어를 사용했다.<br />
 그럼 NoteBook 클래스를 또 상속하는 MyNoteBook 클래스를 만들어보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -651,20 +735,20 @@ public abstract class NoteBook extends Computer {
 6
 7
 8
-</pre></td><td class="rouge-code"><pre>package abstractex;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">abstractex</span><span class="o">;</span>
 
-public class MyNoteBook extends NoteBook{
-    @Override
-    public void typing(){
-        System.out.println("MyNoteBook typing()");
-    }
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyNoteBook</span> <span class="kd">extends</span> <span class="nc">NoteBook</span><span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">typing</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"MyNoteBook typing()"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>이렇게 하면, 가장 상위클래스이자 추상클래스인 Computer에서 추상 메서드인 display와 typing이 선언되고, 그 아래의 DeskTop 클래스는 두가지 메서드를 모두 재정의 하여 추상클래스가 아닌 클래스가 되었고, NoteBook은 display 하나만 재정의 함으로써 추상클래스로 선언된걸 확인 할 수 있다. 마지막으로 MyNoteBook은 NoteBook을 상속받은 뒤, NoteBook에서 선언하지 않은 typing을 재정의 해줌으로써 구체적 클래스가 된다.</p>
 
 <h2 id="추상-클래스를-만드는-이유">추상 클래스를 만드는 이유</h2>
 <p>추상 클래스를 어떻게 정의하고 구현하는지를 이야기 했다. 그렇다면 이런 추상 클래스는 어디에 사용하기 위해 사용하는 것일까? 앞서 만든 추상클래스를 사용하여 알아보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -674,16 +758,16 @@ public class MyNoteBook extends NoteBook{
 8
 9
 10
-</pre></td><td class="rouge-code"><pre>package abstractex;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">abstractex</span><span class="o">;</span>
 
-public class ComputerTest {
-    public static void main(String[] args){
-        Computer c1 = new Computer();
-        Computer c2 = new DeskTop();
-        Computer c3 = new NoteBook();
-        Computer c4 = new MyNoteBook();
-    }
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ComputerTest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">Computer</span> <span class="n">c1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Computer</span><span class="o">();</span>
+        <span class="nc">Computer</span> <span class="n">c2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DeskTop</span><span class="o">();</span>
+        <span class="nc">Computer</span> <span class="n">c3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">NoteBook</span><span class="o">();</span>
+        <span class="nc">Computer</span> <span class="n">c4</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MyNoteBook</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>ComputerTest 클래스를 만들어 메인함수를 통해 인스턴스를 각각의 자료형으로 4개 선언해주었다.    <br />
 추상 클래스인 Computer 와 NoteBook이 오류가 나는것을 확인 할 수 있다.</p>
@@ -770,7 +854,7 @@ public class ComputerTest {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/baekjoon/2206-%EB%B2%BD-%EB%B6%80%EC%88%98%EA%B3%A0-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0/" rel="permalink">[BOJ] 2206 벽 부수고 이동하기 (Python3)
+        <a href="/diary-univ/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8-%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4/" rel="permalink">아두이노 라즈베리파이
 </a>
       
     </h2>
@@ -782,7 +866,7 @@ public class ComputerTest {
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
+        <time datetime="2022-03-21T00:00:00+00:00">March 21, 2022</time>
       </span>
     
 
@@ -802,8 +886,10 @@ public class ComputerTest {
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">문제
-N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있는 곳을 나타내고, 1은 이동할 수 없는 벽이 있는 곳을 나타낸다. 당신은 (1, 1)에서 (N, M)의 위치까지 이동하려 하는데, 이때 최단 경로로 이동하려 한다. 최단경로는 맵에서 가장 적은 개수의 칸을 지나는...</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.21
+올해 듣는 수업이 대부분 프로젝트 수업이라서 사실 수업보다는 그냥 실험하고, 프로젝트 하나 완료하는것들이 전공수업의 전부가 되었다.
+
+</p>
   </article>
 </div>
 
@@ -817,7 +903,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/java/%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC-(1)/" rel="permalink">[Java] 플레이그라운드 with TDD, 클린코드 - AssertJ (1)
+        <a href="/diary-univ/%EA%B0%80%EB%8A%A5%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" rel="permalink">가능성에 대하여
 </a>
       
     </h2>
@@ -829,7 +915,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
+        <time datetime="2022-03-19T00:00:00+00:00">March 19, 2022</time>
       </span>
     
 
@@ -842,17 +928,15 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          7 분 소요
+          3 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">시작하면서…
-자바로 간단한 프로젝트를 만들어보려 했는데, 그냥 무작정 혼자 만들다가는 나쁜 버릇이 들 것 같아서   
-강의 하나를 수강하기로 했다. 특히나 자바는 객체지향이라는 개념을 사용하는 언어이고, 난 대부분 절차지향 언어만
-사용해봤었기 때문에, 아직 간단한 책 한권으로는 객...</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.19
+요즘 인생의 방향성에 대해 생각이 좀 많다. 원래는 이번년도에 창업을 해보면서 대략 어떤 느낌인지 맛을 보자는 느낌이었는데, 계획서를 써보고 공부해볼 수록 그렇게 1년만 해볼 수 있는 문제가 아니란걸 깨닫는다. 그런식으로 1년만 하려는 마음가짐으로 뭔가를 이뤄내...</p>
   </article>
 </div>
 
@@ -866,7 +950,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/diary-univ/%ED%86%A0%EC%8A%A4-NEXT-%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%9B%90%EA%B8%88-%EB%8B%B9%EC%B2%A8%EB%90%98%EB%8B%A4/" rel="permalink">개발지원금 당첨되다…
+        <a href="/diary-univ/%EC%9D%BC%EB%A6%AC-%EC%BB%A4%ED%94%BC%EB%A8%B8%EC%8B%A0/" rel="permalink">일리 커피머신
 </a>
       
     </h2>
@@ -878,7 +962,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+        <time datetime="2022-03-15T00:00:00+00:00">March 15, 2022</time>
       </span>
     
 
@@ -898,7 +982,8 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">2021.08.18
+    <p class="archive__item-excerpt" itemprop="description">2022.03.15
+
 
 </p>
   </article>
@@ -914,7 +999,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/baekjoon/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%ED%95%A8%EC%88%98/" rel="permalink">[BOJ] 1003 피보나치 함수 (Python3)
+        <a href="/diary-univ/%EC%98%81%EC%96%B4/" rel="permalink">영어…
 </a>
       
     </h2>
@@ -926,7 +1011,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+        <time datetime="2022-03-14T00:00:00+00:00">March 14, 2022</time>
       </span>
     
 
@@ -939,17 +1024,15 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          1 분 소요
+          최대 1 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">문제
-다음 소스는 N번째 피보나치 수를 구하는 C++ 함수이다.
-
-</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.14
+요즘 부쩍 영어에 관심이 많아져서 열심히 해보려고 하는데, 진짜 벽느껴진다… 그냥 고등학교때만 열심히 했어도 이렇게까지 고생 안 했을텐데… 새롭게 뭐 해보려고 하지만 옛날의 업보가 결국 불쑥 불쑥 나타나 앞을 막기 시작한다. 근데 뭐 다른 사람들은 열심히 공부한...</p>
   </article>
 </div>
 
@@ -1001,7 +1084,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2021 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

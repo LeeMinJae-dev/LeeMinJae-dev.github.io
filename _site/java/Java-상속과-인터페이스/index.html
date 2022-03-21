@@ -1,0 +1,1490 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Java] 상속과 인터페이스 - Learnote-Dev</title>
+<meta name="description" content="시작하며… 다음 과제까지 어떤걸 할까 고민하다가 자바의 스트림, 상속이나 인터페이스같은 걸 공부해보기로했다.          클린하게 코드를 작성하려면 좀더 자바의 기능들을 사용해야 복잡한 코드를 자바의 기능하나로 대체 할 수 있다는 생각에,        다음과제에서 사용할 수 있는 여러가지 기능들을 미리 익히기로 했다.">
+
+
+  <meta name="author" content="이민재">
+  
+  <meta property="article:author" content="이민재">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Learnote-Dev">
+<meta property="og:title" content="[Java] 상속과 인터페이스">
+<meta property="og:url" content="http://localhost:4000/java/Java-%EC%83%81%EC%86%8D%EA%B3%BC-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/">
+
+
+  <meta property="og:description" content="시작하며… 다음 과제까지 어떤걸 할까 고민하다가 자바의 스트림, 상속이나 인터페이스같은 걸 공부해보기로했다.          클린하게 코드를 작성하려면 좀더 자바의 기능들을 사용해야 복잡한 코드를 자바의 기능하나로 대체 할 수 있다는 생각에,        다음과제에서 사용할 수 있는 여러가지 기능들을 미리 익히기로 했다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-11-29T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/java/Java-%EC%83%81%EC%86%8D%EA%B3%BC-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이민재",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Learnote-Dev Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Learnote-Dev
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/about/">About me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile.jpg" alt="이민재" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이민재</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>포트폴리오/일상 기록</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Incheon, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="lmj938@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://blog.naver.com/lmj938" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/leeminjae-dev/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:lmj938@naver.com">
+            <meta itemprop="email" content="lmj938@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+        <!--span 태그로 카테고리들을 크게 분류 ex) Life-->
+       <span class="nav__sub-title">Life</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (64)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Tech-->
+       <span class="nav__sub-title">Tech</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java" class="">Java (44)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (61)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/programmers" class="">Programmers(66)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+<!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Knowledge</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/machinelearning" class="">Machine Learning (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+          
+      </li>
+  </ul>
+</nav>
+
+  
+
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Java] 상속과 인터페이스">
+    <meta itemprop="description" content="시작하며…다음 과제까지 어떤걸 할까 고민하다가 자바의 스트림, 상속이나 인터페이스같은 걸 공부해보기로했다.         클린하게 코드를 작성하려면 좀더 자바의 기능들을 사용해야 복잡한 코드를 자바의 기능하나로 대체 할 수 있다는 생각에,       다음과제에서 사용할 수 있는 여러가지 기능들을 미리 익히기로 했다.">
+    <meta itemprop="datePublished" content="2021-11-29T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[Java] 상속과 인터페이스
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-11-29T00:00:00+00:00">November 29, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          7 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this Page</h4></header>
+              <ul class="toc__menu"><li><a href="#시작하며">시작하며…</a></li><li><a href="#상속">상속</a><ul><li><a href="#상속이란">상속이란?</a></li><li><a href="#이전에-공부했던-내용">이전에 공부했던 내용</a></li><li><a href="#상속-예제">상속 예제</a></li></ul></li><li><a href="#인터페이스">인터페이스</a><ul><li><a href="#인터페이스란">인터페이스란??</a></li><li><a href="#인터페이스를-이해하기-위한-예제">인터페이스를 이해하기 위한 예제</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="시작하며">시작하며…</h2>
+<p>다음 과제까지 어떤걸 할까 고민하다가 자바의 스트림, 상속이나 인터페이스같은 걸 공부해보기로했다.         <br />
+클린하게 코드를 작성하려면 좀더 자바의 기능들을 사용해야 복잡한 코드를 자바의 기능하나로 대체 할 수 있다는 생각에,       <br />
+다음과제에서 사용할 수 있는 여러가지 기능들을 미리 익히기로 했다.</p>
+
+<p>먼저 공부 할 것은 상속과 인터페이스이다.</p>
+
+<p>공부 했던 내용들이지만 또 막상 실제 구현에서 사용하려니 확 와닿지가 않아서, 다시 복습해보려한다.</p>
+
+<h2 id="상속">상속</h2>
+<h3 id="상속이란">상속이란?</h3>
+<p>상속은 객체지향 프로그래밍의 중요한 특징으로, 우리가 아는 상속의 의미와 동일하게 자식에게 물려주는걸 말한다.     <br />
+예를들어 B클래스가 A클래스를 상속받으면, A클래스의 멤버변수와 메서드를 사용할 수 있게 되는 것이다.</p>
+
+<p>객체 지향프로그램의 장점은 유지보수가 간편한 것인데, 이것의 기반이 되는 기술이 바로 상속이다.</p>
+
+<h3 id="이전에-공부했던-내용">이전에 공부했던 내용</h3>
+<blockquote>
+  <p><a href="https://learnote-dev.com/java/java-상속/">전에 작성했던 상속에 관한 내용</a></p>
+</blockquote>
+
+<p>상속이 어떤 기능인지는 공부했지만, 정확히 어떤 상황에서 상속을 통해 클린코드를 작성할 수 있는지 생각해보지 않았다.</p>
+
+<p>이런 상속이라는 기능을 어떻게 사용하면 코드를 줄일 수 있는지에 대한 예제가 넥스트 스텝 클린코드에 있어서 한번 따라해보았다.</p>
+
+<p>커피와 차라는 두개의 객체를 각각 Coffee, Tea로 구현해보자.</p>
+<h3 id="상속-예제">상속 예제</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Coffee</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">prepareRecipe</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">boilWater</span><span class="o">();</span>
+        <span class="n">brewCoffeeGrinds</span><span class="o">();</span>
+        <span class="n">pourInCup</span><span class="o">();</span>
+        <span class="n">addSugarAndMilk</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">boilWater</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"물을 끓인다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">brewCoffeeGrinds</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"필터를 활용해 커피를 내린다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">pourInCup</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"컵에 붓는다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addSugarAndMilk</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"설탕과 우유를 추가한다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Tea</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">prepareRecipe</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">boilWater</span><span class="o">();</span>
+        <span class="n">steepTeaBag</span><span class="o">();</span>
+        <span class="n">pourInCup</span><span class="o">();</span>
+        <span class="n">addLemon</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">boilWater</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"물을 끓인다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">steepTeaBag</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"티백을 담근다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">pourInCup</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"컵에 붓는다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addLemon</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"레몬을 추가한다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이 클래스들은 prepareRecipe() 메서드를 사용하면 각각의 레시피대로 음료를 만들기 시작한다.</p>
+
+<p>지금 코드를 보면 중복된 메서드가 두개 있는데, boilWater()와 PourInCup() 두 메서드는 이름과 기능이 모두 동일하다.</p>
+
+<p>바로 이런경우에 상속을 사용해서 중복을 제거해 줄 수 있다.       <br />
+두 음료 모두 카페인을 가진 음료이므로, CaffeineBeverage라는 클래스를 만들어, 두 클래스에 상속해주도록 해보자.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CaffeineBeverage</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">boilWater</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"물을 끓인다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">pourInCup</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"컵에 붓는다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>두 메서드를 묶어 CaffeieBeverage라는 클래스로 만들어 주었으니, 두 클래스의 중복된 메서드를 지우고        <br />
+새로만든 클래스를 상속해주자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Coffee</span> <span class="kd">extends</span> <span class="nc">CaffeineBeverage</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">prepareRecipe</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">boilWater</span><span class="o">();</span>
+        <span class="n">brewCoffeeGrinds</span><span class="o">();</span>
+        <span class="n">pourInCup</span><span class="o">();</span>
+        <span class="n">addSugarAndMilk</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">brewCoffeeGrinds</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"필터를 활용해 커피를 내린다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addSugarAndMilk</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"설탕과 우유를 추가한다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Tea</span> <span class="kd">extends</span> <span class="nc">CaffeineBeverage</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">prepareRecipe</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">boilWater</span><span class="o">();</span>
+        <span class="n">steepTeaBag</span><span class="o">();</span>
+        <span class="n">pourInCup</span><span class="o">();</span>
+        <span class="n">addLemon</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">steepTeaBag</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"티백을 담근다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addLemon</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"레몬을 추가한다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>두 클래스 모두 extends를 사용하여 새로만든 클래스를 상속해주었다.       <br />
+이제 CaffeineBeverage라는 큰 범주안에 Coffee와 Tea가 존재하게 된다.       <br />
+이 두클래스는 따로 작성을 하지 않아도 상위클래스의 멤버변수와 메서드를 사용할 수 있다.</p>
+
+<p>그럼 이제 또 중복되는 부분을 제거해주어야 하는데, prepareRecipe()가 두 클래스모두 비슷한 기능을 갖고있지만      <br />
+두 메서드가 서로 이름이 달라 prepareRecipe()를 CaffeineBeverage로 옮겨 줄 수는 없다.</p>
+
+<p>이럴때 필요한게 바로 추상화인데, 두기능이 비슷한 역할을 한다면 기능을 조금 더 추상화 해서 같은 이름의 메서드로 관리해주면,       <br />
+상속을 통해 중복을 더 제거 할 수 있다.</p>
+
+<p>두 메서드는 각각 물을 끓인 후, brewCoffeeGrind()와 steepTeaBag()의 과정을 거치는데, 두 행위 모두 재료가 다를 뿐 물에 무언가를 우려낸다는 기능은 같다.         <br />
+따라서 이 메서드의 이름을 brew()로 통일 해줄 수 있을 것이다.</p>
+
+<p>또, 마지막 부분에 있는 addSugarAndMink()와 addLemon() 메서드도 위와 동일하게 재료만 다를 뿐 추가한다는 기능은 같으므로,       <br />
+이 메서드는 addCondiments()로 통일 해 줄 수 있다.</p>
+
+<p>이렇게 하면 이제 prepareRecipe() 메서드가 두 클래스 모두 완전히 동일해졌으므로, 이 메서드를 CaffeineBeverage에 상속해 줄 수 있게 되었다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">CaffeineBeverage</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">prepareRecipe</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">boilWater</span><span class="o">();</span>
+        <span class="n">brew</span><span class="o">();</span>
+        <span class="n">pourInCup</span><span class="o">();</span>
+        <span class="n">addCondiments</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">boilWater</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"물을 끓인다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">pourInCup</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"컵에 붓는다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>하지만 이렇게 코드를 작성하면 오류가 발생한다. prepareRecipe() 안에 있는 brew()와 addCondiments()메서드를 이 클래스는 갖고있지 않기 떄문에        <br />
+두 메서드가 오류를 일으킨다. 하지만 이 두 메서드는 이름이 같을 뿐 메서드의 기능은 다르기 떄문에 이 두 메서드를 추가 해줄 수도 없다.</p>
+
+<p>이럴 때 사용하는 것이 바로 <strong>추상 클래스</strong> 이다.</p>
+
+<p>CaffeineBeverage를 추상클래스로 선언해주게 되면, 몸통이 없는 메서드인 <strong>추상 메서드</strong> 를 만들어 줄 수 있다.</p>
+
+<p>아래의 예시를 보자.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">CaffeineBeverage</span> <span class="o">{</span>
+    <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">brew</span><span class="o">();</span>
+    
+    <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">addCondiments</span><span class="o">();</span>
+    
+    <span class="kt">void</span> <span class="nf">prepareRecipe</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">boilWater</span><span class="o">();</span>
+        <span class="n">brew</span><span class="o">();</span>
+        <span class="n">pourInCup</span><span class="o">();</span>
+        <span class="n">addCondiments</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">boilWater</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"물을 끓인다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">pourInCup</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"컵에 붓는다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>abstract를 클래스 선언부에 선언 해준뒤, abstract로 메서드를 선언해주면, 위와같이 이름만 있는 함수를 사용할 수 있다.</p>
+
+<p>이렇게 abstract 메서드를 선언해주면, 상속을 받는 클래스는 무조건 abstract 메서드와 동일한 이름의 메서드를 구현해주어야 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Coffee</span> <span class="kd">extends</span> <span class="nc">CaffeineBeverage</span><span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">brew</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"필터를 활용해 커피를 내린다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addCondiments</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"설탕과 우유를 추가한다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Tea</span> <span class="kd">extends</span> <span class="nc">CaffeineBeverage</span><span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">brew</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"티백을 담근다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addCondiments</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"레몬을 추가한다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이렇게 추상화 클래스를 사용하면, 중복을 최대한 제거 할 수 있다.</p>
+
+<h2 id="인터페이스">인터페이스</h2>
+<h3 id="인터페이스란">인터페이스란??</h3>
+
+<p>###이전에 공부 했던 내용</p>
+
+<blockquote>
+  <p><a href="https://learnote-dev.com/java/인터페이스/">전에 작성했던 인터페이스에 관한 내용</a></p>
+</blockquote>
+
+<p>하나의 시스템을 구성하는 2개의 구성 요소 (하드웨어, 소프트웨어) 또는 2개의 시스템이 상호 작용할 수 있도록      <br />
+접속되는 경계 (Boundary), 이 경계에서 상호 접속하기 위한 하드웨어, 소프트웨어, 조건, 규약 등을 포괄적으로 가리키는말이다.</p>
+
+<p>말이 너무 어렵다…</p>
+
+<p>예제를 통해 알아보자.</p>
+
+<h3 id="인터페이스를-이해하기-위한-예제">인터페이스를 이해하기 위한 예제</h3>
+<p>만약 우리가 MSSQL DB로 서비스를 시작했는데, 갑자기 사용자가 너무 늘어 비용을 감당할 수 없게 되었다고 가정해보자.       <br />
+그래서 우리가 사용하는 DB를 무료 데이터베이스인 MySQL로 바꾸고 싶다.</p>
+
+<p>이러한 경우, MSSQL에서만 작동하게 코드를 짜놨다면, MySQL로 DB를 변경하는데 많은 시간과 비용이 소모될 것이다.      <br />
+또한 갑자기 많은 소스 코드가 변경 되면 서비스도 불안정해 질 수 밖에 없을 것이다.</p>
+
+<p>따라서 이러한 문제를 사전에 방지 하도록 공통 부분을 추상화 해서 표준으로 만들어 놓은것을 <strong>“인터페이스”</strong> 라고 한다.</p>
+
+<p>위의 경우는 DB연결이나 SQL쿼리 생성, 쿼리에 인자 전달과 같은 공통 기능들을 인터페이스로 만들어놓으면, 사용자가 이 인터페이스만 지켜준다면<br />
+추후에 DB가 변경되더라도 서로 호환이 되므로 소스 코드를 수정하지 않아도 된다.</p>
+
+<p>위의 예시에는 다음과 같은 인터페이스들이 존재 할 것이다.</p>
+
+<p>한마디로 어떠한 기능은 반드시 이런 모양의 클래스로 구현해야 한다고 강제해주는 가이드라인이자 설명서 라고 할 수 있다.</p>
+
+<p>아래의 소스코드를 보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Calc</span> <span class="o">{</span>
+    <span class="kt">double</span> <span class="no">PI</span> <span class="o">=</span> <span class="mf">3.14</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="no">ERROR</span> <span class="o">=</span> <span class="o">-</span><span class="mi">99999999</span><span class="o">;</span>
+    
+    <span class="kt">int</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">num1</span><span class="o">,</span><span class="kt">int</span> <span class="n">num2</span><span class="o">);</span>
+    <span class="kt">int</span> <span class="nf">substract</span><span class="o">(</span><span class="kt">int</span> <span class="n">num1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="o">);</span>
+    <span class="kt">int</span> <span class="nf">times</span><span class="o">(</span><span class="kt">int</span> <span class="n">num1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="o">);</span>
+    <span class="kt">int</span> <span class="nf">divide</span><span class="o">(</span><span class="kt">int</span> <span class="n">num1</span><span class="o">,</span><span class="kt">int</span> <span class="n">num2</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위 코드는 계산기 프로그램에 대한 interface이다. interface 예약어를 사용한 것을 볼 수 있는데,         <br />
+이렇게 하면 예약어를 명시하지 않아도 컴파일 과정에서 자동으로 추상메서드로 변환되고, 변수는 상수가 된다.</p>
+
+<p>interface를 따르는 클래스는 implements 예약어를 사용하는데, 아래와 같이 사용한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">completeCalc</span> <span class="kd">implements</span> <span class="nc">Calc</span><span class="o">{</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">num1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">substract</span><span class="o">(</span><span class="kt">int</span> <span class="n">num1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">num1</span> <span class="o">-</span> <span class="n">num2</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">times</span><span class="o">(</span><span class="kt">int</span> <span class="n">num1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">num1</span> <span class="o">*</span> <span class="n">num2</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">divide</span><span class="o">(</span><span class="kt">int</span> <span class="n">num1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">num2</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span>
+            <span class="k">return</span> <span class="n">num1</span> <span class="o">/</span> <span class="n">num2</span><span class="o">;</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="nc">Calc</span><span class="o">.</span><span class="na">ERROR</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showInfo</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Calc 인터페이스 구현 완료"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>implements를 사용해주고, interface에서 명시된 메서드 규칙에 따라서 메서드를 만들어주었다.      <br />
+이렇게 하면 인터페이스 하나를 보고 모두 공통된 입출력을 갖는 메서드로 소스코드를 구성하게 되기 때문에, 호환성이 올라간다.</p>
+
+<p>만약, 메서드를 전부 구현하지 않고 일부만 구현한다면 어떻게 될까?</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Calculator</span> <span class="kd">implements</span> <span class="nc">Calc</span><span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">num1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">substract</span><span class="o">(</span><span class="kt">int</span> <span class="n">num1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">num1</span> <span class="o">-</span> <span class="n">num2</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이 코드는 오류를 출력하는데, 인터페이스를 따랐지만 모든 메서드를 구현하지 않아서이다.</p>
+
+<p>전부 구현하지 않았음으로 추상클래스가 되어 예약어 abstract를 추가해주어야 오류를 출력하지 않는다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Calculator</span> <span class="kd">implements</span> <span class="nc">Calc</span><span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">num1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">substract</span><span class="o">(</span><span class="kt">int</span> <span class="n">num1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">num1</span> <span class="o">-</span> <span class="n">num2</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이러한 클래스는 다른 추상클래스와 마찬가지로 상속해서 사용할 수 있다. <br />
+이 클래스를 상속해서 위에서 구현한 CompleteCal 클래스를 만들어보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CompleteCalc</span> <span class="kd">extends</span> <span class="nc">Calculator</span><span class="o">{</span>
+
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">times</span><span class="o">(</span><span class="kt">int</span> <span class="n">num1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">num1</span> <span class="o">*</span> <span class="n">num2</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">divide</span><span class="o">(</span><span class="kt">int</span> <span class="n">num1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">num2</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span>
+            <span class="k">return</span> <span class="n">num1</span> <span class="o">/</span> <span class="n">num2</span><span class="o">;</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="nc">Calc</span><span class="o">.</span><span class="na">ERROR</span><span class="o">;</span>
+    <span class="o">}</span>   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showInfo</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Calc 인터페이스 구현 완료"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위의 클래스에서 인터페이스의 일부만 구현한 Calculator를 상속하고 나머지 부분을 구현해주면,     <br />
+올바른 인터페이스 규칙을 따른것이므로 오류가 발생하지 않게된다.</p>
+
+<p>만약 뭇시적 형변환을 사용하면 어떻게 될까?? 인터페이스 calc 형으로 CompletCalc를 형변환하여 선언해보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nc">Calc</span> <span class="n">calc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CompleteCalc</span><span class="o">();</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이렇게 되면 CompleteCalc는 Calc에 없는 메소드인 showInfo() 를 사용 할 수 없고 오직 인터페이스에서 선언한 메서드만 사용할 수 있게된다.</p>
+
+<p>이것이 바로 인터페이스의 중요한 역할이다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#java" class="page__taxonomy-item" rel="tag">java</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-11-29T00:00:00+00:00">November 29, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BJava%5D+%E1%84%89%E1%85%A1%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%EA%B3%BC+%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%91%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%89%E1%85%B3%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2FJava-%25EC%2583%2581%25EC%2586%258D%25EA%25B3%25BC-%25EC%259D%25B8%25ED%2584%25B0%25ED%258E%2598%25EC%259D%25B4%25EC%258A%25A4%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2FJava-%25EC%2583%2581%25EC%2586%258D%25EA%25B3%25BC-%25EC%259D%25B8%25ED%2584%25B0%25ED%258E%2598%25EC%259D%25B4%25EC%258A%25A4%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2FJava-%25EC%2583%2581%25EC%2586%258D%25EA%25B3%25BC-%25EC%259D%25B8%25ED%2584%25B0%25ED%258E%2598%25EC%259D%25B4%25EC%258A%25A4%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/java/Java-%EC%9A%B0%ED%85%8C%EC%BD%94-%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4-1%EC%A3%BC%EC%B0%A8-%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC-(2)/" class="pagination--pager" title="[Java] 우테코 프리코스 1주차 - 숫자야구 (2)
+">이전</a>
+    
+    
+      <a href="/java/Java-%EC%9A%B0%ED%85%8C%EC%BD%94-%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4-2%EC%A3%BC%EC%B0%A8-%EC%9E%90%EB%8F%99%EC%B0%A8-%EA%B2%BD%EC%A3%BC-%EA%B2%8C%EC%9E%84/" class="pagination--pager" title="[Java] 우테코 프리코스 2주차 - 자동차 경주 게임
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8-%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4/" rel="permalink">아두이노 라즈베리파이
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-21T00:00:00+00:00">March 21, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.21
+올해 듣는 수업이 대부분 프로젝트 수업이라서 사실 수업보다는 그냥 실험하고, 프로젝트 하나 완료하는것들이 전공수업의 전부가 되었다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EA%B0%80%EB%8A%A5%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" rel="permalink">가능성에 대하여
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-19T00:00:00+00:00">March 19, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.19
+요즘 인생의 방향성에 대해 생각이 좀 많다. 원래는 이번년도에 창업을 해보면서 대략 어떤 느낌인지 맛을 보자는 느낌이었는데, 계획서를 써보고 공부해볼 수록 그렇게 1년만 해볼 수 있는 문제가 아니란걸 깨닫는다. 그런식으로 1년만 하려는 마음가짐으로 뭔가를 이뤄내...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%9D%BC%EB%A6%AC-%EC%BB%A4%ED%94%BC%EB%A8%B8%EC%8B%A0/" rel="permalink">일리 커피머신
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-15T00:00:00+00:00">March 15, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.15
+
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%98%81%EC%96%B4/" rel="permalink">영어…
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-14T00:00:00+00:00">March 14, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.14
+요즘 부쩍 영어에 관심이 많아져서 열심히 해보려고 하는데, 진짜 벽느껴진다… 그냥 고등학교때만 열심히 했어도 이렇게까지 고생 안 했을텐데… 새롭게 뭐 해보려고 하지만 옛날의 업보가 결국 불쑥 불쑥 나타나 앞을 막기 시작한다. 근데 뭐 다른 사람들은 열심히 공부한...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/leeminjae-dev" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/java/Java-%EC%83%81%EC%86%8D%EA%B3%BC-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/java/[Java] 상속과 인터페이스"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://leeminjae-dev-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
+
+
+<!-- 웹 폰트 설정 -->
+<link rel="stylesheet" href="/assets/css/high3.css">

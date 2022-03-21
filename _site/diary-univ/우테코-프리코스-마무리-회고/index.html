@@ -1,0 +1,1006 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>우테코 프리코스 마무리 회고 - Learnote-Dev</title>
+<meta name="description" content="우테코를 마치며 지원동기 작년 이맘때즈음에 나의 전공과 잠시 거리를 두고 휴학을 하기로 결정하고, 벌써 1년의 시간이 흘렀다.            그 시간동안 나의 꿈은 한때는 퀀트였으며, 빅데이터 전문가였고 마지막으로는 개발자의 꿈을 갖게 되었다.  우테코는 개발자가 되기로 결심한 순간부터 내 로드맵에 있는 큰 단계중 하나였는데, 아직 졸업도 하지 못했고, 우테코를 하기에는 실력이 부족하기 때문에 2022년을 졸업과 함께 실력을 키워 우테코 5기를 하는것이 원래의 계획이었다. 하지만 우테코 4기 공고가 올라오고, 나의 계획이 수정되어야 할 필요성을 느꼈다. 내가 우테코 5기에 붙을 수 있다는 확신도 없는데 준비가 안됐다는 이유로 두번의 도전 기회를 한번으로 줄이는 것 보다, 설사 떨어지더라도 도전해보고 그 경험을 발판 삼아 다음에 또 다른 기회를 잡는게 맞다고 생각했다.">
+
+
+  <meta name="author" content="이민재">
+  
+  <meta property="article:author" content="이민재">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Learnote-Dev">
+<meta property="og:title" content="우테코 프리코스 마무리 회고">
+<meta property="og:url" content="http://localhost:4000/diary-univ/%EC%9A%B0%ED%85%8C%EC%BD%94-%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4-%EB%A7%88%EB%AC%B4%EB%A6%AC-%ED%9A%8C%EA%B3%A0/">
+
+
+  <meta property="og:description" content="우테코를 마치며 지원동기 작년 이맘때즈음에 나의 전공과 잠시 거리를 두고 휴학을 하기로 결정하고, 벌써 1년의 시간이 흘렀다.            그 시간동안 나의 꿈은 한때는 퀀트였으며, 빅데이터 전문가였고 마지막으로는 개발자의 꿈을 갖게 되었다.  우테코는 개발자가 되기로 결심한 순간부터 내 로드맵에 있는 큰 단계중 하나였는데, 아직 졸업도 하지 못했고, 우테코를 하기에는 실력이 부족하기 때문에 2022년을 졸업과 함께 실력을 키워 우테코 5기를 하는것이 원래의 계획이었다. 하지만 우테코 4기 공고가 올라오고, 나의 계획이 수정되어야 할 필요성을 느꼈다. 내가 우테코 5기에 붙을 수 있다는 확신도 없는데 준비가 안됐다는 이유로 두번의 도전 기회를 한번으로 줄이는 것 보다, 설사 떨어지더라도 도전해보고 그 경험을 발판 삼아 다음에 또 다른 기회를 잡는게 맞다고 생각했다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-12-11T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/diary-univ/%EC%9A%B0%ED%85%8C%EC%BD%94-%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4-%EB%A7%88%EB%AC%B4%EB%A6%AC-%ED%9A%8C%EA%B3%A0/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이민재",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Learnote-Dev Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Learnote-Dev
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/about/">About me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile.jpg" alt="이민재" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이민재</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>포트폴리오/일상 기록</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Incheon, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="lmj938@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://blog.naver.com/lmj938" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/leeminjae-dev/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:lmj938@naver.com">
+            <meta itemprop="email" content="lmj938@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+        <!--span 태그로 카테고리들을 크게 분류 ex) Life-->
+       <span class="nav__sub-title">Life</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (64)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Tech-->
+       <span class="nav__sub-title">Tech</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java" class="">Java (44)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (61)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/programmers" class="">Programmers(66)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+<!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Knowledge</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/machinelearning" class="">Machine Learning (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+          
+      </li>
+  </ul>
+</nav>
+
+  
+
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="우테코 프리코스 마무리 회고">
+    <meta itemprop="description" content="우테코를 마치며지원동기작년 이맘때즈음에 나의 전공과 잠시 거리를 두고 휴학을 하기로 결정하고, 벌써 1년의 시간이 흘렀다.           그 시간동안 나의 꿈은 한때는 퀀트였으며, 빅데이터 전문가였고 마지막으로는 개발자의 꿈을 갖게 되었다.우테코는 개발자가 되기로 결심한 순간부터 내 로드맵에 있는 큰 단계중 하나였는데, 아직 졸업도 하지 못했고, 우테코를 하기에는 실력이 부족하기 때문에 2022년을 졸업과 함께 실력을 키워 우테코 5기를 하는것이 원래의 계획이었다. 하지만 우테코 4기 공고가 올라오고, 나의 계획이 수정되어야 할 필요성을 느꼈다. 내가 우테코 5기에 붙을 수 있다는 확신도 없는데 준비가 안됐다는 이유로 두번의 도전 기회를 한번으로 줄이는 것 보다, 설사 떨어지더라도 도전해보고 그 경험을 발판 삼아 다음에 또 다른 기회를 잡는게 맞다고 생각했다.">
+    <meta itemprop="datePublished" content="2021-12-11T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">우테코 프리코스 마무리 회고
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-12-11T00:00:00+00:00">December 11, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          7 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this Page</h4></header>
+              <ul class="toc__menu"><li><a href="#우테코를-마치며">우테코를 마치며</a><ul><li><a href="#지원동기">지원동기</a></li><li><a href="#1차-과제---숫자야구-게임">1차 과제 - 숫자야구 게임</a></li><li><a href="#2차-과제---자동차-경주">2차 과제 - 자동차 경주</a></li><li><a href="#3차-과제---자판기">3차 과제 - 자판기</a></li><li><a href="#마무리">마무리…</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="우테코를-마치며">우테코를 마치며</h1>
+<h2 id="지원동기">지원동기</h2>
+<p>작년 이맘때즈음에 나의 전공과 잠시 거리를 두고 휴학을 하기로 결정하고, 벌써 1년의 시간이 흘렀다.           <br />
+그 시간동안 나의 꿈은 한때는 퀀트였으며, 빅데이터 전문가였고 마지막으로는 개발자의 꿈을 갖게 되었다.</p>
+
+<p>우테코는 개발자가 되기로 결심한 순간부터 내 로드맵에 있는 큰 단계중 하나였는데, 아직 졸업도 하지 못했고, 우테코를 하기에는 실력이 부족하기 때문에 2022년을 졸업과 함께 실력을 키워 우테코 5기를 하는것이 원래의 계획이었다. 하지만 우테코 4기 공고가 올라오고, 나의 계획이 수정되어야 할 필요성을 느꼈다. 내가 우테코 5기에 붙을 수 있다는 확신도 없는데 준비가 안됐다는 이유로 두번의 도전 기회를 한번으로 줄이는 것 보다, 설사 떨어지더라도 도전해보고 그 경험을 발판 삼아 다음에 또 다른 기회를 잡는게 맞다고 생각했다.</p>
+
+<p>우테코 4기 지원은 나에겐 나름대로 큰 결심이자 도전이었는데, 이유는 다음과 같았다.</p>
+
+<ol>
+  <li>아직 졸업을 하지 않은 상태라서, 만약 2년 연속 휴학한다면 전공지식을 많이 잊어버릴 것 같았다.</li>
+  <li>2년 휴학을 하게되면, 4학년을 정말 아는사람 한명도 없이 학교를 다녀야 한다는게 솔직히… 무서웠다.</li>
+  <li>난 올해 낸 휴학계로도 이미 남들보다 뒤쳐진다는 생각에 힘들 때가 많았는데, 이걸 1년 더 늦추는게 두려웠다.</li>
+</ol>
+
+<p>이러한 이유들 때문에 지원을 몇일정도 고민했었는데, 너무 복잡하게 생각하던 문제들을 단순하게 생각하기로 했다.      <br />
+그냥 아예 메모장을 켜서 내가 가진 문제들을 쭉 적고 이에대해서 단순하게 해결책을 한번 써보았다.</p>
+
+<ol>
+  <li>전공지식을 잃어버려도 상관없다. 어차피 이미 전공과 크게 다른 길을 가게되었기 때문에, 졸업만 하면된다.</li>
+  <li>솔직히 남은 학점 계산해보면 얼마 되지도 않아서, 학교에 갈 날이 몇일 되지도 않는다.</li>
+  <li>어차피 졸업을 먼저 하고 1년 공부를 하나, 1년 공부를 하고 졸업을 하나 조삼모사다.</li>
+</ol>
+
+<p>직관적으로 눈에 보이도록 내가 가진 문제들을 적어놓고 하나하나 생각하니 전혀 큰 문제들이 아니었다. 내가 몇일을 고민한게 우스울 정도로 막상 글로 써놓으니 나의 문제들은 모두 아주 사소한 것들이었다. 그래서 그날 바로 자기소개서를 작성하고 코딩테스트를 준비하기 시작했다.</p>
+
+<p>이처럼 우테코 지원은 시작도 전부터 큰 깨달음을 얻게 된 이벤트였다.</p>
+
+<h2 id="1차-과제---숫자야구-게임">1차 과제 - 숫자야구 게임</h2>
+<p>사실 과제 구현 난이도로 보면 3주차 과제가 어려웠지만, 나에게 있어서 가장 어려웠던 과제는 1차과제였다.        <br />
+난 자바로는 아주 간단한 프로그램을 만들어본 적도 없는데다가 다뤄본 언어는 C언어, 파이썬과 스위프트로 모두 절차지향에 가까운 언어였다.      <br />
+물론 객체지향이 어떤 개념인지는 알고 있었고, 자바의 아주 기초적인건 공부했었지만 이론으로는 알아도 절차지향으로만 코딩하던 나의 사고를 객체지향으로 바꾸는 과정은 너무나 고통스러웠다.      <br />
+게다가 내가 가장 자신있게 쓰고 연습했던 파이썬과 자바는 너무나… 대척점에 있었다. 파이썬은 극동적타입을 사용한다면, 자바는 극정적타입으로 모든걸 하나하나 선언해줘야 동작했다.      <br />
+파이썬을 사용하면서도 왠만하면 정적타입으로 선언하려고 노력했던 나지만, 그래도 파이썬은 파이썬인지라 반환타입을 자꾸 빼먹는다거나 하는일이 빈번했다.       <br />
+이런 상태에서 클린코드라는, 한번도 생각도 해본적 없는 개념까지 적용하며 여러 제약사항을 지키려니 너무나 힘들고 괴로운 시간이었다.</p>
+
+<p>지금까지 내가 작성해온 코드는 모두 나 혼자만 만들고 보수하는 코드였고, 심지어는 앱을 출시하겠다는 큰 목표를 갖고 임했던 앱개발에서도 나 혼자서 모든 앱을 만들었기 때문에, 항상 나는 코드를 기능에 우선해서 작성했다. 기능만 돌아간다면 만사 오케이, 가끔은 어제 했던 작업인데 다음날 내 코드를 분석해야하는 날도 있었다. 물론, 어느새부터인가 앱의 기능이 늘어나고, 자주 발생하는 버그에 유지보수를 진행하게 되면서 어느 순간부터, 침몰하는 배의 판자를 고치기 위해 다른 판자를 떼서 막고, 또 거기가 구멍이 나면 또 다른 판자를 떼서 막는, 돌이킬 수없는 수렁에 빠진 듯한 기분이 들었다. 하지만, 이미 다시 처음으로 돌아가 클린코드로 다시 작성할 수 없었기 때문에 혼자 시간을 갈아 넣으며 내가 싼 똥(?)을 치우느라 엄청난 고생을 했었다.</p>
+
+<p>이런 경험을 해봤었기 때문에 프리코스의 과정에서 배우는 내용들이 너무나 와닿았고, 클린코드에 대해 고민하는 시간들이 너무나 즐거웠다.</p>
+
+<p>또, 객체지향 코드를 작성하는건 절차지향에 비해서 너무나 합리적이고 즐거운 일이었다. 절차지향이 그냥 나의 의식의 흐름대로 하나씩 프로그램을 작성하는 거라면, 객체지향은 중복 코드도 훨씬 <br />
+줄일 수 있을 뿐더러 체계적으로 내가 클래스를 만들고 이를 통해서 인스턴스를 만들어 그 인스턴스들을 모아 일을 한다는 개념이 너무 신박하고, 객체지향을 처음 생각한 사람은 도대체 얼마나 머리가 좋은걸까… 하는 생각이 들었다.</p>
+
+<p>그래서 1주차는 너무나 힘들고 괴로웠지만 정말 오랫만에 내가 왜 개발자를 택하게 됐는지, 내가 왜 코딩하는 것을 너무나 즐거워하는지 다시금 떠올릴 수 있는 한주였다.</p>
+
+<p>프리코스 중에서 나는 1주차에 가장 많은 배움을 얻고 성장했다는 생각이 든다.</p>
+
+<p>1주차 숫자야구 - 과정과 후기</p>
+<blockquote>
+  <p><a href="https://learnote-dev.com/java/Java-우테코-프리코스-1주차-숫자야구-(1)/">https://learnote-dev.com/java/Java-우테코-프리코스-1주차-숫자야구-(1)/</a><br />
+<a href="https://learnote-dev.com/java/Java-우테코-프리코스-1주차-숫자야구-(2)/">https://learnote-dev.com/java/Java-우테코-프리코스-1주차-숫자야구-(2)/</a></p>
+</blockquote>
+
+<h2 id="2차-과제---자동차-경주">2차 과제 - 자동차 경주</h2>
+<p>2차 과제는 뭔가 너무나 자연스럽게 클린한 코드를 작성하고, 자연스럽게 프로그래밍을 하는 내 모습을 보면서 너무나 뿌듯한 시간이었다.</p>
+
+<p>1주차때 고생한 만큼, 실력이 부쩍 늘어서 2주차는 정말 금방 과제를 마무리 했다. 1주차에만 해도 머리를 싸매고 코드를 한시간에 한줄 씩 작성하던 내가 맞나 싶을정도로 내 성장한 실력을 시험해보는 즐거운 시간이었다. 2주차에는 큰 어려움 없이 과제를 마무리 했고, 시간이 남아서 우테코 다른 기수 3주차 문제였던 블랙잭 과제를 한번 구현해보며 2주차를 보냈다.</p>
+
+<p>근데 이때 연습삼아 구현한 블랙잭 과제가 너무 어려워서 당황했는데, 이때까지만 해도 와 이떄 기수는 우테코 진짜 과제 어렵게 냈구나… 생각했다.</p>
+
+<p>하지만 원래 우테코는 이런 레벨 디자인을 갖고 있었다는 사실을, 3주차 과제를 받고 깨닫게 되었다.</p>
+
+<p>2주차 자동차 경주 - 과정과 후기</p>
+<blockquote>
+  <p><a href="https://learnote-dev.com/java/Java-우테코-프리코스-2주차-자동차-경주-게임/">https://learnote-dev.com/java/Java-우테코-프리코스-2주차-자동차-경주-게임/</a></p>
+</blockquote>
+
+<h2 id="3차-과제---자판기">3차 과제 - 자판기</h2>
+<p>디아블로2는 아주 잘만들어진 레벨디자인으로 유명하다.</p>
+
+<p>플레이어는 레벨이 오르고, 스토리가 진행됨에 따라서 점점 능력치가 높은 몹들을 상대하게 되는데, 이 몹들의 능력치가 아주 절묘하게 조절되어 있다.      <br />
+능력치가 높고 난이도가 있는 맵을 몇개 클리어 하면, 반드시 능력치가 조금 떨어지는 몹이 있는 맵이 등장해서 플레이어로 하여금 “와 나 이만큼 쎄졌구나… 몹들이 그냥 녹네;;”       <br />
+하는 생각이 들게 해서, 플레이어가 성장에 대한 체감을 직관적으로 할 수 있게 하여 더 게임에 몰입하게 만든다.</p>
+
+<p>나는 프리코스를 진행하며, 프리코스가 디아블로2식 레벨 디자인을 갖고 있다고 생각했다.         <br />
+어렵고 힘든 난이도인 1주차를 지나, 내가 얼마나 성장 했는지 느낄 수 있는 2주차 과제, 그리고 다시 난이도가 있는 3주차 과제…</p>
+
+<p>2주차에서 자신만만해하던 내 모습이 창피할 정도로 3주차 과제는 어려웠다…          <br />
+검사해줄 유효성도 배로 늘었고, 분리해야할 클래스도 훨씬 늘었다. 나름 클린코드에 익숙해졌다고 생각했는데, 프로그램이 조금 더 커지고 로직이 복잡해지니까 내 밑천이 드러나 버렸다.      <br />
+하지만 2주차에는 오히려 괴롭지가 않고 너무 빨리 끝나서 뿌듯하면서도 아쉬운 느낌이 들었었는데, 3주차의 이 괴로움이 너무나 즐겁고 반가웠다.</p>
+
+<p>그래서 3주차 과제에는 오히려 더 큰 제약을 걸어 TDD까지 적용해보기로 했다. 반드시 테스트 코드 작성 -&gt; 프로덕션 코드 기능 구현 -&gt; 리팩토링을 거치기로 규약을 정했다.</p>
+
+<p>3주차 과제를 하면서 가장 어려웠던 부분은 첫부분인 코인을 랜덤으로 생성하는 부분과, 마지막 부분인 잔돈을 출력하는 부분이었다. 지금까지의 과제에서는 따로 로직이라고 부를 만한 메서드가 없었는데, 이 부분들은 로직이 필요한 부분이다보니 해당 메서드를 어떤방법으로 내용을 처리해서 어떤 타입으로 반환하고 출력할지 고민하는 부분이 너무 어려웠다. 물론 로직 자체가 어려운것도 아니고, 잔돈을 반환하는 부분은 코딩테스트를 준비하며 수도없이 풀어본 그리디 알고리즘이었지만, 각 객체에 답을 보내서 값을 변경하도록 구현하다보니 머리가 복잡해지고 자꾸 꼬여서 종이에 쓰고 지우고를 반복해가며 코드를 작성 했다.</p>
+
+<p>반대로 3주차과제를 하며 뿌듯했던 부분은 상속과 stream, enum을 3주차에서 적용했다는 점이었다.</p>
+
+<p>stream과 enum을 알고는 있었지만 실전에서 사용하는 방법이 어색해서 2주차에서는 사용하지 못했는데, 2주차가 끝나고 stream과 enum에 관련된 예제를 풀면서 실력을 좀 키웠더니 놀랍게도 2주차에서는 도통 이거를 어디다 쓰라는거야? 싶었던 stream과 enum을 어떻게 사용하면 코드가 더 간소화되고 읽기 쉬워지는지가 보여서, 전보다도 더 깔끔하고 읽기 쉬워진 코드를 보면 이루 말할 수 없는 뿌듯함이 밀려왔다. 또, 상속을 통해서 기존에 작성했던 코드를 재사용할때는 알수없는 쾌감마저 느껴졌다.</p>
+
+<p>그리하여 마침내 ApplicationTest 두개를 모두 통과 했을때는 바로 책상에서 일어나 침대에 누워 그 행복감을 만끽했다.</p>
+
+<p>비록 중간에 여러가지 버그도 발생하고, 테스트코드도 결국 모두 완벽하게 작성하지 못했지만, 너무나 막막하고 어려웠던 3차과제를 나름 만족스러운 코드로 요구 기능을 완벽하게 구현해서 너무나 기뻤다.</p>
+
+<p>3주차 자판기 - 과정과 후기</p>
+<blockquote>
+  <p><a href="https://learnote-dev.com/java/Java-우테코-프리코스-3주차-자판기/">https://learnote-dev.com/java/Java-우테코-프리코스-3주차-자판기/</a></p>
+</blockquote>
+
+<h2 id="마무리">마무리…</h2>
+<p>프리코스를 진행하기 전에는 그저 내 실력을 평가하고, 시험에 가까운 과제제출이라고 생각했다. 여타 시험들이 그렇듯, 당연히 나 혼자서 이뤄놓은 성장에 대한 결과를 증명하는 시간이고, 같이 참여하는 사람들을 경쟁자로 생각했다. 하지만 프리코스는 이름에 걸맞게 시험이 아닌 말그대로 “pre-course”였다. 우테코는 나의 실력을 테스트 하는 자리가 아니라, 우테코가 어떤방식으로 가르치는지 미리 경험해보고 내가 이 방식을 즐기고 익숙해질 준비가 되어있는지를 확인하는 느낌에 가까웠다.</p>
+
+<p>참가자 분들도 자신의 PR에 자기가 작성한 코드에 대한 과정을 남긴 글들을 공유하거나, 자기에게 큰 도움이 됐던 글을 공유하기도 하며 서로를 경쟁자가 아닌 같은 교육과정을 듣는 동료로 생각하는게 보이는게 신기했다. 코드를 구현하다 막히는 부분이 있거나 이해가 안가는 어려운 부분이 있으면 먼저 PR을 보낸 다른 분들의 코드를 읽어보기도 했는데, 각자 클린 코드라는 큰 목표는 같지만, 각자가 생각하는 디테일한 방향은 달라서 역시 코딩은 정답이 없는 창작예술이라는 생각이 들었다. 우테코에 간다면 이렇게 서로 다른 코드를 놓고 더 나은 코드는 뭔지 토론할 수 있겠다는 생각에 더, 더 우테코에 가고 싶어졌다.</p>
+
+<p>또, 기술적인 부분의 성장뿐만 아니라 배움의 방법에 대해서도 많이 깨우쳤다. 프리코스 진행 전, 우테코 캡틴인 Pobi의 강의를 거의 모두 봤는데, “의식적인 연습”의 중요성에 대해 설명한 부분이 너무 인상깊었다. 양치질을 맨날 한다고 해서 양치질 실력이 늘지 않듯이, 자신이 일정 횟수 이상 반복한 행위에 대해서는 의식 없이 그 일을 할 수 있게 되기 때문에 의식적으로 노력하지 않으면 실력이 늘지 않는다는 이야기였다. 자신이 익숙해진 자신의 세이프티존을 의식적으로 벗어나서 더 괴롭고 어려운 무언가를 해내야만, 내 실력이 늘고 내가 하지 못했던 일을 할 수 있게 된다는것이다. 특히나 코딩을 하다보면 항상 습관처럼 아무 생각없이 코드를 작성할 때가 많은데, 최근에 앱개발을 할 때도 머리로는 내 코드가 잘못된걸 알면서도 이미 손이 익숙해진대로 코드를 짜곤했다. 하지만 우테코에서는 확실하게 의식적인 연습이 가능한 제약사항을 정해 줌으로써, 제약사항을 준수하려면 어쩔 수 없이 의식적인 연습이 자동으로 되는 구조를 만들어놔서, 항상 의식적으로 내 코드를 점검하고 확인 할 수 있었다. 내가 앞으로 어떤 일에 대해 “의식적인 연습”을 하고 싶다면 나만의 제약사항을 먼저 정한 뒤 그것이 익숙해질때까지 연습을 반복하고, 익숙해진다면 제약사항을 추가하는 식으로 자연스럽게 스스로 “의식적인 연습”을 할 수 있다는 걸 깨달았다.</p>
+
+<p>프리코스는 최종 결과와 상관없이 너무나 많은 것을 느끼고 배우는 시간이었다. 혹시나 우테코 지원을 고민하며 이 글을 읽는 사람이 있다면, 나는 자신있게 꼭! 프리코스라도 한번 참여해보는 것을 추천하고 싶다. 나에게는 프리코스 만으로도 그냥 학교에서나 학원에서는 배울 수 없는 너무 많은 값진 것들을 배울 수 있는 시간이었다.</p>
+
+<p>이제, 다음주면 최종 코딩테스트가 진행된다. 3주차 수준으로 나온다면 5시간안에 구현할 수 있을지 걱정도 되고 두렵지만, 남은시간을 더 열심히 해낸다면 해낼 수 있을거라고 믿어 의심치 않는다. 프리코스를 진행하고나니, 정말 너무나 우테코에 가고싶은 마음이 간절해졌다.</p>
+
+<p>정말 최선을 다해서 코딩테스트를 준비해야겠다. 그리고 꼭 내년에는 우테코와 함께하고 싶다! 제발…</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#diary-univ" class="page__taxonomy-item" rel="tag">diary-univ</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-12-11T00:00:00+00:00">December 11, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EC%9A%B0%ED%85%8C%EC%BD%94+%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4+%EB%A7%88%EB%AC%B4%EB%A6%AC+%ED%9A%8C%EA%B3%A0%20http%3A%2F%2Flocalhost%3A4000%2Fdiary-univ%2F%25EC%259A%25B0%25ED%2585%258C%25EC%25BD%2594-%25ED%2594%2584%25EB%25A6%25AC%25EC%25BD%2594%25EC%258A%25A4-%25EB%25A7%2588%25EB%25AC%25B4%25EB%25A6%25AC-%25ED%259A%258C%25EA%25B3%25A0%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdiary-univ%2F%25EC%259A%25B0%25ED%2585%258C%25EC%25BD%2594-%25ED%2594%2584%25EB%25A6%25AC%25EC%25BD%2594%25EC%258A%25A4-%25EB%25A7%2588%25EB%25AC%25B4%25EB%25A6%25AC-%25ED%259A%258C%25EA%25B3%25A0%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdiary-univ%2F%25EC%259A%25B0%25ED%2585%258C%25EC%25BD%2594-%25ED%2594%2584%25EB%25A6%25AC%25EC%25BD%2594%25EC%258A%25A4-%25EB%25A7%2588%25EB%25AC%25B4%25EB%25A6%25AC-%25ED%259A%258C%25EA%25B3%25A0%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/java/Java-%EC%9A%B0%ED%85%8C%EC%BD%94-%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4-3%EC%A3%BC%EC%B0%A8-%EC%9E%90%ED%8C%90%EA%B8%B0/" class="pagination--pager" title="[Java] 우테코 프리코스 3주차 - 자판기
+">이전</a>
+    
+    
+      <a href="/diary-univ/2021%EB%85%84-%EA%B2%B0%EC%82%B0-+-%EC%9A%B0%ED%85%8C%EC%BD%94-%ED%83%88%EB%9D%BD/" class="pagination--pager" title="2021년 결산 + 우테코 탈락…
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8-%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4/" rel="permalink">아두이노 라즈베리파이
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-21T00:00:00+00:00">March 21, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.21
+올해 듣는 수업이 대부분 프로젝트 수업이라서 사실 수업보다는 그냥 실험하고, 프로젝트 하나 완료하는것들이 전공수업의 전부가 되었다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EA%B0%80%EB%8A%A5%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" rel="permalink">가능성에 대하여
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-19T00:00:00+00:00">March 19, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.19
+요즘 인생의 방향성에 대해 생각이 좀 많다. 원래는 이번년도에 창업을 해보면서 대략 어떤 느낌인지 맛을 보자는 느낌이었는데, 계획서를 써보고 공부해볼 수록 그렇게 1년만 해볼 수 있는 문제가 아니란걸 깨닫는다. 그런식으로 1년만 하려는 마음가짐으로 뭔가를 이뤄내...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%9D%BC%EB%A6%AC-%EC%BB%A4%ED%94%BC%EB%A8%B8%EC%8B%A0/" rel="permalink">일리 커피머신
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-15T00:00:00+00:00">March 15, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.15
+
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%98%81%EC%96%B4/" rel="permalink">영어…
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-14T00:00:00+00:00">March 14, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.14
+요즘 부쩍 영어에 관심이 많아져서 열심히 해보려고 하는데, 진짜 벽느껴진다… 그냥 고등학교때만 열심히 했어도 이렇게까지 고생 안 했을텐데… 새롭게 뭐 해보려고 하지만 옛날의 업보가 결국 불쑥 불쑥 나타나 앞을 막기 시작한다. 근데 뭐 다른 사람들은 열심히 공부한...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/leeminjae-dev" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/diary-univ/%EC%9A%B0%ED%85%8C%EC%BD%94-%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4-%EB%A7%88%EB%AC%B4%EB%A6%AC-%ED%9A%8C%EA%B3%A0/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/diary-univ/우테코 프리코스 마무리 회고"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://leeminjae-dev-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
+
+
+<!-- 웹 폰트 설정 -->
+<link rel="stylesheet" href="/assets/css/high3.css">

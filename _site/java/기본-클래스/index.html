@@ -282,11 +282,34 @@
        <span class="nav__sub-title">Life</span>
             <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
             <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
-                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (42)</a></li>
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (64)</a></li>
+                    
+                
                     
                 
                     
@@ -318,14 +341,14 @@
                     
                 
                     
-                        <li><a href="/categories/java" class="">Java (19)</a></li>
+                        <li><a href="/categories/java" class="">Java (44)</a></li>
                     
                 
-
-        <span class="nav__sub-title">Algorithm</span>
-            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
-            <ul>
-                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
@@ -335,7 +358,56 @@
                     
                 
                     
-                        <li><a href="/categories/baekjoon" class="">Baekjoon (37)</a></li>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (61)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -354,7 +426,11 @@
                     
                 
                     
-                        <li><a href="/categories/programmers" class="">Programmers(63)</a></li>
+                        <li><a href="/categories/programmers" class="">Programmers(66)</a></li>
+                    
+                
+                    
+                
                     
                 
                     
@@ -365,6 +441,8 @@
             <ul>
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
                 
                     
                 
@@ -380,8 +458,12 @@
                 
                     
                 
+                    
+                
 
 
+                
+                    
                 
                     
                 
@@ -389,6 +471,8 @@
                 
                     
                         <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
                     
                 
                     
@@ -523,7 +607,7 @@
 <p>toString의 원형은 인스턴스 클래스의 이름과 주소 값을 보여준다.   <br />
 예제로 책 번호와 제목을 담고 있는 Book 클래스의 인스턴스를 생성하여 참조변수를 출력해보자.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -546,34 +630,34 @@
 21
 22
 23
-</pre></td><td class="rouge-code"><pre>package objectclass;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">objectclass</span><span class="o">;</span>
 
-public class ToStringEx {
-    public static void main(String[] args){
-        Book book1 = new Book(200,"개미");
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ToStringEx</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">Book</span> <span class="n">book1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span><span class="s">"개미"</span><span class="o">);</span>
 
-        System.out.println(book1);
-        System.out.println(book1.toString());
-    }
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">book1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">book1</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="o">}</span>
 
-}
-class Book{
-    int bookNumber;
-    String bookTile;
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Book</span><span class="o">{</span>
+    <span class="kt">int</span> <span class="n">bookNumber</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">bookTile</span><span class="o">;</span>
 
-    Book(int bookNumber, String bookTile){
-        this.bookNumber = bookNumber;
-        this.bookTile = bookTile;
-    }
-}
+    <span class="nc">Book</span><span class="o">(</span><span class="kt">int</span> <span class="n">bookNumber</span><span class="o">,</span> <span class="nc">String</span> <span class="n">bookTile</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">bookNumber</span> <span class="o">=</span> <span class="n">bookNumber</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">bookTile</span> <span class="o">=</span> <span class="n">bookTile</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-&gt;&gt;&gt; objectclass.Book@3fb6a447
-&gt;&gt;&gt; objectclass.Book@3fb6a447
+<span class="o">&gt;&gt;&gt;</span> <span class="n">objectclass</span><span class="o">.</span><span class="na">Book</span><span class="err">@</span><span class="mi">3</span><span class="n">fb6a447</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">objectclass</span><span class="o">.</span><span class="na">Book</span><span class="err">@</span><span class="mi">3</span><span class="n">fb6a447</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>System.out.println()에 참조 변수를 넣으면 인스턴스의 정보가 호출되는데, 이는 자동으로 toString()을 호출하는 것이다. <br />
 toString() 메서드의 원형은 다음과 같다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>getClass().getName()+'@'+Integer.toHexString(hashCode())
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">getClass</span><span class="o">().</span><span class="na">getName</span><span class="o">()+</span><span class="sc">'@'</span><span class="o">+</span><span class="nc">Integer</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="n">hashCode</span><span class="o">())</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>위의 정의를 살펴보면,  ‘클래스 이름@해시코드 값’을 출력하라는 뜻인걸 알 수 있다.    <br />
 따라서 위처럼 objectclass.Book@해시코드값이 출력된다.</p>
@@ -584,24 +668,24 @@ toString() 메서드의 원형은 다음과 같다.</p>
 <p>생성된 두 인스턴스가 ‘같다’는건 어떤 의미일까?</p>
 
 <p>먼저 물리적 동일성의 경우, 당연히 메모리 주소값이 같은 경우 일 것이다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-</pre></td><td class="rouge-code"><pre>Student studentLee = new Student(100, "이민재");
-Student studentLee2 = studentLee;
+</pre></td><td class="rouge-code"><pre><span class="nc">Student</span> <span class="n">studentLee</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Student</span><span class="o">(</span><span class="mi">100</span><span class="o">,</span> <span class="s">"이민재"</span><span class="o">);</span>
+<span class="nc">Student</span> <span class="n">studentLee2</span> <span class="o">=</span> <span class="n">studentLee</span><span class="o">;</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>예를 들어 위처럼 동일한 인스턴스를 두 변수가 가르키게 한다면, studentLee와 studentLee2의 힙메모리 주소는 같으므로 물리적으로 동일하다 할 수 있다.</p>
 
 <p>하지만 이 경우를 보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-</pre></td><td class="rouge-code"><pre>Student studentLee = new Student(100, "이민재");
-Student studentLee2 = studentLee;
-Student studentMin = new Student(100,"이민재");
+</pre></td><td class="rouge-code"><pre><span class="nc">Student</span> <span class="n">studentLee</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Student</span><span class="o">(</span><span class="mi">100</span><span class="o">,</span> <span class="s">"이민재"</span><span class="o">);</span>
+<span class="nc">Student</span> <span class="n">studentLee2</span> <span class="o">=</span> <span class="n">studentLee</span><span class="o">;</span>
+<span class="nc">Student</span> <span class="n">studentMin</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Student</span><span class="o">(</span><span class="mi">100</span><span class="o">,</span><span class="s">"이민재"</span><span class="o">);</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>이러한 경우는 studentLee와 studentMin이 다른 메모리 주소를 가르키지만, 논리적으로는 같은 학생으로 처리해주어야 할 것이다. 이 상황을 구현할 에제를 만들어 살펴보자.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -637,42 +721,42 @@ Student studentMin = new Student(100,"이민재");
 34
 35
 36
-</pre></td><td class="rouge-code"><pre>package objectclass;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">objectclass</span><span class="o">;</span>
 
-class Student{
-    String studentName;
-    int studentID;
+<span class="kd">class</span> <span class="nc">Student</span><span class="o">{</span>
+    <span class="nc">String</span> <span class="n">studentName</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">studentID</span><span class="o">;</span>
 
-    public Student(String studentName, int studentID){
-        this.studentName = studentName;
-        this.studentID = studentID;
-    }
-}
-public class EqualsTest {
-    public static void main(String[] args){
-        Student studentLee = new Student("이민재", 100);
-        Student studentLee2 = studentLee;
-        Student studentMin = new Student("이민재",100);
+    <span class="kd">public</span> <span class="nf">Student</span><span class="o">(</span><span class="nc">String</span> <span class="n">studentName</span><span class="o">,</span> <span class="kt">int</span> <span class="n">studentID</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">studentName</span> <span class="o">=</span> <span class="n">studentName</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">studentID</span> <span class="o">=</span> <span class="n">studentID</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EqualsTest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">Student</span> <span class="n">studentLee</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Student</span><span class="o">(</span><span class="s">"이민재"</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
+        <span class="nc">Student</span> <span class="n">studentLee2</span> <span class="o">=</span> <span class="n">studentLee</span><span class="o">;</span>
+        <span class="nc">Student</span> <span class="n">studentMin</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Student</span><span class="o">(</span><span class="s">"이민재"</span><span class="o">,</span><span class="mi">100</span><span class="o">);</span>
 
-        if (studentLee.equals(studentLee2)){
-            System.out.println("두 주소값이 같습니다.");
-        }
-        else{
-            System.out.println("두 주소값이 다릅니다..");
-        }
-        if (studentLee.equals(studentMin)){
-            System.out.println("두 주소값이 같습니다.");
-        }
-        else{
-            System.out.println("두 주소값이 다릅니다.");
-        }
-    }
+        <span class="k">if</span> <span class="o">(</span><span class="n">studentLee</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">studentLee2</span><span class="o">)){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"두 주소값이 같습니다."</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">else</span><span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"두 주소값이 다릅니다.."</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">studentLee</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">studentMin</span><span class="o">)){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"두 주소값이 같습니다."</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">else</span><span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"두 주소값이 다릅니다."</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
 
 
-}
+<span class="o">}</span>
 
-&gt;&gt;&gt; 두 주소값이 같습니다.
-&gt;&gt;&gt; 두 주소값이 다릅니다.
+<span class="o">&gt;&gt;&gt;</span> <span class="n">두</span> <span class="n">주소값이</span> <span class="n">같습니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">두</span> <span class="n">주소값이</span> <span class="n">다릅니다</span><span class="o">.</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>위는 equals()의 원래 기능으로 두 변수의 논리적 동일성이 어떻든간에, 두 인스턴스의 주소가 다르다면 false를 반환한다.<br />
 만약 논리적으로 같은 인스턴스인지 확인하고싶다면, 재정의 하여 그렇게 확인하도록 구현해주어야 한다.</p>
@@ -754,7 +838,7 @@ public class EqualsTest {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/baekjoon/2206-%EB%B2%BD-%EB%B6%80%EC%88%98%EA%B3%A0-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0/" rel="permalink">[BOJ] 2206 벽 부수고 이동하기 (Python3)
+        <a href="/diary-univ/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8-%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4/" rel="permalink">아두이노 라즈베리파이
 </a>
       
     </h2>
@@ -766,7 +850,7 @@ public class EqualsTest {
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
+        <time datetime="2022-03-21T00:00:00+00:00">March 21, 2022</time>
       </span>
     
 
@@ -786,8 +870,10 @@ public class EqualsTest {
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">문제
-N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있는 곳을 나타내고, 1은 이동할 수 없는 벽이 있는 곳을 나타낸다. 당신은 (1, 1)에서 (N, M)의 위치까지 이동하려 하는데, 이때 최단 경로로 이동하려 한다. 최단경로는 맵에서 가장 적은 개수의 칸을 지나는...</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.21
+올해 듣는 수업이 대부분 프로젝트 수업이라서 사실 수업보다는 그냥 실험하고, 프로젝트 하나 완료하는것들이 전공수업의 전부가 되었다.
+
+</p>
   </article>
 </div>
 
@@ -801,7 +887,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/java/%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC-(1)/" rel="permalink">[Java] 플레이그라운드 with TDD, 클린코드 - AssertJ (1)
+        <a href="/diary-univ/%EA%B0%80%EB%8A%A5%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" rel="permalink">가능성에 대하여
 </a>
       
     </h2>
@@ -813,7 +899,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
+        <time datetime="2022-03-19T00:00:00+00:00">March 19, 2022</time>
       </span>
     
 
@@ -826,17 +912,15 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          7 분 소요
+          3 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">시작하면서…
-자바로 간단한 프로젝트를 만들어보려 했는데, 그냥 무작정 혼자 만들다가는 나쁜 버릇이 들 것 같아서   
-강의 하나를 수강하기로 했다. 특히나 자바는 객체지향이라는 개념을 사용하는 언어이고, 난 대부분 절차지향 언어만
-사용해봤었기 때문에, 아직 간단한 책 한권으로는 객...</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.19
+요즘 인생의 방향성에 대해 생각이 좀 많다. 원래는 이번년도에 창업을 해보면서 대략 어떤 느낌인지 맛을 보자는 느낌이었는데, 계획서를 써보고 공부해볼 수록 그렇게 1년만 해볼 수 있는 문제가 아니란걸 깨닫는다. 그런식으로 1년만 하려는 마음가짐으로 뭔가를 이뤄내...</p>
   </article>
 </div>
 
@@ -850,7 +934,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/diary-univ/%ED%86%A0%EC%8A%A4-NEXT-%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%9B%90%EA%B8%88-%EB%8B%B9%EC%B2%A8%EB%90%98%EB%8B%A4/" rel="permalink">개발지원금 당첨되다…
+        <a href="/diary-univ/%EC%9D%BC%EB%A6%AC-%EC%BB%A4%ED%94%BC%EB%A8%B8%EC%8B%A0/" rel="permalink">일리 커피머신
 </a>
       
     </h2>
@@ -862,7 +946,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+        <time datetime="2022-03-15T00:00:00+00:00">March 15, 2022</time>
       </span>
     
 
@@ -882,7 +966,8 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">2021.08.18
+    <p class="archive__item-excerpt" itemprop="description">2022.03.15
+
 
 </p>
   </article>
@@ -898,7 +983,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/baekjoon/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%ED%95%A8%EC%88%98/" rel="permalink">[BOJ] 1003 피보나치 함수 (Python3)
+        <a href="/diary-univ/%EC%98%81%EC%96%B4/" rel="permalink">영어…
 </a>
       
     </h2>
@@ -910,7 +995,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+        <time datetime="2022-03-14T00:00:00+00:00">March 14, 2022</time>
       </span>
     
 
@@ -923,17 +1008,15 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          1 분 소요
+          최대 1 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">문제
-다음 소스는 N번째 피보나치 수를 구하는 C++ 함수이다.
-
-</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.14
+요즘 부쩍 영어에 관심이 많아져서 열심히 해보려고 하는데, 진짜 벽느껴진다… 그냥 고등학교때만 열심히 했어도 이렇게까지 고생 안 했을텐데… 새롭게 뭐 해보려고 하지만 옛날의 업보가 결국 불쑥 불쑥 나타나 앞을 막기 시작한다. 근데 뭐 다른 사람들은 열심히 공부한...</p>
   </article>
 </div>
 
@@ -985,7 +1068,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2021 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

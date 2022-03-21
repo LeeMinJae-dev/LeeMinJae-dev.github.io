@@ -1,0 +1,1964 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Java] 우테코 프리코스 1주차 - 숫자야구 (2) - Learnote-Dev</title>
+<meta name="description" content="다시 시작… 자고 일어나서 다시 어제 쓴 코드를 읽는데, 뭔가 어제 쓸때만해도 좀 감을 잡았다 싶었던 코드가     오징어처럼 보였다…">
+
+
+  <meta name="author" content="이민재">
+  
+  <meta property="article:author" content="이민재">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Learnote-Dev">
+<meta property="og:title" content="[Java] 우테코 프리코스 1주차 - 숫자야구 (2)">
+<meta property="og:url" content="http://localhost:4000/java/Java-%EC%9A%B0%ED%85%8C%EC%BD%94-%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4-1%EC%A3%BC%EC%B0%A8-%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC-(2)/">
+
+
+  <meta property="og:description" content="다시 시작… 자고 일어나서 다시 어제 쓴 코드를 읽는데, 뭔가 어제 쓸때만해도 좀 감을 잡았다 싶었던 코드가     오징어처럼 보였다…">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-11-28T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/java/Java-%EC%9A%B0%ED%85%8C%EC%BD%94-%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4-1%EC%A3%BC%EC%B0%A8-%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC-(2)/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이민재",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Learnote-Dev Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Learnote-Dev
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/about/">About me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile.jpg" alt="이민재" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이민재</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>포트폴리오/일상 기록</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Incheon, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="lmj938@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://blog.naver.com/lmj938" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/leeminjae-dev/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:lmj938@naver.com">
+            <meta itemprop="email" content="lmj938@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+        <!--span 태그로 카테고리들을 크게 분류 ex) Life-->
+       <span class="nav__sub-title">Life</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (64)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Tech-->
+       <span class="nav__sub-title">Tech</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java" class="">Java (44)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (61)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/programmers" class="">Programmers(66)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+<!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Knowledge</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/machinelearning" class="">Machine Learning (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+          
+      </li>
+  </ul>
+</nav>
+
+  
+
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Java] 우테코 프리코스 1주차 - 숫자야구 (2)">
+    <meta itemprop="description" content="다시 시작…자고 일어나서 다시 어제 쓴 코드를 읽는데, 뭔가 어제 쓸때만해도 좀 감을 잡았다 싶었던 코드가    오징어처럼 보였다…">
+    <meta itemprop="datePublished" content="2021-11-28T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[Java] 우테코 프리코스 1주차 - 숫자야구 (2)
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-11-28T00:00:00+00:00">November 28, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          14 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this Page</h4></header>
+              <ul class="toc__menu"><li><a href="#다시-시작">다시 시작…</a><ul><li><a href="#객체지향">객체지향</a></li><li><a href="#mvc-패턴">MVC 패턴</a></li></ul></li><li><a href="#controller">Controller</a></li><li><a href="#리팩토링">리팩토링</a><ul><li><a href="#playernumber">PlayerNumber</a></li><li><a href="#answernumber">AnswerNumber</a></li><li><a href="#referee">Referee</a></li></ul></li><li><a href="#게임의-승패-유무를-판단하는-기능-추가">게임의 승패 유무를 판단하는 기능 추가</a><ul><li><a href="#리팩토링-1">리팩토링</a></li></ul></li><li><a href="#게임-종료가-되면-다시-게임을-진행할지-완전히-프로그램을-종료할-지를-출력한다">게임 종료가 되면, 다시 게임을 진행할지 완전히 프로그램을 종료할 지를 출력한다.</a><ul><li><a href="#retrynumber-클래스">RetryNumber 클래스</a></li><li><a href="#application-클래스">Application 클래스</a></li></ul></li><li><a href="#아쉬운점">아쉬운점</a></li><li><a href="#느낀점">느낀점…</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="다시-시작">다시 시작…</h2>
+<p>자고 일어나서 다시 어제 쓴 코드를 읽는데, 뭔가 어제 쓸때만해도 좀 감을 잡았다 싶었던 코드가    <br />
+오징어처럼 보였다…</p>
+
+<p>잠깐 멈추고 생각을 다시해보기로 했다.</p>
+
+<h3 id="객체지향">객체지향</h3>
+<p>객체지향에 대해서 근본적인 공부가 필요하다고 생각되서 더 여러가지 코드를 보고 mvc패턴 예제도 더 찾아봤다.</p>
+
+<p>우선 객체에 대해서 다시 생각해 보았다. 이 프로그램을 코드로 보지말고 마치 현실에서 내가 숫자야구 게임을 주최한다면 어떻게 진행할 지 생각해보기로 했다. 그럼 어떤 객체가 필요하고 기능을 어떻게 분리해야할지가 훨씬 명확해 질 것 같았다.</p>
+
+<p>숫자야구 게임을 주최한다면 우선 참가자가 당연히 필요할 것이다. 랜덤으로 세자리를 뽑아줄 컴퓨터도 한대 필요 할 것이고, 이걸 바탕으로 숫자가 맞았는지 틀렸는지 판단하는 심판이 한명 필요할 것이다.</p>
+
+<p>이렇게 그냥 현실에서의 객체로 생각을 하니 조금 더 기능 분담이 명확해졌다.</p>
+
+<p>그래서 지금 Computer가 담당하고 있던, 유저가 입력한 숫자를 판단한 기능을 Referee라는 새로운 클래스를 만들어서 옮겨 주었다.</p>
+
+<h3 id="mvc-패턴">MVC 패턴</h3>
+<p>MVC 패턴에서 가장 어렵고 이해가 되지않았던 내용은 컨트롤러의 기능이었다.</p>
+
+<p>이게 뷰와 모델을 이어준다는 느낌인데 정확히 어떤느낌인지 딱 감이 오지 않았다. 그래서 무작정 mvc패턴으로 작성된 예제들은 무작정 여러개 찾아 보았다.<br />
+뷰와 모델을 이어서 뷰에서 변화를 요청받으면 이를 모델에 전해주고, 모델의 변경점을 받아서 뷰로 전해주는 중개자라는 설명과 함께 코드를 보니 조금 감이 오는 것 같으면서도 너무 어려웠다…</p>
+
+<p>그렇게 거의 두시간을 mvc만 생각해본 결과, Player 객체와 Computer 객체와 사용자가 보는 View가를 연결해주는 거라면 결국 숫자야구 한판이 진행되는 과정 하나하나가 Controller의 기능이 아닐까하는 생각이 들었다.</p>
+
+<p>그래서 다시 코드를 대대적으로 리팩토링 했다.</p>
+
+<h2 id="controller">Controller</h2>
+<p>BaseballGame 이라는 클래스를 만들어서 게임 한판도 객체로 만들어주기로 했다.</p>
+
+<p>게임 한판을 하고 싶다면, Computer 하나와 Player한명, 그리고 Referee 한명이 필요하기 때문에<br />
+BaseballGame이 시작되면 이 세개의 객체가 생성 되고, <br />
+이 세개의 모델과 뷰가 서로 정보를 주고 받으면서 뷰는 모델에 유저의 입력값을 바탕으로 모델의 값을 변경하고, <br />
+뷰의 Output 요청을 받으면 갖고있는 정보를 뷰에게 전달해주면 뷰는 이걸 출력한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BaseballGame</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Computer</span> <span class="n">computer</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Player</span> <span class="n">player</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Referee</span> <span class="n">referee</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">BaseballGame</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">computer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Computer</span><span class="o">();</span>
+        <span class="n">player</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Player</span><span class="o">();</span>
+        <span class="n">referee</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Referee</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">getNumberFromPlayer</span><span class="o">();</span>
+        <span class="n">printHint</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getNumberFromPlayer</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">player</span><span class="o">.</span><span class="na">setPlayerNumber</span><span class="o">(</span><span class="nc">InputView</span><span class="o">.</span><span class="na">getNumber</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printHint</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">OutputView</span><span class="o">.</span><span class="na">printHintMessage</span><span class="o">(</span><span class="n">referee</span><span class="o">.</span><span class="na">getHint</span><span class="o">(</span><span class="n">player</span><span class="o">.</span><span class="na">getPlayerNumber</span><span class="o">(),</span> <span class="n">computer</span><span class="o">.</span><span class="na">getAnswerNumber</span><span class="o">()));</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이제 이 컨트롤러를 메인함수에서 사용해 BaseballGame 객체를 하나 생성해주고 BaseballGame.start()<br />
+를 하면 1회에 한해서 사용자의 숫자를 입력받고 힌트를 출력한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Application</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//TODO: 숫자 야구 게임 구현</span>
+        <span class="nc">BaseballGame</span> <span class="n">baseballGame</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BaseballGame</span><span class="o">();</span>
+        <span class="n">baseballGame</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이렇게 하고나니까 훨씬 코드가 깔끔해졌다는 생각이 들었다.</p>
+
+<p>왜 mvc모델을 사람들이 많이 사용하는지 조금 알 것 같았다!</p>
+
+<p>우선 basballGame.start()라는 이 코드가 너무 마음에 들었다. 가독성이 훨씬 좋아진 느낌이라고 해야하나???<br />
+사용자가 숫자야구 게임을 하고 싶다면 BaseballGame 객체를 생성해주고, 이 객체의 start()를 사용해주면 바로 게임이 시작된다.</p>
+
+<p>만약 서로다른 게임을 두개 개최하고 싶다면 객체를 두개 생성해서 객체 두개를 start()해주면 된다.</p>
+
+<p>뿐만 아니라 숫자야구에 기능을 추가하는 경우, 예를들어 심판인 Refree가 힌트 뿐만아니라 오답횟수를 출력해준다던가, Computer가 두개 여서 Player가 두개의 숫자를 맞추도록 룰을 변경할 때도 유지보수가 간편하다.</p>
+
+<p>전자의 경우는 Refree에 가서 오답횟수를 세는 메서드를 하나 더 추가하고 이를 뷰로 연결해서 BaseballGame에서 출력하도록 이어주면되고,</p>
+
+<p>후자의 경우는 BasebllGame 객체가 생성되면 Computer객체가 두개 생성되도록 해주면 된다.</p>
+
+<p>그리고 만약 이 프로그램에 숫자야구 말고 다른 게임을 추가 하고 싶다면, 또 다른 컨트롤러 객체를 만들어서 다른 게임을 진행할 수 있도록 만들면 된다.</p>
+
+<h2 id="리팩토링">리팩토링</h2>
+<p>다음 기능을 추가하기전에 한번 더 검토할 사항이 있는지 코드를 한줄 씩 읽어 봤다.</p>
+
+<p>내가 코드를 처음 보는 사람이라는 생각으로 다시 코드를 검토했는데, 가독성이 그다지 좋지 않다는 생각이 들었다… <br />
+근데 유독 가독성이 좋다고 느껴지는 부분이 있었는데, 바로 BaseballGame 클래스의 start() 메서드 부분이었다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BaseballGame</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Computer</span> <span class="n">computer</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Player</span> <span class="n">player</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Referee</span> <span class="n">referee</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">BaseballGame</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">computer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Computer</span><span class="o">();</span>
+        <span class="n">player</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Player</span><span class="o">();</span>
+        <span class="n">referee</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Referee</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">getNumberFromPlayer</span><span class="o">();</span>
+        <span class="n">printHint</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getNumberFromPlayer</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">player</span><span class="o">.</span><span class="na">setPlayerNumber</span><span class="o">(</span><span class="nc">InputView</span><span class="o">.</span><span class="na">getNumber</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printHint</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">OutputView</span><span class="o">.</span><span class="na">printHintMessage</span><span class="o">(</span><span class="n">referee</span><span class="o">.</span><span class="na">getHint</span><span class="o">(</span><span class="n">player</span><span class="o">.</span><span class="na">getPlayerNumber</span><span class="o">(),</span> <span class="n">computer</span><span class="o">.</span><span class="na">getAnswerNumber</span><span class="o">()));</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>코드가 짧아서 그런가 싶었지만, start() 부분을 보면 이 메서드가 무슨 일을 하는지 명확하다.       <br />
+getNumberFromPlayer, 플레이어로부터 숫자를 받아오고, printHint, 힌트를 출력한다.</p>
+
+<p>이 메서드가 궁금하다면 아래로 내려가서 메서드가 하는일을 체크하면 된다.</p>
+
+<p>이 코드를 보니 왜 이름을 알아보기 쉽게 지으라고 했는지, 메서드는 왜 최대한 하나의 일을 하게 만들어야 하는지, 왜 매개변수는 최대한 적게 써야하는지에 대한 해답을 찾은 느낌이었다.</p>
+
+<p>지금까지는 단순히 메서드 이름을 기능을 설명하는데만 충실하게 지으려 했는데, 가독성을 위해서는 기능을 잘 설명할 뿐만 아니라 마치 메서드의 이름들을 모아 놓으면 하나의 책 문장을읽는듯이 읽혀야 된다는 생각이 들었다.</p>
+
+<p>다시 지금까지 썼던 코드를 리팩토링 해보기로 했다.</p>
+
+<p>먼저 PlayerNumber 부터 리팩토링 해보자.</p>
+
+<h3 id="playernumber">PlayerNumber</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PlayerNumber</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">playerNumber</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">PlayerNumber</span><span class="o">(</span><span class="nc">String</span> <span class="n">playerNumber</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">isStringLengthCorrect</span><span class="o">(</span><span class="n">playerNumber</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">isDigitPlayerNumber</span><span class="o">(</span><span class="n">playerNumber</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">isDifferentPlayerNumber</span><span class="o">(</span><span class="n">playerNumber</span><span class="o">))</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">playerNumber</span> <span class="o">=</span> <span class="n">playerNumber</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getPlayerNumber</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">playerNumber</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isStringLengthCorrect</span><span class="o">(</span><span class="nc">String</span> <span class="n">word</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IllegalArgumentException</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">!=</span> <span class="nc">Constant</span><span class="o">.</span><span class="na">USER_NUMBER_LENGTH</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="nc">SystemMessage</span><span class="o">.</span><span class="na">NUMBER_LENGTH_NOT_CORRECT</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isDigitPlayerNumber</span><span class="o">(</span><span class="nc">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">isDigitCharInString</span><span class="o">(</span><span class="n">word</span><span class="o">,</span> <span class="n">i</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isDifferentPlayerNumber</span><span class="o">(</span><span class="nc">String</span> <span class="n">word</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IllegalArgumentException</span> <span class="o">{</span>
+        <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Character</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;&gt;();</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">set</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">!=</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="nc">SystemMessage</span><span class="o">.</span><span class="na">HAS_SAME_NUMBER</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isDigitCharInString</span><span class="o">(</span><span class="nc">String</span> <span class="n">word</span><span class="o">,</span> <span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IllegalArgumentException</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="nc">Character</span><span class="o">.</span><span class="na">isDigit</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">index</span><span class="o">)))</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="nc">SystemMessage</span><span class="o">.</span><span class="na">STRING_IS_NOT_NUMBER</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위에서 읽었을때 너무 복잡하다는 생각이 들었다. 내가 생각한건 PlayerNumber가 생성될때 아래의 유효성 검사를 진행하고 나서야 playnumber라는 클래스 멤버변수가 생기는 건데,<br />
+모르는 사람이 한번 봐서 읽기가 쉽지 않았다. 그래서 아래와 같이 리팩토링을 진행했다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PlayerNumber</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">playerNumber</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">PlayerNumber</span><span class="o">(</span><span class="nc">String</span> <span class="n">playerNumber</span><span class="o">)</span> <span class="o">{</span>
+        
+        <span class="n">isStringLengthCorrect</span><span class="o">(</span><span class="n">playerNumber</span><span class="o">);</span>
+        <span class="n">isDigitPlayerNumber</span><span class="o">(</span><span class="n">playerNumber</span><span class="o">);</span>
+        <span class="n">isDifferentPlayerNumber</span><span class="o">(</span><span class="n">playerNumber</span><span class="o">);</span>
+        
+        <span class="k">this</span><span class="o">.</span><span class="na">playerNumber</span> <span class="o">=</span> <span class="n">playerNumber</span><span class="o">;</span>
+        
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getPlayerNumber</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">playerNumber</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">isStringLengthCorrect</span><span class="o">(</span><span class="nc">String</span> <span class="n">word</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IllegalArgumentException</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">!=</span> <span class="nc">Constant</span><span class="o">.</span><span class="na">USER_NUMBER_LENGTH</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="nc">SystemMessage</span><span class="o">.</span><span class="na">NUMBER_LENGTH_NOT_CORRECT</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isDigitPlayerNumber</span><span class="o">(</span><span class="nc">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">isDigitCharInString</span><span class="o">(</span><span class="n">word</span><span class="o">,</span> <span class="n">i</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">isDifferentPlayerNumber</span><span class="o">(</span><span class="nc">String</span> <span class="n">word</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IllegalArgumentException</span> <span class="o">{</span>
+        <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Character</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;&gt;();</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">set</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">!=</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="nc">SystemMessage</span><span class="o">.</span><span class="na">HAS_SAME_NUMBER</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">isDigitCharInString</span><span class="o">(</span><span class="nc">String</span> <span class="n">word</span><span class="o">,</span> <span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IllegalArgumentException</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="nc">Character</span><span class="o">.</span><span class="na">isDigit</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">index</span><span class="o">)))</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="nc">SystemMessage</span><span class="o">.</span><span class="na">STRING_IS_NOT_NUMBER</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>우선 예외를 출력하는 메소드들을 굳이 boolean형으로 반환하지 않아도 된다는 생각이 들었다. 예외 상황이 발생되면 IllegalArgumentException이 알아서 예외를 출력하기 때문에 굳이 if문을 사용하지 않아도 된다.</p>
+
+<p>이렇게 바꾸고 PlayerNumber의 생성자 부분을 보면 전보다 아주 깔끔하게 읽힌다.</p>
+
+<p>마치 한 문장을 읽는것처럼 유효성 검사들을 읽을 수 있다.</p>
+
+<h3 id="answernumber">AnswerNumber</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AnswerNumber</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">answerNumber</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">AnswerNumber</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">getNewAnswerNumber</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getAnswerNumber</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">answerNumber</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getNewAnswerNumber</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">answerNumberList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;();</span>
+
+        <span class="k">while</span> <span class="o">(</span><span class="n">answerNumberList</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&lt;</span> <span class="nc">Constant</span><span class="o">.</span><span class="na">USER_NUMBER_LENGTH</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">isNumberInList</span><span class="o">(</span><span class="n">getStringRandomNumber</span><span class="o">(),</span> <span class="n">answerNumberList</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">answerNumber</span> <span class="o">=</span> <span class="nc">String</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="s">""</span><span class="o">,</span> <span class="n">answerNumberList</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">isNumberInList</span><span class="o">(</span><span class="nc">String</span> <span class="n">number</span><span class="o">,</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="n">list</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">number</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">number</span><span class="o">);</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">getStringRandomNumber</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="nc">Randoms</span><span class="o">.</span><span class="na">pickNumberInRange</span><span class="o">(</span><span class="nc">Constant</span><span class="o">.</span><span class="na">MIN_RANGE_NUM</span><span class="o">,</span> <span class="nc">Constant</span><span class="o">.</span><span class="na">MAX_RANGE_NUM</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>getNewAnswerNumber와 isNumberInList를 보면, 단순히 메소드를 줄이라는 말에 어거지로 두개로 나눠놓은 걸 볼 수 있다.</p>
+
+<p>이러면 메소드 하나가 하나의 일을 하는게 아니라 하나의 일을 억지로 두개의 메서드가 하는 꼴이다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AnswerNumber</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">answerNumber</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">AnswerNumber</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">getNewAnswerNumber</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getAnswerNumber</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">answerNumber</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getNewAnswerNumber</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">LinkedHashSet</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">answerNumberList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedHashSet</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;();</span>
+
+        <span class="k">while</span> <span class="o">(</span><span class="n">answerNumberList</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&lt;</span> <span class="nc">Constant</span><span class="o">.</span><span class="na">USER_NUMBER_LENGTH</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">answerNumberList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">getStringRandomNumber</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">answerNumber</span> <span class="o">=</span> <span class="nc">String</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="s">""</span><span class="o">,</span> <span class="n">answerNumberList</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">getStringRandomNumber</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="nc">Randoms</span><span class="o">.</span><span class="na">pickNumberInRange</span><span class="o">(</span><span class="nc">Constant</span><span class="o">.</span><span class="na">MIN_RANGE_NUM</span><span class="o">,</span> <span class="nc">Constant</span><span class="o">.</span><span class="na">MAX_RANGE_NUM</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이렇게 코드를 바꿔주었다. 원래는 set을 사용하려 했는데 set함수는 순서가 없어서 입력받은 숫자를 순서대로 출력할 수 없다는 생각에 <br />
+ArrayList로 구현했었던 거였는데, 역시 찾아보니까 순서가 있는 LinkedHashSet이 있었다…</p>
+
+<p>이렇게 자바에서 이미 지원하는 라이브러리를 사용하니 코드가 훨씬 깔끔해지는 걸 보고, 자바의 라이브러리를 적극적으로 찾아보고 사용해야겠다는 생각이 들었다.</p>
+
+<h3 id="referee">Referee</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Referee</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">getHint</span><span class="o">(</span><span class="nc">String</span> <span class="n">playerNumber</span><span class="o">,</span> <span class="nc">String</span> <span class="n">answerNumber</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="kt">int</span> <span class="n">ballCount</span> <span class="o">=</span> <span class="nc">CountingBall</span><span class="o">(</span><span class="n">playerNumber</span><span class="o">,</span> <span class="n">answerNumber</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">strikeCount</span> <span class="o">=</span> <span class="nc">CountingStrike</span><span class="o">(</span><span class="n">playerNumber</span><span class="o">,</span> <span class="n">answerNumber</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">ballCount</span> <span class="o">-</span> <span class="n">strikeCount</span><span class="o">,</span> <span class="n">strikeCount</span><span class="o">};</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">CountingBall</span><span class="o">(</span><span class="nc">String</span> <span class="n">playerNumber</span><span class="o">,</span> <span class="nc">String</span> <span class="n">answerNumber</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">ball</span> <span class="o">=</span> <span class="nc">Constant</span><span class="o">.</span><span class="na">BALL_INITIAL_VALUE</span><span class="o">;</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">playerNumber</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">answerNumber</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="nc">Character</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">playerNumber</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">))))</span> <span class="o">{</span>
+                <span class="n">ball</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">ball</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">CountingStrike</span><span class="o">(</span><span class="nc">String</span> <span class="n">playerNumber</span><span class="o">,</span> <span class="nc">String</span> <span class="n">answerNumber</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">strike</span> <span class="o">=</span> <span class="nc">Constant</span><span class="o">.</span><span class="na">STRIKE_INITIAL_VALUE</span><span class="o">;</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">userNum</span> <span class="o">:</span> <span class="n">playerNumber</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">answerNumber</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">userNum</span><span class="o">)</span> <span class="o">==</span> <span class="n">playerNumber</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">userNum</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">strike</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">strike</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>어쩌면 지금 짠 코드중에 제일 가독성이 떨어지는 것 같다…</p>
+
+<p>Referee는 getHint 요청을 받으면 PlayerNumber와 AnswerNumber를 비교해서 볼과 스트라이크 개수를 int[] 형태로 반환하는데, OutputView에서 이 값을 바탕으로 볼과 스트라이크를 출력한다.</p>
+
+<p>좀 더 기능을 나누어서 깔끔하게 읽히도록 만들어보자.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Referee</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Hint</span> <span class="n">hint</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Referee</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">hint</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Hint</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">getHint</span><span class="o">(</span><span class="nc">String</span> <span class="n">answerNumber</span><span class="o">,</span> <span class="nc">String</span> <span class="n">playerNumber</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">hint</span><span class="o">.</span><span class="na">getHint</span><span class="o">(</span><span class="n">answerNumber</span><span class="o">,</span> <span class="n">playerNumber</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Hint</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">ball</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">strike</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">getHint</span><span class="o">(</span><span class="nc">String</span> <span class="n">playerNumber</span><span class="o">,</span> <span class="nc">String</span> <span class="n">answerNumber</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">resetCount</span><span class="o">();</span>
+        <span class="n">ballCount</span><span class="o">(</span><span class="n">playerNumber</span><span class="o">,</span> <span class="n">answerNumber</span><span class="o">);</span>
+        <span class="n">strikeCount</span><span class="o">(</span><span class="n">playerNumber</span><span class="o">,</span> <span class="n">answerNumber</span><span class="o">);</span>
+        <span class="n">strikeExceptBall</span><span class="o">();</span>
+        
+        <span class="k">return</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">ball</span><span class="o">,</span> <span class="n">strike</span><span class="o">};</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">resetCount</span><span class="o">(){</span>
+        <span class="n">ball</span> <span class="o">=</span> <span class="nc">Constant</span><span class="o">.</span><span class="na">BALL_INITIAL_VALUE</span><span class="o">;</span>
+        <span class="n">strike</span> <span class="o">=</span> <span class="nc">Constant</span><span class="o">.</span><span class="na">STRIKE_INITIAL_VALUE</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">ballCount</span><span class="o">(</span><span class="nc">String</span> <span class="n">playerNumber</span><span class="o">,</span> <span class="nc">String</span> <span class="n">answerNumber</span><span class="o">){</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">playerNumber</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">answerNumber</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="nc">Character</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">playerNumber</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">))))</span> <span class="o">{</span>
+                <span class="n">ball</span> <span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">strikeCount</span><span class="o">(</span><span class="nc">String</span> <span class="n">playerNumber</span><span class="o">,</span> <span class="nc">String</span> <span class="n">answerNumber</span><span class="o">){</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">playerNum</span> <span class="o">:</span> <span class="n">playerNumber</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">answerNumber</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">playerNum</span><span class="o">)</span> <span class="o">==</span> <span class="n">playerNumber</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">playerNum</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">strike</span> <span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">strikeExceptBall</span><span class="o">(){</span>
+        <span class="n">ball</span> <span class="o">=</span> <span class="n">ball</span> <span class="o">-</span> <span class="n">strike</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>strike와 ball을 클래스 변수로 만드는게 훨씬 코드가 깔끔해져서, 따로 클래스 변수로 만든 뒤 원시값포장을 위해 Hint 클래스를 따로 만들었다.</p>
+
+<p>리팩토링을 하며 느낀건데, 코드를 우선 한 메소드로 기능적으로 동작하게 먼저 쓰고 메소드를 차분히 분리하는게 훨씬 편한것 같다. 그렇게 메소드를 분리한 뒤에 클래스로 분리 할 수 있다면, 클래스로 분리 하면 된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">getHint</span><span class="o">(</span><span class="nc">String</span> <span class="n">playerNumber</span><span class="o">,</span> <span class="nc">String</span> <span class="n">answerNumber</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">resetCount</span><span class="o">();</span>
+
+        <span class="n">ballCount</span><span class="o">(</span><span class="n">playerNumber</span><span class="o">,</span> <span class="n">answerNumber</span><span class="o">);</span>
+        <span class="n">strikeCount</span><span class="o">(</span><span class="n">playerNumber</span><span class="o">,</span> <span class="n">answerNumber</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">ball</span><span class="o">,</span> <span class="n">strike</span><span class="o">};</span>
+    <span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이제 힌트를 가져다주는 getHint 메서드가 아주 깔끔해졌다. count들을 리셋해주고,<br />
+볼을 세고, 스트라이크를 센 다음 볼에서 스트라이크를 빼고 이 둘의 값을 배열로 반환해주면 된다.</p>
+
+<h2 id="게임의-승패-유무를-판단하는-기능-추가">게임의 승패 유무를 판단하는 기능 추가</h2>
+<p>만약 3스트라이크 인 경우 “3개의 숫자를 모두 맞히셨습니다! 게임종료” 문구 출력과 함께 게임을 새로 시작할것인지 프로그램을 종료 할 것인지 입력을 받아 처리해야한다.</p>
+
+<p>우선 3스트라이크인지 판단하는 기능은 심판인 Referee가 담당하도록 해주어야 한다고 생각했다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isThreeStrike</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">hint</span><span class="o">.</span><span class="na">getStrike</span><span class="o">()</span> <span class="o">==</span> <span class="nc">Constant</span><span class="o">.</span><span class="na">GAME_SET_STRIKE_VALUE</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Referee에 위와 같이 3스트라이크를 판별하는 메서드를 추가해 주었다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre> <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printGameSetMessage</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">SystemMessage</span><span class="o">.</span><span class="na">GAME_SET_MESSAGE</span><span class="o">);</span>
+    <span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>게임이 종료된걸 알리기 위한 메시지를 출력하는 printGameSetMessage()를 OutputView에 추가해주고, BaseballGame에서 종료 할지 말지를 결정하도록 했다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">do</span> <span class="o">{</span>
+            <span class="n">getNumberFromPlayer</span><span class="o">();</span>
+            <span class="n">printHint</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">while</span> <span class="o">(!</span><span class="n">isGameSet</span><span class="o">());</span>
+    <span class="o">}</span>
+    
+ <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isGameSet</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">referee</span><span class="o">.</span><span class="na">isThreeStrike</span><span class="o">())</span> <span class="o">{</span>
+            <span class="nc">OutputView</span><span class="o">.</span><span class="na">printGameSetMessage</span><span class="o">();</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>isGameSet() 메서드가 3스트라이크인지를 판별해서 3스트라이크라면 게임을 종료하고 게임 종료 메시지를 출력한다.</p>
+
+<h3 id="리팩토링-1">리팩토링</h3>
+<p>OutputView에 대한 코드를 보다보니, OutputView는 오직 출력에 관한 기능만 가져야 할 것 같은데, 들어온 힌트를 판단해주는 기능까지 갖고 있었다.</p>
+
+<p>OutputView를 조금 더 OutputView 답게 만드는 리팩토링을 진행 하였다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OutputView</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printBallMessage</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="nc">SystemMessage</span><span class="o">.</span><span class="na">BALL_MESSAGE</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printStrikeMessage</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="nc">SystemMessage</span><span class="o">.</span><span class="na">STRIKE_MESSAGE</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printNothingMessage</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="nc">SystemMessage</span><span class="o">.</span><span class="na">NOTHING_MESSAGE</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printCount</span><span class="o">(</span><span class="kt">int</span> <span class="n">count</span><span class="o">){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">count</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printGameSetMessage</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">SystemMessage</span><span class="o">.</span><span class="na">GAME_SET_MESSAGE</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>힌트를 판단하는 기능은 BaseballGame 컨트롤러에서 담당해주도록 하였다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BaseballGame</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Computer</span> <span class="n">computer</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Player</span> <span class="n">player</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Referee</span> <span class="n">referee</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">BaseballGame</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">computer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Computer</span><span class="o">();</span>
+        <span class="n">player</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Player</span><span class="o">();</span>
+        <span class="n">referee</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Referee</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">do</span> <span class="o">{</span>
+            <span class="n">getNumberFromPlayer</span><span class="o">();</span>
+            <span class="n">printHint</span><span class="o">(</span><span class="n">getHint</span><span class="o">());</span>
+        <span class="o">}</span> <span class="k">while</span> <span class="o">(!</span><span class="n">isGameSet</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getNumberFromPlayer</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">player</span><span class="o">.</span><span class="na">setPlayerNumber</span><span class="o">(</span><span class="nc">InputView</span><span class="o">.</span><span class="na">getNumber</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printHint</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">hint</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">printBallHint</span><span class="o">(</span><span class="n">hint</span><span class="o">);</span>
+        <span class="n">printStrikeHint</span><span class="o">(</span><span class="n">hint</span><span class="o">);</span>
+        <span class="n">printNothingHint</span><span class="o">(</span><span class="n">hint</span><span class="o">);</span>
+        <span class="n">printEnter</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printBallHint</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">hint</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">hint</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">OutputView</span><span class="o">.</span><span class="na">printCount</span><span class="o">(</span><span class="n">hint</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+            <span class="nc">OutputView</span><span class="o">.</span><span class="na">printBallMessage</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printStrikeHint</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">hint</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">hint</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">OutputView</span><span class="o">.</span><span class="na">printCount</span><span class="o">(</span><span class="n">hint</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+            <span class="nc">OutputView</span><span class="o">.</span><span class="na">printStrikeMessage</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printNothingHint</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">hint</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">hint</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">hint</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">OutputView</span><span class="o">.</span><span class="na">printNothingMessage</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">getHint</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">referee</span><span class="o">.</span><span class="na">getHint</span><span class="o">(</span><span class="n">player</span><span class="o">.</span><span class="na">getPlayerNumber</span><span class="o">(),</span> <span class="n">computer</span><span class="o">.</span><span class="na">getAnswerNumber</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printEnter</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isGameSet</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">referee</span><span class="o">.</span><span class="na">isThreeStrike</span><span class="o">())</span> <span class="o">{</span>
+            <span class="nc">OutputView</span><span class="o">.</span><span class="na">printGameSetMessage</span><span class="o">();</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이렇게 해주면 모델의 상태에 따라서 사용자에게 보여주는 출력을 바꿔주는게 됨으로 훨씬 더 View는 View답고 Controller는 더 Controller의 기능에 충실해진 것 같다.</p>
+
+<h2 id="게임-종료가-되면-다시-게임을-진행할지-완전히-프로그램을-종료할-지를-출력한다">게임 종료가 되면, 다시 게임을 진행할지 완전히 프로그램을 종료할 지를 출력한다.</h2>
+<p>이 기능을 구현하기 전에 한참 고민을 했다. 이 기능은 과연 Computer가 담당해야 하는 기능인지, 아니면 Referee가 담당해야 할지 아니면 BaseballGame 컨트롤러에 추가 해야할지 고민이 됐다.</p>
+
+<p>그래서 만약 이 프로그램이 후에 여러 게임을 가진 프로그램이 될수도 있다고 생각하고 가정해보았다.</p>
+
+<p>이 프로그램에 숫자야구 게임 뿐만아니라, 새로운 게임이 추가된다고 생각해보자.</p>
+
+<p>이제 이 프로그램이 시작하면 어떤게임을 플레이 할지 선택하고, 그 게임이 종료되면 이 게임을 한번 더 할지, 다른 게임을 다시 선택하러 갈지, 프로그램을 종료할 것인지 고를수가 있는 기능 추가가 필요해질 것이다.</p>
+
+<p>이때 숫자야구 게임의 종료여부를 묻는 기능은 어디 클래스에 있을때 가장 유지보수가 편할까??</p>
+
+<p>이렇게 생각해보니, 게임 재시작과 종료 여부를 묻는 이 기능은 아예 BaseballGame과 독립된 클래스가 가져야할 기능 같았다.</p>
+
+<p>그래서 이 기능은 프로그램 자체가 가져야 할 기능 같아서, Application 클래스에 추가하기로 했다.</p>
+
+<h3 id="retrynumber-클래스">RetryNumber 클래스</h3>
+<p>재시작 여부를 받을 숫자의 유효성 검사를 해주기 위해서 RetryNumber로 원시값인 int retryNumber를 포장해주었다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RetryNumber</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">retryNumber</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">RetryNumber</span><span class="o">(</span><span class="nc">String</span> <span class="n">retryNumber</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">isCorrectRetryNumber</span><span class="o">(</span><span class="n">retryNumber</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">retryNumber</span> <span class="o">=</span> <span class="n">retryNumber</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isCorrectRetryNumber</span><span class="o">(</span><span class="nc">String</span> <span class="n">number</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IllegalArgumentException</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">number</span> <span class="o">!=</span> <span class="nc">Constant</span><span class="o">.</span><span class="na">GAME_RETRY_NUMBER</span> <span class="o">||</span> <span class="n">number</span> <span class="o">==</span> <span class="nc">Constant</span><span class="o">.</span><span class="na">PROGRAM_END_NUMBER</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>들어온 문자열이 “1” 이나 “2”가 아닌 경우는 IllegalArgumentException을 출력한다.</p>
+
+<h3 id="application-클래스">Application 클래스</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Application</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//TODO: 숫자 야구 게임 구현</span>
+        <span class="k">do</span> <span class="o">{</span>
+            <span class="nc">BaseballGame</span> <span class="n">baseballGame</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BaseballGame</span><span class="o">();</span>
+            <span class="n">baseballGame</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">askRetry</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">askRetry</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">RetryNumber</span> <span class="n">retryNumber</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RetryNumber</span><span class="o">(</span><span class="nc">InputView</span><span class="o">.</span><span class="na">getRetryNumber</span><span class="o">());</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">retryNumber</span><span class="o">.</span><span class="na">getRetryNumber</span><span class="o">()</span> <span class="o">==</span> <span class="nc">Constant</span><span class="o">.</span><span class="na">GAME_RETRY_NUMBER</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>askRetry() 메서드를 만들어 앞서 만든 retryNumber에 값을 받아 처리하도록 한다.</p>
+
+<p>만약 retryNumber 가 1이라면 재시작, 아니라면 게임을 종료한다.</p>
+
+<p>이로써 모든 프로그램 구현이 완료되었다.</p>
+
+<p>테스트도 모두 통과했고, 내가 직접 프로그램을 돌려 잘 작동 하는 것을 확인 하였다.</p>
+
+<h2 id="아쉬운점">아쉬운점</h2>
+<p>첫번째로는 깃, 커밋을 이렇게 기능단위로 해본적이 없어서 초반에 좀 엉망진창 커밋이 됐는데, 다음 과제 때는 정말 완벽하고 깔끔하게 해보고싶다.<br />
+두번째로는 TDD 사실 이건 너무 무리해서 초반부터 적용해보려 했으나, 아예 구조를 어떻게 짜야 할지 상상이 안돼서 처음에는 해보다가 나중에는 적용하지 못했다. 다음 과제부터는 TDD를 제대로 해서 코드를 짜보고 싶다.</p>
+
+<h2 id="느낀점">느낀점…</h2>
+<p>진짜 이렇게 간단한 프로그램에 이렇게 시간을 쏟아본적이 처음이다.</p>
+
+<p>코드를 하나 작성하기 전에 기본 최소 30분 이상씩은 고민만 하다가 코드를 작성하느라 너무너무 시간이 오래걸렸다. 5일 가량 동안 거의 30시간에 가까운 시간을 투자해서 작성을 완료했다.</p>
+
+<p>처음에는 구조를 짜는데에 굉장히 많은 시간을 투자했다. 어떤 기준으로 패키지를 나누고 기능을 나눠야 할지 정해져야 좋은 코드가 나올 것같아서 mvc패턴에 대해 공부하고, 클래스 분리와 메소드 분리를 하는데만 이틀을 넘게 쓴것 같다.</p>
+
+<p>지금 생각해보면 무작정 기능만 돌아가게 작성하고 리팩토링하는게 훨씬 속도가 빨랐겠다는 생각이 들지만, 5일동안 머리를 싸매고 좋은 코드란 무엇인가에 대해 고민하는 시간이 재밌었다.</p>
+
+<p>이렇게 열심히 작성한 코드를 1대1 피드백을 못받는게 너무나 아쉽다. 아직도 궁금하고 모호한게 너무 많아서 만약에 우테코에 못가더라도 꼭 수준있는 사람을 수소문해서 코드 리뷰를 받아보고 싶다.</p>
+
+<p>이번 기회를 통해 클린코드가 중요하다는건 알고있었지만, 직접 클린코드에 대해서만 머리를 싸매보면서 클린코드가 ‘왜’ 중요한지를 절실하게 깨달을 수 있는 순간이었고, 앞으로도 어떤 언어로 어떤 일을 하던간에 이 개념은 평생 갈고 닦을 생각이다.<br />
+힘들고 처음에는 너무 막막했지만, 한편으로는 뭔가에 집착해서 이렇게 노력하는 과정이 너무나 즐거웠다. 마지막에는 거의 내가 변태가 된것 마냥 불편한점들을 쥐잡듯이 찾아다니는 모습을 보며, 깊은 뿌듯함을 느끼기도 했다. <br />
+첫번째 과제만에 이렇게 큰 성장을 이뤘는데 3주가 지나면 얼마나 더 성장해있을지 기대된다.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#java" class="page__taxonomy-item" rel="tag">java</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-11-28T00:00:00+00:00">November 28, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BJava%5D+%EC%9A%B0%ED%85%8C%EC%BD%94+%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4+1%EC%A3%BC%EC%B0%A8+-+%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC+%282%29%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2FJava-%25EC%259A%25B0%25ED%2585%258C%25EC%25BD%2594-%25ED%2594%2584%25EB%25A6%25AC%25EC%25BD%2594%25EC%258A%25A4-1%25EC%25A3%25BC%25EC%25B0%25A8-%25EC%2588%25AB%25EC%259E%2590%25EC%2595%25BC%25EA%25B5%25AC-%282%29%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2FJava-%25EC%259A%25B0%25ED%2585%258C%25EC%25BD%2594-%25ED%2594%2584%25EB%25A6%25AC%25EC%25BD%2594%25EC%258A%25A4-1%25EC%25A3%25BC%25EC%25B0%25A8-%25EC%2588%25AB%25EC%259E%2590%25EC%2595%25BC%25EA%25B5%25AC-%282%29%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2FJava-%25EC%259A%25B0%25ED%2585%258C%25EC%25BD%2594-%25ED%2594%2584%25EB%25A6%25AC%25EC%25BD%2594%25EC%258A%25A4-1%25EC%25A3%25BC%25EC%25B0%25A8-%25EC%2588%25AB%25EC%259E%2590%25EC%2595%25BC%25EA%25B5%25AC-%282%29%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/java/Java-%EC%9A%B0%ED%85%8C%EC%BD%94-%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4-1%EC%A3%BC%EC%B0%A8-%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC-(1)/" class="pagination--pager" title="[Java] 우테코 프리코스 1주차 - 숫자야구 (1)
+">이전</a>
+    
+    
+      <a href="/java/Java-%EC%83%81%EC%86%8D%EA%B3%BC-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/" class="pagination--pager" title="[Java] 상속과 인터페이스
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8-%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4/" rel="permalink">아두이노 라즈베리파이
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-21T00:00:00+00:00">March 21, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.21
+올해 듣는 수업이 대부분 프로젝트 수업이라서 사실 수업보다는 그냥 실험하고, 프로젝트 하나 완료하는것들이 전공수업의 전부가 되었다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EA%B0%80%EB%8A%A5%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" rel="permalink">가능성에 대하여
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-19T00:00:00+00:00">March 19, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.19
+요즘 인생의 방향성에 대해 생각이 좀 많다. 원래는 이번년도에 창업을 해보면서 대략 어떤 느낌인지 맛을 보자는 느낌이었는데, 계획서를 써보고 공부해볼 수록 그렇게 1년만 해볼 수 있는 문제가 아니란걸 깨닫는다. 그런식으로 1년만 하려는 마음가짐으로 뭔가를 이뤄내...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%9D%BC%EB%A6%AC-%EC%BB%A4%ED%94%BC%EB%A8%B8%EC%8B%A0/" rel="permalink">일리 커피머신
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-15T00:00:00+00:00">March 15, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.15
+
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%98%81%EC%96%B4/" rel="permalink">영어…
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-14T00:00:00+00:00">March 14, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.14
+요즘 부쩍 영어에 관심이 많아져서 열심히 해보려고 하는데, 진짜 벽느껴진다… 그냥 고등학교때만 열심히 했어도 이렇게까지 고생 안 했을텐데… 새롭게 뭐 해보려고 하지만 옛날의 업보가 결국 불쑥 불쑥 나타나 앞을 막기 시작한다. 근데 뭐 다른 사람들은 열심히 공부한...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/leeminjae-dev" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/java/Java-%EC%9A%B0%ED%85%8C%EC%BD%94-%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4-1%EC%A3%BC%EC%B0%A8-%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC-(2)/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/java/[Java] 우테코 프리코스 1주차 - 숫자야구 (2)"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://leeminjae-dev-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
+
+
+<!-- 웹 폰트 설정 -->
+<link rel="stylesheet" href="/assets/css/high3.css">

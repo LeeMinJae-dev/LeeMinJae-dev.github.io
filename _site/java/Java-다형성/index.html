@@ -282,11 +282,34 @@
        <span class="nav__sub-title">Life</span>
             <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
             <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
-                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (42)</a></li>
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (64)</a></li>
+                    
+                
                     
                 
                     
@@ -318,14 +341,14 @@
                     
                 
                     
-                        <li><a href="/categories/java" class="">Java (19)</a></li>
+                        <li><a href="/categories/java" class="">Java (44)</a></li>
                     
                 
-
-        <span class="nav__sub-title">Algorithm</span>
-            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
-            <ul>
-                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
@@ -335,7 +358,56 @@
                     
                 
                     
-                        <li><a href="/categories/baekjoon" class="">Baekjoon (37)</a></li>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (61)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -354,7 +426,11 @@
                     
                 
                     
-                        <li><a href="/categories/programmers" class="">Programmers(63)</a></li>
+                        <li><a href="/categories/programmers" class="">Programmers(66)</a></li>
+                    
+                
+                    
+                
                     
                 
                     
@@ -365,6 +441,8 @@
             <ul>
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
                 
                     
                 
@@ -380,8 +458,12 @@
                 
                     
                 
+                    
+                
 
 
+                
+                    
                 
                     
                 
@@ -389,6 +471,8 @@
                 
                     
                         <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
                     
                 
                     
@@ -466,7 +550,7 @@
 
 <p>만약 Animal 클래스가 있고 이를 상속받아 Human, Tiger, Eagle 클래스를 만들어본다고 가정해보자.     <br />
 Animal 클래스에 메서드를 하나 정의하고 이를 상속받은 클래스에서 재정의 해보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -503,49 +587,49 @@ Animal 클래스에 메서드를 하나 정의하고 이를 상속받은 클래�
 35
 36
 37
-</pre></td><td class="rouge-code"><pre>package polymorphism;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">polymorphism</span><span class="o">;</span>
 
-class Animal{
-    public void move(){
-        System.out.println("동물이 움직입니다.");
-    }
-}
-class Human extends Animal{
-    public void move(){
-        System.out.println("사람이 두 발로 걷습니다.");
-    }
-}
+<span class="kd">class</span> <span class="nc">Animal</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"동물이 움직입니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Human</span> <span class="kd">extends</span> <span class="nc">Animal</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"사람이 두 발로 걷습니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-class Eagle extends Animal{
-    public void move(){
-        System.out.println("독수리가 하늘을 납니다.");
-    }
+<span class="kd">class</span> <span class="nc">Eagle</span> <span class="kd">extends</span> <span class="nc">Animal</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"독수리가 하늘을 납니다."</span><span class="o">);</span>
+    <span class="o">}</span>
 
-}
-class Tiger extends Animal{
-    public void move(){
-        System.out.println("호랑이가 네발로 뜁니다.");
-    }
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Tiger</span> <span class="kd">extends</span> <span class="nc">Animal</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"호랑이가 네발로 뜁니다."</span><span class="o">);</span>
+    <span class="o">}</span>
 
-}
-public class AnimalTest{
-    public static void main(String[] args){
-        AnimalTest aTest = new AnimalTest();
-        aTest.moveAnimal(new Human());
-        aTest.moveAnimal(new Eagle());
-        aTest.moveAnimal(new Tiger());
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AnimalTest</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">AnimalTest</span> <span class="n">aTest</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AnimalTest</span><span class="o">();</span>
+        <span class="n">aTest</span><span class="o">.</span><span class="na">moveAnimal</span><span class="o">(</span><span class="k">new</span> <span class="nc">Human</span><span class="o">());</span>
+        <span class="n">aTest</span><span class="o">.</span><span class="na">moveAnimal</span><span class="o">(</span><span class="k">new</span> <span class="nc">Eagle</span><span class="o">());</span>
+        <span class="n">aTest</span><span class="o">.</span><span class="na">moveAnimal</span><span class="o">(</span><span class="k">new</span> <span class="nc">Tiger</span><span class="o">());</span>
 
-    }
-    public void moveAnimal(Animal animal){
-        animal.move();
-    }
-}
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">moveAnimal</span><span class="o">(</span><span class="nc">Animal</span> <span class="n">animal</span><span class="o">){</span>
+        <span class="n">animal</span><span class="o">.</span><span class="na">move</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>위 코드는 Animal 클래스를 하나 만들고, 이를 상속하는 클래스 Human, Tiger, Eagle 을 만들어준 뒤 Animal의 메서드인 move를 오버라이딩하여 이를 main 함수에서 moveAnimal 메서드를 통해 사용되도록 했다.</p>
 
 <p>여기서 moveAnimal 메서드는 어떤 인스턴스가 매개변수로 넘어와도 모두 Animal 형으로 변환한다. 예를 들어 매개변수 부분에 Human 인스턴스가 전달되었다면, 다음코드처럼 형 변환된다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>Animal ani = new Human();
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nc">Animal</span> <span class="n">ani</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Human</span><span class="o">();</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>Animal에서 상속받은 클래스가 매개변수로 넘어오면 모두 Animal형으로 변환되므로 animal.move() 메서드를 호출할 수 있다. 가상 메서드 원리에 따라 animal.move() 메서드가 호출하는 메서드는 Animal의 move가 아닌 매개변수로 넘어온 실제 인스턴스의 메서드이다. 따라서 animal.move() 메서드는 변함이 없지만 어떤 메서드가 넘어왔느냐에 따라 출력문이 달라지는데,<br />
 이를 다향성이라 한다.</p>
@@ -554,7 +638,7 @@ public class AnimalTest{
 <p>다른 동물이 새로 추가되는 경우를 생각해보자. 새로운 동물도 Animal 클래스를 상속받아서 구현하면 모든 클래스를 Animal 자료형 하나로 쉽게 관리할 수 있을것이다. 이것이 바로 다형성을 활용한 프로그램의 확장성이다. 각 자료형에 따라 코드를 다르게 구현하면 코드는 훨씬 복잡해지고 내용도 길어지겠지만, 상위클래스에서 공통 부분의 메서드를 제공하고, 하위 클래스에서는 그에 기반한 추가요소만 덧붙여 구현하면 코드 양도 줄어들며, 유지보수도 편리하다.</p>
 
 <p>그럼 다형성을 이용해서 상속에서 다뤘던 VIP 클래스를 구현해보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -584,40 +668,40 @@ public class AnimalTest{
 28
 29
 30
-</pre></td><td class="rouge-code"><pre>package polymorphism;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">polymorphism</span><span class="o">;</span>
 
-public class Customer {
-    protected int customerID;
-    protected String customerName;
-    protected String customerGrade;
-    int bonusPoint;
-    double bonusRatio;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Customer</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="kt">int</span> <span class="n">customerID</span><span class="o">;</span>
+    <span class="kd">protected</span> <span class="nc">String</span> <span class="n">customerName</span><span class="o">;</span>
+    <span class="kd">protected</span> <span class="nc">String</span> <span class="n">customerGrade</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">bonusPoint</span><span class="o">;</span>
+    <span class="kt">double</span> <span class="n">bonusRatio</span><span class="o">;</span>
 
-    public Customer(){
-        initCustomer();
-    }
-    public Customer(int customerID, String customerName){
-        this.customerID = customerID;
-        this.customerName = customerName;
-        initCustomer();
-    }
-    private void initCustomer(){
-        customerGrade = "SILVER";
-        bonusRatio = 0.01;
-    }
+    <span class="kd">public</span> <span class="nf">Customer</span><span class="o">(){</span>
+        <span class="n">initCustomer</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nf">Customer</span><span class="o">(</span><span class="kt">int</span> <span class="n">customerID</span><span class="o">,</span> <span class="nc">String</span> <span class="n">customerName</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">customerID</span> <span class="o">=</span> <span class="n">customerID</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">customerName</span> <span class="o">=</span> <span class="n">customerName</span><span class="o">;</span>
+        <span class="n">initCustomer</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">initCustomer</span><span class="o">(){</span>
+        <span class="n">customerGrade</span> <span class="o">=</span> <span class="s">"SILVER"</span><span class="o">;</span>
+        <span class="n">bonusRatio</span> <span class="o">=</span> <span class="mf">0.01</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    public int calcPrice(int price){
-        bonusPoint += price * bonusRatio;
-        return price;
-    }
-    public String showCustomerInfo(){
-        return customerName+"님 의 등급은 " + customerGrade+"이며, 보너스 포인트는 "+bonusPoint+"입니다.";
-    }
-}
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">calcPrice</span><span class="o">(</span><span class="kt">int</span> <span class="n">price</span><span class="o">){</span>
+        <span class="n">bonusPoint</span> <span class="o">+=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">bonusRatio</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">price</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">showCustomerInfo</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">customerName</span><span class="o">+</span><span class="s">"님 의 등급은 "</span> <span class="o">+</span> <span class="n">customerGrade</span><span class="o">+</span><span class="s">"이며, 보너스 포인트는 "</span><span class="o">+</span><span class="n">bonusPoint</span><span class="o">+</span><span class="s">"입니다."</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>먼저 Customer 클래스를 만들어 주었는데, 등급과 보너스 비율을 기본으로 설정하는 메서드를 생성자 두곳에서 모두 사용할 수 있도록 initCustomer() 메서드로 만들어주었다. 그럼 이를 상속하여 VIPCustomer 클래스를 만들어보자.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -642,37 +726,37 @@ public class Customer {
 23
 24
 25
-</pre></td><td class="rouge-code"><pre>package polymorphism;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">polymorphism</span><span class="o">;</span>
 
-public class VIPCustomer extends Customer {
-    private int agentID;
-    double saleRatio;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">VIPCustomer</span> <span class="kd">extends</span> <span class="nc">Customer</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">agentID</span><span class="o">;</span>
+    <span class="kt">double</span> <span class="n">saleRatio</span><span class="o">;</span>
     
-    public VIPCustomer(int customerID, String customerName, int agentID){
-        super(customerID, customerName);
-        customerGrade = "VIP";
-        bonusRatio = 0.05;
-        saleRatio = 0.1;
-        this.agentID = agentID;
-    }
-    public int calcPrice(int price){
-        bonusPoint += price * bonusRatio;
-        return price - (int)(price * saleRatio);
-    }
-    public String showCustomerInfo(){
-        return super.showCustomerInfo()+ "담당 상담원 번호는" + agentID+"입니다.";
-    }
-    public int getAgentID(){
-        return agentID;
-    }
+    <span class="kd">public</span> <span class="nf">VIPCustomer</span><span class="o">(</span><span class="kt">int</span> <span class="n">customerID</span><span class="o">,</span> <span class="nc">String</span> <span class="n">customerName</span><span class="o">,</span> <span class="kt">int</span> <span class="n">agentID</span><span class="o">){</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">customerID</span><span class="o">,</span> <span class="n">customerName</span><span class="o">);</span>
+        <span class="n">customerGrade</span> <span class="o">=</span> <span class="s">"VIP"</span><span class="o">;</span>
+        <span class="n">bonusRatio</span> <span class="o">=</span> <span class="mf">0.05</span><span class="o">;</span>
+        <span class="n">saleRatio</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">agentID</span> <span class="o">=</span> <span class="n">agentID</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">calcPrice</span><span class="o">(</span><span class="kt">int</span> <span class="n">price</span><span class="o">){</span>
+        <span class="n">bonusPoint</span> <span class="o">+=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">bonusRatio</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">price</span> <span class="o">-</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="n">price</span> <span class="o">*</span> <span class="n">saleRatio</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">showCustomerInfo</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">showCustomerInfo</span><span class="o">()+</span> <span class="s">"담당 상담원 번호는"</span> <span class="o">+</span> <span class="n">agentID</span><span class="o">+</span><span class="s">"입니다."</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAgentID</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">agentID</span><span class="o">;</span>
+    <span class="o">}</span>
     
-}
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>Customer 클래스를 상속하여 VIPCustomer 클래스를 만들어 주었다. VIPCustomer 클래스만의 멤버변수를 선언해 준뒤, calcPrice()와 showCustomerInfo() 메서드도 오버라이딩 해주었다.</p>
 
 <p>이제 이렇게 생성해준 Customer 클래스와 VIPCustomer 클래스를 사용해서 각각의 인스턴스를 선언해 돈을 지불하고 계산해보면서 다형성에 대해 알아보자.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -706,39 +790,39 @@ public class VIPCustomer extends Customer {
 32
 33
 34
-</pre></td><td class="rouge-code"><pre>package polymorphism;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">polymorphism</span><span class="o">;</span>
 
-public class CustomerTest {
-    public static void main(String[] args){
-        Customer customerLee = new Customer(10010, "이순신");
-        customerLee.bonusPoint = 1000;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomerTest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">Customer</span> <span class="n">customerLee</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Customer</span><span class="o">(</span><span class="mi">10010</span><span class="o">,</span> <span class="s">"이순신"</span><span class="o">);</span>
+        <span class="n">customerLee</span><span class="o">.</span><span class="na">bonusPoint</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">;</span>
 
-        System.out.println(customerLee.showCustomerInfo());
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">customerLee</span><span class="o">.</span><span class="na">showCustomerInfo</span><span class="o">());</span>
 
-        Customer customerKim = new VIPCustomer(10020,"김유신",12345);
-        customerKim.bonusPoint = 1000;
+        <span class="nc">Customer</span> <span class="n">customerKim</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">VIPCustomer</span><span class="o">(</span><span class="mi">10020</span><span class="o">,</span><span class="s">"김유신"</span><span class="o">,</span><span class="mi">12345</span><span class="o">);</span>
+        <span class="n">customerKim</span><span class="o">.</span><span class="na">bonusPoint</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">;</span>
 
-        System.out.println(customerKim.showCustomerInfo());
-        System.out.println("====================");
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">customerKim</span><span class="o">.</span><span class="na">showCustomerInfo</span><span class="o">());</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"===================="</span><span class="o">);</span>
 
-        int price = 10000;
-        int leePrice = customerLee.calcPrice(price);
-        int kimPrice = customerKim.calcPrice(price);
+        <span class="kt">int</span> <span class="n">price</span> <span class="o">=</span> <span class="mi">10000</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">leePrice</span> <span class="o">=</span> <span class="n">customerLee</span><span class="o">.</span><span class="na">calcPrice</span><span class="o">(</span><span class="n">price</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">kimPrice</span> <span class="o">=</span> <span class="n">customerKim</span><span class="o">.</span><span class="na">calcPrice</span><span class="o">(</span><span class="n">price</span><span class="o">);</span>
 
-        System.out.println(customerLee.customerName + "님이" + leePrice+"원 을 지불했습니다.");
-        System.out.println(customerLee.showCustomerInfo());
-        System.out.println(customerKim.customerName+ "님이" + kimPrice+"원을 지불 하셨습니다.");
-        System.out.println(customerKim.showCustomerInfo());
-    }
-}
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">customerLee</span><span class="o">.</span><span class="na">customerName</span> <span class="o">+</span> <span class="s">"님이"</span> <span class="o">+</span> <span class="n">leePrice</span><span class="o">+</span><span class="s">"원 을 지불했습니다."</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">customerLee</span><span class="o">.</span><span class="na">showCustomerInfo</span><span class="o">());</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">customerKim</span><span class="o">.</span><span class="na">customerName</span><span class="o">+</span> <span class="s">"님이"</span> <span class="o">+</span> <span class="n">kimPrice</span><span class="o">+</span><span class="s">"원을 지불 하셨습니다."</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">customerKim</span><span class="o">.</span><span class="na">showCustomerInfo</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-&gt;&gt;&gt; 이순신님 의 등급은 SILVER이며, 보너스 포인트는 1000입니다.
-&gt;&gt;&gt; 김유신님 의 등급은 VIP이며, 보너스 포인트는 1000입니다.담당 상담원 번호는12345입니다.
-&gt;&gt;&gt; ====================
-&gt;&gt;&gt; 이순신님이10000원 을 지불했습니다.
-&gt;&gt;&gt; 이순신님 의 등급은 SILVER이며, 보너스 포인트는 1100입니다.
-&gt;&gt;&gt; 김유신님이9000원을 지불 하셨습니다.
-김유신님 의 등급은 VIP이며, 보너스 포인트는 1500입니다.담당 상담원 번호는12345입니다.
+<span class="o">&gt;&gt;&gt;</span> <span class="n">이순신님</span> <span class="n">의</span> <span class="n">등급은</span> <span class="nc">SILVER이며</span><span class="o">,</span> <span class="n">보너스</span> <span class="n">포인트는</span> <span class="mi">1000</span><span class="n">입니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">김유신님</span> <span class="n">의</span> <span class="n">등급은</span> <span class="nc">VIP이며</span><span class="o">,</span> <span class="n">보너스</span> <span class="n">포인트는</span> <span class="mi">1000</span><span class="n">입니다</span><span class="o">.</span><span class="na">담당</span> <span class="n">상담원</span> <span class="n">번호는12345입니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="o">====================</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">이순신님이10000원</span> <span class="n">을</span> <span class="n">지불했습니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">이순신님</span> <span class="n">의</span> <span class="n">등급은</span> <span class="nc">SILVER이며</span><span class="o">,</span> <span class="n">보너스</span> <span class="n">포인트는</span> <span class="mi">1100</span><span class="n">입니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">김유신님이9000원을</span> <span class="n">지불</span> <span class="n">하셨습니다</span><span class="o">.</span>
+<span class="n">김유신님</span> <span class="n">의</span> <span class="n">등급은</span> <span class="nc">VIP이며</span><span class="o">,</span> <span class="n">보너스</span> <span class="n">포인트는</span> <span class="mi">1500</span><span class="n">입니다</span><span class="o">.</span><span class="na">담당</span> <span class="n">상담원</span> <span class="n">번호는12345입니다</span><span class="o">.</span>
 
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>위에는 인스턴스로 customerLee와 customerKim 두개를 생성해주었는데, customerKim 은 형변환을 하여 Customer형으로 선언해주었다. 고객의 자료형은 Customer형으로 동일하지만, 할인율과 보너스 포인트는 각 인스턴스에 맞게 계산된 것을 알 수 있다.</p>
@@ -757,7 +841,7 @@ public class CustomerTest {
 </ul>
 
 <p>이것을 기반으로 Customer 클래스를 상속받아 GOLDCustomer 클래스를 만들어보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -774,30 +858,30 @@ public class CustomerTest {
 15
 16
 17
-</pre></td><td class="rouge-code"><pre>package polymorphism;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">polymorphism</span><span class="o">;</span>
 
-public class GOLDCustomer extends Customer{
-    double saleRatio;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GOLDCustomer</span> <span class="kd">extends</span> <span class="nc">Customer</span><span class="o">{</span>
+    <span class="kt">double</span> <span class="n">saleRatio</span><span class="o">;</span>
 
-    public GOLDCustomer(int customerID, String customerName){
-        super(customerID, customerName);
-        customerGrade = "GOLD";
-        bonusRatio = 0.02;
-        saleRatio = 0.1;
-    }
-    @Override
-    public int calcPrice(int price){
-        bonusPoint += price * bonusRatio;
-        return price - (int)(price * saleRatio);
-    }
-}
+    <span class="kd">public</span> <span class="nf">GOLDCustomer</span><span class="o">(</span><span class="kt">int</span> <span class="n">customerID</span><span class="o">,</span> <span class="nc">String</span> <span class="n">customerName</span><span class="o">){</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">customerID</span><span class="o">,</span> <span class="n">customerName</span><span class="o">);</span>
+        <span class="n">customerGrade</span> <span class="o">=</span> <span class="s">"GOLD"</span><span class="o">;</span>
+        <span class="n">bonusRatio</span> <span class="o">=</span> <span class="mf">0.02</span><span class="o">;</span>
+        <span class="n">saleRatio</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">calcPrice</span><span class="o">(</span><span class="kt">int</span> <span class="n">price</span><span class="o">){</span>
+        <span class="n">bonusPoint</span> <span class="o">+=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">bonusRatio</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">price</span> <span class="o">-</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="n">price</span> <span class="o">*</span> <span class="n">saleRatio</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>그럼 다시 CustomerTest 클래스에  main 함수를 구현하여 고객관리 프로그램을 구현해보자.</p>
 
 <p>다음과 같은 상황을 구현해보도록 할 것 이다.</p>
 
 <p>이 회사의 고객은 현재 5명이다. 5명 중 VIP 1명, GOLD 2명, SILVER 2명이다. 이 고객들이 각각 10000원 짜리 상품을 구매했을 때의 결과를 출력해보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -848,57 +932,57 @@ public class GOLDCustomer extends Customer{
 49
 50
 51
-</pre></td><td class="rouge-code"><pre>package polymorphism;
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicReferenceArray;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">polymorphism</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.atomic.AtomicReferenceArray</span><span class="o">;</span>
 
-public class CustomerTest {
-    public static void main(String[] args){
-        ArrayList&lt;Customer&gt; customerList = new ArrayList&lt;Customer&gt;();
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomerTest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="n">customerList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;();</span>
 
-        Customer customerLee = new Customer(10010, "이순신");
-        Customer customerShin = new Customer(10020, "신사임당");
-        Customer customerHong= new GOLDCustomer(10030, "홍길동");
-        Customer customerYoul = new GOLDCustomer(10040, "이율곡");
-        Customer customerKim = new VIPCustomer(10050, "김유신",12345);
+        <span class="nc">Customer</span> <span class="n">customerLee</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Customer</span><span class="o">(</span><span class="mi">10010</span><span class="o">,</span> <span class="s">"이순신"</span><span class="o">);</span>
+        <span class="nc">Customer</span> <span class="n">customerShin</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Customer</span><span class="o">(</span><span class="mi">10020</span><span class="o">,</span> <span class="s">"신사임당"</span><span class="o">);</span>
+        <span class="nc">Customer</span> <span class="n">customerHong</span><span class="o">=</span> <span class="k">new</span> <span class="nc">GOLDCustomer</span><span class="o">(</span><span class="mi">10030</span><span class="o">,</span> <span class="s">"홍길동"</span><span class="o">);</span>
+        <span class="nc">Customer</span> <span class="n">customerYoul</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GOLDCustomer</span><span class="o">(</span><span class="mi">10040</span><span class="o">,</span> <span class="s">"이율곡"</span><span class="o">);</span>
+        <span class="nc">Customer</span> <span class="n">customerKim</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">VIPCustomer</span><span class="o">(</span><span class="mi">10050</span><span class="o">,</span> <span class="s">"김유신"</span><span class="o">,</span><span class="mi">12345</span><span class="o">);</span>
 
-        customerList.add(customerLee);
-        customerList.add(customerShin);
-        customerList.add(customerHong);
-        customerList.add(customerYoul);
-        customerList.add(customerKim);
+        <span class="n">customerList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">customerLee</span><span class="o">);</span>
+        <span class="n">customerList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">customerShin</span><span class="o">);</span>
+        <span class="n">customerList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">customerHong</span><span class="o">);</span>
+        <span class="n">customerList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">customerYoul</span><span class="o">);</span>
+        <span class="n">customerList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">customerKim</span><span class="o">);</span>
 
-        System.out.println("==== 고객 정보 출력 ====");
-        for(Customer c : customerList){
-            System.out.println(c.showCustomerInfo());
-        }
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"==== 고객 정보 출력 ===="</span><span class="o">);</span>
+        <span class="k">for</span><span class="o">(</span><span class="nc">Customer</span> <span class="n">c</span> <span class="o">:</span> <span class="n">customerList</span><span class="o">){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">showCustomerInfo</span><span class="o">());</span>
+        <span class="o">}</span>
 
-        System.out.println("==== 할인율과 보너스 포인트 계산 ====");
-        int price = 10000;
-        for (Customer c : customerList){
-            int cost = c.calcPrice(price);
-            System.out.println(c.customerName+ "남이 "+cost+"원 지불하셨습니다.");
-            System.out.println("현재 남아있는 포인트는"+c.bonusPoint+ "입니다.");
-        }
-    }
-}
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"==== 할인율과 보너스 포인트 계산 ===="</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">price</span> <span class="o">=</span> <span class="mi">10000</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">Customer</span> <span class="n">c</span> <span class="o">:</span> <span class="n">customerList</span><span class="o">){</span>
+            <span class="kt">int</span> <span class="n">cost</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="na">calcPrice</span><span class="o">(</span><span class="n">price</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">customerName</span><span class="o">+</span> <span class="s">"남이 "</span><span class="o">+</span><span class="n">cost</span><span class="o">+</span><span class="s">"원 지불하셨습니다."</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"현재 남아있는 포인트는"</span><span class="o">+</span><span class="n">c</span><span class="o">.</span><span class="na">bonusPoint</span><span class="o">+</span> <span class="s">"입니다."</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-&gt;&gt;&gt; 이순신님 의 등급은 SILVER이며, 보너스 포인트는 0입니다.
-&gt;&gt;&gt; 신사임당님 의 등급은 SILVER이며, 보너스 포인트는 0입니다.
-&gt;&gt;&gt; 홍길동님 의 등급은 GOLD이며, 보너스 포인트는 0입니다.
-&gt;&gt;&gt; 이율곡님 의 등급은 GOLD이며, 보너스 포인트는 0입니다.
-&gt;&gt;&gt; 김유신님 의 등급은 VIP이며, 보너스 포인트는 0입니다.담당 상담원 번호는12345입니다.
-&gt;&gt;&gt; ==== 할인율과 보너스 포인트 계산 ====
-&gt;&gt;&gt; 이순신님이 10000원 지불하셨습니다.
-&gt;&gt;&gt; 현재 남아있는 포인트는100입니다.
-&gt;&gt;&gt; 신사임당님이 10000원 지불하셨습니다.
-&gt;&gt;&gt; 현재 남아있는 포인트는100입니다.
-&gt;&gt;&gt; 홍길동남이 9000원 지불하셨습니다.
-&gt;&gt;&gt; 현재 남아있는 포인트는200입니다.
-&gt;&gt;&gt; 이율곡님이 9000원 지불하셨습니다.
-&gt;&gt;&gt; 현재 남아있는 포인트는200입니다.
-&gt;&gt;&gt; 김유신님이 9000원 지불하셨습니다.
-&gt;&gt;&gt; 현재 남아있는 포인트는500입니다.
+<span class="o">&gt;&gt;&gt;</span> <span class="n">이순신님</span> <span class="n">의</span> <span class="n">등급은</span> <span class="nc">SILVER이며</span><span class="o">,</span> <span class="n">보너스</span> <span class="n">포인트는</span> <span class="mi">0</span><span class="n">입니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">신사임당님</span> <span class="n">의</span> <span class="n">등급은</span> <span class="nc">SILVER이며</span><span class="o">,</span> <span class="n">보너스</span> <span class="n">포인트는</span> <span class="mi">0</span><span class="n">입니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">홍길동님</span> <span class="n">의</span> <span class="n">등급은</span> <span class="nc">GOLD이며</span><span class="o">,</span> <span class="n">보너스</span> <span class="n">포인트는</span> <span class="mi">0</span><span class="n">입니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">이율곡님</span> <span class="n">의</span> <span class="n">등급은</span> <span class="nc">GOLD이며</span><span class="o">,</span> <span class="n">보너스</span> <span class="n">포인트는</span> <span class="mi">0</span><span class="n">입니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">김유신님</span> <span class="n">의</span> <span class="n">등급은</span> <span class="nc">VIP이며</span><span class="o">,</span> <span class="n">보너스</span> <span class="n">포인트는</span> <span class="mi">0</span><span class="n">입니다</span><span class="o">.</span><span class="na">담당</span> <span class="n">상담원</span> <span class="n">번호는12345입니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="o">====</span> <span class="n">할인율과</span> <span class="n">보너스</span> <span class="n">포인트</span> <span class="n">계산</span> <span class="o">====</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">이순신님이</span> <span class="mi">10000</span><span class="n">원</span> <span class="n">지불하셨습니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">현재</span> <span class="n">남아있는</span> <span class="n">포인트는100입니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">신사임당님이</span> <span class="mi">10000</span><span class="n">원</span> <span class="n">지불하셨습니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">현재</span> <span class="n">남아있는</span> <span class="n">포인트는100입니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">홍길동남이</span> <span class="mi">9000</span><span class="n">원</span> <span class="n">지불하셨습니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">현재</span> <span class="n">남아있는</span> <span class="n">포인트는200입니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">이율곡님이</span> <span class="mi">9000</span><span class="n">원</span> <span class="n">지불하셨습니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">현재</span> <span class="n">남아있는</span> <span class="n">포인트는200입니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">김유신님이</span> <span class="mi">9000</span><span class="n">원</span> <span class="n">지불하셨습니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">현재</span> <span class="n">남아있는</span> <span class="n">포인트는500입니다</span><span class="o">.</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>5명의 고객의 정보를 담기 위해 객체 배열 ArrayList를 선언해주었다. 그리고 Customer 클래스로 5개의 인스턴스를 선언했는데, 이순신, 신사임당은 SILVERCustomer 객체로, 홍길동, 이율곡은 GOLDCustomer, 김유신은 VIPCustomer 객체로 선언하였다. 그리고 for 문을 사용하여 ArrayList에 있는 요소를 하나씩 가져와 c변수에 넣게되어 메서드를 실행하게된다. 그리고 각 인스턴스가 메서드를 호출하면 현재 이 변수의 실제 인스턴스가 무엇이냐에 따라 재정의한 메서드를 각각 호출하여 계산한다. 이것이 다형성이다.</p>
 
@@ -911,12 +995,12 @@ public class CustomerTest {
 <p>하지만 이런 경우에는 상속을 사용하지 않는게 좋다. Subject가 Student를 포괄하는 개념의 클래스가 아니기 때문이다. 또한 Student 클래스를 상속받는 다른 클래스가 있을 수도 있기 때문에 상속을 사용하지 않는 것이 좋다. 이런경우를 <strong>HAS-A 관계(has a relationship; association)</strong> 라고 한다.</p>
 
 <p>이 관계는 한 클래스가 다른 클래스를 소유한 관계로 상속이 아닌 멤버변수로 사용하는 것이 좋다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-</pre></td><td class="rouge-code"><pre>class Student(){
-    Subject majorSubject;
-}
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nf">Student</span><span class="o">(){</span>
+    <span class="nc">Subject</span> <span class="n">majorSubject</span><span class="o">;</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>그렇다면 어떤 경우에 상속을 사용해주어야 좋을까?</p>
 
@@ -998,7 +1082,7 @@ public class CustomerTest {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/baekjoon/2206-%EB%B2%BD-%EB%B6%80%EC%88%98%EA%B3%A0-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0/" rel="permalink">[BOJ] 2206 벽 부수고 이동하기 (Python3)
+        <a href="/diary-univ/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8-%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4/" rel="permalink">아두이노 라즈베리파이
 </a>
       
     </h2>
@@ -1010,7 +1094,7 @@ public class CustomerTest {
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
+        <time datetime="2022-03-21T00:00:00+00:00">March 21, 2022</time>
       </span>
     
 
@@ -1030,8 +1114,10 @@ public class CustomerTest {
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">문제
-N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있는 곳을 나타내고, 1은 이동할 수 없는 벽이 있는 곳을 나타낸다. 당신은 (1, 1)에서 (N, M)의 위치까지 이동하려 하는데, 이때 최단 경로로 이동하려 한다. 최단경로는 맵에서 가장 적은 개수의 칸을 지나는...</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.21
+올해 듣는 수업이 대부분 프로젝트 수업이라서 사실 수업보다는 그냥 실험하고, 프로젝트 하나 완료하는것들이 전공수업의 전부가 되었다.
+
+</p>
   </article>
 </div>
 
@@ -1045,7 +1131,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/java/%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC-(1)/" rel="permalink">[Java] 플레이그라운드 with TDD, 클린코드 - AssertJ (1)
+        <a href="/diary-univ/%EA%B0%80%EB%8A%A5%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" rel="permalink">가능성에 대하여
 </a>
       
     </h2>
@@ -1057,7 +1143,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
+        <time datetime="2022-03-19T00:00:00+00:00">March 19, 2022</time>
       </span>
     
 
@@ -1070,17 +1156,15 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          7 분 소요
+          3 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">시작하면서…
-자바로 간단한 프로젝트를 만들어보려 했는데, 그냥 무작정 혼자 만들다가는 나쁜 버릇이 들 것 같아서   
-강의 하나를 수강하기로 했다. 특히나 자바는 객체지향이라는 개념을 사용하는 언어이고, 난 대부분 절차지향 언어만
-사용해봤었기 때문에, 아직 간단한 책 한권으로는 객...</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.19
+요즘 인생의 방향성에 대해 생각이 좀 많다. 원래는 이번년도에 창업을 해보면서 대략 어떤 느낌인지 맛을 보자는 느낌이었는데, 계획서를 써보고 공부해볼 수록 그렇게 1년만 해볼 수 있는 문제가 아니란걸 깨닫는다. 그런식으로 1년만 하려는 마음가짐으로 뭔가를 이뤄내...</p>
   </article>
 </div>
 
@@ -1094,7 +1178,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/diary-univ/%ED%86%A0%EC%8A%A4-NEXT-%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%9B%90%EA%B8%88-%EB%8B%B9%EC%B2%A8%EB%90%98%EB%8B%A4/" rel="permalink">개발지원금 당첨되다…
+        <a href="/diary-univ/%EC%9D%BC%EB%A6%AC-%EC%BB%A4%ED%94%BC%EB%A8%B8%EC%8B%A0/" rel="permalink">일리 커피머신
 </a>
       
     </h2>
@@ -1106,7 +1190,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+        <time datetime="2022-03-15T00:00:00+00:00">March 15, 2022</time>
       </span>
     
 
@@ -1126,7 +1210,8 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">2021.08.18
+    <p class="archive__item-excerpt" itemprop="description">2022.03.15
+
 
 </p>
   </article>
@@ -1142,7 +1227,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/baekjoon/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%ED%95%A8%EC%88%98/" rel="permalink">[BOJ] 1003 피보나치 함수 (Python3)
+        <a href="/diary-univ/%EC%98%81%EC%96%B4/" rel="permalink">영어…
 </a>
       
     </h2>
@@ -1154,7 +1239,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+        <time datetime="2022-03-14T00:00:00+00:00">March 14, 2022</time>
       </span>
     
 
@@ -1167,17 +1252,15 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          1 분 소요
+          최대 1 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">문제
-다음 소스는 N번째 피보나치 수를 구하는 C++ 함수이다.
-
-</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.14
+요즘 부쩍 영어에 관심이 많아져서 열심히 해보려고 하는데, 진짜 벽느껴진다… 그냥 고등학교때만 열심히 했어도 이렇게까지 고생 안 했을텐데… 새롭게 뭐 해보려고 하지만 옛날의 업보가 결국 불쑥 불쑥 나타나 앞을 막기 시작한다. 근데 뭐 다른 사람들은 열심히 공부한...</p>
   </article>
 </div>
 
@@ -1229,7 +1312,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2021 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

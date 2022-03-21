@@ -282,11 +282,34 @@
        <span class="nav__sub-title">Life</span>
             <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
             <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
-                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (42)</a></li>
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (64)</a></li>
+                    
+                
                     
                 
                     
@@ -318,14 +341,14 @@
                     
                 
                     
-                        <li><a href="/categories/java" class="">Java (19)</a></li>
+                        <li><a href="/categories/java" class="">Java (44)</a></li>
                     
                 
-
-        <span class="nav__sub-title">Algorithm</span>
-            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
-            <ul>
-                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
@@ -335,7 +358,56 @@
                     
                 
                     
-                        <li><a href="/categories/baekjoon" class="">Baekjoon (37)</a></li>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (61)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -354,7 +426,11 @@
                     
                 
                     
-                        <li><a href="/categories/programmers" class="">Programmers(63)</a></li>
+                        <li><a href="/categories/programmers" class="">Programmers(66)</a></li>
+                    
+                
+                    
+                
                     
                 
                     
@@ -365,6 +441,8 @@
             <ul>
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
                 
                     
                 
@@ -380,8 +458,12 @@
                 
                     
                 
+                    
+                
 
 
+                
+                    
                 
                     
                 
@@ -389,6 +471,8 @@
                 
                     
                         <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
                     
                 
                     
@@ -470,28 +554,28 @@
 
 <h2 id="instanceof">instanceof</h2>
 <p>상속관계를 생각해보면 모든 인간은 동물이지만, 모든 동물이 인간은 아니다. 따라서 다운캐스팅을 하기 전에 상위 클래스로 형 변환된 인스턴스의 원래 자료형을 확인해야 변환할 때 오류를 막을 수 있다. 이를 확인하는 예약어가 바로 instanceof 인데, instanceof의 사용 방법은 다음과 같다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
-</pre></td><td class="rouge-code"><pre>Animal hAnimal = new Human();
-if(hAnimal instanceof Human){
-    Human human = (Human)hAnimal
-}
+</pre></td><td class="rouge-code"><pre><span class="nc">Animal</span> <span class="n">hAnimal</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Human</span><span class="o">();</span>
+<span class="k">if</span><span class="o">(</span><span class="n">hAnimal</span> <span class="k">instanceof</span> <span class="nc">Human</span><span class="o">){</span>
+    <span class="nc">Human</span> <span class="n">human</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Human</span><span class="o">)</span><span class="n">hAnimal</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>위에서 사용한 hAnimal은 원래 Human형으로 생성되었는데, Animal형으로 형 변환된다. instanceof 예약어는 왼쪽에 있는 변수의 원래 인스턴스형이 오른쪽 클래스 자료형인가를 확인한다. 코드를 보면 hAnimal이 Animal 형으로 되어있지만, 원래는 Human형으로 생성된 인스턴스인지 확인하는 것이다. instanceof의 반환값이 true이면 다운 캐스팅을 하는데, 이때는 Human human = (Human)hAnimal; 문장과 같이 명시적으로 자료형을 써주어야 한다.<br />
 상위 클래스 형변환은 묵시적으로 가능하지만, 하위클래스로 형변환은 명시적으로 해야하기 때문이다.</p>
 
 <p>다음처럼 원래 자료형이 Human이 아닌 경우를 보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-</pre></td><td class="rouge-code"><pre>Animal ani = new Tiger();
-Human h = (Human)ani;
+</pre></td><td class="rouge-code"><pre><span class="nc">Animal</span> <span class="n">ani</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Tiger</span><span class="o">();</span>
+<span class="nc">Human</span> <span class="n">h</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Human</span><span class="o">)</span><span class="n">ani</span><span class="o">;</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>위와 같이 코딩해도 컴파일 오류는 나지 않는다. 왜일까? 일단 Tiger 인스턴스는 상위클래스로의 형 변환이기 때문에 자동으로 형 변환이 된다. 변수 h의 자료형 Human과 강제 형 변환되는 ani(Human)의 자료형이 동일하므로 컴파일 오류는 일어나지 않는다. 그 대신 이 코드를 실행하면 오류가 발생한다.</p>
 
 <p>따라서 참조 변수의 원래 인스턴스형을 정확히 확인하고 다운 캐스팅을 해야 안전하며, 이때 instanceof를 사용하는 것이다. 그럼 원래 인스턴스 형으로 가운 캐스팅하는 예를 살펴보도록 하자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -582,96 +666,96 @@ Human h = (Human)ani;
 89
 90
 91
-</pre></td><td class="rouge-code"><pre>package downcasting;
-import java.util.ArrayList;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">downcasting</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 
-class Animal {
-    public void move(){
-        System.out.println("동물이 움직입니다.");
-    }
+<span class="kd">class</span> <span class="nc">Animal</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"동물이 움직입니다."</span><span class="o">);</span>
+    <span class="o">}</span>
 
-}
+<span class="o">}</span>
 
-class Human extends Animal{
-    @Override
-    public void move() {
-    System.out.println("사람이 걷습니다.");
-    }
-    public void readBook(){
-        System.out.println("사람이 책을 읽습니다.");
-    }
-}
+<span class="kd">class</span> <span class="nc">Human</span> <span class="kd">extends</span> <span class="nc">Animal</span><span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"사람이 걷습니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">readBook</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"사람이 책을 읽습니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-class Tiger extends Animal{
-    @Override
-    public void move(){
-        System.out.println("호랑이가 네발로 깁니다.");
-    }
-    public void hunting(){
-        System.out.println("호랑이가 사냥을 합니다.");
-    }
-}
+<span class="kd">class</span> <span class="nc">Tiger</span> <span class="kd">extends</span> <span class="nc">Animal</span><span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"호랑이가 네발로 깁니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hunting</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"호랑이가 사냥을 합니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-class Eagle extends Animal{
-    @Override
-    public void move(){
-        System.out.println("독수리가 날아갑니다..");
-    }
-    public void flying(){
-        System.out.println("독수리가 멀리 납니다.");
-    }
-}
+<span class="kd">class</span> <span class="nc">Eagle</span> <span class="kd">extends</span> <span class="nc">Animal</span><span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"독수리가 날아갑니다.."</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">flying</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"독수리가 멀리 납니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-public class AnimalTest {
-    ArrayList&lt;Animal&gt; aniList = new ArrayList&lt;Animal&gt;();
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AnimalTest</span> <span class="o">{</span>
+    <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Animal</span><span class="o">&gt;</span> <span class="n">aniList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Animal</span><span class="o">&gt;();</span>
 
-    public static void main(String[] args){
-        AnimalTest aTest = new AnimalTest();
-        aTest.addAnimal();
-        System.out.println("===다운 캐스팅===");
-        aTest.testCasting();
-    }
-    public void addAnimal(){
-        aniList.add(new Human());
-        aniList.add(new Tiger());
-        aniList.add(new Eagle());
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">AnimalTest</span> <span class="n">aTest</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AnimalTest</span><span class="o">();</span>
+        <span class="n">aTest</span><span class="o">.</span><span class="na">addAnimal</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"===다운 캐스팅==="</span><span class="o">);</span>
+        <span class="n">aTest</span><span class="o">.</span><span class="na">testCasting</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addAnimal</span><span class="o">(){</span>
+        <span class="n">aniList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Human</span><span class="o">());</span>
+        <span class="n">aniList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Tiger</span><span class="o">());</span>
+        <span class="n">aniList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Eagle</span><span class="o">());</span>
 
-        for(Animal ani : aniList){
-            ani.move();
-        }
-    }
-    public void testCasting(){
-        for(int i = 0; i &lt; aniList.size();i++){
-            Animal ani = aniList.get(i);
-            if(ani instanceof Human){
-                Human h = (Human)ani;
-                h.readBook();
+        <span class="k">for</span><span class="o">(</span><span class="nc">Animal</span> <span class="n">ani</span> <span class="o">:</span> <span class="n">aniList</span><span class="o">){</span>
+            <span class="n">ani</span><span class="o">.</span><span class="na">move</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testCasting</span><span class="o">(){</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">aniList</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">i</span><span class="o">++){</span>
+            <span class="nc">Animal</span> <span class="n">ani</span> <span class="o">=</span> <span class="n">aniList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">ani</span> <span class="k">instanceof</span> <span class="nc">Human</span><span class="o">){</span>
+                <span class="nc">Human</span> <span class="n">h</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Human</span><span class="o">)</span><span class="n">ani</span><span class="o">;</span>
+                <span class="n">h</span><span class="o">.</span><span class="na">readBook</span><span class="o">();</span>
 
-            }
-            else if(ani instanceof Tiger){
-                Tiger t = (Tiger) ani;
-                t.hunting();
-            }
-            else if(ani instanceof Eagle){
-                Eagle e = (Eagle) ani;
-                e.flying();
-            }
-            else{
-                System.out.println("지원되지 않는 자료형입니다.");
-            }
-        }
+            <span class="o">}</span>
+            <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">ani</span> <span class="k">instanceof</span> <span class="nc">Tiger</span><span class="o">){</span>
+                <span class="nc">Tiger</span> <span class="n">t</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Tiger</span><span class="o">)</span> <span class="n">ani</span><span class="o">;</span>
+                <span class="n">t</span><span class="o">.</span><span class="na">hunting</span><span class="o">();</span>
+            <span class="o">}</span>
+            <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">ani</span> <span class="k">instanceof</span> <span class="nc">Eagle</span><span class="o">){</span>
+                <span class="nc">Eagle</span> <span class="n">e</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Eagle</span><span class="o">)</span> <span class="n">ani</span><span class="o">;</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">flying</span><span class="o">();</span>
+            <span class="o">}</span>
+            <span class="k">else</span><span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"지원되지 않는 자료형입니다."</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
 
-    }
-}
+    <span class="o">}</span>
+<span class="o">}</span>
 
 
-&gt;&gt;&gt; 사람이 걷습니다.
-&gt;&gt;&gt; 호랑이가 네발로 깁니다.
-&gt;&gt;&gt; 독수리가 날아갑니다..
-&gt;&gt;&gt; ===다운 캐스팅===
-&gt;&gt;&gt; 사람이 책을 읽습니다.
-&gt;&gt;&gt; 호랑이가 사냥을 합니다.
-&gt;&gt;&gt; 독수리가 멀리 납니다.
+<span class="o">&gt;&gt;&gt;</span> <span class="n">사람이</span> <span class="n">걷습니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">호랑이가</span> <span class="n">네발로</span> <span class="n">깁니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">독수리가</span> <span class="n">날아갑니다</span><span class="o">..</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="o">===</span><span class="n">다운</span> <span class="n">캐스팅</span><span class="o">===</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">사람이</span> <span class="n">책을</span> <span class="n">읽습니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">호랑이가</span> <span class="n">사냥을</span> <span class="n">합니다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">독수리가</span> <span class="n">멀리</span> <span class="n">납니다</span><span class="o">.</span>
 
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>위의 코드를 보면 각 동물 클래스를 인스턴스로 생성하여 Animal 형으로 선언한 배열에 추가한다. 이렇게 되면 배열에 추가되는 요소의 자료형은 모두 Animal 형으로 변환되는데, 이때 호출할 수 있는 메서드는 Animal 클래스에 선언된 메서드 뿐이다. 이렇게 선언된 배열에서 요소를 하나씩 꺼내 move() 메서드를 호출 하면 제정의한 메서드가 호출된다.<br />
@@ -753,7 +837,7 @@ public class AnimalTest {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/baekjoon/2206-%EB%B2%BD-%EB%B6%80%EC%88%98%EA%B3%A0-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0/" rel="permalink">[BOJ] 2206 벽 부수고 이동하기 (Python3)
+        <a href="/diary-univ/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8-%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4/" rel="permalink">아두이노 라즈베리파이
 </a>
       
     </h2>
@@ -765,7 +849,7 @@ public class AnimalTest {
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
+        <time datetime="2022-03-21T00:00:00+00:00">March 21, 2022</time>
       </span>
     
 
@@ -785,8 +869,10 @@ public class AnimalTest {
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">문제
-N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있는 곳을 나타내고, 1은 이동할 수 없는 벽이 있는 곳을 나타낸다. 당신은 (1, 1)에서 (N, M)의 위치까지 이동하려 하는데, 이때 최단 경로로 이동하려 한다. 최단경로는 맵에서 가장 적은 개수의 칸을 지나는...</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.21
+올해 듣는 수업이 대부분 프로젝트 수업이라서 사실 수업보다는 그냥 실험하고, 프로젝트 하나 완료하는것들이 전공수업의 전부가 되었다.
+
+</p>
   </article>
 </div>
 
@@ -800,7 +886,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/java/%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC-(1)/" rel="permalink">[Java] 플레이그라운드 with TDD, 클린코드 - AssertJ (1)
+        <a href="/diary-univ/%EA%B0%80%EB%8A%A5%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" rel="permalink">가능성에 대하여
 </a>
       
     </h2>
@@ -812,7 +898,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
+        <time datetime="2022-03-19T00:00:00+00:00">March 19, 2022</time>
       </span>
     
 
@@ -825,17 +911,15 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          7 분 소요
+          3 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">시작하면서…
-자바로 간단한 프로젝트를 만들어보려 했는데, 그냥 무작정 혼자 만들다가는 나쁜 버릇이 들 것 같아서   
-강의 하나를 수강하기로 했다. 특히나 자바는 객체지향이라는 개념을 사용하는 언어이고, 난 대부분 절차지향 언어만
-사용해봤었기 때문에, 아직 간단한 책 한권으로는 객...</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.19
+요즘 인생의 방향성에 대해 생각이 좀 많다. 원래는 이번년도에 창업을 해보면서 대략 어떤 느낌인지 맛을 보자는 느낌이었는데, 계획서를 써보고 공부해볼 수록 그렇게 1년만 해볼 수 있는 문제가 아니란걸 깨닫는다. 그런식으로 1년만 하려는 마음가짐으로 뭔가를 이뤄내...</p>
   </article>
 </div>
 
@@ -849,7 +933,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/diary-univ/%ED%86%A0%EC%8A%A4-NEXT-%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%9B%90%EA%B8%88-%EB%8B%B9%EC%B2%A8%EB%90%98%EB%8B%A4/" rel="permalink">개발지원금 당첨되다…
+        <a href="/diary-univ/%EC%9D%BC%EB%A6%AC-%EC%BB%A4%ED%94%BC%EB%A8%B8%EC%8B%A0/" rel="permalink">일리 커피머신
 </a>
       
     </h2>
@@ -861,7 +945,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+        <time datetime="2022-03-15T00:00:00+00:00">March 15, 2022</time>
       </span>
     
 
@@ -881,7 +965,8 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">2021.08.18
+    <p class="archive__item-excerpt" itemprop="description">2022.03.15
+
 
 </p>
   </article>
@@ -897,7 +982,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/baekjoon/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%ED%95%A8%EC%88%98/" rel="permalink">[BOJ] 1003 피보나치 함수 (Python3)
+        <a href="/diary-univ/%EC%98%81%EC%96%B4/" rel="permalink">영어…
 </a>
       
     </h2>
@@ -909,7 +994,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+        <time datetime="2022-03-14T00:00:00+00:00">March 14, 2022</time>
       </span>
     
 
@@ -922,17 +1007,15 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          1 분 소요
+          최대 1 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">문제
-다음 소스는 N번째 피보나치 수를 구하는 C++ 함수이다.
-
-</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.14
+요즘 부쩍 영어에 관심이 많아져서 열심히 해보려고 하는데, 진짜 벽느껴진다… 그냥 고등학교때만 열심히 했어도 이렇게까지 고생 안 했을텐데… 새롭게 뭐 해보려고 하지만 옛날의 업보가 결국 불쑥 불쑥 나타나 앞을 막기 시작한다. 근데 뭐 다른 사람들은 열심히 공부한...</p>
   </article>
 </div>
 
@@ -984,7 +1067,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2021 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

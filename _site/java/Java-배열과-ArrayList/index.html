@@ -282,11 +282,34 @@
        <span class="nav__sub-title">Life</span>
             <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
             <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
-                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (42)</a></li>
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (64)</a></li>
+                    
+                
                     
                 
                     
@@ -318,14 +341,14 @@
                     
                 
                     
-                        <li><a href="/categories/java" class="">Java (19)</a></li>
+                        <li><a href="/categories/java" class="">Java (44)</a></li>
                     
                 
-
-        <span class="nav__sub-title">Algorithm</span>
-            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
-            <ul>
-                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 
                     
@@ -335,7 +358,56 @@
                     
                 
                     
-                        <li><a href="/categories/baekjoon" class="">Baekjoon (37)</a></li>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (61)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -354,7 +426,11 @@
                     
                 
                     
-                        <li><a href="/categories/programmers" class="">Programmers(63)</a></li>
+                        <li><a href="/categories/programmers" class="">Programmers(66)</a></li>
+                    
+                
+                    
+                
                     
                 
                     
@@ -365,6 +441,8 @@
             <ul>
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
                 
                     
                 
@@ -380,8 +458,12 @@
                 
                     
                 
+                    
+                
 
 
+                
+                    
                 
                     
                 
@@ -389,6 +471,8 @@
                 
                     
                         <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
                     
                 
                     
@@ -464,37 +548,37 @@
         <h2 id="배열-선언과-초기화">배열 선언과 초기화</h2>
 <p>배열을 사용하려면 먼저 배열을 선언해야한다.   <br />
 배열도 변수와 마찬가지로 자료형을 함께 선언하는데, 배열을 선언하는 문법은 다음과 같다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-</pre></td><td class="rouge-code"><pre>자료형[] 배열 이름 = new 자료형[개수];
-자료형 배열 이름[] = new 자료형[개수];
+</pre></td><td class="rouge-code"><pre><span class="n">자료형</span><span class="o">[]</span> <span class="n">배열</span> <span class="n">이름</span> <span class="o">=</span> <span class="k">new</span> <span class="n">자료형</span><span class="o">[</span><span class="n">개수</span><span class="o">];</span>
+<span class="n">자료형</span> <span class="n">배열</span> <span class="n">이름</span><span class="o">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">자료형</span><span class="o">[</span><span class="n">개수</span><span class="o">];</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>예를들어 학생의 학번을 만약 배열로 선언한다고 하면,</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>int[] studentIDs = new int[10];
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="kt">int</span><span class="o">[]</span> <span class="n">studentIDs</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>이렇게 선언하면 studentIDs라는 이름을 가진 int형 10자리 배열이 생성된다.</p>
 
 <p>만약 선언과 동시에 배열의 값을 초기화하고 싶다면,   <br />
 중괄호를 사용하면 배열의 값을 초기화하면서 선언할 수 있다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>int[] studentIDs = new int[]{101,102,103}
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="kt">int</span><span class="o">[]</span> <span class="n">studentIDs</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">101</span><span class="o">,</span><span class="mi">102</span><span class="o">,</span><span class="mi">103</span><span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>이때, 알아서 초기화 되는 갯수 만큼 배열이 생성되므로, []안의 개수는 생략해야한다.<br />
 또 다음과 같이 new int[] 부분을 아예 생략할 수도 있다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>int[] studentIDs = {102,102,103}
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="kt">int</span><span class="o">[]</span> <span class="n">studentIDs</span> <span class="o">=</span> <span class="o">{</span><span class="mi">102</span><span class="o">,</span><span class="mi">102</span><span class="o">,</span><span class="mi">103</span><span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <h2 id="배열-사용하기">배열 사용하기</h2>
 <p>선언한 배열의 요소에 접근하려면 [ ]를 사용한다.   <br />
 만약 배열의 첫번째 요소에 10을 저장한다면 아래처럼 코드를 작성하면된다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>studentIDs[0] = 10;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">studentIDs</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>배열의 순서는 항상 0부터 시작한다.</p>
 
 <p>그럼 위의 코드를 하나의 프로그램으로 해서 배열을 출력해보도록 하자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -515,27 +599,27 @@
 19
 20
 21
-</pre></td><td class="rouge-code"><pre>package array;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">array</span><span class="o">;</span>
 
-public class ArrayTest {
-    public static void main(String[] args){
-        int[] num = new int[] {1,2,3,4,5,6,7,8,9,10};
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayTest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">num</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">10</span><span class="o">};</span>
 
-        for (int i = 0;i&lt;num.length;i++){
-            System.out.println(num[i]);
-        }
-    }
-}
-&gt;&gt;&gt; 1
-&gt;&gt;&gt; 2
-&gt;&gt;&gt; 3
-&gt;&gt;&gt; 4
-&gt;&gt;&gt; 5
-&gt;&gt;&gt; 6
-&gt;&gt;&gt; 7
-&gt;&gt;&gt; 8
-&gt;&gt;&gt; 9
-&gt;&gt;&gt; 10
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">num</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">6</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">7</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">8</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">9</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">10</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>위처럼 배열에 담긴 1부터 10까지의 수가 차례로 출력된것을 볼 수 있다.</p>
 
@@ -543,7 +627,7 @@ public class ArrayTest {
 
 <p>그럼 빈 값이 들어가있는 배열에서 값이 있는 요소만 출력하고 싶다면 어떻게 해야 할까?<br />
 아래의 코드와 같이 size라는 변수를 하나 더 만들어 사용해주면 된다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -558,27 +642,27 @@ public class ArrayTest {
 13
 14
 15
-</pre></td><td class="rouge-code"><pre>package array;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">array</span><span class="o">;</span>
 
-public class ArrayTest {
-    public static void main(String[] args){
-        int[] num = new int[5];
-        int size = 0;
-       num[0] = 10; size++;
-       num[1] = 20; size++;
-       num[2] = 30; size++;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayTest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">num</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">5</span><span class="o">];</span>
+        <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+       <span class="n">num</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span> <span class="n">size</span><span class="o">++;</span>
+       <span class="n">num</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span> <span class="n">size</span><span class="o">++;</span>
+       <span class="n">num</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span> <span class="n">size</span><span class="o">++;</span>
 
-       for(int i = 0;i&lt;size;i++){
-           System.out.println(num[i]);
-       }
-    }
-}
+       <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+           <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+       <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="객체-배열-사용하기">객체 배열 사용하기</h2>
 <p>이번에는 참조 자료형으로 선언하는 객체 배열에 대해 알아보자.   <br />
 동일한 기본 자료형 변수 여러개를 사용할 수 있듯이 참조자료형 변수도 여러 개를 배열로 사용 가능하다. 책과 책 저자를 저장하는 클래스 Book을 만들어 객체 배열을 만들어보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -606,39 +690,39 @@ public class ArrayTest {
 26
 27
 28
-</pre></td><td class="rouge-code"><pre>package array;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">array</span><span class="o">;</span>
 
-public class Book {
-    private  String bookName;
-    private String author;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Book</span> <span class="o">{</span>
+    <span class="kd">private</span>  <span class="nc">String</span> <span class="n">bookName</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">author</span><span class="o">;</span>
 
-    public Book(){}
+    <span class="kd">public</span> <span class="nf">Book</span><span class="o">(){}</span>
     
-    public Book(String bookName, String author){
-        this.bookName = bookName;
-        this.author = author;
-    }
-    public String getBookName(){
-        return bookName;
-    }
-    public void setBookName(String bookName){
-        this.bookName = bookName;
-    }
-    public String getAuthor(){
-        return author;
-    }
-    public void setAuthor(String author){
-        this.author =author;
-    }
-    public  void showBookInfo(){
-        System.out.println(bookName+","+author);
-    }
-}
+    <span class="kd">public</span> <span class="nf">Book</span><span class="o">(</span><span class="nc">String</span> <span class="n">bookName</span><span class="o">,</span> <span class="nc">String</span> <span class="n">author</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">bookName</span> <span class="o">=</span> <span class="n">bookName</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">author</span> <span class="o">=</span> <span class="n">author</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getBookName</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">bookName</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setBookName</span><span class="o">(</span><span class="nc">String</span> <span class="n">bookName</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">bookName</span> <span class="o">=</span> <span class="n">bookName</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getAuthor</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">author</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAuthor</span><span class="o">(</span><span class="nc">String</span> <span class="n">author</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">author</span> <span class="o">=</span><span class="n">author</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span>  <span class="kt">void</span> <span class="nf">showBookInfo</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">bookName</span><span class="o">+</span><span class="s">","</span><span class="o">+</span><span class="n">author</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>Book 클래스를 만들어 책이름과 저자를 저장하는 변수 bookName, author를 만들어주고, 각각을 받아오는 get 함수와 각각을 저장하는 set함수를 만들고, 마지막으로 책이름과 저자를 출력하는 showBookInfo 함수를 만들어주었다.</p>
 
 <p>이제 도서관에 책이 5권있다고 가정하고 Book클래스를 사용하여 책 5권을 객체 배열로 만들어보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -654,28 +738,28 @@ public class Book {
 14
 15
 16
-</pre></td><td class="rouge-code"><pre>package array;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">array</span><span class="o">;</span>
 
-public class BookArray {
-    public static void main(String[] args){
-        Book[] library = new Book[5];
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BookArray</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">Book</span><span class="o">[]</span> <span class="n">library</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">[</span><span class="mi">5</span><span class="o">];</span>
 
-        for(int i = 0; i&lt;library.length;i++){
-            System.out.println(library[i]);
-        }
-    }
-}
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">library</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">library</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-&gt;&gt;&gt; null
-&gt;&gt;&gt; null
-&gt;&gt;&gt; null
-&gt;&gt;&gt; null
+<span class="o">&gt;&gt;&gt;</span> <span class="kc">null</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kc">null</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kc">null</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kc">null</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>library = new Book[5]; 를 보면 마치 5개의 인스턴스가 생성된 것처럼 보이지만, 실제로는 인스턴스를 가리키는 주소값을<br />
 담을 공간 5개를 생성하는 문장이다. 따라서 이 코드를 실행하게 되면 Book의 주소를 담을 공간 5개가 만들어지고 자동으로 공간이 null로 초기화 된다.</p>
 
 <p>그럼 이제 만들어준 빈공간에 인스턴스를 만들어 저장해보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -699,30 +783,30 @@ public class BookArray {
 22
 23
 24
-</pre></td><td class="rouge-code"><pre>package array;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">array</span><span class="o">;</span>
 
-public class BookArray2 {
-    public static void main(String[] args){
-        Book[] library = new Book[5];
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BookArray2</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">Book</span><span class="o">[]</span> <span class="n">library</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">[</span><span class="mi">5</span><span class="o">];</span>
         
-        library[0] = new Book("태백산맥", "조정래");
-        library[1] = new Book("데미안", "헤르만 헤세");
-        library[2] = new Book("1q84", "무라카미 하루키");
-        library[3] = new Book("토지", "박경리");
-        library[4] = new Book("어린왕자", "생택쥐페리");
+        <span class="n">library</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"태백산맥"</span><span class="o">,</span> <span class="s">"조정래"</span><span class="o">);</span>
+        <span class="n">library</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"데미안"</span><span class="o">,</span> <span class="s">"헤르만 헤세"</span><span class="o">);</span>
+        <span class="n">library</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"1q84"</span><span class="o">,</span> <span class="s">"무라카미 하루키"</span><span class="o">);</span>
+        <span class="n">library</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"토지"</span><span class="o">,</span> <span class="s">"박경리"</span><span class="o">);</span>
+        <span class="n">library</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"어린왕자"</span><span class="o">,</span> <span class="s">"생택쥐페리"</span><span class="o">);</span>
     
-        for(int i = 0;i&lt;library.length;i++){
-            library[i].showBookInfo();
-        }
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">library</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">library</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">showBookInfo</span><span class="o">();</span>
+        <span class="o">}</span>
         
-    }
-}
+    <span class="o">}</span>
+<span class="o">}</span>
 
-&gt;&gt;&gt; 태백산맥,조정래
-&gt;&gt;&gt; 데미안,헤르만 헤세
-&gt;&gt;&gt; 1q84,무라카미 하루키
-&gt;&gt;&gt; 토지,박경리
-&gt;&gt;&gt; 어린왕자,생택쥐페리
+<span class="o">&gt;&gt;&gt;</span> <span class="n">태백산맥</span><span class="o">,</span><span class="n">조정래</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">데미안</span><span class="o">,</span><span class="n">헤르만</span> <span class="n">헤세</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span><span class="n">q84</span><span class="o">,</span><span class="n">무라카미</span> <span class="n">하루키</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">토지</span><span class="o">,</span><span class="n">박경리</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">어린왕자</span><span class="o">,</span><span class="n">생택쥐페리</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>출력값을 보면 각 인스턴스가 모두 잘 생성되었음을 알 수 있다.</p>
 
@@ -767,7 +851,7 @@ public class BookArray2 {
 </table>
 
 <p>그럼 예제를 통해 실제로 배열을 한번 복사해보도록 하자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -780,19 +864,19 @@ public class BookArray2 {
 11
 12
 13
-</pre></td><td class="rouge-code"><pre>package array;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">array</span><span class="o">;</span>
 
-public class ArrayCopy {
-    public static void main(String[] args){
-        int[] array1 = {10,20,30,40,50};
-        int[] array2 = {1,2,3,4,5};
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayCopy</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">array1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span><span class="mi">20</span><span class="o">,</span><span class="mi">30</span><span class="o">,</span><span class="mi">40</span><span class="o">,</span><span class="mi">50</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">array2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
 
-        System.arraycopy(array1,0,array2,1,4);
-        for(int i = 0;i&lt;array2.length;i++){
-            System.out.println(array2[i]);
-        }
-    }
-}
+        <span class="nc">System</span><span class="o">.</span><span class="na">arraycopy</span><span class="o">(</span><span class="n">array1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">array2</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">);</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">array2</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">array2</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>src = array1, dest = array2 이므로 array1에 있는 값을 array2에 복사한다.   <br />
 srcPos = 0, destPos = 1 이므로, array1의 값은 0부터 array2의 1부터의 공간에 length인 4만큼의 길이로 복사된다.<br />
@@ -800,7 +884,7 @@ srcPos = 0, destPos = 1 이므로, array1의 값은 0부터 array2의 1부터의
 
 <p>이번에는 객체 배열을 복사해보자.   <br />
 객체 배열도 마찬가지로 동일한 방식으로 복사해서 사용 할 수 있다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -822,34 +906,34 @@ srcPos = 0, destPos = 1 이므로, array1의 값은 0부터 array2의 1부터의
 20
 21
 22
-</pre></td><td class="rouge-code"><pre>package array;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">array</span><span class="o">;</span>
 
-public class ObjectCopy1 {
-    public static void main(String[] args){
-        Book[] library1 = new Book[3];
-        Book[] library2 = new Book[3];
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ObjectCopy1</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">Book</span><span class="o">[]</span> <span class="n">library1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span>
+        <span class="nc">Book</span><span class="o">[]</span> <span class="n">library2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span>
 
 
-        library1[0] = new Book("태백산맥", "조정래");
-        library1[1] = new Book("데미안", "헤르만 헤세");
-        library1[2] = new Book("1q84", "무라카미 하루키");
+        <span class="n">library1</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"태백산맥"</span><span class="o">,</span> <span class="s">"조정래"</span><span class="o">);</span>
+        <span class="n">library1</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"데미안"</span><span class="o">,</span> <span class="s">"헤르만 헤세"</span><span class="o">);</span>
+        <span class="n">library1</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"1q84"</span><span class="o">,</span> <span class="s">"무라카미 하루키"</span><span class="o">);</span>
 
-        System.arraycopy(library1,0,library2,0,3);
+        <span class="nc">System</span><span class="o">.</span><span class="na">arraycopy</span><span class="o">(</span><span class="n">library1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">library2</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">3</span><span class="o">);</span>
 
-        for(int i=0;i&lt; library2.length;i++){
-            library2[i].showBookInfo();
-        }
-    }
-}
-&gt;&gt;&gt; 태백산맥,조정래
-&gt;&gt;&gt; 데미안,헤르만 헤세
-&gt;&gt;&gt; 1q84,무라카미 하루키
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span> <span class="n">library2</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">library2</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">showBookInfo</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">태백산맥</span><span class="o">,</span><span class="n">조정래</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">데미안</span><span class="o">,</span><span class="n">헤르만</span> <span class="n">헤세</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span><span class="n">q84</span><span class="o">,</span><span class="n">무라카미</span> <span class="n">하루키</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>다음과 같이 library1의 인스턴스가 library2로 복사된 것을 확인 할 수 있다.   <br />
 이 상태에서 만약 library1의 값을 변경하게 되면 어떻게 될까??   <br />
 예제를 통해 확인해보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -877,34 +961,34 @@ public class ObjectCopy1 {
 26
 27
 28
-</pre></td><td class="rouge-code"><pre>package array;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">array</span><span class="o">;</span>
 
-public class ObjectCopy2 {
-        public static void main(String[] args){
-            Book[] library1 = new Book[3];
-            Book[] library2 = new Book[3];
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ObjectCopy2</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+            <span class="nc">Book</span><span class="o">[]</span> <span class="n">library1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span>
+            <span class="nc">Book</span><span class="o">[]</span> <span class="n">library2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span>
 
 
-            library1[0] = new Book("태백산맥", "조정래");
-            library1[1] = new Book("데미안", "헤르만 헤세");
-            library1[2] = new Book("1q84", "무라카미 하루키");
+            <span class="n">library1</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"태백산맥"</span><span class="o">,</span> <span class="s">"조정래"</span><span class="o">);</span>
+            <span class="n">library1</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"데미안"</span><span class="o">,</span> <span class="s">"헤르만 헤세"</span><span class="o">);</span>
+            <span class="n">library1</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"1q84"</span><span class="o">,</span> <span class="s">"무라카미 하루키"</span><span class="o">);</span>
 
-            System.arraycopy(library1,0,library2,0,3);
+            <span class="nc">System</span><span class="o">.</span><span class="na">arraycopy</span><span class="o">(</span><span class="n">library1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">library2</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">3</span><span class="o">);</span>
 
-            library1[0].setBookName("나목");
-            library1[0].setAuthor("박완서");
+            <span class="n">library1</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">setBookName</span><span class="o">(</span><span class="s">"나목"</span><span class="o">);</span>
+            <span class="n">library1</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">setAuthor</span><span class="o">(</span><span class="s">"박완서"</span><span class="o">);</span>
             
-            for(int i=0;i&lt; library2.length;i++){
-                library2[i].showBookInfo();
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span> <span class="n">library2</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+                <span class="n">library2</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">showBookInfo</span><span class="o">();</span>
             
-        }
-    }
+        <span class="o">}</span>
+    <span class="o">}</span>
 
-}
+<span class="o">}</span>
 
-&gt;&gt;&gt; 나목,박완서
-&gt;&gt;&gt; 데미안,헤르만 헤세
-&gt;&gt;&gt; 1q84,무라카미 하루키
+<span class="o">&gt;&gt;&gt;</span> <span class="n">나목</span><span class="o">,</span><span class="n">박완서</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">데미안</span><span class="o">,</span><span class="n">헤르만</span> <span class="n">헤세</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span><span class="n">q84</span><span class="o">,</span><span class="n">무라카미</span> <span class="n">하루키</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>library1[0]의 값을 변경해주었는데, library2[0]의 값도 변경되었다.   <br />
 이는 객체 배열의 요소에 저장된 값은 인스턴스 자체가 아니고, 인스턴스의 주소 값이기 때문이다. 따라서 객체 배열을 복사하게되면 인스턴스를 따로 생성하는게 아닌, 기존 인스턴스의 주소값만을 복사하게된다. 결국 두 배열의 서로 다른 요소가 같은 인스턴스를 가리키고 있으므로, 복사되는 배열의 인스턴스 값이 변경되면 두 배열 모두 영향을 받게되는 것이다. 이런 복사를 <strong>얕은 복사(shallow copy)</strong> 라고 한다.</p>
@@ -913,7 +997,7 @@ public class ObjectCopy2 {
 
 <p>이렇게 하고 싶다면, 직접 인스턴스를 만들어 요소 값을 복사해야 한다.    <br />
 아래의 코드를 보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -942,42 +1026,42 @@ public class ObjectCopy2 {
 27
 28
 29
-</pre></td><td class="rouge-code"><pre>package array;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">array</span><span class="o">;</span>
 
-public class ObjectCopy3 {
-    public static void main(String[] args){
-        Book[] library1 = new Book[3];
-        Book[] library2 = new Book[3];
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ObjectCopy3</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">Book</span><span class="o">[]</span> <span class="n">library1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span>
+        <span class="nc">Book</span><span class="o">[]</span> <span class="n">library2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span>
 
-        library1[0] = new Book("태백산맥","조정래");
-        library1[1] = new Book("데미안", "헤르만 헤세");
-        library1[2] = new Book("1q84", "무라카미 하루키");
+        <span class="n">library1</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"태백산맥"</span><span class="o">,</span><span class="s">"조정래"</span><span class="o">);</span>
+        <span class="n">library1</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"데미안"</span><span class="o">,</span> <span class="s">"헤르만 헤세"</span><span class="o">);</span>
+        <span class="n">library1</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"1q84"</span><span class="o">,</span> <span class="s">"무라카미 하루키"</span><span class="o">);</span>
 
-        library2[0] = new Book();
-        library2[1] = new Book();
-        library2[2] = new Book();
+        <span class="n">library2</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">();</span>
+        <span class="n">library2</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">();</span>
+        <span class="n">library2</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Book</span><span class="o">();</span>
         
-        for(int i = 0;i&lt; library2.length;i++){
-            library2[i].setBookName(library1[i].getBookName());
-            library2[i].setAuthor(library1[i].getAuthor());
-        }
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span> <span class="n">library2</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">library2</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">setBookName</span><span class="o">(</span><span class="n">library1</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">getBookName</span><span class="o">());</span>
+            <span class="n">library2</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">setAuthor</span><span class="o">(</span><span class="n">library1</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">getAuthor</span><span class="o">());</span>
+        <span class="o">}</span>
 
-        library1[0].setBookName("나목");
-        library1[0].setAuthor("박완서");
+        <span class="n">library1</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">setBookName</span><span class="o">(</span><span class="s">"나목"</span><span class="o">);</span>
+        <span class="n">library1</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">setAuthor</span><span class="o">(</span><span class="s">"박완서"</span><span class="o">);</span>
 
-        for(int i =0;i&lt; library2.length;i++){
-            library2[i].showBookInfo();
-        }
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span> <span class="n">library2</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">library2</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">showBookInfo</span><span class="o">();</span>
+        <span class="o">}</span>
 
-    }
-}
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>위의 코드는 library2의 인스턴스를 직접 만들어 준뒤, setBookName과 setAuthor를 사용하여 하나 하나의 값에 요소값을 복사 해주었다.   <br />
 이렇게 하면 복사한 배열 요소는 기존 배열 요소와 서로 다른 인스턴스를 가르키므로 기존 배열의 요소값이 변경되어도 영향을 받지 않는다는 것을 알 수 있다.</p>
 
 <h2 id="향상된-for문과-배열">향상된 for문과 배열</h2>
 <p>자바 5부터 제공되는 <strong>향상된 for문(enhanced for loop)</strong> 은 배열의 처음에서 끝까지 모든 요소를 참조할 때 사용하면 편리한 반복문으로, 향상된 for문은 배열 요소 값을 하나씩 가져와 변수에 대입한다. 따로 초기화와 종료조건을 명시하지 않아도 알아서 모든 배열의 시작요소부터 끝 요소까지를 실행해준다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -988,17 +1072,17 @@ public class ObjectCopy3 {
 9
 10
 11
-</pre></td><td class="rouge-code"><pre>package array;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">array</span><span class="o">;</span>
 
-public class EnhancedFor {
-    public static void main(String[] args){
-        String[] srtArray = {"Java", "Android", "C", "JavaScript", "Python"};
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EnhancedFor</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">srtArray</span> <span class="o">=</span> <span class="o">{</span><span class="s">"Java"</span><span class="o">,</span> <span class="s">"Android"</span><span class="o">,</span> <span class="s">"C"</span><span class="o">,</span> <span class="s">"JavaScript"</span><span class="o">,</span> <span class="s">"Python"</span><span class="o">};</span>
 
-        for(String lang : srtArray){
-            System.out.println(lang);
-        }
-    }
-}
+        <span class="k">for</span><span class="o">(</span><span class="nc">String</span> <span class="n">lang</span> <span class="o">:</span> <span class="n">srtArray</span><span class="o">){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">lang</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>이처럼 for문의 매개변수에 (String 변수 : 배열 )을 넣어주면 배열의 첫 요소부터 끝까지를 참조해준다.</p>
 
@@ -1048,16 +1132,16 @@ ArrayList 클래스는 객체 배열을 관리하는 멤버변수와 메서드�
 
 <h2 id="arraylist-활용하기">ArrayList 활용하기</h2>
 <p>ArrayList를 사용하는 방법은 다음과 같다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>ArrayList&lt;E&gt; 배열 이름 = new ArrayList&lt;E&gt;();
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nc">ArrayList</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">배열</span> <span class="n">이름</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;();</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>선언하는 부분 &lt;&gt;안에 사용할 객체의 자료형을 쓰면 된다.   <br />
 예를들어 앞에서 살펴본 Book 클래스형을 자료형으로 사용해서 ArrayList 배열을 생성한다면 다음과 같다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>ArrayList&lt;Book&gt; library = new ArrayList&lt;Book&gt;();
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Book</span><span class="o">&gt;</span> <span class="n">library</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Book</span><span class="o">&gt;();</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>ArrayList는 java.util 패키지에 구현되어 있는 클래스로, 현재 만든 프로그램에는 이 패키지가 포함되어 있지 않기 때문에 컴파일러에게 ArrayList를 사용하기 위해서는 컴파일러에게 ArrayList가 어디에 구현되어 있다고 알려주기 위해 코드 맨 위에 선언하는 것을 <strong>임포트(import)</strong> 한다고 한다. 즉 ArrayList를 사용하려면 ArrayList를 import해주어야 사용할 수 있다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -1083,32 +1167,32 @@ ArrayList 클래스는 객체 배열을 관리하는 멤버변수와 메서드�
 24
 25
 26
-</pre></td><td class="rouge-code"><pre>package array;
-import java.util.ArrayList;
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">array</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 
-public class ArrayListTest {
-    public static void main(String[] args){
-        ArrayList&lt;Book&gt; library = new ArrayList&lt;Book&gt;();
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayListTest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Book</span><span class="o">&gt;</span> <span class="n">library</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Book</span><span class="o">&gt;();</span>
 
-        library.add(new Book("태백산맥", "조정래"));
-        library.add(new Book("데미안", "헤르만 헤세"));
-        library.add(new Book("1q84", "무라카미 하루키"));
-        library.add(new Book("토지", "방경리"));
-        library.add(new Book("어린왕자", "생택쥐페리"));
+        <span class="n">library</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"태백산맥"</span><span class="o">,</span> <span class="s">"조정래"</span><span class="o">));</span>
+        <span class="n">library</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"데미안"</span><span class="o">,</span> <span class="s">"헤르만 헤세"</span><span class="o">));</span>
+        <span class="n">library</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"1q84"</span><span class="o">,</span> <span class="s">"무라카미 하루키"</span><span class="o">));</span>
+        <span class="n">library</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"토지"</span><span class="o">,</span> <span class="s">"방경리"</span><span class="o">));</span>
+        <span class="n">library</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Book</span><span class="o">(</span><span class="s">"어린왕자"</span><span class="o">,</span> <span class="s">"생택쥐페리"</span><span class="o">));</span>
 
-        for(int i = 0; i&lt;library.size();i++){
-            Book book = library.get(i);
-            book.showBookInfo();
-        }
-        System.out.println();
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">library</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">i</span><span class="o">++){</span>
+            <span class="nc">Book</span> <span class="n">book</span> <span class="o">=</span> <span class="n">library</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+            <span class="n">book</span><span class="o">.</span><span class="na">showBookInfo</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
 
-        System.out.println("=== 향상된 for문 사용 ===");
-        for(Book book : library){
-            book.showBookInfo();
-        }
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"=== 향상된 for문 사용 ==="</span><span class="o">);</span>
+        <span class="k">for</span><span class="o">(</span><span class="nc">Book</span> <span class="n">book</span> <span class="o">:</span> <span class="n">library</span><span class="o">){</span>
+            <span class="n">book</span><span class="o">.</span><span class="na">showBookInfo</span><span class="o">();</span>
+        <span class="o">}</span>
 
-    }
-}
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>기본 배열에서는 [ ] 안에 배열 전체 길이를 미리 지정해야 했습니다. 하지만 ArrayList를 생성할 때는 미리 지정할 필요 없이 add( ) 메서드를 사용해 생성자만 호출하면 된다.</p>
 
@@ -1188,7 +1272,7 @@ public class ArrayListTest {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/baekjoon/2206-%EB%B2%BD-%EB%B6%80%EC%88%98%EA%B3%A0-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0/" rel="permalink">[BOJ] 2206 벽 부수고 이동하기 (Python3)
+        <a href="/diary-univ/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8-%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4/" rel="permalink">아두이노 라즈베리파이
 </a>
       
     </h2>
@@ -1200,7 +1284,7 @@ public class ArrayListTest {
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
+        <time datetime="2022-03-21T00:00:00+00:00">March 21, 2022</time>
       </span>
     
 
@@ -1220,8 +1304,10 @@ public class ArrayListTest {
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">문제
-N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있는 곳을 나타내고, 1은 이동할 수 없는 벽이 있는 곳을 나타낸다. 당신은 (1, 1)에서 (N, M)의 위치까지 이동하려 하는데, 이때 최단 경로로 이동하려 한다. 최단경로는 맵에서 가장 적은 개수의 칸을 지나는...</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.21
+올해 듣는 수업이 대부분 프로젝트 수업이라서 사실 수업보다는 그냥 실험하고, 프로젝트 하나 완료하는것들이 전공수업의 전부가 되었다.
+
+</p>
   </article>
 </div>
 
@@ -1235,7 +1321,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/java/%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC-(1)/" rel="permalink">[Java] 플레이그라운드 with TDD, 클린코드 - AssertJ (1)
+        <a href="/diary-univ/%EA%B0%80%EB%8A%A5%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" rel="permalink">가능성에 대하여
 </a>
       
     </h2>
@@ -1247,7 +1333,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-19T00:00:00+00:00">August 19, 2021</time>
+        <time datetime="2022-03-19T00:00:00+00:00">March 19, 2022</time>
       </span>
     
 
@@ -1260,17 +1346,15 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          7 분 소요
+          3 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">시작하면서…
-자바로 간단한 프로젝트를 만들어보려 했는데, 그냥 무작정 혼자 만들다가는 나쁜 버릇이 들 것 같아서   
-강의 하나를 수강하기로 했다. 특히나 자바는 객체지향이라는 개념을 사용하는 언어이고, 난 대부분 절차지향 언어만
-사용해봤었기 때문에, 아직 간단한 책 한권으로는 객...</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.19
+요즘 인생의 방향성에 대해 생각이 좀 많다. 원래는 이번년도에 창업을 해보면서 대략 어떤 느낌인지 맛을 보자는 느낌이었는데, 계획서를 써보고 공부해볼 수록 그렇게 1년만 해볼 수 있는 문제가 아니란걸 깨닫는다. 그런식으로 1년만 하려는 마음가짐으로 뭔가를 이뤄내...</p>
   </article>
 </div>
 
@@ -1284,7 +1368,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/diary-univ/%ED%86%A0%EC%8A%A4-NEXT-%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%9B%90%EA%B8%88-%EB%8B%B9%EC%B2%A8%EB%90%98%EB%8B%A4/" rel="permalink">개발지원금 당첨되다…
+        <a href="/diary-univ/%EC%9D%BC%EB%A6%AC-%EC%BB%A4%ED%94%BC%EB%A8%B8%EC%8B%A0/" rel="permalink">일리 커피머신
 </a>
       
     </h2>
@@ -1296,7 +1380,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+        <time datetime="2022-03-15T00:00:00+00:00">March 15, 2022</time>
       </span>
     
 
@@ -1316,7 +1400,8 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">2021.08.18
+    <p class="archive__item-excerpt" itemprop="description">2022.03.15
+
 
 </p>
   </article>
@@ -1332,7 +1417,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/baekjoon/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%ED%95%A8%EC%88%98/" rel="permalink">[BOJ] 1003 피보나치 함수 (Python3)
+        <a href="/diary-univ/%EC%98%81%EC%96%B4/" rel="permalink">영어…
 </a>
       
     </h2>
@@ -1344,7 +1429,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-08-18T00:00:00+00:00">August 18, 2021</time>
+        <time datetime="2022-03-14T00:00:00+00:00">March 14, 2022</time>
       </span>
     
 
@@ -1357,17 +1442,15 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          1 분 소요
+          최대 1 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">문제
-다음 소스는 N번째 피보나치 수를 구하는 C++ 함수이다.
-
-</p>
+    <p class="archive__item-excerpt" itemprop="description">2022.03.14
+요즘 부쩍 영어에 관심이 많아져서 열심히 해보려고 하는데, 진짜 벽느껴진다… 그냥 고등학교때만 열심히 했어도 이렇게까지 고생 안 했을텐데… 새롭게 뭐 해보려고 하지만 옛날의 업보가 결국 불쑥 불쑥 나타나 앞을 막기 시작한다. 근데 뭐 다른 사람들은 열심히 공부한...</p>
   </article>
 </div>
 
@@ -1419,7 +1502,7 @@ N×M의 행렬로 표현되는 맵이 있다. 맵에서 0은 이동할 수 있�
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2021 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

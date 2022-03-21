@@ -1,0 +1,915 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>뉴로퓨전 프로젝트 - Learnote-Dev</title>
+<meta name="description" content="2022.02.18 작년 이맘때쯤, 한창 주식에 관심이 많아져서 공부도 많이하고 더 나아가서는 업으로 삼고싶다는 생각까지 했었는데, 그때 어떤 커뮤니티에서 누가 트레이딩에 관해서 너무 전문적이고 좋은 글을 올려놨길래 읽고 감탄했었다. 월가아재라는 닉네임을 한 분이 올린 글이었는데, 유튜브 채널을 홍보하기 위해서 자기가 올린 영상을 글로 적어놓은 게시물이었다. 자신은 월가에서 트레이더로 일했었던 사람이며, 현재는 켄쇼에서 데이터과학자로 일하고 있다고 했다. 그래서 관심이 생겨서 유튜브도 따라가 보았는데 정말 너무 깊고 전문적인 내용이어서 ‘아니 유튜브에 이렇게까지 올려도 되나?’ 싶었었다. 그 이후로 월가아재를 구독해 놓고 열심히 올라온 영상들을 시청하고, 쓴 글을 읽고는 했는데, 지금의 경제적이나 주식투자에 대한 지식에 큰 기반이 되었다. 뿐만아니라 행복이나 20대가 가질 수 있는 여러가지 생각들을 자신의 경험에 빗대어 영상을 올리곤 했는데, 사실 사회적 기반도 없고, 무얼해야할 지 모를 혼란스러운 20대에서 떄때로 그 유튜브 영상이 내 이정표가 되어주기도 했었다. 그를 동경해서 한때 내 꿈은 데이터과학자이기도 했으며, 그때는 정말 열심히 주식과 함께 파이썬을 가지고 캐글을 팠던 기억이 난다. 더 나아가서는 그 분이 고등학교때부터 쓰신 일기가 있는 블로그에 가서 거의 모든글을 정독하기도 했는데, 얼마전에는 이 내용들을 유튜브 이벤트를 통해서 책으로 받아 지금은 소중히 내 책상 가장 첫번째 칸에 꽂혀있는 책이 되었다. 사실 이 일기와 이 일기를 쓰고 있는 블로그도, 월가아재님의 블로그를 보고 감명받아 시작했다.">
+
+
+  <meta name="author" content="이민재">
+  
+  <meta property="article:author" content="이민재">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Learnote-Dev">
+<meta property="og:title" content="뉴로퓨전 프로젝트">
+<meta property="og:url" content="http://localhost:4000/diary-univ/%EB%89%B4%EB%A1%9C%ED%93%A8%EC%A0%84/">
+
+
+  <meta property="og:description" content="2022.02.18 작년 이맘때쯤, 한창 주식에 관심이 많아져서 공부도 많이하고 더 나아가서는 업으로 삼고싶다는 생각까지 했었는데, 그때 어떤 커뮤니티에서 누가 트레이딩에 관해서 너무 전문적이고 좋은 글을 올려놨길래 읽고 감탄했었다. 월가아재라는 닉네임을 한 분이 올린 글이었는데, 유튜브 채널을 홍보하기 위해서 자기가 올린 영상을 글로 적어놓은 게시물이었다. 자신은 월가에서 트레이더로 일했었던 사람이며, 현재는 켄쇼에서 데이터과학자로 일하고 있다고 했다. 그래서 관심이 생겨서 유튜브도 따라가 보았는데 정말 너무 깊고 전문적인 내용이어서 ‘아니 유튜브에 이렇게까지 올려도 되나?’ 싶었었다. 그 이후로 월가아재를 구독해 놓고 열심히 올라온 영상들을 시청하고, 쓴 글을 읽고는 했는데, 지금의 경제적이나 주식투자에 대한 지식에 큰 기반이 되었다. 뿐만아니라 행복이나 20대가 가질 수 있는 여러가지 생각들을 자신의 경험에 빗대어 영상을 올리곤 했는데, 사실 사회적 기반도 없고, 무얼해야할 지 모를 혼란스러운 20대에서 떄때로 그 유튜브 영상이 내 이정표가 되어주기도 했었다. 그를 동경해서 한때 내 꿈은 데이터과학자이기도 했으며, 그때는 정말 열심히 주식과 함께 파이썬을 가지고 캐글을 팠던 기억이 난다. 더 나아가서는 그 분이 고등학교때부터 쓰신 일기가 있는 블로그에 가서 거의 모든글을 정독하기도 했는데, 얼마전에는 이 내용들을 유튜브 이벤트를 통해서 책으로 받아 지금은 소중히 내 책상 가장 첫번째 칸에 꽂혀있는 책이 되었다. 사실 이 일기와 이 일기를 쓰고 있는 블로그도, 월가아재님의 블로그를 보고 감명받아 시작했다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-02-18T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/diary-univ/%EB%89%B4%EB%A1%9C%ED%93%A8%EC%A0%84/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이민재",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Learnote-Dev Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Learnote-Dev
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/about/">About me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile.jpg" alt="이민재" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이민재</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>포트폴리오/일상 기록</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Incheon, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="lmj938@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://blog.naver.com/lmj938" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/leeminjae-dev/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:lmj938@naver.com">
+            <meta itemprop="email" content="lmj938@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+        <!--span 태그로 카테고리들을 크게 분류 ex) Life-->
+       <span class="nav__sub-title">Life</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (64)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Tech-->
+       <span class="nav__sub-title">Tech</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java" class="">Java (44)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (61)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/programmers" class="">Programmers(66)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+<!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Knowledge</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/machinelearning" class="">Machine Learning (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+          
+      </li>
+  </ul>
+</nav>
+
+  
+
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="뉴로퓨전 프로젝트">
+    <meta itemprop="description" content="2022.02.18작년 이맘때쯤, 한창 주식에 관심이 많아져서 공부도 많이하고 더 나아가서는 업으로 삼고싶다는 생각까지 했었는데, 그때 어떤 커뮤니티에서 누가 트레이딩에 관해서 너무 전문적이고 좋은 글을 올려놨길래 읽고 감탄했었다. 월가아재라는 닉네임을 한 분이 올린 글이었는데, 유튜브 채널을 홍보하기 위해서 자기가 올린 영상을 글로 적어놓은 게시물이었다. 자신은 월가에서 트레이더로 일했었던 사람이며, 현재는 켄쇼에서 데이터과학자로 일하고 있다고 했다. 그래서 관심이 생겨서 유튜브도 따라가 보았는데 정말 너무 깊고 전문적인 내용이어서 ‘아니 유튜브에 이렇게까지 올려도 되나?’ 싶었었다. 그 이후로 월가아재를 구독해 놓고 열심히 올라온 영상들을 시청하고, 쓴 글을 읽고는 했는데, 지금의 경제적이나 주식투자에 대한 지식에 큰 기반이 되었다. 뿐만아니라 행복이나 20대가 가질 수 있는 여러가지 생각들을 자신의 경험에 빗대어 영상을 올리곤 했는데, 사실 사회적 기반도 없고, 무얼해야할 지 모를 혼란스러운 20대에서 떄때로 그 유튜브 영상이 내 이정표가 되어주기도 했었다. 그를 동경해서 한때 내 꿈은 데이터과학자이기도 했으며, 그때는 정말 열심히 주식과 함께 파이썬을 가지고 캐글을 팠던 기억이 난다. 더 나아가서는 그 분이 고등학교때부터 쓰신 일기가 있는 블로그에 가서 거의 모든글을 정독하기도 했는데, 얼마전에는 이 내용들을 유튜브 이벤트를 통해서 책으로 받아 지금은 소중히 내 책상 가장 첫번째 칸에 꽂혀있는 책이 되었다. 사실 이 일기와 이 일기를 쓰고 있는 블로그도, 월가아재님의 블로그를 보고 감명받아 시작했다.">
+    <meta itemprop="datePublished" content="2022-02-18T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">뉴로퓨전 프로젝트
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-18T00:00:00+00:00">February 18, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this Page</h4></header>
+              <ul class="toc__menu"><li><a href="#20220218">2022.02.18</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="20220218">2022.02.18</h1>
+<p>작년 이맘때쯤, 한창 주식에 관심이 많아져서 공부도 많이하고 더 나아가서는 업으로 삼고싶다는 생각까지 했었는데, 그때 어떤 커뮤니티에서 누가 트레이딩에 관해서 너무 전문적이고 좋은 글을 올려놨길래 읽고 감탄했었다. 월가아재라는 닉네임을 한 분이 올린 글이었는데, 유튜브 채널을 홍보하기 위해서 자기가 올린 영상을 글로 적어놓은 게시물이었다. 자신은 월가에서 트레이더로 일했었던 사람이며, 현재는 켄쇼에서 데이터과학자로 일하고 있다고 했다. 그래서 관심이 생겨서 유튜브도 따라가 보았는데 정말 너무 깊고 전문적인 내용이어서 ‘아니 유튜브에 이렇게까지 올려도 되나?’ 싶었었다. 그 이후로 월가아재를 구독해 놓고 열심히 올라온 영상들을 시청하고, 쓴 글을 읽고는 했는데, 지금의 경제적이나 주식투자에 대한 지식에 큰 기반이 되었다. 뿐만아니라 행복이나 20대가 가질 수 있는 여러가지 생각들을 자신의 경험에 빗대어 영상을 올리곤 했는데, 사실 사회적 기반도 없고, 무얼해야할 지 모를 혼란스러운 20대에서 떄때로 그 유튜브 영상이 내 이정표가 되어주기도 했었다. 그를 동경해서 한때 내 꿈은 데이터과학자이기도 했으며, 그때는 정말 열심히 주식과 함께 파이썬을 가지고 캐글을 팠던 기억이 난다. 더 나아가서는 그 분이 고등학교때부터 쓰신 일기가 있는 블로그에 가서 거의 모든글을 정독하기도 했는데, 얼마전에는 이 내용들을 유튜브 이벤트를 통해서 책으로 받아 지금은 소중히 내 책상 가장 첫번째 칸에 꽂혀있는 책이 되었다. 사실 이 일기와 이 일기를 쓰고 있는 블로그도, 월가아재님의 블로그를 보고 감명받아 시작했다.</p>
+
+<blockquote>
+  <p><a href="https://irealist.org">월가아재 블로그 주소</a></p>
+</blockquote>
+
+<p>어쨌든 이렇게 내 25살에 나름 큰 영향을 끼친사람이, 켄쇼에서 연봉을 5억이 넘게 받으면서 왜 굳이 인기가 없을만한 너무 전문적인 내용으로 유튜브를 할까 항상 의문이었는데, 항상 그런 질문이 들어오면 자신이 계획하고 있는 사업의 한 단계로써 유튜브를 통해 트레이딩에 관심이 있고 스스로 생각할 수 있는 사람을 찾고있다고 했다. 그리고 그 계획은 2022년 초에 유튜브를 통해 공개 할 것이라고 해서 이렇게 똑똑한 사람은 어떤 걸 계획 하고 있을지 항상 궁금했는데, 어느덧 1년이 지나 그 계획이 공개되었다.</p>
+
+<p>계획하신건 뉴로퓨젼이라는 헤지펀드로, 뇌파데이터를 이용한 헤지펀드를 만드는 것이 그 계획이었다. 인간의 뇌파데이터는 무궁무진한 가치를 갖고있지만, 지금까지는 너무나도 비싼 뇌파 데이터 기계 때문에 데이터가 유의미한 의미성을 가질 정도의 데이터를 확보하는 것이 너무 어려웠다. 이는 물론 지금도 마찬가지로, 뇌파 측정 기계는 많이 가격이 내려왔지만, 이를 측정할 사람을 대규모로 모집하는것이 너무나도 많은 비용을 필요로 하기에 현재도 기술은 완성 단계에 있지만 데이터 부족이 큰 문제로 작용하고 있어 유의미한 성과를 내기 힘든 상황이다. 그래서 이 프로젝트는 이러한 뇌파 데이터들을 수집하여 트레이딩에 있어 유의미한 수익을 내기 위한 세계 최초의 뇌파 데이터 기반 헤지펀드이다. 이러한 뇌파 데이터를 얻기 위해서는 불특정 다수의 뇌파데이터가 아닌 비판적 사고능력이 있는 사람들의 데이터가 필요한데, 그래서 그동안 이 프로젝트에 참여하여 뇌파데이터를 제공하기 위한 사람들을 모으기 위해 유튜브를 했던 것이다.</p>
+
+<blockquote>
+  <p><a href="https://www.youtube.com/watch?v=Rq-zL3d4yjk&amp;t=1112s">뉴로퓨젼 소개 영상</a></p>
+</blockquote>
+
+<p>이 유튜브 영상을 다 시청하자 마자 난 주저없이 바로 신청서를 넣었다. 사실 이 인지과학에 대한 이해도도 없고, 뇌파 데이터로 정확히 어떻게 헤지펀드를 운용할것 인지 내 머리로는 이해하지 못했지만, 참가자들에게 제공되는 혜택이 너무 파격적이었다. 현역으로 일하고 있는 정말 우수한 퀀트트레이더와 데이터사이언티스트에게 직접 자산배분/가치투자에 대한 강의를 받을 수 있으며, 이 지식을 기반으로 이들이 제작한 인공지능 플랫폼에서 여러가지 자연어 처리, 그래프 데이터베이스, 머신러닝들의 기능을 사용할 수 있다. 그것도 평생! 물론 참가를 위한 비용이 있지만 사실 이정도의 지식과 플랫폼을 사용할 수 있는 권한이 100-200만원 사이라면, 난 주저없이 지불할 의사가 있었다. 이 정도의 지식과 플랫폼을 정액제도 아닌 일시불로 제공한다니, 사실 이 강의와 플랫폼으로 돈을 벌겠다는 목적이라면 정말 달에 200만원 씩을 정액제로 받아도 적은 가격이다. 하지만 그게 아니라 내 뇌파데이터를 제공함과 함께 그 댓가로 얻어지는 혜택이기에, 가능할 수 있는 가격이라고 생각했다.</p>
+
+<p>그래서 영상을 보자마자 신청을 했고, 어제 1순의 그룹에 해당되어있다는 메일을 회신받았다. 3월 15일 정도에 정확한 약관과 금액이 정해지면 다시 메일이 온다고 하는데 사실 이미 돈을 좀 더 지불하더라도 얼마든지 낼 준비가 되어있다.</p>
+
+<p>2022년은 여러모로 여러가지 도전이 많은 해가 될 것 같다. 지금 참가하는 이 프로젝트가 얼마나 내 인생을 바꾸어 놓을지 정말 큰 기대가 되고 너무 설렌다. 2022년도 화이팅.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#diary-univ" class="page__taxonomy-item" rel="tag">diary-univ</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-02-18T00:00:00+00:00">February 18, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EB%89%B4%EB%A1%9C%ED%93%A8%EC%A0%84+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20http%3A%2F%2Flocalhost%3A4000%2Fdiary-univ%2F%25EB%2589%25B4%25EB%25A1%259C%25ED%2593%25A8%25EC%25A0%2584%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdiary-univ%2F%25EB%2589%25B4%25EB%25A1%259C%25ED%2593%25A8%25EC%25A0%2584%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdiary-univ%2F%25EB%2589%25B4%25EB%25A1%259C%25ED%2593%25A8%25EC%25A0%2584%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/diary-univ/%EB%A7%A5%EB%B6%81-%ED%94%84%EB%A1%9C-%EC%82%AC%EB%8B%A4!/" class="pagination--pager" title="맥북 프로 사다!
+">이전</a>
+    
+    
+      <a href="/diary-univ/%EA%B0%9C%EA%B0%95%EA%B3%BC-%EC%B0%BD%EC%97%85/" class="pagination--pager" title="개강과 창업
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8-%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4/" rel="permalink">아두이노 라즈베리파이
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-21T00:00:00+00:00">March 21, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.21
+올해 듣는 수업이 대부분 프로젝트 수업이라서 사실 수업보다는 그냥 실험하고, 프로젝트 하나 완료하는것들이 전공수업의 전부가 되었다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EA%B0%80%EB%8A%A5%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" rel="permalink">가능성에 대하여
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-19T00:00:00+00:00">March 19, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.19
+요즘 인생의 방향성에 대해 생각이 좀 많다. 원래는 이번년도에 창업을 해보면서 대략 어떤 느낌인지 맛을 보자는 느낌이었는데, 계획서를 써보고 공부해볼 수록 그렇게 1년만 해볼 수 있는 문제가 아니란걸 깨닫는다. 그런식으로 1년만 하려는 마음가짐으로 뭔가를 이뤄내...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%9D%BC%EB%A6%AC-%EC%BB%A4%ED%94%BC%EB%A8%B8%EC%8B%A0/" rel="permalink">일리 커피머신
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-15T00:00:00+00:00">March 15, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.15
+
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%98%81%EC%96%B4/" rel="permalink">영어…
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-14T00:00:00+00:00">March 14, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.14
+요즘 부쩍 영어에 관심이 많아져서 열심히 해보려고 하는데, 진짜 벽느껴진다… 그냥 고등학교때만 열심히 했어도 이렇게까지 고생 안 했을텐데… 새롭게 뭐 해보려고 하지만 옛날의 업보가 결국 불쑥 불쑥 나타나 앞을 막기 시작한다. 근데 뭐 다른 사람들은 열심히 공부한...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/leeminjae-dev" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/diary-univ/%EB%89%B4%EB%A1%9C%ED%93%A8%EC%A0%84/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/diary-univ/뉴로퓨전"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://leeminjae-dev-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
+
+
+<!-- 웹 폰트 설정 -->
+<link rel="stylesheet" href="/assets/css/high3.css">

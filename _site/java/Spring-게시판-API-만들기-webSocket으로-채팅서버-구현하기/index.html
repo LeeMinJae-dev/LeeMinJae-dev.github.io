@@ -1,0 +1,1254 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Spring] webSocket으로 채팅서버 구현하기 (1) - Learnote-Dev</title>
+<meta name="description" content="서론 새로 개발할 앱을 플러터 + 스프링부트로 개발하기로 마음먹고나서, 이번 앱에 가장 중요한 부분이 채팅기능이기 때문에 가장먼저 스프링부트로 채팅서버를 구현해보려고한다.">
+
+
+  <meta name="author" content="이민재">
+  
+  <meta property="article:author" content="이민재">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Learnote-Dev">
+<meta property="og:title" content="[Spring] webSocket으로 채팅서버 구현하기 (1)">
+<meta property="og:url" content="http://localhost:4000/java/Spring-%EA%B2%8C%EC%8B%9C%ED%8C%90-API-%EB%A7%8C%EB%93%A4%EA%B8%B0-webSocket%EC%9C%BC%EB%A1%9C-%EC%B1%84%ED%8C%85%EC%84%9C%EB%B2%84-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/">
+
+
+  <meta property="og:description" content="서론 새로 개발할 앱을 플러터 + 스프링부트로 개발하기로 마음먹고나서, 이번 앱에 가장 중요한 부분이 채팅기능이기 때문에 가장먼저 스프링부트로 채팅서버를 구현해보려고한다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-02-08T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/java/Spring-%EA%B2%8C%EC%8B%9C%ED%8C%90-API-%EB%A7%8C%EB%93%A4%EA%B8%B0-webSocket%EC%9C%BC%EB%A1%9C-%EC%B1%84%ED%8C%85%EC%84%9C%EB%B2%84-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이민재",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Learnote-Dev Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Learnote-Dev
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/about/">About me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile.jpg" alt="이민재" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이민재</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>포트폴리오/일상 기록</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Incheon, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="lmj938@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://blog.naver.com/lmj938" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/leeminjae-dev/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:lmj938@naver.com">
+            <meta itemprop="email" content="lmj938@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+        <!--span 태그로 카테고리들을 크게 분류 ex) Life-->
+       <span class="nav__sub-title">Life</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (64)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Tech-->
+       <span class="nav__sub-title">Tech</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java" class="">Java (44)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (61)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/programmers" class="">Programmers(66)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+<!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Knowledge</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/machinelearning" class="">Machine Learning (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+          
+      </li>
+  </ul>
+</nav>
+
+  
+
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Spring] webSocket으로 채팅서버 구현하기 (1)">
+    <meta itemprop="description" content="서론새로 개발할 앱을 플러터 + 스프링부트로 개발하기로 마음먹고나서, 이번 앱에 가장 중요한 부분이 채팅기능이기 때문에 가장먼저 스프링부트로 채팅서버를 구현해보려고한다.">
+    <meta itemprop="datePublished" content="2022-02-08T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[Spring] webSocket으로 채팅서버 구현하기 (1)
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-08T00:00:00+00:00">February 8, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this Page</h4></header>
+              <ul class="toc__menu"><li><a href="#서론">서론</a></li><li><a href="#websocket">WebSocket</a><ul><li><a href="#의존성-추가">의존성 추가</a></li><li><a href="#websocket-기본-설정">WebSocket 기본 설정</a><ul><li><a href="#websocketconfig">WebSocketConfig</a></li><li><a href="#websockethandler">WebSocketHandler</a></li></ul></li><li><a href="#dto-만들기">DTO 만들기</a><ul><li><a href="#chatmessage">ChatMessage</a></li><li><a href="#chatroom">ChatRoom</a></li></ul></li><li><a href="#service-controller">Service, Controller</a><ul><li><a href="#chatservice">ChatService</a></li><li><a href="#chatcontroller">ChatController</a></li></ul></li><li><a href="#테스트">테스트</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="서론">서론</h1>
+<p>새로 개발할 앱을 플러터 + 스프링부트로 개발하기로 마음먹고나서, 이번 앱에 가장 중요한 부분이 채팅기능이기 때문에 가장먼저 스프링부트로 채팅서버를 구현해보려고한다.</p>
+
+<h1 id="websocket">WebSocket</h1>
+<p>만약 우리가 채팅이라던가 주식정보를 가져오는등의 실시간으로 서버에 계속 통신을 해야하는 경우를 생각해보자. 2초마다 GET 요청을 보내 http 통신을 요청 할수도 있겠지만,<br />
+이렇게 하면 매번 연결을 맺고 끊는 연결과정의 비용이 들어갈 뿐만아니라, 단방향 통신으로 반드시 클라이언트가 요청을 해야만 서버가 정보를 주기 때문에, 양방향 통신이 필요한 기능을 만들기에는 HTTP 통신은 불편한 부분이 있다. 그래서 이러한 비연결성과 단방향 통신의 불편함을 해소하기 위해 만든 통신규약이 바로 webSocket으로, webSocket은 한번 연결을 맺으면 연결을 해제하기 전까지 유지 되기 떄문에, 연결을 맺고 끊는 연결과정을 없앨 수 있을 뿐만아니라, 양방향 통신이 가능하기 때문에 클라이언트가 요청을 하지않아도 서버가 주어야할 데이터를 보내줄 수 있다. 뿐만아니라, HTTP요청에 비해 webSocket은 한번에 주고받는 데이터의 양이 HTTP에 비해 확연히 적기 때문에, 계속 데이터를 주고받아야 하는 서비스에서는 적절하지 않다.</p>
+
+<p>그럼 스프링 부트에서 webSocket을 어떻게 사용해야하는지 알아보고, 이를 이용해서 간단한 채팅 서비스를 만들어보자.</p>
+
+<h2 id="의존성-추가">의존성 추가</h2>
+<p>build.gradle 파일에 아래와 같이 스프링부트에서 webSocket을 사용하기 위한 의존성을 추가해준다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">implementation</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">:</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">websocket</span><span class="err">'</span>
+<span class="o">}</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="websocket-기본-설정">WebSocket 기본 설정</h2>
+<p>스프링 부트에서 webSocket을 활성화 하려면, WebSocketConfig 클래스를 만들어 클라이언트가 보내는 정보를 받아서 처리할 Handler를 만들어주고, 이를 연결할 웹소켓 주소를 설정해 주어야한다.</p>
+
+<h3 id="websocketconfig">WebSocketConfig</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="nd">@RequiredArgsConstructor</span>
+<span class="nd">@Configuration</span>
+<span class="nd">@EnableWebSocket</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebSockConfig</span> <span class="kd">implements</span> <span class="nc">WebSocketConfigurer</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">WebSocketHandler</span> <span class="n">webSocketHandler</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">registerWebSocketHandlers</span><span class="o">(</span><span class="nc">WebSocketHandlerRegistry</span> <span class="n">registry</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">addHandler</span><span class="o">(</span><span class="n">webSocketHandler</span><span class="o">,</span> <span class="s">"ws/chat"</span><span class="o">).</span><span class="na">setAllowedOrigins</span><span class="o">(</span><span class="s">"*"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>@EnableWebSocket을 통해 webSocket을 활성화 해주고, WebSocektConfigurer 인터페이스를 적용하여 WebSocketConfig라는 클래스를 만들어 이를 설정해준다. <br />
+우리가 정보를 처리할 Handler와 webSocket 주소를 WebSocketHandlerRegistry에 추가해주면, 해당 주소로 접근하면 웹소켓 연결을 할 수가 있다.</p>
+
+<p>아직 Handler를 만들지 않아 에러가 뜨는데, 그럼 여기서 정보를 받아 처리할 Handler를 만들어보자.</p>
+
+<h3 id="websockethandler">WebSocketHandler</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="nd">@Slf4j</span>
+<span class="nd">@RequiredArgsConstructor</span>
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebSocketHandler</span> <span class="kd">extends</span> <span class="nc">TextWebSocketHandler</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">ObjectMapper</span> <span class="n">objectMapper</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">ChatService</span> <span class="n">chatService</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">handleTextMessage</span><span class="o">(</span><span class="nc">WebSocketSession</span> <span class="n">session</span><span class="o">,</span> <span class="nc">TextMessage</span> <span class="n">message</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">payload</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="na">getPayload</span><span class="o">();</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"{}"</span><span class="o">,</span> <span class="n">payload</span><span class="o">);</span>
+        <span class="nc">ChatMessage</span> <span class="n">chatMessage</span> <span class="o">=</span> <span class="n">objectMapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="n">payload</span><span class="o">,</span> <span class="nc">ChatMessage</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        
+        <span class="nc">ChatRoom</span> <span class="n">chatRoom</span> <span class="o">=</span> <span class="n">chatService</span><span class="o">.</span><span class="na">findRoomById</span><span class="o">(</span><span class="n">chatMessage</span><span class="o">.</span><span class="na">getRoomId</span><span class="o">());</span>
+        <span class="n">chatRoom</span><span class="o">.</span><span class="na">handlerActions</span><span class="o">(</span><span class="n">session</span><span class="o">,</span> <span class="n">chatMessage</span><span class="o">,</span> <span class="n">chatService</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>스프링은 Text 타입과 Binary타입의 핸들러를 지원하는데, 우리는 채팅 서비스를 만들 것 이므로 TextWebSocketHandler를 상속하여 WebSocketHandler를 만들어줄것이다.<br />
+우리가 메세지를 json형식을 통해서 웹소켓을 통해 서버로 보내면, Handler는 이를받아 ObjectMapper를 통해서 해당 json 데이터를 chatMessage.class에 맞게 파싱하여 ChatMessage 객체로 변환하고,<br />
+이 json 데이터에 들어있는 roomId를 이용해서 해당 채팅방을 찾아 handlerAction() 이라는 메서드를 실행시킬 것이다. 그러면 handlerAction() 메서드는 이 참여자가 현재 이미 채팅방에 접속된 상태인지, 아니면 이미 채팅에 참여해있는 상태인지를 판별하여, 만약 채팅방에 처음 참여하는거라면 session을 연결해줌과 동시에 메시지를 보낼것이고 아니라면 메시지를 해당 채팅방으로 보내게 될 것이다.</p>
+
+<p>아직 ChatMessage와 ChatRoom, ChatService 클래스를 만들지 않아 에러가 뜨지만, 대략적인 웹소켓 구성을 다음과 같이 구상하고 하나씩 만들어보도록 하자.</p>
+
+<h2 id="dto-만들기">DTO 만들기</h2>
+<p>위의 WebSocketHandler에서 사용했던 ChatMessage와 ChatRoom 클래스를 만들어 json데이터로 받아온 정보를 통해 해당 채팅방으로 채팅 메시지를 보낼 수 있도록 해당 json에 맞는 DTO들을 만들어주자.</p>
+
+<h3 id="chatmessage">ChatMessage</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="nd">@Getter</span>
+<span class="nd">@Setter</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ChatMessage</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">enum</span> <span class="nc">MessageType</span><span class="o">{</span>
+        <span class="no">ENTER</span><span class="o">,</span> <span class="no">TALK</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="nc">MessageType</span> <span class="n">type</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">roomId</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">sender</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">message</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>간단하게 사용자가 ENTER, 처음 채팅방에 들어오는 상태인지 TALK, 이미 session에 연결되어있고 채팅중인 상태인지를 파악하기 위해 ENUM 타입으로 Message 타입을 선언해주고, 이를 type으로 갖게 하도록한다. 그 이외에는 간단하게, 이 메시지를 보낼 채팅방 id인 roomId와, 보내는 사람의 닉네임인 sender, 메시지를 담는 변수 message를 만들어, json 데이터로 채팅 데이터가 들어오면 이를 ChatMessage로 변환해 줄 수 있도록하자.</p>
+
+<h3 id="chatroom">ChatRoom</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre></td><td class="rouge-code"><pre><span class="nd">@Getter</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ChatRoom</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">roomId</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">WebSocketSession</span><span class="o">&gt;</span> <span class="n">sessions</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;&gt;();</span>
+
+    <span class="nd">@Builder</span>
+    <span class="kd">public</span> <span class="nf">ChatRoom</span><span class="o">(</span><span class="nc">String</span> <span class="n">roomId</span><span class="o">,</span> <span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">roomId</span> <span class="o">=</span> <span class="n">roomId</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handlerActions</span><span class="o">(</span><span class="nc">WebSocketSession</span> <span class="n">session</span><span class="o">,</span> <span class="nc">ChatMessage</span> <span class="n">chatMessage</span><span class="o">,</span> <span class="nc">ChatService</span> <span class="n">chatService</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">chatMessage</span><span class="o">.</span><span class="na">getType</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="nc">ChatMessage</span><span class="o">.</span><span class="na">MessageType</span><span class="o">.</span><span class="na">ENTER</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">sessions</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">session</span><span class="o">);</span>
+            <span class="n">chatMessage</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="n">chatMessage</span><span class="o">.</span><span class="na">getSender</span><span class="o">()</span> <span class="o">+</span> <span class="s">"님이 입장했습니다."</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">sendMessage</span><span class="o">(</span><span class="n">chatMessage</span><span class="o">,</span> <span class="n">chatService</span><span class="o">);</span>
+
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">sendMessage</span><span class="o">(</span><span class="no">T</span> <span class="n">message</span><span class="o">,</span> <span class="nc">ChatService</span> <span class="n">chatService</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">sessions</span><span class="o">.</span><span class="na">parallelStream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">session</span> <span class="o">-&gt;</span> <span class="n">chatService</span><span class="o">.</span><span class="na">sendMessage</span><span class="o">(</span><span class="n">session</span><span class="o">,</span> <span class="n">message</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>ChatRoom은 roomId와 name, 그리고 session을 관리할 sessions를 갖는다. json 데이터를 받아 WebSocketHandler에서 해당 데이터에 담긴 roomId를 chatService를 통해서 조회 하여 해당 id의 채팅방을 찾아 json데이터에 담긴 메시지를 해당 채팅방으로 보내게된다. 이 기능을 담당하는 곳이 handlerActions 메서드로, 해당 roomId의 채팅방을 찾아 handlerActions로 메시지와 세션을 보내면 이 메시지의 상태가 ENTER 상태인지 TALK 상태인지 판별하여 만약 ENTER 상태라면 session을 연결한뒤에 해당 sender가 입장했다는 메시지를 해당 채팅방에 보내고, 만약 이미 연결된 TALK 상태라면 해당 메시지를 해당 채팅방에 입장해있는 모든 클라이언트들 (Websocket session)에게 메시지를 보낸다.</p>
+
+<p>그럼 이제 이러한 기능들을 처리할 ChatService와 ChatController를 만들어 본격적으로 클라이언트가 서버에 웹소켓을 열고 이를 통해 메시지를 주고받게 해줄수 있는 로직을 작성해보자.</p>
+
+<h2 id="service-controller">Service, Controller</h2>
+
+<h3 id="chatservice">ChatService</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+</pre></td><td class="rouge-code"><pre><span class="nd">@Slf4j</span>
+<span class="nd">@RequiredArgsConstructor</span>
+<span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ChatService</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">ObjectMapper</span> <span class="n">objectMapper</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">ChatRoom</span><span class="o">&gt;</span> <span class="n">chatRooms</span><span class="o">;</span>
+
+    <span class="nd">@PostConstruct</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">init</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">chatRooms</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedHashMap</span><span class="o">&lt;&gt;();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">ChatRoom</span><span class="o">&gt;</span> <span class="nf">findAllRoom</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">chatRooms</span><span class="o">.</span><span class="na">values</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">ChatRoom</span> <span class="nf">findRoomById</span><span class="o">(</span><span class="nc">String</span> <span class="n">roomId</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">chatRooms</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">roomId</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">ChatRoom</span> <span class="nf">createRoom</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">randomId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">randomUUID</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
+        <span class="nc">ChatRoom</span> <span class="n">chatRoom</span> <span class="o">=</span> <span class="nc">ChatRoom</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">roomId</span><span class="o">(</span><span class="n">randomId</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">name</span><span class="o">(</span><span class="n">name</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+        <span class="n">chatRooms</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">randomId</span><span class="o">,</span> <span class="n">chatRoom</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">chatRoom</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">sendMessage</span><span class="o">(</span><span class="nc">WebSocketSession</span> <span class="n">session</span><span class="o">,</span> <span class="no">T</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">try</span><span class="o">{</span>
+            <span class="n">session</span><span class="o">.</span><span class="na">sendMessage</span><span class="o">(</span><span class="k">new</span> <span class="nc">TextMessage</span><span class="o">(</span><span class="n">objectMapper</span><span class="o">.</span><span class="na">writeValueAsString</span><span class="o">(</span><span class="n">message</span><span class="o">)));</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(),</span> <span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>ChatService는 chatRooms를 클래스 변수로 갖는데, chatRooms는 RoomId를 key로 갖고 chatRoom을 value로 갖는 Map으로, createRoom() 메서드가 실행되면 새로 방이 만들어지고 chatRooms에 chatRoom이 추가된다. 방의 아이디는 UUID로 랜덤으로 생성하여 지정되며, roomId를 사용해 findRoomById() 메서드를 통해서 해당 채팅방을 불러올 수 있다.</p>
+
+<p>sendMessage() 메서드는 TALK 상태일 경우 실행되는 메서드로, 메시지를 해당 채팅방의 webSocket 세션에 보내는 메서드이다.</p>
+
+<p>이제 이러한 로직들을 ChatController를 통해 Http요청을 받으면 채팅방을 만들고, roomId를 반환하게 만들어 해당 roomId를 통해서 채팅방에 메시지를 날려보자.</p>
+
+<h3 id="chatcontroller">ChatController</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="nd">@RequiredArgsConstructor</span>
+<span class="nd">@RestController</span>
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">"/chat"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ChatController</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">ChatService</span> <span class="n">chatService</span><span class="o">;</span>
+
+    <span class="nd">@PostMapping</span>
+    <span class="kd">public</span> <span class="nc">ChatRoom</span> <span class="nf">createRoom</span><span class="o">(</span><span class="nd">@RequestBody</span> <span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">chatService</span><span class="o">.</span><span class="na">createRoom</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@GetMapping</span>
+    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">ChatRoom</span><span class="o">&gt;</span> <span class="nf">findAllRoom</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">chatService</span><span class="o">.</span><span class="na">findAllRoom</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>@RequestMapping 어노테이션을 통해서 “/chat” 주소로 Post요청이 들어오면 json 데이터에서 name값을 받아 해당 이름으로 된 채팅방을 생성하고, Get요청이 들어오면 현재 열려있는 모든 채팅방을 모두 조회 할 수 있게 해주었다. 그럼 이제 모두 완성 되었으니, 한번 “/chat” 주소로 Post 요청을 보내 방을 생성하고 webSocket 접속을 도와주는 테스트 클라이언트를 열어 채팅을 실행해보자.</p>
+
+<h2 id="테스트">테스트</h2>
+<p>먼저, Post요청을 보내면,</p>
+
+<p><img src="/assets/images/tech/Java/chat1/image1.png" alt="image1" /></p>
+
+<p>다음과 같이 정상적으로 방을 생성하고 생성된 방의 roomId를 리턴해주는 걸 볼 수 있다.</p>
+
+<p>그럼 이제 이 방으로 접속해서 웹소켓을 이용한 채팅을 진행해보자. 구글 크롬 확장 프로그램인 WebSocketTestClient를 검색해서 추가한뒤 열어준다.</p>
+
+<p>우리가 webSocket을 사용하기 위한 주소로 지정했던 “ws/chat”을 붙여주고 Open 버튼을 눌러 webSocket에 연결한다. “ws://localhost:8080/ws/chat” webSocket 요청이므로 http가 아닌 ws가 들어가야 한다.</p>
+
+<p><img src="/assets/images/tech/Java/chat1/image2.png" alt="image2" /></p>
+
+<p>이제 그럼 Request 부분에 아래와 같은 json 데이터를 보내보자.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>{
+  "type":"ENTER",
+  "roomId":"e4f57c65-0b0f-4972-b20c-4a024a0a4f81",
+  "sender":"사용자1",
+  "message":"asd"
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>여기서 roomId는 아까 Post 요청을 통해 반환받은, 방금 생성한 채팅방의 roomId를 넣어주면 된다. send를 눌러 해당 데이터를 보내면,</p>
+
+<p><img src="/assets/images/tech/Java/chat1/image3.png" alt="image2" /></p>
+
+<p>다음과 같이 올바르게 session이 연결되고 ENTER 요청이므로 sender가 입장했다는 message가 전송되는 것을 확인 할 수 있다. 그럼 올바르게 채팅 내용이 채팅방 참여자 모두에게 전해지고 있는 지 확인 하기 위해서 웹페이지를 하나 더 연뒤 ENTER 하여 세션을 연결하고 TALK 속성의 메시지를 보내보도록 하자. 동일하게 페이지 하나를 더 열어 사용자2 라는 sender를 채팅방에 참여시킨다.</p>
+
+<p><img src="/assets/images/tech/Java/chat1/image4.png" alt="image2" /></p>
+
+<p>다음과 같이 사용자2도 올바르게 채팅방에 입장한 것을 확인할 수 있으며,</p>
+
+<p><img src="/assets/images/tech/Java/chat1/image5.png" alt="image2" /></p>
+
+<p>사용자 1도 같은 세션에 접속해 있으므로 동일하게 참가했다는 메시지를 확인할 수 있다.</p>
+
+<p>그럼 이제 사용자1이 TALK 메시지를 보내보면,</p>
+
+<p><img src="/assets/images/tech/Java/chat1/image6.png" alt="image2" /></p>
+
+<p>다음과 같이 올바르게 메시지가 송신되고,</p>
+
+<p><img src="/assets/images/tech/Java/chat1/image6.png" alt="image2" /></p>
+
+<p>마찬가지로 같은 세션에 연결되어있는 사용자2에게도 동일한 메시지가 보이는 것을 확인 할 수 있다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#java" class="page__taxonomy-item" rel="tag">java</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-02-08T00:00:00+00:00">February 8, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BSpring%5D+webSocket%EC%9C%BC%EB%A1%9C+%EC%B1%84%ED%8C%85%EC%84%9C%EB%B2%84+%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0+%281%29%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2FSpring-%25EA%25B2%258C%25EC%258B%259C%25ED%258C%2590-API-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0-webSocket%25EC%259C%25BC%25EB%25A1%259C-%25EC%25B1%2584%25ED%258C%2585%25EC%2584%259C%25EB%25B2%2584-%25EA%25B5%25AC%25ED%2598%2584%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2FSpring-%25EA%25B2%258C%25EC%258B%259C%25ED%258C%2590-API-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0-webSocket%25EC%259C%25BC%25EB%25A1%259C-%25EC%25B1%2584%25ED%258C%2585%25EC%2584%259C%25EB%25B2%2584-%25EA%25B5%25AC%25ED%2598%2584%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2FSpring-%25EA%25B2%258C%25EC%258B%259C%25ED%258C%2590-API-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0-webSocket%25EC%259C%25BC%25EB%25A1%259C-%25EC%25B1%2584%25ED%258C%2585%25EC%2584%259C%25EB%25B2%2584-%25EA%25B5%25AC%25ED%2598%2584%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/java/Spring-%EA%B2%8C%EC%8B%9C%ED%8C%90-API-%EB%A7%8C%EB%93%A4%EA%B8%B0-webSocket%EC%9C%BC%EB%A1%9C-%EC%B1%84%ED%8C%85%EC%84%9C%EB%B2%84-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-(2)/" class="pagination--pager" title="[Spring] webSocket으로 채팅서버 구현하기 (2)
+">이전</a>
+    
+    
+      <a href="/diary-univ/%EB%A7%A5%EB%B6%81-%ED%94%84%EB%A1%9C-%EC%82%AC%EB%8B%A4!/" class="pagination--pager" title="맥북 프로 사다!
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8-%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4/" rel="permalink">아두이노 라즈베리파이
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-21T00:00:00+00:00">March 21, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.21
+올해 듣는 수업이 대부분 프로젝트 수업이라서 사실 수업보다는 그냥 실험하고, 프로젝트 하나 완료하는것들이 전공수업의 전부가 되었다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EA%B0%80%EB%8A%A5%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" rel="permalink">가능성에 대하여
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-19T00:00:00+00:00">March 19, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.19
+요즘 인생의 방향성에 대해 생각이 좀 많다. 원래는 이번년도에 창업을 해보면서 대략 어떤 느낌인지 맛을 보자는 느낌이었는데, 계획서를 써보고 공부해볼 수록 그렇게 1년만 해볼 수 있는 문제가 아니란걸 깨닫는다. 그런식으로 1년만 하려는 마음가짐으로 뭔가를 이뤄내...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%9D%BC%EB%A6%AC-%EC%BB%A4%ED%94%BC%EB%A8%B8%EC%8B%A0/" rel="permalink">일리 커피머신
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-15T00:00:00+00:00">March 15, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.15
+
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%98%81%EC%96%B4/" rel="permalink">영어…
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-14T00:00:00+00:00">March 14, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.14
+요즘 부쩍 영어에 관심이 많아져서 열심히 해보려고 하는데, 진짜 벽느껴진다… 그냥 고등학교때만 열심히 했어도 이렇게까지 고생 안 했을텐데… 새롭게 뭐 해보려고 하지만 옛날의 업보가 결국 불쑥 불쑥 나타나 앞을 막기 시작한다. 근데 뭐 다른 사람들은 열심히 공부한...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/leeminjae-dev" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/java/Spring-%EA%B2%8C%EC%8B%9C%ED%8C%90-API-%EB%A7%8C%EB%93%A4%EA%B8%B0-webSocket%EC%9C%BC%EB%A1%9C-%EC%B1%84%ED%8C%85%EC%84%9C%EB%B2%84-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/java/[Spring] 게시판 API 만들기 - webSocket으로 채팅서버 구현하기"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://leeminjae-dev-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
+
+
+<!-- 웹 폰트 설정 -->
+<link rel="stylesheet" href="/assets/css/high3.css">

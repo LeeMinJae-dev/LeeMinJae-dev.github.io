@@ -1,0 +1,1190 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Java] 옵셔널 - Learnote-Dev</title>
+<meta name="description" content="옵셔널 옵셔널은 자바의  NullPointerException을 방지하기 위해 만들어진 기능이다.     프로그래밍에서 가장 많이 발생하는 오류가 이 NullPointerException인데, 보통 프로그래밍을 할 때 변수에 일일히 Null값이 들어올 상황에 대비해주는 코드를 넣어주는 것은 매우 복잡하고 번거로운 일이기 때문에,          입력을 받는 부분에서는 항상 Null에 대한 유효성을 체크해주어야 한다.">
+
+
+  <meta name="author" content="이민재">
+  
+  <meta property="article:author" content="이민재">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Learnote-Dev">
+<meta property="og:title" content="[Java] 옵셔널">
+<meta property="og:url" content="http://localhost:4000/java/Java-%EC%98%B5%EC%85%94%EB%84%90/">
+
+
+  <meta property="og:description" content="옵셔널 옵셔널은 자바의  NullPointerException을 방지하기 위해 만들어진 기능이다.     프로그래밍에서 가장 많이 발생하는 오류가 이 NullPointerException인데, 보통 프로그래밍을 할 때 변수에 일일히 Null값이 들어올 상황에 대비해주는 코드를 넣어주는 것은 매우 복잡하고 번거로운 일이기 때문에,          입력을 받는 부분에서는 항상 Null에 대한 유효성을 체크해주어야 한다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-12-05T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/java/Java-%EC%98%B5%EC%85%94%EB%84%90/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이민재",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Learnote-Dev Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Learnote-Dev
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/about/">About me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile.jpg" alt="이민재" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이민재</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>포트폴리오/일상 기록</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Incheon, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="lmj938@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://blog.naver.com/lmj938" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/leeminjae-dev/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:lmj938@naver.com">
+            <meta itemprop="email" content="lmj938@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+        <!--span 태그로 카테고리들을 크게 분류 ex) Life-->
+       <span class="nav__sub-title">Life</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (64)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Tech-->
+       <span class="nav__sub-title">Tech</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java" class="">Java (44)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (61)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/programmers" class="">Programmers(66)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+<!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Knowledge</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/machinelearning" class="">Machine Learning (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+          
+      </li>
+  </ul>
+</nav>
+
+  
+
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Java] 옵셔널">
+    <meta itemprop="description" content="옵셔널옵셔널은 자바의  NullPointerException을 방지하기 위해 만들어진 기능이다.    프로그래밍에서 가장 많이 발생하는 오류가 이 NullPointerException인데, 보통 프로그래밍을 할 때변수에 일일히 Null값이 들어올 상황에 대비해주는 코드를 넣어주는 것은 매우 복잡하고 번거로운 일이기 때문에,         입력을 받는 부분에서는 항상 Null에 대한 유효성을 체크해주어야 한다.">
+    <meta itemprop="datePublished" content="2021-12-05T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[Java] 옵셔널
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-12-05T00:00:00+00:00">December 5, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this Page</h4></header>
+              <ul class="toc__menu"><li><a href="#옵셔널">옵셔널</a><ul><li><a href="#요구사항-3---optional에서-exception-처리">요구사항 3 - Optional에서 exception 처리</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="옵셔널">옵셔널</h2>
+<p>옵셔널은 자바의  NullPointerException을 방지하기 위해 만들어진 기능이다.    <br />
+프로그래밍에서 가장 많이 발생하는 오류가 이 NullPointerException인데, 보통 프로그래밍을 할 때<br />
+변수에 일일히 Null값이 들어올 상황에 대비해주는 코드를 넣어주는 것은 매우 복잡하고 번거로운 일이기 때문에,         <br />
+입력을 받는 부분에서는 항상 Null에 대한 유효성을 체크해주어야 한다.</p>
+
+<p>따라서 이러한 유효성을 검사하기 위해서 일일히 if문을 넣어 Null값이 들어왔을 때의 예외를 선언해주어야 했던 번거로움을 해결하기 위해,<br />
+자바8에서부터는 Optional이란 기능이 추가되었다.</p>
+
+<p>옵셔널로 변수를 선언하는 방법은 아래와 같이 Optional 자료형으로 변수를 선언해주면 되는데,</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">optional</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">empty</span><span class="o">();</span>
+<span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">optionalOf</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">"str"</span><span class="o">);</span> 
+<span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">optionalOfNull</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>첫번째 줄은 빈 옵셔널 타입을 선언해준 것이고, 두번째 줄은 str이라는 문자열이 들어있는 옵셔널타입의 변수를 선언 해주었다.        <br />
+하지만 두번째 줄같은 경우 Null값이 of메서드 안에 들어오면 에러를 출력하므로, 만약 Null값이 들어올 수 있는 값이라면 세번째 줄 처럼 ofNullable을 사용해주어야 한다.</p>
+
+<p>이렇게 옵셔널로 선언한 값을 런해서 출력해보면 다음과 같이 뜨는걸 볼 수 있는데,</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">optionalOf</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">"hello"</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">optionalOf</span><span class="o">);</span>
+<span class="o">}</span>
+    
+<span class="o">&gt;</span> <span class="nc">Optional</span><span class="o">[</span><span class="n">hello</span><span class="o">]</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이렇게 Optional[]이란 괄호안에 값이 들어있는걸 볼 수 있다.</p>
+
+<p>이것을 <strong>래핑</strong>되었다고 하는데, 비유하자면 물건이 박스에 들어가 있는 상태라고 생각하면 된다.  <br />
+박스에 들어가 있기 때문에, 아직 Null값임이 확정되지 않아 NullException 에러를 출력하지 않는 것이고, 이 값을 꺼낼 때 Null이라면 그때서야 에러를 출력하게 되는 것이다.</p>
+
+<p>따라서 우리가 물건을 사용하려면 박스에서 꺼내야 하듯이, 이 값을 사용하려면 <strong>언래핑</strong> 이라는 과정을 거쳐서 상자에서 이 값을 꺼내주어야 한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>public static void main(String[] args) {
+    Optional&lt;String&gt; optionalOf = Optional.of(null);
+    
+    System.out.println(optionalOf);
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위 코드를 돌리게 되면 NullPointException이 발생하게 되는데, 이는 Optional.of는 Null값을 입력하면 오류를 출력하기 때문이다.<br />
+따라서 Optional에 Null값을 넣고 싶다면, empty() 메서드를 사용하거나, ofNullable()을 사용해서 값을 할당해야 한다.</p>
+
+<p>그렇다면 이 상자에서 어떻게 해야 이 값을 꺼낼 수 있을까??</p>
+
+<p>상자에서 꺼내는 방법은 두가지가 있는데, get()을 사용하는 방법과 orElse() 혹은 orElseGet()를 사용하는 방법이 있다.</p>
+
+<p>먼저 get()의 경우 강제로 박스를 여는것에 가까운데, get()은 Null값에 대한 대비 없이 바로 상자를 열어버리기 때문에 래핑된 값이     Null이라면 에러를 출력한다.</p>
+
+<p>orElse()의 경우는 orElse() 파라미터 단에 해당 옵셔널 변수가 Null일때의 예외 값을 지정해줌으로써, 만약 박스를 열었는데 안에 Null값이 있다면 해당 예외값이 들어있던 것으로 판단한다.</p>
+
+<p>orElseGet()은 기본적으로 orElse와 같지만, 파라미터단에 값자체가 아닌 함수가 들어오며 null이던 아니건 우선 예외값을 불러오는 <br />
+orElse()와 달리 안에 있는 값이 Null일 때만 해당 예외처리를 불러온다.</p>
+
+<p>따라서 특이한 상황이 아니라면 Null값이 들어올 수 있는 옵셔널 변수에는 orElseGet()을 사용해주는게 가장 NullPointerException에서 가장 안전하다.</p>
+
+<p>이러한 특성 때문에 만약 NullPointerException을 막으려면 아래와 같이 복잡한 코드를 선언해야했던 이전과 달리,</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">number</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">number</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">number</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>다음과 같이 Optional을 사용해서 코드를 더 간소화 할 수 있게 되었다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">number</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">opt</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">number</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">opt</span><span class="o">.</span><span class="na">orElseGet</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="s">"null"</span><span class="o">));</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이렇게 옵셔널은 더 안정적이고, 간소화된 코드를 위해 사용되는 유용한 기능이다.</p>
+
+<p>그럼, 이 기능을 더 자연스럽게 사용하기 위해 몇가지 예제를 풀어보자.</p>
+
+<p>###요구사항 1 - Optional을 활용해 조건에 따른 반환<br />
+nextstep.optional.User의 ageIsInRange1() 메소드는 30살 이상, 45살 이하에 해당하는 User가 존재하는 경우 true를 반환하는 메소드이다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">ageIsInRange1</span><span class="o">(</span><span class="nc">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">boolean</span> <span class="n">isInRange</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">user</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">user</span><span class="o">.</span><span class="na">getAge</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span>
+            <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getAge</span><span class="o">()</span> <span class="o">&gt;=</span> <span class="mi">30</span>
+            <span class="o">&amp;&amp;</span> <span class="n">user</span><span class="o">.</span><span class="na">getAge</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="mi">45</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">isInRange</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">isInRange</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>같은 기능을 Optional을 활용해 ageIsInRange2() 메소드에 구현한다. 메소드 인자로 받은 User를 Optional로 생성하면 stream의 map, filter와 같은 메소드를 사용하는 것이 가능하다.</p>
+
+<p>nextstep.optional.UserTest의 테스트가 모두 pass해야 한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserTest</span> <span class="o">{</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">whenFiltersWithoutOptional_thenCorrect</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">ageIsInRange1</span><span class="o">(</span><span class="k">new</span> <span class="nc">User</span><span class="o">(</span><span class="s">"crong"</span><span class="o">,</span> <span class="mi">35</span><span class="o">))).</span><span class="na">isTrue</span><span class="o">();</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">ageIsInRange1</span><span class="o">(</span><span class="k">new</span> <span class="nc">User</span><span class="o">(</span><span class="s">"crong"</span><span class="o">,</span> <span class="mi">48</span><span class="o">))).</span><span class="na">isFalse</span><span class="o">();</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">ageIsInRange1</span><span class="o">(</span><span class="k">new</span> <span class="nc">User</span><span class="o">(</span><span class="s">"crong"</span><span class="o">,</span> <span class="kc">null</span><span class="o">))).</span><span class="na">isFalse</span><span class="o">();</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">ageIsInRange1</span><span class="o">(</span><span class="k">new</span> <span class="nc">User</span><span class="o">(</span><span class="s">"crong"</span><span class="o">,</span> <span class="mi">29</span><span class="o">))).</span><span class="na">isFalse</span><span class="o">();</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">ageIsInRange1</span><span class="o">(</span><span class="kc">null</span><span class="o">)).</span><span class="na">isFalse</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">whenFiltersWithOptional_thenCorrect</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">ageIsInRange2</span><span class="o">(</span><span class="k">new</span> <span class="nc">User</span><span class="o">(</span><span class="s">"crong"</span><span class="o">,</span> <span class="mi">35</span><span class="o">))).</span><span class="na">isTrue</span><span class="o">();</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">ageIsInRange2</span><span class="o">(</span><span class="k">new</span> <span class="nc">User</span><span class="o">(</span><span class="s">"crong"</span><span class="o">,</span> <span class="mi">48</span><span class="o">))).</span><span class="na">isFalse</span><span class="o">();</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">ageIsInRange2</span><span class="o">(</span><span class="k">new</span> <span class="nc">User</span><span class="o">(</span><span class="s">"crong"</span><span class="o">,</span> <span class="kc">null</span><span class="o">))).</span><span class="na">isFalse</span><span class="o">();</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">ageIsInRange2</span><span class="o">(</span><span class="k">new</span> <span class="nc">User</span><span class="o">(</span><span class="s">"crong"</span><span class="o">,</span> <span class="mi">29</span><span class="o">))).</span><span class="na">isFalse</span><span class="o">();</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">ageIsInRange2</span><span class="o">(</span><span class="kc">null</span><span class="o">)).</span><span class="na">isFalse</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>Guide To Java 8 Optional 문서를 참고해 Optional 사용 방법을 익힌다.</li>
+  <li>Optional.ofNullable(user)을 활용해 User을 Optional로 생성하는 것이 가능하다.</li>
+  <li>Optional의 map(), filter() 메소드등을 활용해 필요한 데이터를 추출</li>
+  <li>Optional의 isPresent() 메소드 활용</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">ageIsInRange2</span><span class="o">(</span><span class="nc">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">User</span><span class="o">&gt;</span> <span class="n">targetUser</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">targetUser</span><span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="nc">User</span> <span class="o">::</span> <span class="n">getAge</span><span class="o">).</span><span class="na">filter</span><span class="o">(</span><span class="n">age</span> <span class="o">-&gt;</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">35</span><span class="o">).</span><span class="na">filter</span><span class="o">(</span><span class="n">age</span> <span class="o">-&gt;</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">45</span><span class="o">).</span><span class="na">isPresent</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>user를 Optional로 감싸주고, ofNullable로 선언함으로써 Null값이 들어올 수 있도록 선언해준다.         <br />
+user의 getAge를 비교해주어야 하므로, map을 사용해서 들어온 user에서 age를 얻어오고, 이를 조건에 맞게 filter()를 사용해 걸러준다.       <br />
+그리고 isPresent()를 통해 값이 존재하면 true, 존재하지않으며 false를 반환하면 된다.</p>
+
+<p>###요구사항 2 - Optional에서 값을 반환<br />
+nextstep.optional.Users의 getUser() 메소드를 자바 8의 stream과 Optional을 활용해 구현한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre> <span class="nc">User</span> <span class="nf">getUser</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">User</span> <span class="n">user</span> <span class="o">:</span> <span class="n">users</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">matchName</span><span class="o">(</span><span class="n">name</span><span class="o">))</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="n">user</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="no">DEFAULT_USER</span><span class="o">;</span>
+    <span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>자바 8의 stream과 Optional을 사용하도록 리팩토링한 후 UsersTest의 단위 테스트가 통과해야 한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UsersTest</span> <span class="o">{</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getUser</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">Users</span> <span class="n">users</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Users</span><span class="o">();</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">users</span><span class="o">.</span><span class="na">getUser</span><span class="o">(</span><span class="s">"crong"</span><span class="o">)).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="k">new</span> <span class="nc">User</span><span class="o">(</span><span class="s">"crong"</span><span class="o">,</span> <span class="mi">35</span><span class="o">));</span>
+    <span class="o">}</span>
+
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getDefaultUser</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">Users</span> <span class="n">users</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Users</span><span class="o">();</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">users</span><span class="o">.</span><span class="na">getUser</span><span class="o">(</span><span class="s">"codesquard"</span><span class="o">)).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="nc">Users</span><span class="o">.</span><span class="na">DEFAULT_USER</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<ul>
+  <li>Guide To Java 8 Optional 문서를 참고해 Optional 사용 방법을 익힌다.</li>
+  <li>Optional의 orElse() 메소드 활용해 구현한다.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nc">User</span> <span class="nf">getUser</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">users</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">filter</span><span class="o">(</span><span class="n">user</span> <span class="o">-&gt;</span> <span class="n">user</span><span class="o">.</span><span class="na">matchName</span><span class="o">(</span><span class="n">name</span><span class="o">)).</span><span class="na">findFirst</span><span class="o">().</span><span class="na">orElse</span><span class="o">(</span><span class="no">DEFAULT_USER</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>users는 User 자료형을 갖는 리스트이므로, 먼저 filter를 통해 user.matchName이 true인 값만을 필터링 해주고,<br />
+findFirts()를 통해 해당 값을 찾아준다. 만약 Null값이라면 orElse를 사용해서 예외에 대한 디폴트값을 설정해준다.</p>
+
+<h3 id="요구사항-3---optional에서-exception-처리">요구사항 3 - Optional에서 exception 처리</h3>
+<p>nextstep.optional.ExpressionTest의 테스트가 통과하도록 Expression의 of 메소드를 구현한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kd">static</span> <span class="nc">Expression</span> <span class="nf">of</span><span class="o">(</span><span class="nc">String</span> <span class="n">expression</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="nc">Expression</span> <span class="n">v</span> <span class="o">:</span> <span class="n">values</span><span class="o">())</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">matchExpression</span><span class="o">(</span><span class="n">v</span><span class="o">,</span> <span class="n">expression</span><span class="o">))</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">v</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"%s는 사칙연산에 해당하지 않는 표현식입니다."</span><span class="o">,</span> <span class="n">expression</span><span class="o">));</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>단, of 메소드를 구현할 때 자바 8의 stream을 기반으로 구현한다.</p>
+
+<ul>
+  <li>Guide To Java 8 Optional 문서를 참고해 Optional 사용 방법을 익힌다.</li>
+  <li>자바의 enum 전체 값은 values() 메소드를 통해 배열로 접근 가능하다.</li>
+  <li>Arrays.stream()을 이용해 배열을 stream으로 생성할 수 있다.</li>
+  <li>일치하는 값 하나를 추출할 때 findFirst() 메소드를 활용 가능하다.</li>
+  <li>Optional의 orElseThrow() 메소드 활용해 구현한다.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kd">static</span> <span class="nc">Expression</span> <span class="nf">of2</span><span class="o">(</span><span class="nc">String</span> <span class="n">expression</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">values</span><span class="o">())</span>
+            <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">value</span> <span class="o">-&gt;</span> <span class="n">matchExpression</span><span class="o">(</span><span class="n">value</span><span class="o">,</span> <span class="n">expression</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">findFirst</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">orElseThrow</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">IllegalArgumentException</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"%s는 사칙연산에 해당하지 않는 표현식입니다."</span><span class="o">,</span> <span class="n">expression</span><span class="o">)));</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Expression의 value를 받아 filter해준 뒤, orElseThrow를 사용해 예외 발생시 IllegalArgumentException를 출력하도록 해준다.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#java" class="page__taxonomy-item" rel="tag">java</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-12-05T00:00:00+00:00">December 5, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BJava%5D+%EC%98%B5%EC%85%94%EB%84%90%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2FJava-%25EC%2598%25B5%25EC%2585%2594%25EB%2584%2590%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2FJava-%25EC%2598%25B5%25EC%2585%2594%25EB%2584%2590%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2FJava-%25EC%2598%25B5%25EC%2585%2594%25EB%2584%2590%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/java/Java-%EB%9E%8C%EB%8B%A4,-%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="pagination--pager" title="[Java] 람다와 스트림
+">이전</a>
+    
+    
+      <a href="/java/Java-%EC%9A%B0%ED%85%8C%EC%BD%94-%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4-3%EC%A3%BC%EC%B0%A8-%EC%9E%90%ED%8C%90%EA%B8%B0/" class="pagination--pager" title="[Java] 우테코 프리코스 3주차 - 자판기
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8-%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4/" rel="permalink">아두이노 라즈베리파이
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-21T00:00:00+00:00">March 21, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.21
+올해 듣는 수업이 대부분 프로젝트 수업이라서 사실 수업보다는 그냥 실험하고, 프로젝트 하나 완료하는것들이 전공수업의 전부가 되었다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EA%B0%80%EB%8A%A5%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" rel="permalink">가능성에 대하여
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-19T00:00:00+00:00">March 19, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.19
+요즘 인생의 방향성에 대해 생각이 좀 많다. 원래는 이번년도에 창업을 해보면서 대략 어떤 느낌인지 맛을 보자는 느낌이었는데, 계획서를 써보고 공부해볼 수록 그렇게 1년만 해볼 수 있는 문제가 아니란걸 깨닫는다. 그런식으로 1년만 하려는 마음가짐으로 뭔가를 이뤄내...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%9D%BC%EB%A6%AC-%EC%BB%A4%ED%94%BC%EB%A8%B8%EC%8B%A0/" rel="permalink">일리 커피머신
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-15T00:00:00+00:00">March 15, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.15
+
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%98%81%EC%96%B4/" rel="permalink">영어…
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-14T00:00:00+00:00">March 14, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.03.14
+요즘 부쩍 영어에 관심이 많아져서 열심히 해보려고 하는데, 진짜 벽느껴진다… 그냥 고등학교때만 열심히 했어도 이렇게까지 고생 안 했을텐데… 새롭게 뭐 해보려고 하지만 옛날의 업보가 결국 불쑥 불쑥 나타나 앞을 막기 시작한다. 근데 뭐 다른 사람들은 열심히 공부한...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/leeminjae-dev" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/java/Java-%EC%98%B5%EC%85%94%EB%84%90/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/java/[Java] 옵셔널"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://leeminjae-dev-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
+
+
+<!-- 웹 폰트 설정 -->
+<link rel="stylesheet" href="/assets/css/high3.css">
