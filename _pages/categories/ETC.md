@@ -3,6 +3,6 @@ title: "ETC"
 permalink: /categories/ETC/
 layout: category
 author_profile : true
-taxonomy : think
+taxonomy : ETC
 sidebar_main: true
 ---
