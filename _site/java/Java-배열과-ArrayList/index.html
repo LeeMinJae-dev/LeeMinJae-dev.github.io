@@ -1561,21 +1561,26 @@ ArrayList 클래스는 객체 배열을 관리하는 멤버변수와 메서드�
 
 
 
-    
-  <script>
-    var disqus_config = function () {
-      this.page.url = "http://localhost:4000/java/Java-%EB%B0%B0%EC%97%B4%EA%B3%BC-ArrayList/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/java/[Java] 배열과 ArrayList"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
-    };
-    (function() { /* DON'T EDIT BELOW THIS LINE */
-      var d = document, s = d.createElement('script');
-      s.src = 'https://leeminjae-dev-github-io.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script>
+  'use strict';
 
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'leeminjae-dev/leeminjae-dev.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'preferred-color-scheme');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
 
   
 

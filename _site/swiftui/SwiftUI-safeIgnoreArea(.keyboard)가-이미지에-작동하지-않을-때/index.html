@@ -987,21 +987,26 @@ ImageView 내부에 절대 여백이 생기지 않는다.</p>
 
 
 
-    
-  <script>
-    var disqus_config = function () {
-      this.page.url = "http://localhost:4000/swiftui/SwiftUI-safeIgnoreArea(.keyboard)%EA%B0%80-%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90-%EC%9E%91%EB%8F%99%ED%95%98%EC%A7%80-%EC%95%8A%EC%9D%84-%EB%95%8C/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/swiftui/[SwiftUI] safeIgnoreArea(.keyboard)가 이미지에 작동하지 않을 때"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
-    };
-    (function() { /* DON'T EDIT BELOW THIS LINE */
-      var d = document, s = d.createElement('script');
-      s.src = 'https://leeminjae-dev-github-io.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script>
+  'use strict';
 
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'leeminjae-dev/leeminjae-dev.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'preferred-color-scheme');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
 
   
 

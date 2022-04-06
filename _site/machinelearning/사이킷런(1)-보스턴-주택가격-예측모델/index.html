@@ -934,21 +934,26 @@
 
 
 
-    
-  <script>
-    var disqus_config = function () {
-      this.page.url = "http://localhost:4000/machinelearning/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0(1)-%EB%B3%B4%EC%8A%A4%ED%84%B4-%EC%A3%BC%ED%83%9D%EA%B0%80%EA%B2%A9-%EC%98%88%EC%B8%A1%EB%AA%A8%EB%8D%B8/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/machinelearning/사이킷런(1) 보스턴 주택가격 예측모델"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
-    };
-    (function() { /* DON'T EDIT BELOW THIS LINE */
-      var d = document, s = d.createElement('script');
-      s.src = 'https://leeminjae-dev-github-io.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script>
+  'use strict';
 
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'leeminjae-dev/leeminjae-dev.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'preferred-color-scheme');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
 
   
 
