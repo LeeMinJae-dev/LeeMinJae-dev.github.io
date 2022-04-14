@@ -1,4 +1,4 @@
-|---
+---
 title : "[Programmers] 후보키 (Python3)"
 toc: true
 toc_sticky : true
@@ -17,7 +17,7 @@ categories : programmers
 
     1. 과녁판은 아래 사진처럼 생겼으며 가장 작은 원의 과녁 점수는 10점이고 가장 큰 원의 바깥쪽은 과녁 점수가 0점입니다. 
 
-![01_2022_공채문제_양궁대회_01.png](/Users/iminjae/developer/LeeMinJae/1-Coding/13-Blog/leeminjae-dev.github.io/assets/images/algorithm/programmers/양궁대회/image1.PNG)
+![01_2022_공채문제_양궁대회_01.png](/assets/images/algorithm/programmers/양궁대회/image1.PNG)
 
 
     2. 만약, k(k는 1~10사이의 자연수)점을 어피치가 a발을 맞혔고 라이언이 b발을 맞혔을 경우 더 많은 화살을 k점에 맞힌 선수가 k 점을 가져갑니다. 단, a = b일 경우는 어피치가 k점을 가져갑니다. k점을 여러 발 맞혀도 k점 보다 많은 점수를 가져가는 게 아니고 k점만 가져가는 것을 유의하세요. 또한 a = b = 0 인 경우, 즉, 라이언과 어피치 모두 k점에 단 하나의 화살도 맞히지 못한 경우는 어느 누구도 k점을 가져가지 않습니다.
