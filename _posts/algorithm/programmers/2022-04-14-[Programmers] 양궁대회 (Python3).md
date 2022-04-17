@@ -1,5 +1,5 @@
 ---
-title : "[Programmers] 후보키 (Python3)"
+title : "[Programmers] 양궁대회 (Python3)"
 toc: true
 toc_sticky : true
 toc_lable : "On this Page"
@@ -260,17 +260,6 @@ def compareScore(info, case):
 ```python
 compareScore([0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2], (9,10))
 ```
-
-    7
-    8
-
-
-
-
-
-    15
-
-
 
 ## 문제풀이
 카카오 문제는 너무 복잡하고 어려운 것 같다.
