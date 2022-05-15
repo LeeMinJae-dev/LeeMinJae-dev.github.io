@@ -1,0 +1,1134 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>OSI 7 Layer Model - Learnote-Dev</title>
+<meta name="description" content="OSI 7 계층이란? OSI 7 계층은 네트워크에서 통신이 일어나느 과정을 7단계로 나누어 표현한 모델입니다. 우리가 데이터를 보내는것이 정확히 어떻게 진행되는지 알도록 할 수 있게 나눈 것이죠.">
+
+
+  <meta name="author" content="이민재">
+  
+  <meta property="article:author" content="이민재">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Learnote-Dev">
+<meta property="og:title" content="OSI 7 Layer Model">
+<meta property="og:url" content="http://localhost:4000/cs/OSI-7-Layer-Model/">
+
+
+  <meta property="og:description" content="OSI 7 계층이란? OSI 7 계층은 네트워크에서 통신이 일어나느 과정을 7단계로 나누어 표현한 모델입니다. 우리가 데이터를 보내는것이 정확히 어떻게 진행되는지 알도록 할 수 있게 나눈 것이죠.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-04-30T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/cs/OSI-7-Layer-Model/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이민재",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Learnote-Dev Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Learnote-Dev
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://wild-rocket-6f8.notion.site/f5e071b980854f929d2076439973a47a">About me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile.jpg" alt="이민재" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이민재</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>공부/일상 기록</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Incheon, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="lmj938@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://blog.naver.com/lmj938" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/leeminjae-dev/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:lmj938@naver.com">
+            <meta itemprop="email" content="lmj938@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+        <!--span 태그로 카테고리들을 크게 분류 ex) Life-->
+       <span class="nav__sub-title">Life</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (72)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Tech-->
+       <span class="nav__sub-title">Tech</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java" class="">Java (46)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/ETC" class="">ETC (4)</a></li>
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/CS" class="">CS (4)</a></li>
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (61)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/programmers" class="">Programmers(73)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+<!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Knowledge</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/machinelearning" class="">Machine Learning (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+          
+      </li>
+  </ul>
+</nav>
+
+  
+
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="OSI 7 Layer Model">
+    <meta itemprop="description" content="OSI 7 계층이란?OSI 7 계층은 네트워크에서 통신이 일어나느 과정을 7단계로 나누어 표현한 모델입니다. 우리가 데이터를 보내는것이 정확히 어떻게 진행되는지 알도록 할 수 있게 나눈 것이죠.">
+    <meta itemprop="datePublished" content="2022-04-30T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">OSI 7 Layer Model
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-04-30T00:00:00+00:00">April 30, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#osi-7-계층이란">OSI 7 계층이란?</a></li><li><a href="#osi-7-과-tcpip의-차이점">OSI 7 과 TCP/IP의 차이점</a></li><li><a href="#application">Application</a></li><li><a href="#presentation">Presentation</a></li><li><a href="#session">Session</a></li><li><a href="#transport">Transport</a></li><li><a href="#network">Network</a></li><li><a href="#datalink">DataLink</a></li><li><a href="#physical">Physical</a></li><li><a href="#정리">정리</a></li><li><a href="#마무리">마무리</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="osi-7-계층이란">OSI 7 계층이란?</h2>
+<p>OSI 7 계층은 네트워크에서 통신이 일어나느 과정을 7단계로 나누어 표현한 모델입니다. 우리가 데이터를 보내는것이 정확히 어떻게 진행되는지 알도록 할 수 있게 나눈 것이죠.</p>
+
+<p>이러한 계층 모델을 표준으로 사용하고 있기 때문에, 제조사가 다른 장비끼리도 이러한 표준화된 규약하에 통신이 가능한 것입니다.</p>
+
+<p>또, 이렇게 계층으로 나눠놓으면 통신이 일어나는 과정을 단계별로 파악할 수 있어 편리 합니다. 문제가 생기면 해당 문제가 어느 계층에서 일어난 것인지 판별하여 해당 계층만 고치면 되니까요.</p>
+
+<p>물론 지금의 실제적인 통신들은 대부분 TCP/IP 프로토콜로 동작하고 있지만, 장비개발과 통신 자체를 어떻게 표준으 로 잡을지 사용하는 것은 OSI 7 Layer이기 때문에 중요합니다. 또, 어차피 둘은 비슷한 방식이기 때문에 OSI 7을 이해하면 TCP/IP를 이해하는 것도 어렵지 않습니다.</p>
+
+<p>OSI 7 레이어는 이름에 맞게  아래와 같은 7개의 계층을 가집니다.</p>
+
+<ul>
+  <li>Application</li>
+  <li>Presentation</li>
+  <li>Session</li>
+  <li>Transport</li>
+  <li>Network</li>
+  <li>Data Link</li>
+  <li>Physical</li>
+</ul>
+
+<p>그럼 아까 현재는 대부분이 TCP/IP 모델을 사용하고 있다고 했죠? 그럼 TCP/IP은 어떤 계층을 갖고 있을까요? 아래와 같습니다.</p>
+
+<ul>
+  <li>Application</li>
+  <li>Transport</li>
+  <li>Internet</li>
+  <li>Network Access</li>
+</ul>
+
+<p>OSI 7 모델과 비슷한데, 밑의 Network 부분과 Application 부분으로 통합되어 있는 것이 다른걸 알 수 있죠.</p>
+
+<p>그림으로 살펴 보겠습니다.</p>
+
+<p><img src="/assets/images/tech/cs/2022-04-30-OSI/image1.PNG" alt="image1" /></p>
+
+<p>같은 모습인데, Presentation과 Session 레이어가 Application 레이어 하나로 통합되었고, Network Layer가 Internet Layer로 바뀌었으며, Data Link Layer와 Physical Layer가 통합되었습니다.</p>
+
+<p>둘의 차이점은 <strong>OSI 7 레이어는 개념적이고 이론적인 표준</strong>이라면, <strong>TCP/IP는 실무적 표준</strong>이라는 것입니다. <strong>OSI는 개념적인 모델로 우리가 데이터를 보낼때는 이러한 과정들을 거쳐서 통신을 하자! 라고 이론적으로 설명하기위한 모델</strong>이고, <strong>TCP/IP는 실제적으로 우리가 사용하는 클라이언트-서버 모델</strong>인 것입니다.</p>
+
+<p>이게 사실 무슨말인지 이해가 어렵습니다. 저도 이 내용을 공부하며 든 생각이, <strong>아니  OSI 7 레이어가 표준이라면서 왜 TCP/IP를 대부분 쓰고 있는것이며, 그렇다면 우리가 OSI 7레이어를 공부해야할 필요가 뭐가 있는거지? 그냥 TCP/IP만을 알면 되잖아?</strong></p>
+
+<p>그래서 이 둘이 무슨 차이가 있는지 찾아보았습니다.</p>
+
+<h2 id="osi-7-과-tcpip의-차이점">OSI 7 과 TCP/IP의 차이점</h2>
+<p>OSI 7과 TCP/IP 중에서 먼저나온 것은 TCP/IP 입니다. OSI 7을 표준으로 정하기 전에 이미 TCP/IP를 적용한 여러 통신 제품들이 나오고 있었죠. 그러다 보니 모두 TCP/IP라는 기술은 사용하지만 디테일한 부분이 달라서 회사가 다른 제품끼리는 호환이 안되는 문제들이 하나 둘 생기기 시작합니다.</p>
+
+<p>이에 ISO(국제 표준화 기구)는 이를 통일하기 위해 국제 표준인 OSI 7을 발표하게 됩니다. 하지만 이미 대부분의 장비들은 TCP/IP를 기준으로 만들어졌기 때문에, 이를 갑자기 OSI 7 모델로 바꾸는 것은 너무나 복잡하고 어려운 일이기도 하고, 이미 어느정도 실제로 사용되며 신뢰성 있는 TCP/IP 모델을 하루아침에 OSI 7 모델로 바꾸는것도 너무 리스크가 컸습니다.</p>
+
+<p>그래서 기업들은 그대로 TCP/IP 모델을 사용하되, 국제 표준인 OSI 7 모델을 참고하며 조금씩 TCP/IP 모델을 수정하여 표준에는 호환 될 수 있도록 수정하기 시작합니다. 이것이 현재의 TCP/IP가 되어 널리 사용되고 있는 것이죠.</p>
+
+<p>따라서 실제로는 TCP/IP를 사용하고 있지만, 국제적인 표준은 OSI 7 모델이기 때문에 OSI 7 모델에 대해서도 알아야 하는 것입니다. 결국 TCP/IP도 OSI 7 모델을 참고하여 수정한 모델이니까요.</p>
+
+<p>그럼 이제 왜 OSI 7 모델을 공부해야하는지 알았으니, OSI 7 모델의 계층을 하나하나 알아보도록 합시다.</p>
+
+<p>영어로 되어있어서 어렵지만 내용은 단순합니다. 우리가 어떤 데이터를 우리 컴퓨터에서 다른 컴퓨터로 보내면, 위의 7계층을 위에서부터 데이터를 보내고, 다른 컴퓨터에서는 아래에서부터 위로 데이터를 받는 것이죠.</p>
+
+<p>그러면 이 계층에 대해서 하나씩 위에서부터 설명 해보겠습니다..</p>
+
+<h2 id="application">Application</h2>
+<p>이 계층은 통신을 위해 실행하는 응용프로그램의 계층입니다. 우리가 메시지를 보내려면, 어떤 프로그램을 통해서 보내야겠죠? 예를 들어 보통은 카카오톡이나 라인 등의 메신저 프로글매을 사용할것입니다.</p>
+
+<p>만약 카카오톡에서 우리가 “안녕”이라는 메시지를 보내면, 카카오톡 프로그램이 HTTP, FTP, DHCP, POP3등의 프로토콜을 사용해서 사용해서 네트워크에 접근을 시작할 것입니다.</p>
+
+<p>이 부분에서는 사용자를 위한 인터페이스를 지원합니다. 카카오톡을 키면 우리가 사용할 수 있도록 예쁘게 대화창과 보내기 버튼이 있죠? 이처럼 이 부분에서는 사용자가 눈으로 볼 수 있는 부분으로, 직접 우리가 원하는 작업을 수행하기 위한 부분입니다.</p>
+
+<p>이 상태에서의 메시지는 이러한 모양일 것입니다.</p>
+
+<p><img src="/assets/images/tech/cs/2022-04-30-OSI/image2.PNG" alt="image1" /></p>
+
+<h2 id="presentation">Presentation</h2>
+<p>이 계층에서는 데이터의 변환, 압축, 암호화가 이루어집니다. 기기 간에 다른 표현 방식을 모두가 이해할 수 있는 하나의 통일된 방식으로 변경하는것이죠.</p>
+
+<p>응용프로그램에서 보낸 메시지를 네트워크를 위해 변환하거나, 반대로 네트워크에서 받아 어플리케이션이 이해할 수 있도록 우리가 자주 사용하는 JPEG, TIFF, GIF등등으로 형식을 맞춰주는 것입니다.</p>
+
+<p>그렇다면 이 부분에서는 메시지가 이렇게 송신에 유리하도록 변환될 것입니다.</p>
+
+<p>또, 데이터 유형과 전송길이등 작업 정보가 담긴 헤더가 메시지에 추가됩니다.</p>
+
+<p><img src="/assets/images/tech/cs/2022-04-30-OSI/image3.PNG" alt="image1" /></p>
+
+<h2 id="session">Session</h2>
+<p>세션 게층은 네트워크상에서의 양쪽 연결을 관리하고 연결을 지속시켜주는 계층입니다.</p>
+
+<p>응용 프로그램 간 연결을 해주고 연결이 안정될 수 있도록 유지하고, 혹시나 데이터 교환에 에러가 발생한다면 다시 재연결 및 복구를 담당합니다. 변환한 메시지에 동기점을 삽입하여, 만약 누락된 정보가 있다면 동기점을 통해 판별하여 해당 부분부터 다시 전송할 수 있는 것이죠.</p>
+
+<p>이 부분에서도 마찬가지로 작업에 대한 정보가 담긴 헤더가 추가됩니다.</p>
+
+<p><img src="/assets/images/tech/cs/2022-04-30-OSI/image4.PNG" alt="image1" /></p>
+
+<h2 id="transport">Transport</h2>
+<p>여기서는 <strong>Port 번호</strong>를 사용하여 도착지 컴퓨터의 어떤 포트로 해당 데이터를 보내야 할지 포트정보를 추가합니다.</p>
+
+<p>컴퓨터가 데이터를 받으면 이 데이터를 어떤 프로세스 (프로그램)에 전달해야할지 모르는 상태입니다. 데이터가 들어왔지만, 이걸 컴퓨터 안에있는 어느 어플리케이션에 보낼지 모르는 상태입니다. 따라서 프로세스들마다 하나씩 고유의 포트번호를 겹치지 않도록 컴퓨터는 갖고있죠.</p>
+
+<p>보통 우리가 웹페이지에 접속한다고 하면, 웹페이지의 웰노운 포트인 80포트로 접속하게 됩니다. 그래서 만약 웹으로 우리의 데이터를 보내는거라면, 80이라는 번호가 여기서 포함되는 것이죠. 서버 컴퓨터의 80 번호로 온 데이터는, 해당 웹페이지 프로세스의 데이터가 되는 것입니다.</p>
+
+<p><img src="/assets/images/tech/cs/2022-04-30-OSI/image5.PNG" alt="image1" /></p>
+
+<p>마찬가지로 헤더가 하나 붙고, 이 헤더에는 포트의 정보가 담기게 될 것 입니다.</p>
+
+<p>여기서부터의 전송 단위를 “<strong>세그먼트</strong>“라고 합니다.</p>
+
+<h2 id="network">Network</h2>
+<p>네트워크 계층에서는 컴퓨터의 주소인 IP를 데이터에 붙이게 됩니다. 출발 IP와 도착 IP가 헤더에 포함되어 전송 되는 것이죠.</p>
+
+<p>이러한 IP를 기반으로 복잡한 인터넷 망에서 데이터 전송을 위한 최적의 경로를 선택합니다. 이를 찾기 위해서 보통 <strong>라우터</strong>가 이 계층에 자리잡습니다. 라우터는 라우팅 프로토콜을 통해 가장 빠른 경로를 찾아 안전하게 전달하는 기능을 수행합니다.</p>
+
+<p>하지만 보통 우리는 해당 도착 컴퓨터의 IP를 알고있지 않습니다. 대신 <strong>도메인</strong>을 알고있는데요, www.naver.com과 같은 도메인을 입력하게 되면 컴퓨터는 연결된 DNS 서버에 도메인에 해당하는 IP를 찾아서 보내려는 데이터에 적용합니다. 숫자는 외우기 힘드니, 이러한 방식으로 주소를 정하게 된것이죠.</p>
+
+<p>그렇게 DNS 서버에서 우리가 입력한 도메인의 해당하는 IP를 도착지 IP로, 우리의 컴퓨터 IP를 출발지 IP로 헤더에 담습니다.</p>
+
+<p><img src="/assets/images/tech/cs/2022-04-30-OSI/image6.PNG" alt="image1" /></p>
+
+<p>이렇게 네트워크 단에서 포장된 데이터를 “패킷”이라고 합니다.</p>
+
+<h2 id="datalink">DataLink</h2>
+<p>데이터 링크에서는 장치간 신호를 전달하는 물리 계층을 이용하여 연결된 네트워크 노드간에 데이터를 전송합니다.</p>
+
+<p>여기서는 <strong>프레이밍</strong>을 하는데요, 프레임이라는 1111과 0000으로 이루어진 프레임으로 감쌉니다. 이렇게 감싸주게 되면 1111이 데이터의 시작, 0000이 끝인걸 나타내게됨으로, 여러개의 컴퓨터에서 한번에 데이터가 들어와도 이 데이터들이 섞이지 않고 구분될 수 있을 것입니다.</p>
+
+<p>이렇게 데이터의 시작을 <strong>트레일러</strong> 에 담아서 데이터가 시작되는 부분을 구분합니다.</p>
+
+<p>또한 헤더에는 전송되는 다음 노드의 물리적 주소(MAC) 주소를 담게 됩니다. 랜선 안에 있는 컴퓨터끼리는 IP대신 이러한 MAC 주소로 통신이 가능하기 때문에, 이러한 MAC 주소를 통해서  가장 가까운 라우터로</p>
+
+<p><img src="/assets/images/tech/cs/2022-04-30-OSI/image7.PNG" alt="image1" /></p>
+
+<p>여기서부터의 계층 단위를 <strong>프레임</strong>이라고 합니다</p>
+
+<h2 id="physical">Physical</h2>
+<p>이제 여기서부터는 데이터를 포장하고 오류를 확인하는 것이 아닌, 실제로 물리적으로 데이터를 전송하는 과정입니다. 앞에서 여러 정보를 담고 보내기 위해서 암호화 및 인코딩한 데이터를 아날로그 신호로 바꾸어 전선을 통해서 전송하는 것이죠.</p>
+
+<p>프레임에 담긴 101010101010… 등의 디지털 신호를 아날로그 신호로 바꾸어 보내는 것입니다.</p>
+
+<p>아날로그 신호로 인코딩한 정보를 전선을 통해서 보낸 뒤, 이를 받은 컴퓨터는 다시 Pysical로 받아 이를 다시 디지털 신호로 디코딩 하는 것이죠.</p>
+
+<h2 id="정리">정리</h2>
+<p>따라서 위의 과정을 통해서 Application 단에서 Physical로 우리가 데이터를 보내면, 이 아날로그 신호가 전선을 타고 이동하여 다시 Physical 에서 Application 단으로 아까의 데이터 패키징을 역순으로 진행하면서 데이터를 다시 Application 단에서 확인할 수 있게 되는 것입니다.</p>
+
+<h2 id="마무리">마무리</h2>
+<p>이렇게 OSI 7 Layer에 대해 알아보았는데요. 실제로는 TCP/IP를 대부분 사용하기 때문에 조금 다를 수 있지만, 기본적으로 네트워크를 통한 데이터 교환은 위에서 설명한 OSI 7 Layer를 지향합니다. 실제로도 TCP/IP도 대부분의 과정을 위와 같이 진행하고 있기도 하구요.</p>
+
+<p>이렇게 계층을 나누어 놓음으로써, 만약 네트워크에 장애가 생긴다면 1번의 Physical 레이어 부터 해당하는 기기들이 제대로 작동하는지 하나씩 확인하면 어디가 문제여서 장애가 발생하고 있는지 확인하기 편할 것입니다.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#cs" class="page__taxonomy-item" rel="tag">CS</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-04-30T00:00:00+00:00">April 30, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=OSI+7+Layer+Model%20http%3A%2F%2Flocalhost%3A4000%2Fcs%2FOSI-7-Layer-Model%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcs%2FOSI-7-Layer-Model%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcs%2FOSI-7-Layer-Model%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/diary-univ/%ED%8C%8C%EB%8F%84-%ED%8C%8C%EB%8F%84-%EB%81%9D%EC%9D%B4%EC%97%86%EB%8A%94/" class="pagination--pager" title="파도 파도 끝이없는…
+">이전</a>
+    
+    
+      <a href="/cs/TCP-IP/" class="pagination--pager" title="TCP/IP
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%B9%B4%EC%B9%B4%EC%98%A4%EC%9D%B8%ED%84%B4-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8/" rel="permalink">5월초의 이것저것
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-05-10T00:00:00+00:00">May 10, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.05.10
+지난 주 토요일에 카카오 코딩테스트를 봤다. 일요일은 어버이날이라 집에 친척들이 오셔서 회좀 먹고, 월요일은 여자친구랑 데이트를 했다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/cs/TCP%EC%99%80-UDP/" rel="permalink">TCP와 UDP
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-05-05T00:00:00+00:00">May 5, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">서론
+저번 게시물에서는 TCP/IP 프토로콜의 4가지 레이어가 어떤 일을 하며, 어떻게 동작하는지에 대해 알아봤었습니다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/java/JPA-%EC%98%81%EC%86%8D%EC%84%B1%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8(2)/" rel="permalink">[JPA] 영속성 컨텍스트(2)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-05-01T00:00:00+00:00">May 1, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">영속성 컨텍스트는 왜 사용하는 걸까?
+저번 게시물에서는 영속성 컨텍스트를 어떻게 사용하며, 무엇인지에 대해 배워보았습니다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/cs/TCP-IP/" rel="permalink">TCP/IP
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-05-01T00:00:00+00:00">May 1, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+  저번 게시물 : https://learnote-dev.com/cs/OSI-7-Layer-Model/
+
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/leeminjae-dev" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'leeminjae-dev/BlogComment');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'preferred-color-scheme');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+  </body>
+</html>
+
+
+<!-- 웹 폰트 설정 -->

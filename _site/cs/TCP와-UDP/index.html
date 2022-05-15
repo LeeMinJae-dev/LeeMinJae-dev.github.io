@@ -1,0 +1,1207 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>TCP와 UDP - Learnote-Dev</title>
+<meta name="description" content="서론 저번 게시물에서는 TCP/IP 프토로콜의 4가지 레이어가 어떤 일을 하며, 어떻게 동작하는지에 대해 알아봤었습니다.">
+
+
+  <meta name="author" content="이민재">
+  
+  <meta property="article:author" content="이민재">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Learnote-Dev">
+<meta property="og:title" content="TCP와 UDP">
+<meta property="og:url" content="http://localhost:4000/cs/TCP%EC%99%80-UDP/">
+
+
+  <meta property="og:description" content="서론 저번 게시물에서는 TCP/IP 프토로콜의 4가지 레이어가 어떤 일을 하며, 어떻게 동작하는지에 대해 알아봤었습니다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-05-05T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/cs/TCP%EC%99%80-UDP/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이민재",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Learnote-Dev Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Learnote-Dev
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://wild-rocket-6f8.notion.site/f5e071b980854f929d2076439973a47a">About me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile.jpg" alt="이민재" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이민재</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>공부/일상 기록</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Incheon, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="lmj938@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://blog.naver.com/lmj938" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/leeminjae-dev/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:lmj938@naver.com">
+            <meta itemprop="email" content="lmj938@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+        <!--span 태그로 카테고리들을 크게 분류 ex) Life-->
+       <span class="nav__sub-title">Life</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (72)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Tech-->
+       <span class="nav__sub-title">Tech</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java" class="">Java (46)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/ETC" class="">ETC (4)</a></li>
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/CS" class="">CS (4)</a></li>
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (61)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/programmers" class="">Programmers(73)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+<!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Knowledge</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/machinelearning" class="">Machine Learning (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+          
+      </li>
+  </ul>
+</nav>
+
+  
+
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="TCP와 UDP">
+    <meta itemprop="description" content="서론저번 게시물에서는 TCP/IP 프토로콜의 4가지 레이어가 어떤 일을 하며, 어떻게 동작하는지에 대해 알아봤었습니다.">
+    <meta itemprop="datePublished" content="2022-05-05T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">TCP와 UDP
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-05-05T00:00:00+00:00">May 5, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#서론">서론</a></li><li><a href="#tcp">TCP</a><ul><li><a href="#tcp-헤더">TCP 헤더</a></li><li><a href="#source-port-destination-port">Source Port, Destination Port</a></li><li><a href="#sequence-number">Sequence Number</a></li><li><a href="#acknowledgement-number">Acknowledgement Number</a></li><li><a href="#data-offset">Data Offset</a></li><li><a href="#reserved">Reserved</a></li><li><a href="#flags">Flags</a></li><li><a href="#window-size">Window Size</a></li><li><a href="#checksum">Checksum</a></li><li><a href="#urgent-pointer">Urgent Pointer</a></li><li><a href="#정리">정리</a></li></ul></li><li><a href="#udp">UDP</a></li><li><a href="#tcp와-udp의-차이">TCP와 UDP의 차이</a></li><li><a href="#마무리">마무리…</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="서론">서론</h2>
+<p>저번 게시물에서는 TCP/IP 프토로콜의 4가지 레이어가 어떤 일을 하며, 어떻게 동작하는지에 대해 알아봤었습니다.</p>
+
+<p>그 중에서 <strong>Transport Layer</strong>는 데이터의 순차적이고 안정적인 전달을 담당하며, 출발지의 포트번호와 도착지의 포트번호를 헤더에 담아 도착지 컴퓨터에 데이터가 도착하면, 도착 포트를 읽어와 해당 포트에 있는 프로세스로 데이터를 전달합니다.</p>
+
+<p>이러한 Transport Layer에서 사용하는 프로토콜은 대표적으로 두가지가 있는데요, 바로 <strong>TCP</strong>와 <strong>UDP</strong>입니다.</p>
+
+<p>그럼 이 둘은 어떤 차이가 있는지 알아보도록 하겠습니다.</p>
+
+<h2 id="tcp">TCP</h2>
+<p>TCP 프로토콜은 <strong>Transmission Control Protocol</strong>의 약자로써, 신뢰성있고 순차적인 데이터를 보장합니다. 쉽게 풀어서 표현하면, TCP 프로토콜을 사용하면 데이터가 유실되지 않고, 섞일 일도 없이 안전하게 전달 될 수 있다는 것이죠.</p>
+
+<p>그럼 어떠한 방식을 사용하길래 데이터를 안전하게 전달 할 수 있도록 도와준다는 것일까요?</p>
+
+<p>먼저, Transport Layer가 TCP 프로토콜을 사용하게 되면 세그먼트에 TCP 헤더가 추가되는데, 이 헤더에 대해서 알아 봅시다.</p>
+
+<h3 id="tcp-헤더">TCP 헤더</h3>
+
+<p><img src="/assets/images/tech/cs/2022-05-05-TCP와/image1.PNG" alt="image1" /></p>
+
+<p>위 사진이 바로 TCP 헤더의 모습인데요. 뭔가 여러가지의 정보가 있는 것을 확인 할 수 있습니다.</p>
+
+<p>이중에서 먼저 Source port 와 Destination port가 눈에 띕니다.</p>
+
+<h3 id="source-port-destination-port">Source Port, Destination Port</h3>
+
+<p><img src="/assets/images/tech/cs/2022-05-05-TCP와/image2.PNG" alt="image1" /></p>
+
+<p>앞서 Transport Layer에서는 목적지 포트에 데이터를 전달한다고 했었습니다. 이 부분이 바로 출발지 포트와 목적지 포트의 번호가 저장되어있는 부분입니다. 데이터가 도착하면 이 포트 번호에 할당된 프로세스로 이 데이터를 전송합니다.</p>
+
+<h3 id="sequence-number">Sequence Number</h3>
+
+<p><img src="/assets/images/tech/cs/2022-05-05-TCP와/image3.PNG" alt="image1" /></p>
+
+<p>다음은 Sequence Number입니다. 이 숫자는 데이터의 순서를 보장하기 위한 부분으로, 데이터가 클 경우에는 데이터를 쪼개서 보내기 때문에 이 데이터가 섞이지 않도록 순서를 Sequence Number에 적어서 보내게 됩니다.</p>
+
+<p>Sequence Nubmer는 최초 데이터 전송시에 랜덤한 수로 초기화 되며, 이후 자신이 보내게 될 데이터 1bytes당 시퀀스 번호가 1씩 증가하면서 보내집니다.</p>
+
+<p>예를들어 5바이트의 데이터를 전송한다고 가정해봅시다.</p>
+
+<p>그렇다면 랜덤으로 먼저 첫번째 데이터의 Sequence Number를 초기화 하겠죠? 랜덤으로 0으로 초기화 됐다면, 첫번째 데이터는 0, 두번째는 1, 세번째는 2… 이와같이 랜덤으로 초기화 된 번호에서 1바이트당 1씩 증가합니다.</p>
+
+<h3 id="acknowledgement-number">Acknowledgement Number</h3>
+
+<p><img src="/assets/images/tech/cs/2022-05-05-TCP와/image4.PNG" alt="image1" /></p>
+
+<p>Acknowledgemnt Number는 수신자가 다음으로 받기로 예상되는 번호를 의미합니다.</p>
+
+<p>예를 들어보겠습니다. 마찬가지로 5바이트의 데이터를 보낸다고 가정하면, Sequence Numbers는 앞서 설명한대로 0,1,2,3,4의 순차적인 숫자를 갖게 될 것입니다. 그럼 송신 쪽에서는 Acknowlegement Number에 5를 보냄으로써 다음으로 받아야 할 Sequence Number의 번호를 보냄으로써 다음으로 보내야할 데이터의 시작점을 알려줍니다.</p>
+
+<p>따라서 Acknowledgement Number는 <strong>상대방이 처음 보낸 시퀀스 번호 + 자신이 받은 데이터의 Bytes</strong>가 된다는 것을 알 수 있습니다.</p>
+
+<h3 id="data-offset">Data Offset</h3>
+
+<p><img src="/assets/images/tech/cs/2022-05-05-TCP와/image5.PNG" alt="image1" /></p>
+
+<p>이 부분은 세그먼트중에서 헤더가 아닌 <strong>데이터</strong>가 시작되는 부분을 표현해주는 부분입니다.</p>
+
+<p>예를들어 (실제로는 이렇지 않지만 이해를 쉽게 하기 위해 간략화 해서 표현하겠습니다.) 00001111 의 데이터가 있고, 0000이 헤더고 1111이 데이터라면, Data Offset에 5가 적혀있다면 이 세그먼트의 데이터는 5번째 데이터 부터구나~ 라고 컴퓨터가 알 수 있게 되는 것이죠.</p>
+
+<h3 id="reserved">Reserved</h3>
+
+<p><img src="/assets/images/tech/cs/2022-05-05-TCP와/image6.PNG" alt="image1" /></p>
+
+<p>Reserved는 미래를 위해 예약된 필드로, 모두 0으로 채워져야합니다.</p>
+
+<h3 id="flags">Flags</h3>
+<p>이 비트들은 현재 세그먼트의 속성을 나타내는 부분입니다. 여러가지 비트 플래그가 채워지고 비워진 상태를 확인 함으로써 이 데이터가 현재 어떤 요청을 보내고 있는지 확인 할 수 있습니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">필드</th>
+      <th style="text-align: center">의미</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">URG</td>
+      <td style="text-align: center">Urgent Pointer(긴급 포인터) 필드에 값이 채워져있음을 알리는 플래그. 이 포인터가 가리키는 긴급한 데이터는 높게 처리되어 먼저 처리된다. 요즘에는 많이 사용되지 않는다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">ACK</td>
+      <td style="text-align: center">Acknowledgment(승인 번호) 필드에 값이 채워져있음을 알리는 플래그. 이 플래그가 0이라면 승인 번호 필드 자체가 무시된다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">PSH</td>
+      <td style="text-align: center">Push 플래그. 수신 측에게 이 데이터를 최대한 빠르게 응용프로그램에게 전달해달라는 플래그이다. 이 플래그가 0이라면 수신 측은 자신의 버퍼가 다 채워질 때까지 기다린다. 즉, 이 플래그가 1이라면 이 세그먼트 이후에 더 이상 연결된 세그먼트가 없음을 의미하기도 한다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">RST</td>
+      <td style="text-align: center">Reset 플래그. 이미 연결이 확립되어 ESTABLISHED 상태인 상대방에게 연결을 강제로 리셋해달라는 요청의 의미이다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">SYN</td>
+      <td style="text-align: center">Synchronize 플래그. 상대방과 연결을 생성할 때, 시퀀스 번호의 동기화를 맞추기 위한 세그먼트임을 의미한다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">FIN</td>
+      <td style="text-align: center">Finish 플래그. 상대방과 연결을 종료하고 싶다는 요청인 세그먼트임을 의미한다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>위 6개의 플래그는 기존에 사용하던 6개의 비트 플래그이며, 후에 혼잡제어 기능의 향상을 위해서 3개의 플래그 비트가 더 추가되었습니다.</p>
+
+<p>이를 <strong>ECN(Explicit Congestion Notification)</strong>이라 하며, 네트워크의 혼잡 상태를 알리기 위한 방식입니다.</p>
+
+<p>기존에는 타임아웃을 이용한 방식을 통해서 일정 시간이상 응답이 없으면 이를 네트워크 혼잡 상태로 판별하여 처리했지만, 처리속도가 아주 민감한 어플리케이션에서는 이러한 대기시간을 줄이는 것이 더 좋기 때문에, 이러한 3개의 플래그비트를 추가하여 <strong>네트워크의 혼잡도를 명시적으로 표시하여 알립니다.</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">필드</th>
+      <th style="text-align: center">의미</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">NS</td>
+      <td style="text-align: center">ECN에서 사용하는 CWR, ECE 필드가 실수나 악의적으로 은폐되는 경우를 방어하기 위해 RFC 3540에서 추가된 필드</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">ECE</td>
+      <td style="text-align: center">ECN Echo 플래그. 해당 필드가 1이면서, SYN 플래그가 1일 때는 ECN을 사용한다고 상대방에게 알리는 의미. SYN 플래그가 0이라면 네트워크가 혼잡하니 세그먼트 윈도우의 크기를 줄여달라는 요청의 의미이다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">CWR</td>
+      <td style="text-align: center">이미 ECE 플래그를 받아서, 전송하는 세그먼트 윈도우의 크기를 줄였다는 의미이다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>ECN은 따로 다룰 정도로 많은 내용이 있기 때문에, 알아두기만 하고 자세한 설명은 따로 다루도록 하겠습니다.</p>
+
+<h3 id="window-size">Window Size</h3>
+<p><img src="/assets/images/tech/cs/2022-05-05-TCP와/image7.PNG" alt="image1" /></p>
+
+<p>Window Size 필드에는 한번에 전송할 수 있는 데이터의 양을 의미하는 값을 담습니다.</p>
+
+<p>예를 들어, 한번에 10비트의 파일을 10개로 나누어 sequence number를 0,1,2…10까지 보낸다면 이 데이터들은 각각 10이라는 window size를 갖게 되는 것이죠.</p>
+
+<h3 id="checksum">Checksum</h3>
+<p><img src="/assets/images/tech/cs/2022-05-05-TCP와/image8.PNG" alt="image1" /></p>
+
+<p>Checksum은 데이터를 송신하는 중에 발생할 수 있는 오류를 검출하기 위한 값입니다.</p>
+
+<p>TCP의 Checksum은 전송한 데이터를 16Bits씩 나누어 모두 더한 후, 이를 1의 보수를 취해주어 나온값을 사용하여 전송된 데이터에 오류가 있는지를 확인합니다.</p>
+
+<p>예를 들어, 11011011 이라는 데이터가 있다면 (실제로는 16비트씩 나누어 계산하지만, 예시에서는 4비트로 간단하게 생각해보겠습니다.)</p>
+
+<p>4비트씩 나누어 (실제로는 16비트) 모두 더해줍니다.</p>
+
+<p>1101 + 1011  = 11000</p>
+
+<p>근데 이렇게 하면 4비트(실제로는 16비트)를 넘어서서 Checksum의 길이를 초과하게 됩니다. 이럴때는 앞에있는 <strong>캐리</strong>(두개의 수를 더했을때 자리수가 올라간 부분)을 떼어내어 다시 이 값에 더해줍니다.</p>
+
+<p>1000 + 0001 = 1001</p>
+
+<p>이러한 방법을 <strong>Wrap Around</strong>라고 합니다.</p>
+
+<p>이제 이 값의 1의 보수를 취해주면 됩니다. 1의보수는 쉽게 말하면 2진수값을 모두 반전 시킨 값으로, 1001 의 경우는 0110이 됩니다.</p>
+
+<p>따라서 이 데이터의 Checksum은 0110이 됩니다. 이 Checksum과 데이터의 총합인 1001을 더하면 어떻게 될까요?</p>
+
+<p>당연히 1의 보수를 취한값이니 모두가 1로이루어진 수가 나올 것입니다. 따라서 송신측에서는 위 과정을 통해 Checksum을 만들어 송신하고, 수신측에서는 받은 데이터를 위 과정을 거쳐 값을 만든 뒤 Checksum과 더해봄으로써 정상적인 1로만 이루어진 값이 나오는지 확인합니다.</p>
+
+<p>이런 방식을 쓰면 데이터가 중간에 손상되었는지 알 수 있을 것입니다. 전달받은 데이터를 더한 뒤, 이를 Checksum과 더해서 0이 있는지를 확인하면 됩니다.</p>
+
+<h3 id="urgent-pointer">Urgent Pointer</h3>
+
+<p><img src="/assets/images/tech/cs/2022-05-05-TCP와/image9.PNG" alt="image1" /></p>
+
+<p>말그대로 urgent한 pointer, 긴급한 포인터입니다. 먼저 처리가 필요한 데이터를 표시합니다. 만약 5바이트의 데이터가 있고 Urgent Pointer가 1이라면, 두번째 데이터를 먼저 처리할 것입니다.</p>
+
+<h3 id="정리">정리</h3>
+<p>TCP는 위와 같은 기능등을 통해서 안전한 연결을 보장합니다.</p>
+
+<p><strong>Sequence Number</strong>를 통해서 들어온 데이터의 순서도 보장하며, 플래그 비트를 통해서 통신을 하기전에 올바르게 통신이 가능한 상태인지 확인하는 <strong>3-Way-HandShake</strong>를 통해 데이터가 올바르게 수신되었는지도 확인합니다. 게다가 마지막에 <strong>Checksum</strong>을 통해서 데이터가 혹여나 손상되었는지 확인하니, 안전하게 데이터를 송수신 할 수 있겠죠?</p>
+
+<p>그럼 UDP는 어떨까요?</p>
+
+<h2 id="udp">UDP</h2>
+<p>UDP는 User Datagram Protocol로, 이도 마찬가지로 Transport Layer에서 사용하는 프로토콜입니다.</p>
+
+<p>UDP는 위에서 말한 TCP와 같은 역할을 하지만, TCP가 제공하는 기능들 중에 단 두가지만 지원합니다.</p>
+
+<p>바로 <strong>포트번호</strong>와 <strong>Checksum</strong>입니다. 따라서 출발지와 도착지 포트를 갖고 해당 포트에 도착한 뒤,  Checksum을 사용해서 데이터가 손상되었는지만을 확인합니다.</p>
+
+<p>그럼 기능이 TCP가 압도적으로 많은데, UDP는 왜 필요할까요?</p>
+
+<h2 id="tcp와-udp의-차이">TCP와 UDP의 차이</h2>
+<p>TCP와 UDP의 가장 큰 차이점은 무엇일까요? 바로 TCP는 <strong>연결 지향 프로토콜</strong> 임에 반해, UDP는 <strong>비연결 지향 프로토콜</strong>이라는 것입니다.</p>
+
+<p>이것이 무슨 뜻일까요?</p>
+
+<p>TCP의 경우는 데이터를 송신하기전에, SYN과 ACK 플래그 비트를 통해서 현재 통신이 가능한 상태인지 확인하는 <strong>3-Way-Handshake</strong>과정을 거친다고 했습니다.</p>
+
+<p><img src="/assets/images/tech/cs/2022-05-05-TCP와/image10.PNG" alt="image1" /></p>
+
+<p>위처럼 통신전에 클라이언트는 SYN 비트가 1인 데이터를 보내고, Server가 이를 받으면 ACK과 SYN이 1인 데이터를 또 보낸뒤, 이것이 만약 클라이언트측이 정상적으로 수신했다면 마지막으로 ACK을 보내면서 현재 통신이 원활한 상태, <strong>연결</strong>되었다는 것을 확인하는 것이죠.</p>
+
+<p>심지어 데이터의 Sequence Number를 통해서 순서까지 보장해주니, <strong>통신의 신뢰성이 보장됩니다.</strong></p>
+
+<p>하지만 TCP의 단점은 무엇일까요?</p>
+
+<p>아무래도 데이터 통신을 보낼때마다 3번의 확인을 통해 연결을 확인하니, 속도가 떨어질 것입니다.</p>
+
+<p>반면 UDP의 경우는 여러 확인과정이 없으니 속도는 TCP에 비해서 매우 빠르겠죠?? 하지만 역시 확인과정을 거치지 않는 UDP는 <strong>통신의 신뢰성이 보장되지 않습니다.</strong> 연결이 안된상태라도 이를 데이터 송신자가 알수도없고, 순서가 잘못되도 이것이 잘못된 것인지 알 수 없죠. 평균적으로 7퍼센트의 데이터가 유실된다고 합니다.</p>
+
+<p>따라서 데이터의 신뢰성보다는 속도가 중요하다면 UDP를, 데이터의 신뢰성이 중요하다면 TCP를 사용하게 되는 것입니다.</p>
+
+<h2 id="마무리">마무리…</h2>
+<p>이처럼 TCP와 UDP는 어떤 차이점을 갖고있고, 어떤 상황에 따라 어떤 프로토콜을 써야하는지 알아봤습니다.</p>
+
+<p>공부해보니 왜 TCP가 주류 프로토콜로 사용되는지 잘 알 수 있었습니다. 다음 게시물에서는 TCP에 대해서 자세히 알아보도록 하겠습니다.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#cs" class="page__taxonomy-item" rel="tag">CS</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-05-05T00:00:00+00:00">May 5, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=TCP%EC%99%80+UDP%20http%3A%2F%2Flocalhost%3A4000%2Fcs%2FTCP%25EC%2599%2580-UDP%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcs%2FTCP%25EC%2599%2580-UDP%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcs%2FTCP%25EC%2599%2580-UDP%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/java/JPA-%EC%98%81%EC%86%8D%EC%84%B1%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8(2)/" class="pagination--pager" title="[JPA] 영속성 컨텍스트(2)
+">이전</a>
+    
+    
+      <a href="/diary-univ/%EC%B9%B4%EC%B9%B4%EC%98%A4%EC%9D%B8%ED%84%B4-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8/" class="pagination--pager" title="5월초의 이것저것
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%B9%B4%EC%B9%B4%EC%98%A4%EC%9D%B8%ED%84%B4-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8/" rel="permalink">5월초의 이것저것
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-05-10T00:00:00+00:00">May 10, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.05.10
+지난 주 토요일에 카카오 코딩테스트를 봤다. 일요일은 어버이날이라 집에 친척들이 오셔서 회좀 먹고, 월요일은 여자친구랑 데이트를 했다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/java/JPA-%EC%98%81%EC%86%8D%EC%84%B1%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8(2)/" rel="permalink">[JPA] 영속성 컨텍스트(2)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-05-01T00:00:00+00:00">May 1, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">영속성 컨텍스트는 왜 사용하는 걸까?
+저번 게시물에서는 영속성 컨텍스트를 어떻게 사용하며, 무엇인지에 대해 배워보았습니다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/cs/TCP-IP/" rel="permalink">TCP/IP
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-05-01T00:00:00+00:00">May 1, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+  저번 게시물 : https://learnote-dev.com/cs/OSI-7-Layer-Model/
+
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/cs/OSI-7-Layer-Model/" rel="permalink">OSI 7 Layer Model
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-04-30T00:00:00+00:00">April 30, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">OSI 7 계층이란?
+OSI 7 계층은 네트워크에서 통신이 일어나느 과정을 7단계로 나누어 표현한 모델입니다. 우리가 데이터를 보내는것이 정확히 어떻게 진행되는지 알도록 할 수 있게 나눈 것이죠.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/leeminjae-dev" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'leeminjae-dev/BlogComment');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'preferred-color-scheme');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+  </body>
+</html>
+
+
+<!-- 웹 폰트 설정 -->
