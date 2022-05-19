@@ -177,7 +177,7 @@ GitBook은 별다른 설정 없이도 간단하게 API 문서를 만들도록 �
 
 아래 링크로 가면 이 내용에 관한 API 문서 초안을 확인 할 수 있다.
 
-[https://lee-min-jae.gitbook.io/api/reference/api-reference/user](https://lee-min-jae.gitbook.io/api/reference/api-reference/user)
+[https://lee-min-jae.gitbook.io/api/](https://lee-min-jae.gitbook.io/api/)
 
 # 마무리하며...
 이렇게 간단하게 본격적인 개발 전 API 설계를 끝마쳤다. 개발하며 세세하게 json 응답 예시도 추가해주고, 디테일한 부분도 수정해가면서 문서와 함께 개발을 진행하다보면 문서가 더욱 더 풍성해 질 것 같다.
