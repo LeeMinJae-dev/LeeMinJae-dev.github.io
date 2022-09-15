@@ -168,3 +168,5 @@ class GreetingsControllerTest {
 }
 ```
 이렇게 변하는 변수가 있는 뷰템플릿은 TestRestTemplate 객체를 만들어 준 뒤, getForObject 메서드를 사용해서 해당 주소를 입력해준 뒤 이를 assertThat을 사용하여 해당 문자열을 포함하는 뷰가 정상적으로 출력되었는지 확인해 줄 수 있다.
+
+
