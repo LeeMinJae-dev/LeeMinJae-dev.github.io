@@ -21,7 +21,7 @@ toc_sticky: true
 
 코드로 보도록 합시다.
 
-```
+```javascript
 function boss () {
   console.log('사장: 출근');
   console.log('직원에게 작업 지시');
@@ -63,7 +63,7 @@ boss();
 
 마찬가지로 코드로 보도록 합시다.
 
-```
+```javascript
 function employee (maxWorkCount = 1, callback) {
   let workCount = 0;
   const interval = setInterval(() => {
@@ -113,7 +113,7 @@ boss();
 만약 Blocking의 경우에서 Boss()가 employee()를 호출한다면, boss가 employee()에게 제어권을 넘기는 것입니다. 한마디로 함수실행이 멈추는 것이죠.  따라서, 일을 시킨 사장이 퇴근하지 않고 직원이 일을 끝마칠때까지 기다린다는 것이죠.
 
 이렇게 말로만 보면, 첫번째 예제였던 동기에서의 예제와 똑같다는 생각이 들겁니다. 다시 한번 아까의 예제를 보도록 할까요?
-```
+```javascript
 function boss () {
   console.log('사장: 출근');
   console.log('직원에게 작업 지시');
@@ -149,7 +149,7 @@ boss();
 
 다음 코드를 보도록 합시다.
 
-```
+```javascript
 function* employee () {
   for (let i = 1; i < 101; i++) {
     console.log(`직원: 지시받은 작업 ${i}번 수행`);
