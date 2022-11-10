@@ -21,7 +21,7 @@ toc_sticky: true
 
 코드로 보도록 합시다.
 
-```
+```
 function boss () {
   console.log('사장: 출근');
   console.log('직원에게 작업 지시');
