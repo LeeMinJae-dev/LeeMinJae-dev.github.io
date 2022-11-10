@@ -114,7 +114,7 @@ boss();
 
 이렇게 말로만 보면, 첫번째 예제였던 동기에서의 예제와 똑같다는 생각이 들겁니다. 다시 한번 아까의 예제를 보도록 할까요?
 
-```javascript
+```javascript
 function boss () {
   console.log('사장: 출근');
   console.log('직원에게 작업 지시');
