@@ -1,6 +1,6 @@
 ---
 title: "Blocking과 Non-Blocking, 동기와 비동기"
-categories: java
+categories: CS
 toc: true
 toc_label: "On this page"
 toc_sticky: true
