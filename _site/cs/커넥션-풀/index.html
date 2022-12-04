@@ -1,0 +1,1140 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>커넥션 풀 - Learnote-Dev</title>
+<meta name="description" content="커넥션 풀은 왜 필요할까? 웹 서버가 DB와 연결을 하는것에는 생각보다 많은 비용이 들어갑니다.">
+
+
+  <meta name="author" content="이민재">
+  
+  <meta property="article:author" content="이민재">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Learnote-Dev">
+<meta property="og:title" content="커넥션 풀">
+<meta property="og:url" content="http://localhost:4000/cs/%EC%BB%A4%EB%84%A5%EC%85%98-%ED%92%80/">
+
+
+  <meta property="og:description" content="커넥션 풀은 왜 필요할까? 웹 서버가 DB와 연결을 하는것에는 생각보다 많은 비용이 들어갑니다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-06-21T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/cs/%EC%BB%A4%EB%84%A5%EC%85%98-%ED%92%80/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이민재",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Learnote-Dev Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9931719152246269"
+     crossorigin="anonymous"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9931719152246269",
+    enable_page_level_ads: true
+  });
+</script>
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Learnote-Dev
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://wild-rocket-6f8.notion.site/f5e071b980854f929d2076439973a47a">About me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile.jpg" alt="이민재" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이민재</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>공부/일상 기록</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Incheon, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="lmj938@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://blog.naver.com/lmj938" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/leeminjae-dev/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:lmj938@naver.com">
+            <meta itemprop="email" content="lmj938@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+        <!--span 태그로 카테고리들을 크게 분류 ex) Life-->
+       <span class="nav__sub-title">Life</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (81)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Tech-->
+       <span class="nav__sub-title">Tech</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java" class="">Java (53)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/ETC" class="">ETC (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/CS" class="">CS (7)</a></li>
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Book-->
+       <span class="nav__sub-title">Book</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/EffectiveJava 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/EffectiveJava" class=""> EffectiveJava (1)</a></li>
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (64)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/programmers" class="">Programmers(79)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+<!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Knowledge</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/machinelearning" class="">Machine Learning (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+          
+      </li>
+  </ul>
+</nav>
+
+  
+
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="커넥션 풀">
+    <meta itemprop="description" content="커넥션 풀은 왜 필요할까?웹 서버가 DB와 연결을 하는것에는 생각보다 많은 비용이 들어갑니다.">
+    <meta itemprop="datePublished" content="2022-06-21T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">커넥션 풀
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-06-21T00:00:00+00:00">June 21, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#커넥션-풀은-왜-필요할까">커넥션 풀은 왜 필요할까?</a></li><li><a href="#커넥션-풀">커넥션 풀</a></li><li><a href="#그렇다면-이상적인--커넥션풀의-크기는">그렇다면 이상적인  커넥션풀의 크기는?</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="커넥션-풀은-왜-필요할까">커넥션 풀은 왜 필요할까?</h2>
+<p>웹 서버가 DB와 연결을 하는것에는 생각보다 많은 비용이 들어갑니다.</p>
+
+<p>만약 JDBC를 통해 DBMS와 연결을 할떄는 , 다음과 같은 과정을 거칩니다.</p>
+
+<ol>
+  <li>DB벤더에 맞는 드라이버 로드</li>
+  <li>DB서버의 IP, ID, PW등을 DriverManager 클래스의 getConnection 메소드를 사용하여 Connection 객체 생성</li>
+  <li>Connection으로 부터 PreparedStatement 객체를 받음</li>
+  <li>executeQurey를 수행하고 ResultSet객체를 받아 데이터를 처리</li>
+  <li>사용했던 ResultSet, PreparedStatement, Connection을 close</li>
+</ol>
+
+<p>이 과정중에서 2번에서 커넥션 객체를 생성하고 얻어오는 부분은 DB서버와 애플리케이션과의 통신이 필요하기 때문에<br />
+위 과정중에서 가장 무겁고 오래 걸리는 작업입니다.</p>
+
+<p>따라서 만약 매 요청마다 이 과정을 반복한다면, 당연히 훨씬 더 많은 시간과 자원을 소모하게 될 것입니다.</p>
+
+<p>누구도 요청을 보낼때마다 몇초씩 걸리는 느린 웹서버를 사용하고 싶지는 않겠죠?</p>
+
+<p>그래서 나온 방법이 바로 <strong>커넥션 풀 (Connection Pool)</strong>입니다.</p>
+
+<h2 id="커넥션-풀">커넥션 풀</h2>
+
+<p><img src="/assets/images/tech/cs/2022-06-21-커넥션/image1.PNG" alt="image1" /></p>
+
+<p>커넥션 풀은 말그대로 커넥션들이 있는 공간입니다. WAS가 실행되면서 DB와 미리 커넥션 해놓은 객체를 커넥션 풀에 저장해놨다가, 클라이언트에서 요청이 들어오면 커넥션을 빌려주고, 처리가 끝나면 다시 커넥션을 받아서 커넥션 풀에 다시 저장해 놓습니다.</p>
+
+<p>이렇게 미리 WAS가 실행될때 미리 커넥션 객체를 생성하고 이를 받아오기만 한다면, 위 과정에서의 2번에 드는 자원과 시간을 매우 효율적으로 사용할 수 있을 것입니다.</p>
+
+<p>따라서 커넥션 풀은 아래와 같은 특징을 갖습니다.</p>
+
+<ul>
+  <li>WAS가 실행되면, 커넥션 객체를 미리 커넥션풀에 생성</li>
+  <li>HTTP 요청으로 커넥션 풀에서 커넥션 객체를 받아 사용한다.</li>
+  <li>사용이 끝나면 다시 해당 커넥션 객체를 커넥션 풀에 반환한다.</li>
+  <li>이때, 커넥션 객체들은 이미 연결을 마친 채로 커넥션 풀에 저장되어 있는 것이기 때문에, 커넥션을  연결하는 시간이 소요되지 않는다.</li>
+  <li><strong>커넥션을 계속해서 재사용하기 때문에 생성되는 커넥션 수는 제한적이다.</strong></li>
+</ul>
+
+<p>여기서 마지막 줄을 보면, 커넥션 수는 제한적인 특징을 갖습니다.</p>
+
+<p>따라서 커넥션 개수보다 많은 요청이 한꺼번에 들어온다면,  커넥션이 풀에서 모두 동나는 상황이 발생하게 될 것입니다. 이럴 때 커넥션 풀은 어떻게 동작할까요?</p>
+
+<p>커넥션이 없는 상태에서 요청이 들어오면, 해당요청에 번호를 매긴 상태로 대기하도록 합니다. 빌려간 커넥션이 다시 반환되면, 대기하고 있는 클라이언트에게 순서대로 다시 커넥션을 제공 하는 것이죠.</p>
+
+<p>우리가 가끔 정각에 쿠폰을 제공하는 이벤트나 티켓팅을 할 때 홈페이지가 느리게 뜨거나 요청이 느려지는 것도, 이러한 커넥션이 부족하기 때문에 발생하는 현상 중 하나입니다.</p>
+
+<p>그럼 이러한 의문점이 들 수 있습니다.</p>
+
+<blockquote>
+  <p>커넥션을 무조건 많이 만들면 좋은거 아니야?</p>
+</blockquote>
+
+<p>물론 커넥션 풀을 크게 하면 그만큼 줄 수 있는 커넥션의 수가 늘어남으로, 더 많은 요청을 처리하는 것이 가능해집니다. 하지만 커넥션 풀이 커질 수록 메모리 소모가 커지기 때문에, 자신이 가진 서버의 스펙등을 고려하여 알맞게 설정해 주어야 합니다.</p>
+
+<p>또한, WAS에서 사용하는 커넥션을 사용하는 주체는 결국 <strong>스레드 (Thread)</strong>이기 떄문에, WAS가 가진 스레드 풀보다 커넥션풀의 크기가 크다면, 남는 커넥션들은 생성되어 메모리를 소모하면서, 정작 사용되지도 못하여 성능만 잡아 먹는 경우가 발생합니다.</p>
+
+<blockquote>
+  <p>그럼 스레드 풀의 크기와 커넥션 풀의 크기를 둘다 늘려준다면???</p>
+</blockquote>
+
+<p>이 경우에도 스레드는 컨텍스트 스위칭을 하기 때문에 결국 한계가 존재하고, 데이터베이스 입장에서도 커넥션이 단순히 많기만 한다고 성능이 비약적으로 올라가는 것도 아니기 때문에, 이상적인 스레드와 커넥션의 수는 해당 애플리케이션과 DB의 스레드, 커넥션의 수가 CPU의 코어 수가 동일할때 라고 할 수 있습니다.</p>
+
+<p>물론 실제로는 CPU의 성능이 많이 좋아졌기 때문에 코어 개수보다 더 여유있게 커넥션풀의 크기를 설정합니다.</p>
+
+<h2 id="그렇다면-이상적인--커넥션풀의-크기는">그렇다면 이상적인  커넥션풀의 크기는?</h2>
+<p>스프링에서는 <strong>Hikari CP (Hikari Connection Pool)</strong> 사용하여 커넥션풀을 관리합니다. HikariCP는 매우 적은 130kb의 용량으로 압도적은 빠른 속도를 제공하는 JDBC의 커넥션 풀 프레임 워크입니다.</p>
+
+<p><img src="/assets/images/tech/cs/2022-06-21-커넥션/image2.PNG" alt="image1" /></p>
+
+<p>Hikari CP에서 제공하는 벤치마크를 보면, 따른 커넥션풀 프레임워크들에 비해 압도적인 최적화 성능을 자랑합니다. 따라서 스프링부트도 2.0버젼부터는 기존에 사용하던 Tomcat을 HikariCP로 변경했습니다. 따라서 의존성에 기본적으로 spring-boot-starter-data-jpa나 spring-boot-starter-jdbc 의존성을 포함할 경우, 자동으로 HikariCP가 포함됩니다.</p>
+
+<p>그렇다면 HikariCP에서 공식문서에서 추천하는 이상적인 커넥션 풀의 크기는 얼마일까요??</p>
+
+<p>ikari CP의 공식문서에 따르면 <strong>connections = ((core_count * 2) + effective_spindle_count)</strong>라고 명시되어 있습니다.</p>
+
+<p>여기서 말하는 core_count는 서버의 논리 CPU개수를 말합니다. 위에서 말했듯이 컨텍스트 스위칭으로 인한 한계를 고려하더라도, 데이터베이스의 디스크 읽기 쓰기나 DRAM이 데이터를 처리하는 속도보다 CPU의 속도가 월등히 빠르기 때문에, 데이터베이스가 필요한 데이터를 찾는동안 갖는 대기시간에 CPU는 작업 스레드를 변경해 더 많은 요청을 수행할 수 있습니다.</p>
+
+<p>effective_spindle_count는 하드 디스크와 관련이 있습니다. 하드 디스크 하나는 spindle 하나를 가집니다.</p>
+
+<p>이에 따라 spindle의 수는 기본적으로 DB 서버가 관리할 수 있는 동시 I/O 요청 수를 말합니다. 디스크가 16 개가 있는 경우 시스템은 동시에 16 개의 I/O 요청을 처리할 수 있습니다. 물론 RAID 구성 방식에 따라서 달라질 수 있습니다. 해당 공식에서 디스크의 효율을 고려하여 spindle_count를 더해준 것으로 보입니다.</p>
+
+<p>최종적으로 CPU의 처리 효율과 디스크 처리 효율을 고려한 결과, **((core_count * 2) + effective_spindle_count) **공식을 통해 Connection의 개수를 추정할 수 있다고 알게 되었습니다.</p>
+
+<p>당연히 이러한 공식이 무조건 모든 상황에서 딱 들어맞아 성립하진 않지만, 대략적인 서버의 최초 커넥션 풀 크기를 선정하는 기준으로써 사용한다면, 기본적으로 이렇게 세팅해놓고 서버의 성능과 부하에 따라 변경하면 매우 유용할 것입니다.</p>
+
+<p>가장 좋은 방법은 실제로 성능 테스트를 진행해가며 자신의 서버에 맞는 커넥션 풀을 정하는 것이겠죠?</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#cs" class="page__taxonomy-item" rel="tag">CS</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-06-21T00:00:00+00:00">June 21, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EC%BB%A4%EB%84%A5%EC%85%98+%ED%92%80%20http%3A%2F%2Flocalhost%3A4000%2Fcs%2F%25EC%25BB%25A4%25EB%2584%25A5%25EC%2585%2598-%25ED%2592%2580%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcs%2F%25EC%25BB%25A4%25EB%2584%25A5%25EC%2585%2598-%25ED%2592%2580%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcs%2F%25EC%25BB%25A4%25EB%2584%25A5%25EC%2585%2598-%25ED%2592%2580%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/programmers/%EA%B2%8C%EC%9E%84-%EB%A7%B5-%EC%B5%9C%EB%8B%A8%EA%B1%B0%EB%A6%AC-(Python3)/" class="pagination--pager" title="[Programmers] 게임 맵 최단거리 (Python3)
+">이전</a>
+    
+    
+      <a href="/programmers/%EC%9E%85%EA%B5%AD%EC%8B%AC%EC%82%AC/" class="pagination--pager" title="[Programmers] 입국심사 (Python3)
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%8A%A4%ED%8F%AC%EC%B8%A0%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" rel="permalink">스포츠에 대하여
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-12-03T00:00:00+00:00">December 3, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.12.03
+어제 새벽 두시, 대한민국이 16강에 진출했다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/effectivejava/%EC%83%9D%EC%84%B1%EC%9E%90-%EB%8C%80%EC%8B%A0-%ED%8C%A9%ED%86%A0%EB%A6%AC-%EB%A9%94%EC%84%9C%EB%93%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" rel="permalink">[Effective Java] 생성자 대신 팩토리 메서드 사용하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-12-03T00:00:00+00:00">December 3, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">정적 팩토리 메서드란?
+우리가 새로운 인스턴스를 생성할 때, 어떤 방식을 사용하나요?
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/cs/Blocking%EA%B3%BC-Non-Blocking,-%EB%8F%99%EA%B8%B0%EC%99%80-%EB%B9%84%EB%8F%99%EA%B8%B0/" rel="permalink">Blocking과 Non-Blocking, 동기와 비동기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-11-10T00:00:00+00:00">November 10, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          4 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Block과 동기의 차이는?
+동기와 비동기, Blocking과 Non-Blocking은 언뜻보면 비슷한 개념으로 보여 헷갈릴 수 있는 개념입니다. 아예 같은 개념으로 알고있는 사람들도 있을 정도죠. 오늘은 이  두 개념의 차이에 대해서 적어보려 합니다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EB%A9%B4%EC%A0%91%EA%B3%BC-%ED%83%88%EB%9D%BD/" rel="permalink">면접과 탈락
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-11-09T00:00:00+00:00">November 9, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.11.09
+어제 네이버웹툰 2차 결과가 나왔다.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9931719152246269"
+         crossorigin="anonymous"></script>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/leeminjae-dev" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'leeminjae-dev/BlogComment');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'preferred-color-scheme');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+  </body>
+</html>
+
+
+<!-- 웹 폰트 설정 -->

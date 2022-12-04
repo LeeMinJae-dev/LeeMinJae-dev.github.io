@@ -1,0 +1,1524 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Effective Java] 생성자 대신 팩토리 메서드 사용하기 - Learnote-Dev</title>
+<meta name="description" content="정적 팩토리 메서드란? 우리가 새로운 인스턴스를 생성할 때, 어떤 방식을 사용하나요?">
+
+
+  <meta name="author" content="이민재">
+  
+  <meta property="article:author" content="이민재">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Learnote-Dev">
+<meta property="og:title" content="[Effective Java] 생성자 대신 팩토리 메서드 사용하기">
+<meta property="og:url" content="http://localhost:4000/effectivejava/%EC%83%9D%EC%84%B1%EC%9E%90-%EB%8C%80%EC%8B%A0-%ED%8C%A9%ED%86%A0%EB%A6%AC-%EB%A9%94%EC%84%9C%EB%93%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
+
+
+  <meta property="og:description" content="정적 팩토리 메서드란? 우리가 새로운 인스턴스를 생성할 때, 어떤 방식을 사용하나요?">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-12-03T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/effectivejava/%EC%83%9D%EC%84%B1%EC%9E%90-%EB%8C%80%EC%8B%A0-%ED%8C%A9%ED%86%A0%EB%A6%AC-%EB%A9%94%EC%84%9C%EB%93%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이민재",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Learnote-Dev Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9931719152246269"
+     crossorigin="anonymous"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9931719152246269",
+    enable_page_level_ads: true
+  });
+</script>
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Learnote-Dev
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://wild-rocket-6f8.notion.site/f5e071b980854f929d2076439973a47a">About me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile.jpg" alt="이민재" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이민재</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>공부/일상 기록</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Incheon, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="lmj938@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://blog.naver.com/lmj938" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/leeminjae-dev/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:lmj938@naver.com">
+            <meta itemprop="email" content="lmj938@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+        <!--span 태그로 카테고리들을 크게 분류 ex) Life-->
+       <span class="nav__sub-title">Life</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (81)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Tech-->
+       <span class="nav__sub-title">Tech</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java" class="">Java (53)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/ETC" class="">ETC (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/CS" class="">CS (7)</a></li>
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Book-->
+       <span class="nav__sub-title">Book</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/EffectiveJava 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/EffectiveJava" class=""> EffectiveJava (1)</a></li>
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (64)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/programmers" class="">Programmers(79)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+<!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Knowledge</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/machinelearning" class="">Machine Learning (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+          
+      </li>
+  </ul>
+</nav>
+
+  
+
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Effective Java] 생성자 대신 팩토리 메서드 사용하기">
+    <meta itemprop="description" content="정적 팩토리 메서드란?우리가 새로운 인스턴스를 생성할 때, 어떤 방식을 사용하나요?">
+    <meta itemprop="datePublished" content="2022-12-03T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[Effective Java] 생성자 대신 팩토리 메서드 사용하기
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-12-03T00:00:00+00:00">December 3, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#정적-팩토리-메서드란">정적 팩토리 메서드란?</a></li><li><a href="#1-이름을-가질-수-있다">1. 이름을 가질 수 있다</a></li><li><a href="#2-호출될-때마다-인스턴스를-생성하지-않아도-된다">2. 호출될 때마다 인스턴스를 생성하지 않아도 된다</a></li><li><a href="#3-하위-자료형객체를-반환할-수-있다">3. 하위 자료형객체를 반환할 수 있다</a></li><li><a href="#4-입력-매개변수에-따라-매번-다른-클래스의-객체를-반환할-수-있다">4. 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.</a></li><li><a href="#정적-팩토리-메서드를-작성하는-시점에는-반환할-객체의-클래스가-존재하지-않아도-된다">정적 팩토리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.</a></li><li><a href="#정적-팩토리-메서드의-단점">정적 팩토리 메서드의 단점</a><ul><li><a href="#getinstance와-newinstance의-차이">getInstance()와 newInstance()의 차이</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="정적-팩토리-메서드란">정적 팩토리 메서드란?</h2>
+<p>우리가 새로운 인스턴스를 생성할 때, 어떤 방식을 사용하나요?</p>
+
+<p>보통 new를 통해 생성자를 사용하여 새 인스턴스를 만듭니다. 하지만 이러한 방식은 여러 단점들을 포함하고 있는데요. 이러한 단점들을 극복하고 더 가독성 있는 코드를 위해 <strong>정적 팩토리 메서드</strong>를 사용하는 것이 더 좋습니다.</p>
+
+<p>정적 팩토리 메서드는 말그대로 Static Factory Method를 말합니다. 이 함수는 어떠한 비지니스 로직을 포함하지 않고 오직 클래스의 인스턴스만을 반환하는 함수입니다.</p>
+
+<p>먼저 예로, String 객체를 생성한다고 해봅시다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">str1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+    <span class="nc">String</span> <span class="n">str2</span> <span class="o">=</span> <span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str1</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">str2</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>위 코드를 보면, 똑같은 test라는 값을 가진 String  객체를 만들었음에도, 다른 방식을 사용했습니다. str1의 경우가 우리에게 익숙한 생성자를 이용하여 인스턴스를 만든 방식이고, str2의 경우가 바로 이번 게시물에서 공부하게 될 <strong>정적 패토리 메서드</strong>를 이용해서 만든 인스턴스 입니다.</p>
+
+<p>이 두가지는 어떤 차이가 있을까요?</p>
+
+<p>valuOf 라는 메서드를 타고들어가서 한번 어떻게 선언 되어 있는지 확인 해봅시다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">valueOf</span><span class="o">(</span><span class="kt">char</span> <span class="n">data</span><span class="o">[])</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">String</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>위 코드를 보면, 해당 메서드는 static으로 선언되어 있으며 new String() 을 통해 우리가 넣어준 값을 매개변수로 String 객체를 생성해주고 있습니다.</p>
+
+<p>사실상 생성자 방식과 크게 다른점이 없는 것이죠.</p>
+
+<p>이렇게 하면 어떤 장점들이 생기길래, 생성자보다 정적 팩터리 메서드를 사용하는 것을 권장하는 걸까요?</p>
+
+<h2 id="1-이름을-가질-수-있다">1. 이름을 가질 수 있다</h2>
+<p>프로그래밍에서 변수명과 함수명을 잘 짓는 것은 매우 중요합니다.</p>
+
+<p>함수 이름만으로도 이 함수가 어떤일을 하는 함수인지 알 수 있다면, 그 코드가 본인이 작성한 코드가 아니더라도 알아보기가 쉬울 것 입니다.</p>
+
+<p>그래서 정적 팩토리 메서드를 사용해 생성자에 이름을 붙여줄 수 있는 것은 별것 아닌 것 처럼 보이지만 가독성에 있어 큰 장점이 됩니다.</p>
+
+<p>예를 들어 봅시다.</p>
+
+<p>카드라는 클래스를 만들어 본다고 가정해봅시다.</p>
+
+<p>카드에는 신용카드와 체크카드가 있고, 신용카드의 경우 계좌에 있는 돈을 다써도 limit 만큼의 돈을 신용으로 더 쓸 수 있으며, 체크카드는 limit이 자동으로 0이되어 신용을 사용할 수 없게 한다고 해보겠습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Card</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">money</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">limit</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Card</span><span class="o">(</span><span class="kt">int</span> <span class="n">money</span><span class="o">,</span> <span class="kt">int</span> <span class="n">limit</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">money</span> <span class="o">=</span> <span class="n">money</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">limit</span> <span class="o">=</span> <span class="n">limit</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>대략 이렇게 코드를 작성해볼 수 있겠죠?</p>
+
+<p>그럼 한번 신용카드와 체크카드 객체를 만들어 봅시다.</p>
+
+<p>각각 5000원씩의 돈이 들어있고, 신용카드의 경우는 5000의 limit이 더 있어 현금외에도 5000의 돈을 신용으로 더 쓸 수 있다고 해봅시다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nc">Card</span> <span class="n">creditCard</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Card</span><span class="o">(</span><span class="mi">5000</span><span class="o">,</span> <span class="mi">5000</span><span class="o">);</span>
+<span class="nc">Card</span> <span class="n">checkCard</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Card</span><span class="o">(</span><span class="mi">5000</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이렇게 코딩하면 우리가 원하는 기능을 구현해볼 수 있겠네요. 하지만 이렇게 하면, 체크카드의 경우는 무조건 limit이 0이 되어야 하는데, 누군가는 실수로 체크카드임에도 limit을 0으로 설정해놓지 않을 수 있습니다.</p>
+
+<p>또, 이름이 현재는 creditCard와 checkCard로 되어있지만, 만약 카드의 이름이 minjaeCard라면, 생성자만 보고서는 이 카드가 체크카드인지, 신용카드인지 판별하기 어려울 것 입니다.</p>
+
+<blockquote>
+  <p>(물론 이 경우에는 Card를 상속받는 ChcekCard와 CreditCard라는 클래스를 만들어주는게 더 효율적인 방법일 것 같지만, 예시를 들기 위해서 이렇게 한다고 가정해보겠습니다.)</p>
+</blockquote>
+
+<p>그럼 정적 팩터리 메서드를 사용하면 어떻게 될까요?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Card</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">money</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">limit</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Card</span> <span class="nf">createCheckCard</span><span class="o">(</span><span class="kt">int</span> <span class="n">money</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Card</span><span class="o">(</span><span class="n">money</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Card</span> <span class="nf">createCreditCard</span><span class="o">(</span><span class="kt">int</span> <span class="n">money</span><span class="o">,</span> <span class="kt">int</span> <span class="n">limit</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Card</span><span class="o">(</span><span class="n">money</span><span class="o">,</span> <span class="n">limit</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">Card</span><span class="o">(</span><span class="kt">int</span> <span class="n">money</span><span class="o">,</span> <span class="kt">int</span> <span class="n">limit</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">money</span> <span class="o">=</span> <span class="n">money</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">limit</span> <span class="o">=</span> <span class="n">limit</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nc">Card</span> <span class="n">creditCard</span> <span class="o">=</span> <span class="nc">Card</span><span class="o">.</span><span class="na">createCreditCard</span><span class="o">(</span><span class="mi">5000</span><span class="o">,</span> <span class="mi">5000</span><span class="o">);</span>
+<span class="nc">Card</span> <span class="n">checkCard</span> <span class="o">=</span> <span class="nc">Card</span><span class="o">.</span><span class="na">createCheckCard</span><span class="o">(</span><span class="mi">5000</span><span class="o">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이렇게 이번에는 정적 패터리 메서드를 사용해서 객체를 생성하게 해보았습니다.</p>
+
+<p>어떤가요? 장점이 느껴지시나요?</p>
+
+<p>우선 createCreditCard라는 메서드를 사용해서, 우리가 만들 객체가 “신용카드”임을 헷갈리지 않게 되었으며, 체크카드의 경우는 매개변수에 0이라고 해줄 필요없이 createCheckCard를 사용하면 알아서 매개변수를 money만 받고 limit은 0으로 설정하도록 도와줍니다.</p>
+
+<p>이름이 생기니 한결 가독성이 나아지고, 어떤 객체가 반환되는지를 더 직관적으로 알 수 있게 되어 실수를 더 줄일 수 있게 되었습니다.</p>
+
+<h2 id="2-호출될-때마다-인스턴스를-생성하지-않아도-된다">2. 호출될 때마다 인스턴스를 생성하지 않아도 된다</h2>
+<p>객체를 생성하는 것은 꽤나 비용이 드는 일입니다.</p>
+
+<p>객체가 많아질 수록 힙영역에 공간이 빠르게 차고, 이 공간이 빠르게 차면 찰수록 GC도 자주 일어나 성능이 저하될 우려가 큽니다. 그렇기 때문에 같은 객체라면 굳이 여러개 생성하지 말고, 이미 생성되었던 객체를 반환해주는게 더 효과적일 것입니다.</p>
+
+<p>이것을 디자인패턴에서는 싱글톤 (Singleton) 패턴이라고도 합니다.</p>
+
+<p>대표적인 예로 Boolean.valueOf 메서드가 있습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">Boolean</span> <span class="kd">implements</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">Serializable</span><span class="o">,</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Boolean</span> <span class="no">TRUE</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Boolean</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Boolean</span> <span class="no">FALSE</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Boolean</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Boolean</span> <span class="nf">valueOf</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">(</span><span class="n">b</span> <span class="o">?</span> <span class="no">TRUE</span> <span class="o">:</span> <span class="no">FALSE</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위의 코드를 보면 마찬가지로 valueOf로 값을 받아 객체를 생성해주는 정적 팩토리 메서드인데요, 위에서 본 String.valueOf와는 다른 점이 있습니다.</p>
+
+<p>미리 final로 상수 객체인 TRUE와 FALSE를 만들어 놓은 뒤, 메서드를 실행할때마다 새로운 객체를 생성해주는 것이 아니라, static으로 선언하여 애플리케이션 실행 시에 미리 만들어진 객체를 반환해줍니다.</p>
+
+<p>이렇게 하면 기존 방식보다 객체를 훨씬 적게 만들 수 있을것 입니다.</p>
+
+<p>이 방식의 예제를 하나 더 보도록 하겠습니다. 이런 방식으로도 사용 가능합니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Day</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Day</span><span class="o">&gt;</span> <span class="n">days</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+
+    <span class="kd">static</span> <span class="o">{</span>
+        <span class="n">days</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"mon"</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Day</span><span class="o">(</span><span class="s">"Monday"</span><span class="o">));</span>
+        <span class="n">days</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"tue"</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Day</span><span class="o">(</span><span class="s">"Tuesday"</span><span class="o">));</span>
+        <span class="n">days</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"wen"</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Day</span><span class="o">(</span><span class="s">"Wednesday"</span><span class="o">));</span>
+        <span class="n">days</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"thu"</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Day</span><span class="o">(</span><span class="s">"Thursday"</span><span class="o">));</span>
+        <span class="n">days</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"fri"</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Day</span><span class="o">(</span><span class="s">"Friday"</span><span class="o">));</span>
+        <span class="n">days</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"sat"</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Day</span><span class="o">(</span><span class="s">"Saturday"</span><span class="o">));</span>
+        <span class="n">days</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"sun"</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Day</span><span class="o">(</span><span class="s">"Sunday"</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Day</span> <span class="nf">from</span><span class="o">(</span><span class="nc">String</span> <span class="n">day</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">days</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">day</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">String</span> <span class="n">day</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nf">Day</span><span class="o">(</span><span class="nc">String</span> <span class="n">day</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">day</span> <span class="o">=</span> <span class="n">day</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getDay</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">day</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>위의 예제를 보면 어차피 요일은 월요일부터 일요일까지 밖에 없음으로, 미리 월요일부터 일요일까지의 Day 객체를 생성해둔 뒤, 이를 해쉬맵에 넣어 놨다가 해당 정적 팩토리 메서드를 호출하면 새로운 객체를 생성하는 것이 아니라, 해당 요일의 값을 String으로 받아 해당 객체를 반환해주는 방식입니다.</p>
+
+<p>이렇게 하면 객체를 재사용해서 효율적일 뿐만아니라, 실수로 이 7가지 요일 외의 다른 값이 들어오면 컴파일전에 미리 잡아 주어서 더 안전할 것입니다.</p>
+
+<h2 id="3-하위-자료형객체를-반환할-수-있다">3. 하위 자료형객체를 반환할 수 있다</h2>
+<p>정적 팩토리 메서드를 사용하면, 하위 자료형 객체를 반환할 수 있습니다.</p>
+
+<p>아래 코드를 보도록 합시다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre></td><td class="rouge-code"><pre>public class Card {
+    public static Card from(int expenditure) {
+        if (0 &lt; expenditure &amp;&amp; expenditure &lt;= 1000) {
+            return new Silver();
+        }
+        if (1000 &lt; expenditure &amp;&amp; expenditure &lt;= 2000) {
+            return new Gold();
+        }
+        if (2000 &lt; expenditure &amp;&amp; expenditure &lt;= 3000) {
+            return new Platinum();
+        }
+        if (3000 &lt; expenditure &amp;&amp; expenditure &lt;= 4000){
+            return new Diamond();
+        }
+        throw new IllegalArgumentException();
+    }
+}
+class Silver extends Card {
+}
+
+class Gold extends Card {
+}
+
+class Platinum extends Card {
+}
+
+class Diamond extends Card {
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>위 코드는 아까 들었던 예시인 카드의 클래스 인데요, 이번에는 Card가 등급이 있다고 가정해 봅시다.</p>
+
+<p>지출액에 따라, 1000 이하면 실버등급, 1000에서 2000사이면 골드 등급, 2000에서 3000사이면 플래티넘, 3000에서 4000사이면 다이아몬드라고 해보도록 하죠. 혹여나 이상한 음수나 조건에 맞지않는 값이 들어오면 예외를 출력하도록 하겠습니다.</p>
+
+<p>정적 팩토리 메서드를 사용하면, Card하나에서 이렇게 하위 객체를 반환하게 할 수 있습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>Card creditCard = Card.from(2500);
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이렇게 하면, 코드를 작성하는 사람이 카드가 어떤 하위 객체가 있는지, 금액에 따라 어떤 하위 객체로 만들어야 할 지 알 필요없이, 지출액만 입력하면 알아서 등급에 맞는 하위 객체 자료형으로 객체가 생성됩니다.</p>
+
+<h2 id="4-입력-매개변수에-따라-매번-다른-클래스의-객체를-반환할-수-있다">4. 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.</h2>
+<p>아까 체크카드와 신용카드의 예시를 다시 가져와 설명하도록 하겠습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Card</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">money</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">limit</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Card</span> <span class="nf">createCheckCard</span><span class="o">(</span><span class="kt">int</span> <span class="n">money</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Card</span><span class="o">(</span><span class="n">money</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Card</span> <span class="nf">createCreditCard</span><span class="o">(</span><span class="kt">int</span> <span class="n">money</span><span class="o">,</span> <span class="kt">int</span> <span class="n">limit</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Card</span><span class="o">(</span><span class="n">money</span><span class="o">,</span> <span class="n">limit</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">Card</span><span class="o">(</span><span class="kt">int</span> <span class="n">money</span><span class="o">,</span> <span class="kt">int</span> <span class="n">limit</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">money</span> <span class="o">=</span> <span class="n">money</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">limit</span> <span class="o">=</span> <span class="n">limit</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>아까 코드에서는 createCheckCard와 createCreditCard를 사용해서 객체를 생성했습니다.</p>
+
+<p>이 두개의 정적 팩토리 메서드를, 입력 매개변수에 따라 다른 클래스의 객체를 반환할 수 있다는 정적 팩토리 메서드의 장점을 살려서 하나의 메서드로 통합해주도록 하겠습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+</pre></td><td class="rouge-code"><pre>class Card {
+    int money;
+    int limit;
+
+    public static Card of(int money) {
+        return new CheckCard(money, 0);
+    }
+
+    public static Card of(int money, int limit) {
+        return new CreditCard(money, limit);
+    }
+
+    public Card(int money, int limit) {
+        this.money = money;
+        this.limit = limit;
+    }
+
+
+}
+
+class CreditCard extends Card {
+    public CreditCard(int money, int limit) {
+        super(money, limit);
+    }
+}
+
+class CheckCard extends Card {
+    public CheckCard(int money, int limit) {
+        super(money, limit);
+    }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이렇게 하면 어떤 결과가 나올거라고 예상되시나요?</p>
+
+<p>전에는 createCheckCard로 체크카드를 발급하고, createCreditCard로 신용카드를 발급했다면, 이제는 of 메서드 하나만으로  money와 limit을 모두 기입해주면 신용카드, money만 입력해주면 체크카드, 이런식으로 매개변수의 개수에 따라 다른 객체를 반환하도록 합니다.</p>
+
+<p>이렇게 정적 팩토리 메서드를 사용하면, 매개변수 갯수에 따라 다른 객체를 반환하게 할 수 있습니다.</p>
+
+<h2 id="정적-팩토리-메서드를-작성하는-시점에는-반환할-객체의-클래스가-존재하지-않아도-된다">정적 팩토리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.</h2>
+<p>아마 이 부분이 가장 이해하기 어려운 부분이라고 생각합니다.</p>
+
+<p>인터페이스만 존재하는 객체의 구현체가 없어도 정적 팩토리 메소드를 사용하면 그 구현체를 사용할 수 있다는 뜻인데요.</p>
+
+<p>이 부분은 글로 설명하는 것보다 아래 영상을 보시는 것이 빠를 것 같아서 링크 첨부합니다.</p>
+
+<blockquote>
+  <p><a href="https://youtu.be/8uryCPDcoqI?t=289">백기선 유튜브 - 자바, 생성자 대신 정적팩토리의 장점 마무리</a></p>
+</blockquote>
+
+<p>아마 스프링과 같은 프레임워크의 구조에 대해 공부를 해보신 분들은 이 기능이 왜 프레임워크의 근간이 되는 기능인지 이해가 되실 것 같습니다.</p>
+
+<p>간단하게 설명하자면 결국은 구현체에 대한 의존성없이 인턴페이스 기반으로 코딩할 수 있도록 도와주는 역할을 한다는 것입니다.</p>
+
+<h2 id="정적-팩토리-메서드의-단점">정적 팩토리 메서드의 단점</h2>
+<p>모든 것이 그렇듯 장점만 있는 방식은 없을 것입니다.</p>
+
+<p>정적 팩토리 메서드도 마찬가지로 단점들을 갖고 있는데요. 다음과 같습니다.</p>
+
+<ol>
+  <li>상속에는 pulic 혹은 protected 생성자가 필요하므로 정적 팩토리 메서드만 제공할 경우, 상속이 불가능하다</li>
+  <li>정적 팩토리 메서드를 다른 개발자들이 찾기 어렵다.<br />
+개발자가 임의로 만든 정적 팩토리 메서드 특성 상, 다른 개발자들이 사용시에 정퍽 팩토리 메서드를 찾기가 어렵다고 생각 할 수 있다.</li>
+</ol>
+
+<p>따라서 이러한 단점을 해결하기 위해서 보편적으로 사용하는 네이밍 컨벤션을 지켜주어 다른 개발자가 편하게 사용할 수 있도록 해주어야 합니다.</p>
+
+<p>정적 팩토리 메서드의 네이밍 컨벤션은 다음과 같습니다.</p>
+
+<ul>
+  <li>from : 하나의 매개변수를 받아 해당 타입의 인스턴스를 반환하는 형변환 메서드</li>
+  <li>of : 여러 매개변수를 받아 적합한 타입의 인스턴스를 반환하는 집계 메서드</li>
+  <li>valueOf : from과 Of의 더 자세한 버전</li>
+  <li>instance 혹은 getInstance : 매개변수로 명시한 인스턴스를 반환하지만, 같은 인스턴스임을 보장 하지 않음</li>
+  <li>create 혹은 newInstance :instance 혹은 getInstance 와 같으나 매번 새로운 인스턴스를 생성해 반환 함을 보장.</li>
+</ul>
+
+<p>위에서도 from, of, valueOf, create등을 제가 이미 사용하고 있었습니다.</p>
+
+<h3 id="getinstance와-newinstance의-차이">getInstance()와 newInstance()의 차이</h3>
+<p>여기서 getInstance와 newInstance의 설명이 조금 헷갈리신다면, 간단하게 getInstance()의 경우는 아까 배웠던 요일의 예시처럼 이름만 같다면 동일한 객체를 반환해주는 <strong>싱글톤</strong>객체를 반환하는 메서드일때는 getInstance()로 네이밍을 해주는 것이 좋고, 매번 새로운 객체를 반환하는 메서드일때는 newInstance()으로 이름을 지어주는것이 바람직하다는 것을 뜻합니다.</p>
+
+<p>이렇게 이펙티브 자바의 첫번째 아이템인 정적 팩토리 메서드를</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#effectivejava" class="page__taxonomy-item" rel="tag">EffectiveJava</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-12-03T00:00:00+00:00">December 3, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BEffective+Java%5D+%EC%83%9D%EC%84%B1%EC%9E%90+%EB%8C%80%EC%8B%A0+%ED%8C%A9%ED%86%A0%EB%A6%AC+%EB%A9%94%EC%84%9C%EB%93%9C+%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Feffectivejava%2F%25EC%2583%259D%25EC%2584%25B1%25EC%259E%2590-%25EB%258C%2580%25EC%258B%25A0-%25ED%258C%25A9%25ED%2586%25A0%25EB%25A6%25AC-%25EB%25A9%2594%25EC%2584%259C%25EB%2593%259C-%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Feffectivejava%2F%25EC%2583%259D%25EC%2584%25B1%25EC%259E%2590-%25EB%258C%2580%25EC%258B%25A0-%25ED%258C%25A9%25ED%2586%25A0%25EB%25A6%25AC-%25EB%25A9%2594%25EC%2584%259C%25EB%2593%259C-%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Feffectivejava%2F%25EC%2583%259D%25EC%2584%25B1%25EC%259E%2590-%25EB%258C%2580%25EC%258B%25A0-%25ED%258C%25A9%25ED%2586%25A0%25EB%25A6%25AC-%25EB%25A9%2594%25EC%2584%259C%25EB%2593%259C-%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/cs/Blocking%EA%B3%BC-Non-Blocking,-%EB%8F%99%EA%B8%B0%EC%99%80-%EB%B9%84%EB%8F%99%EA%B8%B0/" class="pagination--pager" title="Blocking과 Non-Blocking, 동기와 비동기
+">이전</a>
+    
+    
+      <a href="/diary-univ/%EC%8A%A4%ED%8F%AC%EC%B8%A0%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" class="pagination--pager" title="스포츠에 대하여
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%8A%A4%ED%8F%AC%EC%B8%A0%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" rel="permalink">스포츠에 대하여
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-12-03T00:00:00+00:00">December 3, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.12.03
+어제 새벽 두시, 대한민국이 16강에 진출했다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/cs/Blocking%EA%B3%BC-Non-Blocking,-%EB%8F%99%EA%B8%B0%EC%99%80-%EB%B9%84%EB%8F%99%EA%B8%B0/" rel="permalink">Blocking과 Non-Blocking, 동기와 비동기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-11-10T00:00:00+00:00">November 10, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Block과 동기의 차이는?
+동기와 비동기, Blocking과 Non-Blocking은 언뜻보면 비슷한 개념으로 보여 헷갈릴 수 있는 개념입니다. 아예 같은 개념으로 알고있는 사람들도 있을 정도죠. 오늘은 이  두 개념의 차이에 대해서 적어보려 합니다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EB%A9%B4%EC%A0%91%EA%B3%BC-%ED%83%88%EB%9D%BD/" rel="permalink">면접과 탈락
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-11-09T00:00:00+00:00">November 9, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.11.09
+어제 네이버웹툰 2차 결과가 나왔다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EA%B2%A8%EC%9A%B8%EB%83%84%EC%83%88/" rel="permalink">겨울냄새
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-11-05T00:00:00+00:00">November 5, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.11.05
+안경 렌즈를 맞출일이 있어서, 이왕 밖에 나온김에 다 해결해버리자는 마음에 노트북도 들고나와서 안경점 앞에 카페에서 시간을 보내기로 했다.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9931719152246269"
+         crossorigin="anonymous"></script>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/leeminjae-dev" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'leeminjae-dev/BlogComment');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'preferred-color-scheme');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+  </body>
+</html>
+
+
+<!-- 웹 폰트 설정 -->

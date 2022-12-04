@@ -1,0 +1,1418 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Spring] CORS 설정하기 - Learnote-Dev</title>
+<meta name="description" content="서론 저는 지금 간단한 토이 프로젝트를 하나 진행중인데요.">
+
+
+  <meta name="author" content="이민재">
+  
+  <meta property="article:author" content="이민재">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Learnote-Dev">
+<meta property="og:title" content="[Spring] CORS 설정하기">
+<meta property="og:url" content="http://localhost:4000/java/Spring-CORS%EC%9D%B4%EC%8A%88-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/">
+
+
+  <meta property="og:description" content="서론 저는 지금 간단한 토이 프로젝트를 하나 진행중인데요.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-06-03T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/java/Spring-CORS%EC%9D%B4%EC%8A%88-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이민재",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Learnote-Dev Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9931719152246269"
+     crossorigin="anonymous"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9931719152246269",
+    enable_page_level_ads: true
+  });
+</script>
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Learnote-Dev
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://leeminjae-dev.github.io/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://wild-rocket-6f8.notion.site/f5e071b980854f929d2076439973a47a">About me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile.jpg" alt="이민재" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이민재</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>공부/일상 기록</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Incheon, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="lmj938@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://blog.naver.com/lmj938" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/leeminjae-dev/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:lmj938@naver.com">
+            <meta itemprop="email" content="lmj938@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+        <!--span 태그로 카테고리들을 크게 분류 ex) Life-->
+       <span class="nav__sub-title">Life</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/think 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~) (81)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Tech-->
+       <span class="nav__sub-title">Tech</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java" class="">Java (53)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/swiftUI" class="">SwiftUI (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/ETC" class="">ETC (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/CS" class="">CS (7)</a></li>
+                    
+                
+                    
+                
+
+        <!--span 태그로 카테고리들을 크게 분류 ex) Book-->
+       <span class="nav__sub-title">Book</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/EffectiveJava 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/EffectiveJava" class=""> EffectiveJava (1)</a></li>
+                    
+                
+
+
+        <span class="nav__sub-title">Algorithm</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                        <li><a href="/categories/baekjoon" class="">Baekjoon (64)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+		<!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/baekjoon 주소의 글로 링크 연결-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/programmers" class="">Programmers(79)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+<!--span 태그로 카테고리들을 크게 분류 ex) ALgoritm/Life-->
+       <span class="nav__sub-title">Knowledge</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/machinelearning주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/machinelearning" class="">Machine Learning (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/finance" class="">Finance(3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+          
+      </li>
+  </ul>
+</nav>
+
+  
+
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Spring] CORS 설정하기">
+    <meta itemprop="description" content="서론저는 지금 간단한 토이 프로젝트를 하나 진행중인데요.">
+    <meta itemprop="datePublished" content="2022-06-03T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[Spring] CORS 설정하기
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-06-03T00:00:00+00:00">June 3, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#서론">서론</a></li><li><a href="#sop">SOP</a></li><li><a href="#sop의-필요성">SOP의 필요성</a></li><li><a href="#cors">CORS</a></li><li><a href="#cors의-동작-방식">CORS의 동작 방식</a><ul><li><a href="#간단한-요청">간단한 요청</a></li><li><a href="#사전-요청-preflight-requests">사전 요청 (Preflight Requests)</a></li><li><a href="#인증을-이용하는-요청-credential-requests">인증을 이용하는 요청 (Credential Requests)</a></li></ul></li><li><a href="#스프링에서-cors-적용하기">스프링에서 CORS 적용하기</a></li><li><a href="#annotation을-사용하여-설정">Annotation을 사용하여 설정</a></li><li><a href="#configuration을-사용하여-설정">Configuration을 사용하여 설정</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="서론">서론</h2>
+<p>저는 지금 간단한 토이 프로젝트를 하나 진행중인데요.</p>
+
+<p>프로젝트를 진행하면서 API를 대략 만들고 AWS에 배포를 완료했는데, 프론트엔드 개발자로부터 CORS를 해결해달라는 요청을 받았습니다.</p>
+
+<p>그동안에는 그냥 혼자 웹페이지의 전부를 만들어봐서 해당 이슈에 대해 접해본적이 없기 때문에, 이러한 설정을 따로 해주어야하는지 전혀 몰랐습니다.</p>
+
+<p>그래서 이 게시물에서는 CORS는 무엇이고, 스프링에서 이러한 설정을 어떻게 해주어야 하는지 알아보도록 하겠습니다.</p>
+
+<h2 id="sop">SOP</h2>
+<p>사실 CORS에 대해 알기 위해서는 SOP에 대해 먼저 알아야합니다. 둘다 영어로 되어있어서 딱 듣고 알기는 어렵죠? <strong>SOP</strong>는 <strong>Same-Origin Policy</strong>의 준말입니다. 한글로 번역하면 <strong>동일 출처 정책</strong>이 되겠네요.</p>
+
+<p>이는 어떤 출처(origin)에서 불러온 문서나 스크립트가 다른 출처에서 가져온 리소스와 상호작용을 하는것을 제한하는 보안방식입니다.</p>
+
+<p>여기서 <strong>출처가 같다</strong>는 것은, 두 URL의 <strong>프로토콜, 호스트, 포트</strong> 세개가 모두 같다는 것을 의미합니다.</p>
+
+<p>예를들어 http://domain/page1.html이 있다면,</p>
+
+<p>프로토콜은 http, 호스트는 domain, 포트는 http에서는 생략되어 보이지는 않지만 8080이겠죠.</p>
+
+<p>만약 이렇게 3개가 같은 주소에서 들어온 요청이 아니라면, SOP에 의해서 요청이 거절되는 것입니다.</p>
+
+<p>왜 이런 보안방식을 사용할까요?</p>
+
+<h2 id="sop의-필요성">SOP의 필요성</h2>
+<p>만약 SOP가 없다고 가정해봅시다.</p>
+
+<p>여러분이 페이스북에 로그인을 하면 어떻게 되나요? 세션이 유지되기 때문에 일정 시간동안은 다시 로그인하지 않고도 페이스북에 로그인 된 상태일 것입니다.</p>
+
+<p>만약 이때 메일에서 어떤 해커가 페이스북에다가 “나는 바보입니다” 라고 게시물을 작성하는 자바스크립트 코드를 메일에 담아 여러분에게 전송했다면 어떻게 할까요? SOP가 없다면 여러분은 속수무책으로 이러한 공격에 당하기 쉽게 됩니다.</p>
+
+<p>따라서 이를 막기위해서 SOP와 같은 정책으로, 우리의 정보를 더 안전하게 지키는 것이죠.</p>
+
+<p>참고로 이런 SOP의 주체는 <strong>웹브라우저</strong>로, 여러분이 사용하는 크롬이나 엣지등의 웹 브라우저들이 해당 보안정책을 토대로 다른 출처의 요청을 제한합니다.</p>
+
+<h2 id="cors">CORS</h2>
+<p>자 이제 드디어 CORS가 등장합니다.</p>
+
+<p>원래는 이러한 SOP에 의해서 무조건 같은 출처, <strong>Sam-Origin</strong>에서의 요청만 허락되었다고 배웠습니다. 하지만 개발을 하다보니, 오픈 API를 사용하기 위해서나, 여러가지 더 좋은 기능들의 개발을 위해 서로 다른 도메인간에도 통신이 필요한일이 생기게 되었습니다.</p>
+
+<p>한마디로, 다른 출처, <strong>Cross-Origin</strong>의 요청도 처리할 필요성이 대두되기 시작한것이죠.</p>
+
+<p>이를 위한 스펙이 바로 <strong>CORS, Cross-Origin Resource Sharing</strong>입니다.</p>
+
+<p>CORS는 웹브라우저에서 외부 도메인과 통신을 가능하게 하기위해서 만들어진 방식을 표준화 한 것으로, 서버와 클라이언트가 정해진 헤더를 통해 서로 요청에 응답할지 말지를 결정하게 됩니다.</p>
+
+<h2 id="cors의-동작-방식">CORS의 동작 방식</h2>
+<p>CORS는 아래 3가지의 동작 방식을 갖습니다.</p>
+
+<ul>
+  <li>간단한 요청 (Simple Requests)</li>
+  <li>사전 요청 (Preflight Requests)</li>
+  <li>인증을 이용하는 요청 (Credential Requests)</li>
+</ul>
+
+<h3 id="간단한-요청">간단한 요청</h3>
+<p>간단한 요청, Simple Requests는 기존 데이터를 손상시키지 않을 요청들에 의해서만 가능합니다.</p>
+
+<p>만약, DELETE나 PATCH요청과 같은 요청을 누구나 간단하게 요청해서 처리할 수 있다면, 요청하나만으로도 서버에 있는 데이터를 모두 지운다던가 이상하게 변경 할 수 있을 것입니다.</p>
+
+<p>따라서 Simple Requests는 아래의 조건을 만족할때만 가능합니다.</p>
+
+<ul>
+  <li>GET, HEAD, POST중 한가지 요청일 것</li>
+  <li>Custom Header가 존재하지 않을 것</li>
+  <li>POST일 경우, Conent-Type이 application/x-www-form-urlencoded, mutipart/form-data. text/plain 중 하나일 것</li>
+</ul>
+
+<p>사실상 요즘은 대부분 API요청을 application/json을 통해서 보내기 떄문에 Simple Requests는 잘 사용되지 않습니다.</p>
+
+<p>예를들어 https://foo.example에서 서버로 Simple Requests로 요청을 보내게 되면,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>GET /resources/public-data/ HTTP/1.1
+Host: bar.other
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:71.0) Gecko/20100101 Firefox/71.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Connection: keep-alive
+Origin: https://foo.example
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이렇게 요청이 가게 됩니다.</p>
+
+<p>Origin을 보면, 이 요청이 https://foo.example에서 왔음을 알 수 있죠.</p>
+
+<p>이 부분을 확인하고 서버에서는 이에 대한 응답으로 Access-Control-Allow-Origin 헤더를 다시 전송하게 됩니다.</p>
+
+<p>예를들어 이러한 응답을 전송합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>HTTP/1.1 200 OK
+Date: Mon, 01 Dec 2008 00:23:53 GMT
+Server: Apache/2
+Access-Control-Allow-Origin: *
+Keep-Alive: timeout=2, max=100
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: application/xml
+
+[…XML Data…]
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>응답을 보면, 현재 Acces-Control-Allow-Origin이 *으로 설정되어 있기 때문에 모든 도메인에서 접근이 가능한 상태입니다. 따라서 https://foo.example외의 모든 도메인에서도 요청이 허용됩니다.</p>
+
+<p>하지만 아래의 요청을 볼까요?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>HTTP/1.1 200 OK
+Date: Mon, 01 Dec 2008 00:23:53 GMT
+Server: Apache/2
+Access-Control-Allow-Origin:  https://foo.example
+Keep-Alive: timeout=2, max=100
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: application/xml
+
+[…XML Data…]
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Acces-Control-Allow-Origin이 https://foo.example로 설정되어 있습니다. 이렇게 되면, https://foo.example의 도메인만 요청이 허락되는 것입니다. 따라서 이 도메인 외의 다른 도메인은 해당 리소스에 접근이 불가능 합니다.</p>
+
+<p>따라서, Origin 헤더에 전송된 값이 Access-Control-Allow-Origin 헤더에 포함되어 있을 때만, 해당 리소스에 대한 접근이 허용되는 것이죠.</p>
+
+<h3 id="사전-요청-preflight-requests">사전 요청 (Preflight Requests)</h3>
+<p>사전요청은 본 요청을 보내기전에 사전 요청을 보내서 서버가 이에 대해서 응답이 가능한지를 확인하는 방법입니다.</p>
+
+<p>위의 간단한 요청외의 요청들은 서버에 있는 데이터를 손상시키거나 변조시킬 위험이 있는 코드를 보내는 것이 가능함으로, 사전요청으로 먼저 서버에게 해당 요청을 진행가능한지 확인 후, 해당 요청을 처리하게됩니다.</p>
+
+<p><img src="/assets/images/tech/Java/2022-06-03-[Spring]CORS이슈/image1.PNG" alt="image1" /></p>
+
+<p>위 그림을 보면, https://foo.example에서 예비요청을 보내고, 이에 대해서 Access-Control-Allow-Origin와 서버에서 현재 어떤것들을 허용하고 금지하는지에 대한 정보를 응답헤더에 담아 브라우저에게 다시 보내줍니다.</p>
+
+<p>여기서 서버가 허용하고 있는 요청만이 포함된 상태라면, 그제서야 본 요청을 서버에 보낼 수 있게 되는 것이죠.</p>
+
+<p>아래는 preflight요청의 예제입니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>OPTIONS /resources/post-here/ HTTP/1.1
+Host: bar.other
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:71.0) Gecko/20100101 Firefox/71.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Connection: keep-alive
+Origin: http://foo.example
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: X-PINGOTHER, Content-Type
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>밑에 세줄을 보면 Origin, Access-Control-Request-Method와 Access-Control-Request-Headers가 있는 것을 볼 수 있습니다.</p>
+
+<p>그럼 응답에 대한 예제를 봅시다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>HTTP/1.1 204 No Content
+Date: Mon, 01 Dec 2008 01:15:39 GMT
+Server: Apache/2
+Access-Control-Allow-Origin: https://foo.example
+Access-Control-Allow-Methods: POST, GET, OPTIONS
+Access-Control-Allow-Headers: X-PINGOTHER, Content-Type
+Access-Control-Max-Age: 86400
+Vary: Accept-Encoding, Origin
+Keep-Alive: timeout=2, max=100
+Connection: Keep-Alive
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>중간에 보면 Access-Control-Allow-Origin, <br />
+Access-Control-Allow-Methods, Access-Control-Allow-Headers<br />
+가 있는 걸 볼 수 있습니다.</p>
+
+<p>이들은 각각 서버 측 허가 출처, 허가 메서드, 허가 헤더, preflight 응답 캐시 기간인데요. 이러한 예비 요청을 통해서 위 네가지의 서버 허용 정책을 통과 해야만 다음 본요청을 보내는것이 가능한 것입니다.</p>
+
+<p>따라서 Preflight 요청을 사용함으로써, 브라우저 단에서 미리 Allow-Origin에 없는 origin의 요청을 거절함으로써 서버를 안전하게 보호하는 것이죠.</p>
+
+<h3 id="인증을-이용하는-요청-credential-requests">인증을 이용하는 요청 (Credential Requests)</h3>
+<p>Credential Requests는 좀 더 보안을 강화시킨 요청으로, 인증 정보들을 추가로 쿠키등으로 요청에 담아서 보내는 방식입니다.</p>
+
+<p>서버는 이 사용자가 보낸 요청에 포함된 인증정보들로 한번 더 검증하여 인증이 된 사용자에게만 응답을 줍니다.</p>
+
+<p>Credentila Requests에서는 Access-Control-Allow-Origin을 *로 설정할 수 없으며, 반드시 명시적인 URL들로 설정해주어야 합니다. 또, 반드시 응답 헤더에는 Access-Control-Allow-Credentails: true가 포함되어야만 Credentila Requests의 자격요건을 갖게됩니다.</p>
+
+<p>그럼 이제 세가지 방식에 대해서도 알아봤으니, 스프링에서는 어떻게 하면 CORS를 서버에 적용하여 우리가 허락한 주소에만 응답을 줄 수 있는지 알아봅시다.</p>
+
+<h2 id="스프링에서-cors-적용하기">스프링에서 CORS 적용하기</h2>
+<p>스프링에서 CORS를 설정하는 방법은 크게 Annotation을 사용하는 방법과 Configuration을 사용하는 방법이 있습니다.</p>
+
+<h2 id="annotation을-사용하여-설정">Annotation을 사용하여 설정</h2>
+<p>Controller  또는 메소드에 @CrossOrigin 어노테이션을 달아주면 됩니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>@GetMapping("/v1/volunteers")
+@CrossOrigin(origins = "*", allowHeaders = "*")
+public List&lt;VolunteerResponseDto&gt; findAll() {
+        return volunteerService.findAll();
+   }
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위 예시는 findAll()이라는 메소드에 CORS를 설정한 코드입니다.</p>
+
+<p>v1/volunteers로 요청이 들어오면, CrossOrigin에 설정해준 Origin에서 들어온 요청만 본응답을 받게 됩니다. 위 코드에서는 *로 와일드카드를 사용해주었으므로, 모든 출처에서의 요청에 대한 응답을 해주게 됩니다.</p>
+
+<p>마찬가지로, 메소드뿐만 아니라 컨트롤러에도 적용할 수 있습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>@RequiredArgsConstructor
+@RestController
+@CrossOrigin(origins = "*")
+public class VolunteerController {
+    	private final VolunteerService volunteerService;
+
+	@GetMapping("/v1/volunteers")
+	public List&lt;VolunteerResponseDto&gt; findAll() {
+	    return volunteerService.findAll();
+	}
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="configuration을-사용하여-설정">Configuration을 사용하여 설정</h2>
+<p>스프링의 Configuration을 통해서 프로젝트 전체에 적용하는 방식입니다.</p>
+
+<p>config 패키지에 WebConfig 클래스를 만들어준 뒤, WebMvcConfigurer를 implements 해줍니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>@Configuration
+public class WebConfig implements WebMvcConfigurer {    
+
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>여기서 CORS 설정을 위해서 필요한 메소드인 addCorsMappings 메소드를 오버라이딩 해줍니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>@Configuration
+public class WebConfig implements WebMvcConfigurer {
+    @Override
+    public void addCorsMappings(final CorsRegistry registry) {
+    }
+}
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이렇게 하면 CoreRegistry 클래스에 있는 addMapping을 이용해서 CORS를 적용해줄 URL 패턴을 정의 해줄 수 있습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>@Configuration
+public class WebConfig implements WebMvcConfigurer {
+    @Override
+    public void addCorsMappings(final CorsRegistry registry) {
+        registry.addMapping("/**")
+
+    }
+}
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>현재는 /**로 와일드카드를 사용하여 모든 URL 패턴에 대해 허용해준 상태입니다.</p>
+
+<p>addMapping() default 값은 다음과 같습니다.</p>
+
+<ul>
+  <li>Allow all origins.</li>
+  <li>Allow “simple” methods GET, HEAD and POST.</li>
+  <li>Allow all headers.</li>
+  <li>Set max age to 1800 seconds (30 minutes).</li>
+</ul>
+
+<p>이 옵션들은 addMapping() 과 마찬가지로 뒤에 추가해줌으로써 설정할 수 있습니다.</p>
+
+<p>예를들어,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>@Configuration
+public class WebConfig implements WebMvcConfigurer {
+    @Override
+    public void addCorsMappings(final CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:8080")
+                .allowedMethods("GET", "POST")
+                .maxAge(3000);
+    }
+}
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위 코드처럼 설정함으로써, Origin은 http://localhost:8080, 허용할 메서드는 GET, POST, 그리고 최대 캐싱 시간은 3000초로 설정할 수 있습니다.</p>
+
+<p>제 프로젝트에서는 메소드에 따라 CORS의 origin을 다르게 할 필요는 없기 때문에, 전체에 적용가능한 Configuration 방식을 사용해서 CORS를 적용해주기로 했습니다.</p>
+
+<p>이렇게 CORS에 대해 알아보고, 이를 스프링에서 어떻게 설정하는지 알아보았습니다.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#java" class="page__taxonomy-item" rel="tag">java</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-06-03T00:00:00+00:00">June 3, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BSpring%5D+CORS+%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2FSpring-CORS%25EC%259D%25B4%25EC%258A%2588-%25ED%2595%25B4%25EA%25B2%25B0%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2FSpring-CORS%25EC%259D%25B4%25EC%258A%2588-%25ED%2595%25B4%25EA%25B2%25B0%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2FSpring-CORS%25EC%259D%25B4%25EC%258A%2588-%25ED%2595%25B4%25EA%25B2%25B0%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/baekjoon/BOJ-7569-%ED%86%A0%EB%A7%88%ED%86%A0/" class="pagination--pager" title="[BOJ] 7569 토마토 (Python3)
+">이전</a>
+    
+    
+      <a href="/java/Spring-%EC%A0%A0%ED%82%A8%EC%8A%A4-%EB%B0%B0%ED%8F%AC/" class="pagination--pager" title="[Spring] 스프링부트 젠킨스 + 도커로 배포하기
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EC%8A%A4%ED%8F%AC%EC%B8%A0%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/" rel="permalink">스포츠에 대하여
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-12-03T00:00:00+00:00">December 3, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.12.03
+어제 새벽 두시, 대한민국이 16강에 진출했다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/effectivejava/%EC%83%9D%EC%84%B1%EC%9E%90-%EB%8C%80%EC%8B%A0-%ED%8C%A9%ED%86%A0%EB%A6%AC-%EB%A9%94%EC%84%9C%EB%93%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" rel="permalink">[Effective Java] 생성자 대신 팩토리 메서드 사용하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-12-03T00:00:00+00:00">December 3, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">정적 팩토리 메서드란?
+우리가 새로운 인스턴스를 생성할 때, 어떤 방식을 사용하나요?
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/cs/Blocking%EA%B3%BC-Non-Blocking,-%EB%8F%99%EA%B8%B0%EC%99%80-%EB%B9%84%EB%8F%99%EA%B8%B0/" rel="permalink">Blocking과 Non-Blocking, 동기와 비동기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-11-10T00:00:00+00:00">November 10, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          4 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Block과 동기의 차이는?
+동기와 비동기, Blocking과 Non-Blocking은 언뜻보면 비슷한 개념으로 보여 헷갈릴 수 있는 개념입니다. 아예 같은 개념으로 알고있는 사람들도 있을 정도죠. 오늘은 이  두 개념의 차이에 대해서 적어보려 합니다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/diary-univ/%EB%A9%B4%EC%A0%91%EA%B3%BC-%ED%83%88%EB%9D%BD/" rel="permalink">면접과 탈락
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-11-09T00:00:00+00:00">November 9, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022.11.09
+어제 네이버웹툰 2차 결과가 나왔다.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9931719152246269"
+         crossorigin="anonymous"></script>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/leeminjae-dev" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/mj_lee_97/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 이민재. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'leeminjae-dev/BlogComment');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'preferred-color-scheme');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+  </body>
+</html>
+
+
+<!-- 웹 폰트 설정 -->
