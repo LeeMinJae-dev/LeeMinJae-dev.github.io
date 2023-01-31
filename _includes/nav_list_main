@@ -15,13 +15,23 @@
                         <li><a href="/categories/think" class="">Think ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
+
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 {% for category in site.categories %}
                     {% if category[0] == "diary-univ" %}
-                        <li><a href="/categories/diary-univ" class="">대학생(2021~) ({{category[1].size}})</a></li>
+                        <li><a href="/categories/diary-univ" class="">대학생(2021~2022) ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
+
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                {% for category in site.categories %}
+                    {% if category[0] == "diary-job" %}
+                        <li><a href="/categories/diary-job" class="">취준생(2023~) ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+
 
         <!--span 태그로 카테고리들을 크게 분류 ex) Tech-->
        <span class="nav__sub-title">Tech</span>
@@ -55,11 +65,20 @@
                         <li><a href="/categories/ETC" class="">ETC ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
+
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 {% for category in site.categories %}
                     {% if category[0] == "CS" %}
                         <li><a href="/categories/CS" class="">CS ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/diary 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                {% for category in site.categories %}
+                    {% if category[0] == "mrd" %}
+                        <li><a href="/categories/mrd" class="">면접 랜덤 디펜스 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
 
