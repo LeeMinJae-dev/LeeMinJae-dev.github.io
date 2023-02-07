@@ -1,5 +1,5 @@
 ---
-title: "일상 - 대학생"
+title: "일상 - 대학생 (2021 ~ 2022)"
 permalink: /categories/diary-univ/
 layout: category
 author_profile : true

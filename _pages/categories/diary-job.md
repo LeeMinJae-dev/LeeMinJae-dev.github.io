@@ -1,5 +1,5 @@
 ---
-title: "일상 - 취준생"
+title: "일상 - 취준생 (2023 ~ )"
 permalink: /categories/diary-job/
 layout: category
 author_profile : true
