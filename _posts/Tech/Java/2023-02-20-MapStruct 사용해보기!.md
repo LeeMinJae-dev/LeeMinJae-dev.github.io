@@ -151,6 +151,8 @@ public class UserMapperImpl implements UserMapper {
 그럼 이제 아래와 같은 코드로 Mapper를 사용한 변환을 사용할 수 있게 된다.
 
 ```
+@RequiredArgsConstructor
+@Service
 public class UserService {
 	private final UserRepository userRepository;
 	private final UserMapper userMapper;
