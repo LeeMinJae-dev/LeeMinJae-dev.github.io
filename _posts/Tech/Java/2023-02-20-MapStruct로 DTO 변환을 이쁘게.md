@@ -1,5 +1,5 @@
 ---
-title: "MapStruct 사용해보기!"
+title: "MapStruct로 DTO 변환을 이쁘게"
 categories: java
 toc: true
 toc_label: "On this page"
@@ -28,7 +28,7 @@ DTO는 **Data Transfer Object**로, 데이터 교환을 위해 사용하는 객�
 
 예를들어 다음과 같은 유저 정보가 있다고 할때, 
 
-```
+```java
 public class User {
 
     public Long id;
@@ -42,7 +42,7 @@ public class User {
  
  하지만 DTO를 사용하면 어떻게 될까?
  
- ```
+ ```java
  public class UserDto {
 
     public final long id;
@@ -60,7 +60,7 @@ public class User {
 
 위의 예시를 예로 들면 현재 코드는 다음과 같이 구성되어있다.
 
-```
+```java
 public class User {
 
     public Long id;
@@ -90,7 +90,7 @@ ModelMapper의 경우 내부적으로 Reflection을 사용하기 때문에 성�
 ## MapStruct 사용하기
 MapStruct를 사용하기 위해서, Gradle에 의존성을 추가해주어야 한다. 물론 Maven을 사용하는 경우는 Maven에 의존성을 추가해주어야 한다!
 
-```
+```java
 implementation 'org.mapstruct:mapstruct:1.4.2.Final'
 annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
 ```
@@ -98,7 +98,7 @@ annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
 ### *Lombok을 같이 사용할때 주의점*
 Lombok을 같이 사용하는 경우, 
 
-```
+```java
 annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
 ```
 
@@ -110,7 +110,7 @@ annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
 그럼 위에서 언급한 예제를 MapStruct를 통해 변환해보도록 하자.
 
 ### UserMapper
-```
+```java
 @Mapper(componentModel = "spring")
 public interface UserMapper {
     UserDto toDto(User user);
@@ -123,7 +123,7 @@ public interface UserMapper {
 이제 빌드를 한번 돌려보면, 다음과 같은 코드가 generated 폴더에 생서된다.
 
 ### UserMapperImpl
-```
+```java
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
     date = "2023-02-20T20:06:15+0900",
@@ -150,7 +150,7 @@ public class UserMapperImpl implements UserMapper {
 
 그럼 이제 아래와 같은 코드로 Mapper를 사용한 변환을 사용할 수 있게 된다.
 
-```
+```java
 @RequiredArgsConstructor
 @Service
 public class UserService {
