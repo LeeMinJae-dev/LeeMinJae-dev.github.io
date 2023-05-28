@@ -7,12 +7,8 @@
         "id": "b611e79a9df1dc2d",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "life/diary-job/2023-05-28-취준을 마치며....md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -77,7 +73,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "life/diary-job/2023-05-28-취준을 마치며....md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +89,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "life/diary-job/2023-05-28-취준을 마치며....md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -116,9 +110,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "life/diary-job/2023-05-28-취준을 마치며....md"
-              }
+              "state": {}
             }
           }
         ]
@@ -128,8 +120,10 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "b611e79a9df1dc2d",
+  "active": "a80645f5feeaa28c",
   "lastOpenFiles": [
+    "life/diary-job/2023-05-28-취준을 마치며....md",
+    "assets/images/life/2023-05-28-취준을/image1.png.md",
     "assets/images/life/image1.png.md",
     "life/diary-univ/2021-08-18-토스 NEXT 개발지원금 당첨되다....md",
     "life/diary-univ/2021-08-14-토스 NEXT 코딩 테스트 후기.md",
@@ -137,8 +131,6 @@
     "life/diary-job/2023-01-11-2022년 회고.md",
     "life/diary-job/2023-01-31-스터디카페.md",
     "life/diary-job/2023-02-13-탈락은 항상 마음이 아프다.md",
-    "life/diary-job/2023-02-17-중독과 스트레스.md",
-    "life/diary-job/2023-02-22-엘리스 스쿨 튜터 첫 체험수업 후기.md",
-    "life/diary-job/2023-02-27-가치에 대하여.md"
+    "life/diary-job/2023-02-17-중독과 스트레스.md"
   ]
 }
