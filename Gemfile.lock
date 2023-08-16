@@ -291,6 +291,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  jekyll (~> 3.9.0)
   jekyll-algolia
   jekyll-feed
   jekyll-gist
